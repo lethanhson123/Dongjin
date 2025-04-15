@@ -22,7 +22,7 @@
         }
         public static IServiceCollection AddContext(this IServiceCollection services)
         {
-            services.AddDbContext<MESContext.Context.Context>(opts =>{});            
+            services.AddDbContext<MESContext.Context.Context>(opts => opts.UseMySql(GlobalHelper.MariaDBConectionString, ServerVersion.AutoDetect(GlobalHelper.MariaDBConectionString)));            
             return services;
         }
         public static IServiceCollection AddService(this IServiceCollection services)
