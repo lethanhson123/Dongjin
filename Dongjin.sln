@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MESService", "MESService\ME
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_MES", "API_MES\API_MES.csproj", "{AE5E0EED-BA9A-4F35-A96E-76E0B1E40E5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeTool", "CodeTool\CodeTool.csproj", "{F623E6BD-BD3F-455F-86DB-6FC46168A4F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{AE5E0EED-BA9A-4F35-A96E-76E0B1E40E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE5E0EED-BA9A-4F35-A96E-76E0B1E40E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE5E0EED-BA9A-4F35-A96E-76E0B1E40E5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F623E6BD-BD3F-455F-86DB-6FC46168A4F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F623E6BD-BD3F-455F-86DB-6FC46168A4F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F623E6BD-BD3F-455F-86DB-6FC46168A4F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F623E6BD-BD3F-455F-86DB-6FC46168A4F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,12 @@
+﻿namespace Service.Implement
+{
+    public class [ClassName]Service : BaseService<[ClassName], I[ClassName]Repository>
+    , I[ClassName]Service
+    {
+    private readonly I[ClassName]Repository _[ClassName]Repository;
+    public [ClassName]Service(I[ClassName]Repository [ClassName]Repository) : base([ClassName]Repository)
+    {
+    _[ClassName]Repository = [ClassName]Repository;
+    }
+    }
+    }

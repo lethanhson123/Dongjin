@@ -1,0 +1,78 @@
+﻿import { Component, OnInit, ViewChild } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { NotificationService } from 'src/app/shared/Notification.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { [ClassName] } from 'src/app/shared/[ClassName].model';
+import { [ClassName]Service } from 'src/app/shared/[ClassName].service';
+
+@Component({
+  selector: 'app-[ClassName]',
+  templateUrl: './[ClassName].component.html',
+  styleUrls: ['./[ClassName].component.css']
+})
+export class [ClassName]Component implements OnInit {
+
+  dataSource: MatTableDataSource<any>
+    ;
+    @ViewChild(MatSort) sort: MatSort;
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+    isShowLoading: boolean = false;
+    searchString: string = environment.InitializationString;
+    constructor(
+    public [ClassName]Service: [ClassName]Service,
+    public NotificationService: NotificationService,
+    ) { }
+
+    ngOnInit(): void {
+    this.GetAllAndEmptyToListAsync();
+    }
+    GetAllAndEmptyToListAsync() {
+    this.isShowLoading = true;
+    this.[ClassName]Service.GetAllAndEmptyToListAsync().subscribe(
+    res => {
+    this.[ClassName]Service.list = res as [ClassName][];
+    this.dataSource = new MatTableDataSource(this.[ClassName]Service.list.sort((a, b) => (a.SortOrder > b.SortOrder ? 1 : -1)));
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.isShowLoading = false;
+    },
+    err => {
+    this.isShowLoading = false;
+    }
+    );
+    }
+    onSearch() {
+    if (this.searchString.length > 0) {
+    this.dataSource.filter = this.searchString.toLowerCase();
+    }
+    else {
+    this.GetAllAndEmptyToListAsync();
+    }
+    }
+    onSave(element: [ClassName]) {
+    this.[ClassName]Service.SaveAsync(element).subscribe(
+    res => {
+    this.onSearch();
+    this.NotificationService.warn(environment.SaveSuccess);
+    },
+    err => {
+    this.NotificationService.warn(environment.SaveNotSuccess);
+    }
+    );
+    }
+    onDelete(element: [ClassName]) {
+    if (confirm(environment.DeleteConfirm)) {
+    this.[ClassName]Service.RemoveAsync(element.ID).subscribe(
+    res => {
+    this.onSearch();
+    this.NotificationService.warn(environment.DeleteSuccess);
+    },
+    err => {
+    this.NotificationService.warn(environment.DeleteNotSuccess);
+    }
+    );
+    }
+    }
+    }

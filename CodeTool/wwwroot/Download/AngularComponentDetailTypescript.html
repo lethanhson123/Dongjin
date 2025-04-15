@@ -1,0 +1,49 @@
+﻿import { Component, OnInit, Inject, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { environment } from 'src/environments/environment';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/shared/notification.service';
+import { [ClassName] } from 'src/app/shared/[ClassName].model';
+import { [ClassName]Service } from 'src/app/shared/[ClassName].service';
+
+@Component({
+  selector: 'app-[ClassName]-detail',
+  templateUrl: './[ClassName]-detail.component.html',
+  styleUrls: ['./[ClassName]-detail.component.css']
+})
+export class [ClassName]DetailComponent implements OnInit {
+
+  ID: number = environment.InitializationNumber;
+  isShowLoading: boolean = false;
+
+
+    constructor(
+    public [ClassName]Service: [ClassName]Service,
+    public NotificationService: NotificationService,    
+    public dialogRef: MatDialogRef<[ClassName]DetailComponent>
+    ,
+    @Inject(MAT_DIALOG_DATA) public data: any
+    ) {
+    this.ID = data["ID"] as number;
+    }
+    ngOnInit(): void {
+    }
+    onClose() {
+    this.dialogRef.close();
+    }
+
+
+    onSubmit(form: NgForm) {
+    this.[ClassName]Service.SaveAsync(form.value).subscribe(
+    res => {
+    this.[ClassName]Service.formData = res as [ClassName];
+    this.onClose();
+    this.NotificationService.success(environment.SaveSuccess);
+    },
+    err => {
+    this.NotificationService.warn(environment.SaveNotSuccess);
+    }
+    );
+    }
+
+    }

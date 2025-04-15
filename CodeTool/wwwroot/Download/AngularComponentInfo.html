@@ -1,0 +1,62 @@
+﻿<div class="row">
+    <div id="breadcrumbs-wrapper" data-image="/app-assets/images/gallery/breadcrumb-bg.jpg"
+         style="color: #ffffff; background: rgb(40,70,99); background: linear-gradient(90deg, rgba(40,70,99,1) 0%, rgba(62,110,159,1) 35%, rgba(106,179,245,1) 100%);">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h5 class="breadcrumbs-title mt-0 mb-0" style="color: #ffffff;">
+                        [ClassName]
+                    </h5>
+                </div>
+                <div class="col s12 m6 l6 right-align-md">
+                    <ol class="breadcrumbs mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="#" style="color: #ffffff;">CMS</a>
+                        </li>
+                        <li class="breadcrumb-item active" style="color: #ffffff;">
+                            [ClassName]
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12">
+        <div id="input-fields" class="card card-tabs">
+            <div class="card-content">
+                <div class="card-title">
+                    <div class="row">
+                        <div class="col s6 m6 l8">
+                        </div>
+                        <div class="col s6 m6 l4">
+                            <ul class="tabs">
+                                <li class="tab col s6 p-0"><a class="active p-0" href="#Detail">Thông tin</a></li>                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="Detail">
+                    <form autocomplete="off" class="row" #form="ngForm" (submit)="onSubmit(form)">
+                        [ListColumnHidden]
+                        <div class="col s12 m12 l12">
+                            <div class="col s12 m12 l12">
+                                <a title="Danh sách" href="javascript:window.open('','_self').close();"
+                                   class="btn-floating waves-effect waves-light amber darken-4">
+                                    <i class="material-icons">arrow_back</i>
+                                </a>&nbsp;&nbsp;&nbsp;
+                                <button title="Lưu thay đổi" type="submit"
+                                        class="btn-floating waves-effect waves-light cyan">
+                                    <i class="material-icons">save</i>
+                                </button>
+                            </div>
+                            [ListColumn]
+                        </div>                       
+                    </form>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-loading *ngIf="isShowLoading"></app-loading>

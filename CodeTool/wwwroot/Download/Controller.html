@@ -1,0 +1,16 @@
+﻿namespace API.Controllers.v1
+{
+    [ApiController]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiVersion("1.0")]
+    public class [ClassName]Controller : BaseController<[ClassName], I[ClassName]Service>
+    {
+    private readonly I[ClassName]Service _[ClassName]Service;
+    private readonly IWebHostEnvironment _WebHostEnvironment;
+    public [ClassName]Controller(I[ClassName]Service [ClassName]Service, IWebHostEnvironment WebHostEnvironment) : base([ClassName]Service, WebHostEnvironment)
+    {
+    _[ClassName]Service = [ClassName]Service;
+    _WebHostEnvironment = WebHostEnvironment;
+    }
+    }
+    }

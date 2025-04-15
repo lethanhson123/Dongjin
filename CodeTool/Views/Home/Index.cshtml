@@ -1,0 +1,153 @@
+﻿@model KingdomCodeTool.ViewModels.BaseViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+    }
+</style>
+<div class="row">
+    <div class="col-sm-8">
+        <div class="col-sm-12">
+            @(Html.TextBoxFor(Model => Model.ConnectionString, new { placeholder = "Connection String", @class = "form-control" }))
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <input type="button" value="Get Tables" id="GetTable" class="btn btn-success" onclick='onGetTableClick()' style="width: 100%;" />
+            </div>
+            <div class="col-sm-2">
+                <input type="button" value="Create Code" id="CreateCode" class="btn btn-primary" onclick='onCreateCodeClick()' style="width: 100%;" />
+            </div>
+            <div class="col-sm-8">
+                <input type="checkbox" id="TableAll" onchange="onCheckAll(event)" />Check All
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="Tables">
+        </div>
+    </div>
+</div>
+<script>
+    var tables;
+    function onCreateCodeClick() {
+        var connectionString = document.getElementById("ConnectionString").value;
+        var listIndex = "";
+        for (let j = 0; j < tables.length; j++) {
+            let id = "Table" + j;
+            let isCheck = document.getElementById(id).checked;
+            if (isCheck == true) {
+                listIndex = listIndex + ";" + j;
+            }
+        }
+        var url = "https://localhost:7223/Home/CreateCode";
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: {
+                "connectionString": connectionString,
+                "listIndex": listIndex
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                for (let i = 0; i < data.length; i++) {
+                    window.open(data[i], "_blank");
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+    function onCheckAll(e) {
+        var isTableAll = document.getElementById("TableAll").checked;
+        if (isTableAll == true) {
+            var HTML = "";
+            HTML = HTML + "<table>";
+            HTML = HTML + "<thead>";
+            HTML = HTML + "<th>";
+            HTML = HTML + "Table";
+            HTML = HTML + "</th>";
+            HTML = HTML + "<th>";
+            HTML = HTML + "Check";
+            HTML = HTML + "</th>";
+            HTML = HTML + "</thead>";
+            HTML = HTML + "<tbody>";
+            for (let j = 0; j < tables.length; j++) {
+                HTML = HTML + "<tr>";
+                HTML = HTML + "<td>" + tables[j].name + "</td>";
+                HTML = HTML + "<td><input id='Table" + j + "' type='checkbox' checked /></td>";
+                HTML = HTML + "</tr>";
+            }
+            HTML = HTML + "</tbody>";
+            HTML = HTML + "</table>";
+            document.getElementById("Tables").innerHTML = HTML;
+        }
+        else {
+            var HTML = "";
+            HTML = HTML + "<table>";
+            HTML = HTML + "<thead>";
+            HTML = HTML + "<th>";
+            HTML = HTML + "Table";
+            HTML = HTML + "</th>";
+            HTML = HTML + "<th>";
+            HTML = HTML + "Check";
+            HTML = HTML + "</th>";
+            HTML = HTML + "</thead>";
+            HTML = HTML + "<tbody>";
+            for (let j = 0; j < tables.length; j++) {
+                HTML = HTML + "<tr>";
+                HTML = HTML + "<td>" + tables[j].name + "</td>";
+                HTML = HTML + "<td><input id='Table" + j + "' type='checkbox' /></td>";
+                HTML = HTML + "</tr>";
+            }
+            HTML = HTML + "</tbody>";
+            HTML = HTML + "</table>";
+            document.getElementById("Tables").innerHTML = HTML;
+        }
+    }
+    function onGetTableClick() {
+        var connectionString = document.getElementById("ConnectionString").value;        
+        var url = "https://localhost:7223/Home/GetTables";
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: {
+                "connectionString": connectionString
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                tables = data;
+                var HTML = "";
+                HTML = HTML + "<table>";
+                HTML = HTML + "<thead>";
+                HTML = HTML + "<th>";
+                HTML = HTML + "Table";
+                HTML = HTML + "</th>";
+                HTML = HTML + "<th>";
+                HTML = HTML + "Check";
+                HTML = HTML + "</th>";
+                HTML = HTML + "</thead>";
+                HTML = HTML + "<tbody>";
+                for (let j = 0; j < tables.length; j++) {
+                    HTML = HTML + "<tr>";
+                    HTML = HTML + "<td>" + tables[j].name + "</td>";
+                    HTML = HTML + "<td><input id='Table" + j + "' type='checkbox' /></td>";
+                    HTML = HTML + "</tr>";
+                }
+                HTML = HTML + "</tbody>";
+                HTML = HTML + "</table>";
+                document.getElementById("Tables").innerHTML = HTML;
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+</script>

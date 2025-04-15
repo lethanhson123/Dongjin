@@ -1,0 +1,70 @@
+﻿import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router, NavigationEnd } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { NotificationService } from 'src/app/shared/Notification.service';
+import { [ClassName] } from 'src/app/shared/[ClassName].model';
+import { [ClassName]Service } from 'src/app/shared/[ClassName].service';
+
+@Component({
+  selector: 'app-[ClassName]-info',
+  templateUrl: './[ClassName]-info.component.html',
+  styleUrls: ['./[ClassName]-info.component.css']
+})
+export class [ClassName]InfoComponent implements OnInit {
+
+
+    isShowLoading: boolean = false;
+    detailURL: string = "/[ClassName]/Info";
+    constructor(
+    public [ClassName]Service: [ClassName]Service,
+    public NotificationService: NotificationService,
+    private router: Router
+    ) {
+    this.GetByIDQueryString();
+    }
+    ngOnInit(): void {
+
+    }
+    GetByIDQueryString() {
+    this.isShowLoading = true;
+    this.router.events.forEach((event) => {
+    if (event instanceof NavigationEnd) {
+    let IDString = event.url;
+    IDString = IDString.split('/')[IDString.split('/').length - 1];
+    let ID = parseInt(IDString);
+    this.[ClassName]Service.GetByIDAsync(ID).subscribe(
+    res => {
+    this.[ClassName]Service.formData = res as [ClassName];
+    }
+    this.isShowLoading = false;
+    },
+    err => {
+    this.isShowLoading = false;
+    }
+    );
+    }
+    });
+    }
+
+    onSubmit(form: NgForm) {
+    this.isShowLoading = true;
+    this.[ClassName]Service.SaveAsync(form.value).subscribe(
+    res => {
+    if (form.value.ID > 0) {
+    this.NotificationService.success(environment.SaveSuccess);
+    this.isShowLoading = false;
+    }
+    else {
+    this.[ClassName]Service.formData = res as [ClassName];
+    let url = this.detailURL + "/" + this.[ClassName]Service.formData.ID;
+    this.router.navigateByUrl(url);
+    }
+    },
+    err => {
+    this.NotificationService.warn(environment.SaveNotSuccess);
+    this.isShowLoading = false;
+    }
+    );
+    }
+    }
