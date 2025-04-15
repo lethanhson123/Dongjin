@@ -4,20 +4,20 @@
             <div class="nav-wrapper">
                 <ul class="left">
                     <li>
-                        <h1 class="logo-wrapper"><a class="brand-logo darken-1" href="index.html"><img
+                        <h1 class="logo-wrapper"><a class="brand-logo darken-1" href="#"><img
                                     src="../../../app-assets/images/logo/materialize-logo.png"
                                     alt="materialize logo"><span
                                     class="logo-text hide-on-med-and-down">DONGJIN</span></a></h1>
                     </li>
                 </ul>
-                <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>
+                <div class="header-search-wrapper hide-on-med-and-down">
                     <input class="header-search-input z-depth-2" type="text" name="Search"
-                        placeholder="Explore Materialize">
+                        placeholder="Manufacturing Execution System - MES">
                 </div>
                 <ul class="navbar-list right">
-                    <li class="hide-on-med-and-down"><a class="waves-effect waves-block waves-light translation-button"
+                    <!-- <li class="hide-on-med-and-down"><a class="waves-effect waves-block waves-light translation-button"
                             href="javascript:void(0);" data-target="translation-dropdown"><span
-                                class="flag-icon flag-icon-gb"></span></a></li>
+                                class="flag-icon flag-icon-gb"></span></a></li> -->
                     <li class="hide-on-med-and-down"><a class="waves-effect waves-block waves-light toggle-fullscreen"
                             href="javascript:void(0);"><i class="material-icons">settings_overscan</i></a></li>
                     <li class="hide-on-large-only"><a class="waves-effect waves-block waves-light search-button"
@@ -325,10 +325,12 @@
                         </ul>
                     </li>
                 </ul>
-            </div>            
+            </div>
         </nav>
     </div>
 </header>
 <div id="main">
-    <router-outlet></router-outlet>
+    <div class="row">
+        <router-outlet></router-outlet>
+    </div>
 </div>

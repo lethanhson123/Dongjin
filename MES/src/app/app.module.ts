@@ -14,6 +14,7 @@ import { NotificationService } from './shared/Notification.service';
 import { AppComponent } from './app.component';
 import { LoadingComponent } from './loading/loading.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { HelpTopicComponent } from './MES/help-topic/help-topic.component';
 
 
 
@@ -24,7 +25,8 @@ import { HomepageComponent } from './homepage/homepage.component';
   declarations: [
     AppComponent,
     LoadingComponent,
-    HomepageComponent,  
+    HomepageComponent,
+    HelpTopicComponent,  
 
   ],
   imports: [

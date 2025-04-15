@@ -1,7 +1,7 @@
 export const environment = {
   production: false,  
-  APIURL: "https://api.dongnai.sohu.vn/api/v1/",
-  APIRootURL: "https://api.dongnai.sohu.vn/",  
+  APIURL: "https://localhost:7080/api/v1/",
+  APIRootURL: "https://localhost:7080/",  
   LoadingFile: "loading.gif",
   DialogConfigWidth: "80%",
   DialogConfigWidth60: "60%",

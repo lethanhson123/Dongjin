@@ -5,8 +5,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { environment } from 'src/environments/environment';
 import { NotificationService } from 'src/app/shared/Notification.service';
-import { Base } from 'src/app/shared/Base.model';
-import { BaseParameter } from 'src/app/shared/BaseParameter.model';
+import { Base } from './Base.model';
+import { BaseParameter } from './BaseParameter.model';
 @Injectable({
     providedIn: 'root'
 })
