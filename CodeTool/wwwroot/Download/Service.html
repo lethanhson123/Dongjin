@@ -1,4 +1,4 @@
-﻿namespace Service.Implement
+﻿namespace MESService.Implement
 {
     public class [ClassName]Service : BaseService<[ClassName], I[ClassName]Repository>
     , I[ClassName]Service
@@ -7,6 +7,34 @@
     public [ClassName]Service(I[ClassName]Repository [ClassName]Repository) : base([ClassName]Repository)
     {
     _[ClassName]Repository = [ClassName]Repository;
+    }
+    public override void Initialization([ClassName] model)
+    {
+    BaseInitialization(model);
+    }
+    public override async Task<[ClassName]> SaveAsync([ClassName] model)
+    {
+    try
+    {
+    if (model.[Item] > 0)
+    {
+    await UpdateAsync(model);
+    }
+    else
+    {
+    await AddAsync(model);
+    }
+    await Sync(model);
+    }
+    catch (Exception ex)
+    {
+    string mes = ex.Message;
+    }
+    return model;
+    }
+    public virtual async Task<[ClassName]> Sync([ClassName] model)
+    {
+    return model;
     }
     }
     }

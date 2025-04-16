@@ -55,8 +55,10 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data) {
+                console.log(data);
                 for (let i = 0; i < data.length; i++) {
                     window.open(data[i], "_blank");
+                    alert(data[i]);
                 }
             },
             error: function (err) {

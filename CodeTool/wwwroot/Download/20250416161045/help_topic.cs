@@ -1,4 +1,4 @@
-﻿namespace Data.Model
+﻿namespace MESData.Model
 {
     public partial class help_topic : BaseModel
     {

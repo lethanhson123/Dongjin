@@ -6,6 +6,8 @@ using MySqlConnector;
 using System.Data;
 using System.IO.Compression;
 using System.Text;
+using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace CodeTool.Controllers
@@ -35,7 +37,7 @@ namespace CodeTool.Controllers
             {
                 cn.Open();
                 string sql = "SHOW TABLES;";
-                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, cn);                
+                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, cn);
                 adapter.Fill(listTable);
                 cn.Close();
             }
@@ -60,6 +62,12 @@ namespace CodeTool.Controllers
                 adapter.Fill(listTable);
                 cn.Close();
             }
+            string folderRootName = DateTime.Now.ToString("yyyyMMddHHmmss");
+            string folderRoot = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", folderRootName);
+            Directory.CreateDirectory(folderRoot);
+            StringBuilder Context = new StringBuilder();
+            StringBuilder Service = new StringBuilder();
+            StringBuilder Repository = new StringBuilder();
             for (int i = 0; i < listTable.Rows.Count; i++)
             {
                 foreach (string index in listIndex.Split(';'))
@@ -70,23 +78,55 @@ namespace CodeTool.Controllers
                         {
                             string className = (string)listTable.Rows[i][0];
 
-                            string folderPath = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", className);
-                            Directory.CreateDirectory(folderPath);
-                            DataTable dtItems=new  DataTable();
+                            DataTable dtItems = new DataTable();
                             using (var cn = new MySqlConnection(connectionString))
                             {
-                                string sql = "SHOW COLUMNS FROM "+ className + ";";
-                                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, cn);                                
-                                adapter.Fill(dtItems);                                
+                                string sql = "SHOW COLUMNS FROM " + className + ";";
+                                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, cn);
+                                adapter.Fill(dtItems);
                             }
-                        
+
 
                             StringBuilder Model = new StringBuilder();
-                            foreach (DataRow row in dtItems.Rows)
+                            StringBuilder ModelAngular = new StringBuilder();
+                            StringBuilder ServiceAngular = new StringBuilder();
+                            StringBuilder MasterAngular = new StringBuilder();
+                            StringBuilder InlineAngular = new StringBuilder();
+                            string Item = "";
+                            Context.AppendLine(@"public virtual DbSet<" + className + "> " + className + " { get; set; }");
+                            Service.AppendLine(@"services.AddTransient<I" + className + "Service, " + className + "Service>();");
+                            Repository.AppendLine(@"services.AddTransient<I" + className + "Repository, " + className + "Repository>();");
+                            for (int j = 0; j < dtItems.Rows.Count; j++)
                             {
-                                string sqlDataType = row[1].ToString().Split('(')[0];
-                                Model.AppendLine("public " + Convert(sqlDataType) + "? " + (string)row[0] + " { get; set; }");                                
+                                string sqlDataType = dtItems.Rows[j][1].ToString().Split('(')[0];
+                                string ItemName = (string)dtItems.Rows[j][0];
+                                if (j == 0)
+                                {
+                                    Item = ItemName;
+                                }
+
+                                Model.AppendLine("public " + Convert(sqlDataType) + "? " + ItemName + " { get; set; }");
+
+                                ModelAngular.AppendLine(ItemName + "?: " + ConvertAngular(sqlDataType) + ";");
+
+                                ServiceAngular.Append("'" + ItemName + "', ");
+
+                                MasterAngular.AppendLine(@"<ng-container matColumnDef=""" + ItemName + @""">");
+                                MasterAngular.AppendLine(@"<th mat-header-cell *matHeaderCellDef mat-sort-header>" + ItemName + "</th>");
+                                MasterAngular.AppendLine(@"<td mat-cell *matCellDef=""let element"">{{element." + ItemName + @"}}</td>");
+                                MasterAngular.AppendLine(@"</ng-container>");
+
+                                InlineAngular.AppendLine(@"<ng-container matColumnDef=""" + ItemName + @""">");
+                                InlineAngular.AppendLine(@"<th mat-header-cell *matHeaderCellDef mat-sort-header>" + ItemName + "</th>");
+                                InlineAngular.AppendLine(@"<td mat-cell *matCellDef=""let element"">");
+                                InlineAngular.AppendLine(@"<input class=""form-control"" type=""text"" placeholder=""" + ItemName + @""" name=""" + ItemName + @"{{element." + Item + @"}}"" [(ngModel)]=""element." + ItemName + @""">");
+                                InlineAngular.AppendLine(@"</td>");
+                                InlineAngular.AppendLine(@"</ng-container>");
+
                             }
+
+
+
                             string content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "Model.html");
                             using (FileStream fs = new FileStream(content, FileMode.Open))
                             {
@@ -98,7 +138,7 @@ namespace CodeTool.Controllers
                             content = content.Replace("[ClassName]", className);
                             content = content.Replace("[Items]", Model.ToString());
                             string fileName = className + ".cs";
-                            string path = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", className, fileName);
+                            string path = Path.Combine(folderRoot, fileName);
                             using (FileStream fs = new FileStream(path, FileMode.Create))
                             {
                                 using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
@@ -107,36 +147,259 @@ namespace CodeTool.Controllers
                                 }
                             }
 
-
-                            string fileNameZIP = className + ".zip";
-                            string inputPath = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", className);
-                            string outPath = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", fileNameZIP);
-
-                            if (System.IO.File.Exists(outPath))
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "Repository.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
                             {
-                                try
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
                                 {
-                                    System.IO.File.Delete(outPath);
-                                }
-                                catch (Exception ex)
-                                {
-                                    string mes = ex.Message;
+                                    content = r.ReadToEnd();
                                 }
                             }
-                            ZipFile.CreateFromDirectory(inputPath, outPath, CompressionLevel.Fastest, true);
-                            outPath = domain + "Download/" + fileNameZIP;
-                            list.Add(outPath);
+                            content = content.Replace("[ClassName]", className);
+                            fileName = className + "Repository.cs";
+                            path = Path.Combine(folderRoot, fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "IRepository.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            fileName = "I" + className + "Repository.cs";
+                            path = Path.Combine(folderRoot, fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "Service.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[Item]", Item);
+                            fileName = className + "Service.cs";
+                            path = Path.Combine(folderRoot, fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "IService.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            fileName = "I" + className + "Service.cs";
+                            path = Path.Combine(folderRoot, fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "Controller.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            fileName = className + "Controller.cs";
+                            path = Path.Combine(folderRoot, fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "AngularModel.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[Items]", ModelAngular.ToString());
+                            fileName = className + ".model.ts";
+                            path = Path.Combine(folderRoot, fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "AngularService.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[Items]", ServiceAngular.ToString());
+                            fileName = className + ".service.ts";
+                            path = Path.Combine(folderRoot, fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "AngularComponentMasterTypescript.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            fileName = className + ".component.ts";
+                            path = Path.Combine(folderRoot, fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "AngularComponentMaster.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[Items]", MasterAngular.ToString());
+                            fileName = className + ".component.html";
+                            path = Path.Combine(folderRoot, fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "AngularComponentInline.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[Items]", InlineAngular.ToString());
+                            fileName = className + "Inline.component.html";
+                            path = Path.Combine(folderRoot, fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
                         }
                     }
                 }
             }
+
+            string ContentContext = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "Context.html");
+            using (FileStream fs = new FileStream(ContentContext, FileMode.Open))
+            {
+                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                {
+                    ContentContext = r.ReadToEnd();
+                }
+            }
+
+            ContentContext = ContentContext.Replace("[Items]", Context.ToString());
+            string fileNameContext = "Context.cs";
+            string pathContext = Path.Combine(folderRoot, fileNameContext);
+            using (FileStream fs = new FileStream(pathContext, FileMode.Create))
+            {
+                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                {
+                    w.WriteLine(ContentContext);
+                }
+            }
+
+            ContentContext = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "ConfigureService.html");
+            using (FileStream fs = new FileStream(ContentContext, FileMode.Open))
+            {
+                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                {
+                    ContentContext = r.ReadToEnd();
+                }
+            }
+
+            ContentContext = ContentContext.Replace("[Service]", Service.ToString());
+            ContentContext = ContentContext.Replace("[Repository]", Repository.ToString());
+            fileNameContext = "ConfigureService.cs";
+            pathContext = Path.Combine(folderRoot, fileNameContext);
+            using (FileStream fs = new FileStream(pathContext, FileMode.Create))
+            {
+                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                {
+                    w.WriteLine(ContentContext);
+                }
+            }
+
+            string fileNameZIP = folderRootName + ".zip";
+            string inputPath = Path.Combine(folderRoot, folderRootName);
+            string outPath = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", fileNameZIP);
+            ZipFile.CreateFromDirectory(inputPath, outPath, CompressionLevel.Fastest, true);
+            outPath = domain + "Download/" + fileNameZIP;
+            list.Add(outPath);
             return list;
         }
         private string Convert(string sqlDataType)
         {
             sqlDataType = sqlDataType.ToLower();
             switch (sqlDataType)
-            {              
+            {
                 case "bit":
                     return "bool";
                 case "int":
@@ -159,6 +422,30 @@ namespace CodeTool.Controllers
                     return "float";
                 case "uniqueidentifier":
                     return "Guid";
+                default: return "string";
+            }
+        }
+        private string ConvertAngular(string sqlDataType)
+        {
+            sqlDataType = sqlDataType.ToLower();
+            switch (sqlDataType)
+            {
+                case "bit":
+                    return "boolean";
+                case "int":
+                case "smallint":
+                case "tinyint":
+                case "bigint":
+                case "real":
+                case "money":
+                case "smallmoney":
+                case "decimal":
+                case "float":
+                    return "number";
+                case "datetime":
+                case "smalldatetime":
+                case "timestamp":
+                    return "Date";
                 default: return "string";
             }
         }

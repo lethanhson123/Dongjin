@@ -1,10 +1,10 @@
-﻿namespace Repository.Implement
+﻿namespace MESRepository.Implement
 {
     public class [ClassName]Repository : BaseRepository<[ClassName]>
     , I[ClassName]Repository
     {
-    private readonly Data.Context.Context _context;
-    public [ClassName]Repository(Data.Context.Context context) : base(context)
+    private readonly Context _context;
+    public [ClassName]Repository(Context context) : base(context)
     {
     _context = context;
     }

@@ -1,12 +1,17 @@
 ﻿import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { [ClassName] } from 'src/app/shared/[ClassName].model';
+import { [ClassName] } from './[ClassName].model';
 import { BaseService } from './Base.service';
 @Injectable({
     providedIn: 'root'
 })
 export class [ClassName]Service extends BaseService{
+ DisplayColumns001: string[] = ['No', [Items]'Save'];
+
+    List: [ClassName][] | undefined;
+    ListFilter: [ClassName][] | undefined;
+    FormData!: [ClassName];
     constructor(public httpClient: HttpClient) {
         super(httpClient);
         this.Controller = "[ClassName]";

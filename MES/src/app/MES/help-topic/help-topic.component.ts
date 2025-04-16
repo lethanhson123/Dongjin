@@ -36,5 +36,6 @@ export class HelpTopicComponent {
   }
   help_topicSearch() {
     this.help_topicService.SearchAll(this.help_topicSort, this.help_topicPaginator);
+    
   }
 }

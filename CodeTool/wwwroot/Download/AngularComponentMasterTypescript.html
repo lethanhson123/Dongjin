@@ -1,14 +1,14 @@
 ﻿import { Component, OnInit, ViewChild } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { NotificationService } from 'src/app/shared/notification.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { environment } from 'src/environments/environment';
+import { NotificationService } from 'src/app/shared/Notification.service';
+import { DownloadService } from 'src/app/shared/Download.service';
+
 import { [ClassName] } from 'src/app/shared/[ClassName].model';
 import { [ClassName]Service } from 'src/app/shared/[ClassName].service';
-import { [ClassName]Component } from './[ClassName]-detail/[ClassName]-detail.component';
-
 
 @Component({
   selector: 'app-[ClassName]',
@@ -17,76 +17,44 @@ import { [ClassName]Component } from './[ClassName]-detail/[ClassName]-detail.co
 })
 export class [ClassName]Component implements OnInit {
 
-  dataSource: MatTableDataSource<any>
-    ;
-    @ViewChild(MatSort) sort: MatSort;
-    @ViewChild(MatPaginator) paginator: MatPaginator;
-    isShowLoading: boolean = false;
-    searchString: string = environment.InitializationString;
-    id: any;
-    constructor(
-    public [ClassName]Service: [ClassName]Service,
+  @ViewChild('[ClassName]Sort') [ClassName]Sort: MatSort;
+  @ViewChild('[ClassName]Paginator') [ClassName]Paginator: MatPaginator;
+
+  constructor(
+    public Dialog: MatDialog,
     public NotificationService: NotificationService,
-    private dialog: MatDialog
-    ) { }
+    public DownloadService: DownloadService,
 
-    ngOnInit(): void {
-    this.onSearch();
-    }
+    public [ClassName]Service: [ClassName]Service,
+  ) { }
 
-    GetAllToListAsync() {
-    this.isShowLoading = true;
-    this.[ClassName]Service.GetAllToListAsync().subscribe(
-    res => {
-    this.[ClassName]Service.list = res as [ClassName][];
-    this.dataSource = new MatTableDataSource(this.[ClassName]Service.list.sort((a, b) => (a.SortOrder > b.SortOrder ? 1 : -1)));
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+  ngOnInit(): void {
 
-
-    this.isShowLoading = false;
-    },
-    err => {
-    this.isShowLoading = false;
-    }
-    );
-    }
-    onSearch() {
-    if (this.searchString.length > 0) {
-    this.dataSource.filter = this.searchString.toLowerCase();
-    }
-    else {
-    this.GetAllToListAsync();
-    }
-    }
-    onAdd(ID: any) {
-    this.[ClassName]Service.GetByIDAsync(ID).subscribe(
-    res => {
-    this.[ClassName]Service.formData = res as [ClassName];
+  }
+  ngAfterViewInit() {
+    this.[ClassName]Search();
+  }
+  [ClassName]Search() {
+    this.[ClassName]Service.SearchAll(this.[ClassName]Sort, this.[ClassName]Paginator);
+  }
+  [ClassName]Save(element: [ClassName]) {
+    this.[ClassName]Service.FormData = element;
+    this.NotificationService.warn(this.[ClassName]Service.ComponentSaveAll(this.[ClassName]Sort, this.[ClassName]Paginator));
+  }
+  [ClassName]Delete(element: [ClassName]) {
+    this.[ClassName]Service.BaseParameter.ID = element.ID;
+    this.NotificationService.warn(this.[ClassName]Service.ComponentDeleteAll(this.[ClassName]Sort, this.[ClassName]Paginator));
+  }
+  [ClassName]Add(element: [ClassName]) {
+    this.[ClassName]Service.formData = element;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = environment.DialogConfigWidth;
-    dialogConfig.data = { ID: ID };
-    const dialog = this.dialog.open([ClassName]DetailComponent, dialogConfig);
+    dialogConfig.data = { ID: 0 };
+    const dialog = this.Dialog.open([ClassName]DetailComponent, dialogConfig);
     dialog.afterClosed().subscribe(() => {
-    this.GetAllToListAsync();
+      this.[ClassName]Search();
     });
-    },
-    err => {
-    }
-    );
-    }
-    onDelete(element: [ClassName]) {
-    if (confirm(environment.DeleteConfirm)) {
-    this.[ClassName]Service.RemoveAsync(element.ID).subscribe(
-    res => {
-    this.onSearch();
-    },
-    err => {
-    this.NotificationService.warn(environment.SaveNotSuccess);
-    }
-    );
-    }
-    }
-    }
+  }
+}

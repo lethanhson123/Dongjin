@@ -1,84 +1,83 @@
-﻿<div class="row">
-    <div id="breadcrumbs-wrapper" data-image="https://cms.ctacorporation.vn/app-assets/images/gallery/breadcrumb-bg.jpg"
-         style="color: #ffffff; background: rgb(40,70,99); background: linear-gradient(90deg, rgba(40,70,99,1) 0%, rgba(62,110,159,1) 35%, rgba(106,179,245,1) 100%);">
-        <div class="container">
-            <div class="row">
-                <div class="col s12 m6 l6">
-                    <h5 class="breadcrumbs-title mt-0 mb-0" style="color: #ffffff;">
-                        [ClassName] <span *ngIf="[ClassName]Service.list">({{[ClassName]Service.list.length - 1 }} items)</span>
-                    </h5>
-                </div>
-                <div class="col s12 m6 l6 right-align-md">
-                    <ol class="breadcrumbs mb-0">
-                        <li class="breadcrumb-item">
-                            <a href="#" style="color: #ffffff;">CMS</a>
-                        </li>
-                        <li class="breadcrumb-item active" style="color: #ffffff;">
-                            [ClassName]
-                        </li>
-                    </ol>
-                </div>
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    [ClassName]
+                    <span *ngIf="[ClassName]Service.List">({{[ClassName]Service.List.length}} items)</span>
+                </h6>
             </div>
-        </div>
-    </div>
-    <div class="col s12">
-        <div class="container">
-            <div class="section section-data-tables">
-                <div class="card">
-                    <div class="card-content">
-                        <div class="col s12 m12 l9">
-                            <input matInput [(ngModel)]="searchString" placeholder="Tìm ..."
-                                   class="mat-input-element mat-form-field-autofill-control" autocomplete="off"
-                                   (keyup.enter)="onSearch()">
-                        </div>
-                        <div class="col s12 m12 l3">
-                            <a title="Tìm" (click)="onSearch()"
-                               class="btn-floating waves-effect waves-light green darken-1">
-                                <i class="material-icons">search</i>
-                            </a>&nbsp;&nbsp;&nbsp;
-                        </div>
-                        <div class="KhungOverflow">
-                            <mat-table [dataSource]="dataSource" matSort>
-                                [ListColumn]
-                                <ng-container matColumnDef="Save">
-                                    <mat-header-cell *matHeaderCellDef mat-sort-header>
-                                    </mat-header-cell>
-                                    <mat-cell *matCellDef="let element" style="margin-right: 10px;">
-                                        <a title="Lưu thay đổi" (click)="onSave(element)"
-                                           class="btn-floating waves-effect waves-light cyan">
-                                            <i class="material-icons">save</i>
-                                        </a>&nbsp;&nbsp;&nbsp;
-                                        <a style="padding-left: 8px;" (click)="onDelete(element)" *ngIf="element.ID>0"
-                                           class="btn-floating waves-effect waves-light red">
-                                            <i class="material-icons">delete_outline</i>
-                                        </a>
-                                    </mat-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="loading">
-                                    <mat-footer-cell *matFooterCellDef colspan="4">
-                                        Đang tải dữ liệu...
-                                    </mat-footer-cell>
-                                </ng-container>
-                                <ng-container matColumnDef="noData">
-                                    <mat-footer-cell *matFooterCellDef colspan="4">
-                                        Chưa có dữ liệu.
-                                    </mat-footer-cell>
-                                </ng-container>
-                                <mat-header-row *matHeaderRowDef="[ClassName]Service.displayColumns"></mat-header-row>
-                                <mat-row *matRowDef="let row; columns: [ClassName]Service.displayColumns;"></mat-row>
-                                <mat-footer-row *matFooterRowDef="['loading']"
-                                                [ngClass]="{'hide':dataSource!=null}"></mat-footer-row>
-                                <mat-footer-row *matFooterRowDef="['noData']"
-                                                [ngClass]="{'hide':!(dataSource!=null && dataSource.data.length==0)}">
-                                </mat-footer-row>
-                            </mat-table>
-                            <mat-paginator [pageSizeOptions]="[10,20,50,100]" [pageSize]="10"
-                                           [showFirstLastButtons]></mat-paginator>
-                        </div>
-                    </div>
-                </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/[ClassName]" title="[ClassName]">[ClassName]</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/[ClassName]" title="[ClassName]">[ClassName]</a>
+                    </li>
+                </ol>
             </div>
         </div>
     </div>
 </div>
-<app-loading *ngIf="isShowLoading"></app-loading>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="[ClassName]Service.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="[ClassName]Search()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="[ClassName]Search()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #[ClassName]Sort="matSort"
+                       [dataSource]="[ClassName]Service.DataSource">
+                    <ng-container matColumnDef="STT">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="[ClassName]Paginator">
+                                {{
+                                    [ClassName]Paginator.pageSize *
+                                    [ClassName]Paginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    [Items]
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="[ClassName]Save(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.ID>0" (click)="[ClassName]Delete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="[ClassName]Service.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: [ClassName]Service.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #[ClassName]Paginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="[ClassName]Service.IsShowLoading"></app-loading>
