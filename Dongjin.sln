@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MESContext", "MESContext\MESContext.csproj", "{E23D92E8-C45B-4B87-9E7B-1915DB877EB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MESContext", "MESContext\MESContext.csproj", "{E23D92E8-C45B-4B87-9E7B-1915DB877EB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MESData", "MESData\MESData.csproj", "{A57E31BF-847D-44B0-BC87-B13BD471A0DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MESData", "MESData\MESData.csproj", "{A57E31BF-847D-44B0-BC87-B13BD471A0DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper", "Helper\Helper.csproj", "{C12DF902-6765-42CE-A3E8-268E7DC2EAD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helper", "Helper\Helper.csproj", "{C12DF902-6765-42CE-A3E8-268E7DC2EAD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MESRepository", "MESRepository\MESRepository.csproj", "{F3FB84A5-A439-43CC-9A86-C65629B220C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MESRepository", "MESRepository\MESRepository.csproj", "{F3FB84A5-A439-43CC-9A86-C65629B220C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MESService", "MESService\MESService.csproj", "{297F4FBF-61DB-4363-BE26-91E7F324C9BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MESService", "MESService\MESService.csproj", "{297F4FBF-61DB-4363-BE26-91E7F324C9BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_MES", "API_MES\API_MES.csproj", "{AE5E0EED-BA9A-4F35-A96E-76E0B1E40E5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API_MES", "API_MES\API_MES.csproj", "{AE5E0EED-BA9A-4F35-A96E-76E0B1E40E5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeTool", "CodeTool\CodeTool.csproj", "{F623E6BD-BD3F-455F-86DB-6FC46168A4F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeTool", "CodeTool\CodeTool.csproj", "{F623E6BD-BD3F-455F-86DB-6FC46168A4F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperMySQL", "HelperMySQL\HelperMySQL.csproj", "{7E68B6E6-13B7-43DF-9A7D-EB3C27442508}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{F623E6BD-BD3F-455F-86DB-6FC46168A4F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F623E6BD-BD3F-455F-86DB-6FC46168A4F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F623E6BD-BD3F-455F-86DB-6FC46168A4F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E68B6E6-13B7-43DF-9A7D-EB3C27442508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E68B6E6-13B7-43DF-9A7D-EB3C27442508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E68B6E6-13B7-43DF-9A7D-EB3C27442508}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E68B6E6-13B7-43DF-9A7D-EB3C27442508}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
