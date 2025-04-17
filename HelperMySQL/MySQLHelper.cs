@@ -1,0 +1,53 @@
+﻿namespace HelperMySQL
+{
+	public static class MySQLHelper
+	{	
+		public static DataSet FillDataSet(string connectionString, string storedProcedureName, params MySqlParameter[] parameters)
+		{
+			DataSet ds = new DataSet();
+			string result = "";
+			try
+			{
+                MySqlConnection conn = new MySqlConnection(connectionString);
+				using (MySqlCommand cmd = new MySqlCommand(storedProcedureName, conn))
+				{
+					cmd.CommandType = CommandType.StoredProcedure;
+					cmd.Parameters.AddRange(parameters);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter();
+					adapter.SelectCommand = cmd;
+					conn.Open();
+					adapter.Fill(ds);
+				}
+			}
+			catch (Exception e)
+			{
+				result = e.Message;
+			}
+			return ds;
+		}
+
+		public static async Task<DataSet> FillDataSetAsync(string connectionString, string storedProcedureName, params MySqlParameter[] parameters)
+		{
+			DataSet ds = new DataSet();
+			string result = "";
+			try
+			{
+                MySqlConnection conn = new MySqlConnection(connectionString);
+				using (MySqlCommand cmd = new MySqlCommand(storedProcedureName, conn))
+				{
+					cmd.CommandType = CommandType.StoredProcedure;
+					cmd.Parameters.AddRange(parameters);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter();
+					adapter.SelectCommand = cmd;
+					await conn.OpenAsync();
+					adapter.Fill(ds);
+				}
+			}
+			catch (Exception e)
+			{
+				result = e.Message;
+			}
+			return ds;
+		}
+	}
+}

@@ -1,4 +1,6 @@
-﻿namespace MESService.Implement
+﻿using MySqlConnector;
+
+namespace MESService.Implement
 {
     public class help_topicService : BaseService<help_topic, Ihelp_topicRepository>
     , Ihelp_topicService
@@ -36,8 +38,24 @@
             return model;
         }
         public virtual async Task<help_topic> Sync(help_topic model)
-        {            
+        {
             return model;
+        }
+        public virtual async Task<List<help_topic>> GetSOHU()
+        {
+            List<help_topic> Result = new List<help_topic>();
+            Result = await GetByMySQLStoredProcedureToListAsync(GlobalHelper.MariaDBConectionString, "SOHU");
+            return Result;
+        }
+        public virtual async Task<List<help_topic>> GetSOHU2025(int RowNumber)
+        {
+            List<help_topic> Result = new List<help_topic>();
+            MySqlParameter[] parameters =
+                           {
+                            new MySqlParameter("RowNumber", RowNumber),
+                             };
+            Result = await GetByMySQLStoredProcedureToListAsync(GlobalHelper.MariaDBConectionString, "SOHU2025", parameters);
+            return Result;
         }
     }
 }

@@ -17,6 +17,7 @@ global using MESData.Model;
 global using MESRepository.Interface;
 
 global using Helper;
-
+global using HelperMySQL;
+global using MySqlConnector;
 
 

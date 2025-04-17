@@ -1,4 +1,6 @@
-﻿namespace MESService.Implement
+﻿using MySqlConnector;
+
+namespace MESService.Implement
 {
     public class BaseService<T, TRepository> : IBaseService<T>
         where T : class
@@ -117,6 +119,30 @@
         public virtual async Task<List<T>> GetByStoredProcedureToListAsync(string storedProcedureName, params SqlParameter[] parameters)
         {
             return await _repository.GetByStoredProcedureToListAsync(storedProcedureName, parameters);
+        }
+        public virtual List<T> GetByStoredProcedureToList(string ConnectionString, string storedProcedureName, params SqlParameter[] parameters)
+        {
+            return _repository.GetByStoredProcedureToList(ConnectionString, storedProcedureName, parameters);
+        }
+        public virtual async Task<List<T>> GetByStoredProcedureToListAsync(string ConnectionString, string storedProcedureName, params SqlParameter[] parameters)
+        {
+            return await _repository.GetByStoredProcedureToListAsync(ConnectionString, storedProcedureName, parameters);
+        }
+        public virtual List<T> GetByMySQLStoredProcedureToList(string storedProcedureName, params MySqlParameter[] parameters)
+        {
+            return _repository.GetByMySQLStoredProcedureToList(storedProcedureName, parameters);
+        }
+        public virtual async Task<List<T>> GetByMySQLStoredProcedureToListAsync(string storedProcedureName, params MySqlParameter[] parameters)
+        {
+            return await _repository.GetByMySQLStoredProcedureToListAsync(storedProcedureName, parameters);
+        }
+        public virtual List<T> GetByMySQLStoredProcedureToList(string ConnectionString, string storedProcedureName, params MySqlParameter[] parameters)
+        {
+            return _repository.GetByMySQLStoredProcedureToList(ConnectionString, storedProcedureName, parameters);
+        }
+        public virtual async Task<List<T>> GetByMySQLStoredProcedureToListAsync(string ConnectionString, string storedProcedureName, params MySqlParameter[] parameters)
+        {
+            return await _repository.GetByMySQLStoredProcedureToListAsync(ConnectionString, storedProcedureName, parameters);
         }
         public virtual List<T> GetAllAndEmptyToList()
         {

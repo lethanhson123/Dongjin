@@ -136,7 +136,7 @@
             var result = await _context.Set<T>().AsNoTracking().ToListAsync();
             return result ?? new List<T>();
         }
-       
+
         public virtual List<T> GetBySearchStringToList(string searchString)
         {
             if (!string.IsNullOrEmpty(searchString))
@@ -201,8 +201,12 @@
             List<T> result = new List<T>();
             try
             {
-                DataTable dt = SQLHelper.FillDataTable(_context.Database.GetConnectionString(), storedProcedureName, parameters);
-                result = SQLHelper.ToList<T>(dt);
+                DataSet ds = SQLHelper.FillDataSet(_context.Database.GetConnectionString(), storedProcedureName, parameters);
+                for (int i = 0; i < ds.Tables.Count; i++)
+                {
+                    DataTable dt = ds.Tables[i];
+                    result.AddRange(SQLHelper.ToList<T>(dt));
+                }
             }
             catch (Exception ex)
             {
@@ -215,8 +219,120 @@
             List<T> result = new List<T>();
             try
             {
-                DataTable dt = await SQLHelper.FillDataTableAsync(_context.Database.GetConnectionString(), storedProcedureName, parameters);
-                result = SQLHelper.ToList<T>(dt);
+                DataSet ds = await SQLHelper.FillDataSetAsync(_context.Database.GetConnectionString(), storedProcedureName, parameters);
+                for (int i = 0; i < ds.Tables.Count; i++)
+                {
+                    DataTable dt = ds.Tables[i];
+                    result.AddRange(SQLHelper.ToList<T>(dt));
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
+            return result;
+        }
+        public virtual List<T> GetByStoredProcedureToList(string ConnectionString, string storedProcedureName, params SqlParameter[] parameters)
+        {
+            List<T> result = new List<T>();
+            try
+            {
+                DataSet ds = SQLHelper.FillDataSet(ConnectionString, storedProcedureName, parameters);
+                for (int i = 0; i < ds.Tables.Count; i++)
+                {
+                    DataTable dt = ds.Tables[i];
+                    result.AddRange(SQLHelper.ToList<T>(dt));
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
+            return result;
+        }
+        public virtual async Task<List<T>> GetByStoredProcedureToListAsync(string ConnectionString, string storedProcedureName, params SqlParameter[] parameters)
+        {
+            List<T> result = new List<T>();
+            try
+            {
+                DataSet ds = await SQLHelper.FillDataSetAsync(ConnectionString, storedProcedureName, parameters);
+                for (int i = 0; i < ds.Tables.Count; i++)
+                {
+                    DataTable dt = ds.Tables[i];
+                    result.AddRange(SQLHelper.ToList<T>(dt));
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
+            return result;
+        }
+        public virtual List<T> GetByMySQLStoredProcedureToList(string storedProcedureName, params MySqlParameter[] parameters)
+        {
+            List<T> result = new List<T>();
+            try
+            {
+                DataSet ds = MySQLHelper.FillDataSet(_context.Database.GetConnectionString(), storedProcedureName, parameters);
+                for (int i = 0; i < ds.Tables.Count; i++)
+                {
+                    DataTable dt = ds.Tables[i];
+                    result.AddRange(SQLHelper.ToList<T>(dt));
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
+            return result;
+        }
+        public virtual async Task<List<T>> GetByMySQLStoredProcedureToListAsync(string storedProcedureName, params MySqlParameter[] parameters)
+        {
+            List<T> result = new List<T>();
+            try
+            {
+                DataSet ds = await MySQLHelper.FillDataSetAsync(_context.Database.GetConnectionString(), storedProcedureName, parameters);
+                for (int i = 0; i < ds.Tables.Count; i++)
+                {
+                    DataTable dt = ds.Tables[i];
+                    result.AddRange(SQLHelper.ToList<T>(dt));
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
+            return result;
+        }
+        public virtual List<T> GetByMySQLStoredProcedureToList(string ConnectionString, string storedProcedureName, params MySqlParameter[] parameters)
+        {
+            List<T> result = new List<T>();
+            try
+            {
+                DataSet ds = MySQLHelper.FillDataSet(ConnectionString, storedProcedureName, parameters);
+                for (int i = 0; i < ds.Tables.Count; i++)
+                {
+                    DataTable dt = ds.Tables[i];
+                    result.AddRange(SQLHelper.ToList<T>(dt));
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
+            return result;
+        }
+        public virtual async Task<List<T>> GetByMySQLStoredProcedureToListAsync(string ConnectionString, string storedProcedureName, params MySqlParameter[] parameters)
+        {
+            List<T> result = new List<T>();
+            try
+            {
+                DataSet ds = await MySQLHelper.FillDataSetAsync(ConnectionString, storedProcedureName, parameters);
+                for (int i = 0; i < ds.Tables.Count; i++)
+                {
+                    DataTable dt = ds.Tables[i];
+                    result.AddRange(SQLHelper.ToList<T>(dt));
+                }
             }
             catch (Exception ex)
             {

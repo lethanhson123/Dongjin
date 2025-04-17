@@ -11,7 +11,37 @@
         {
             _help_topicService = help_topicService;
             _WebHostEnvironment = WebHostEnvironment;
-        }     
+        }
+        [HttpGet]
+        [Route("GetSOHU")]
+        public virtual async Task<List<help_topic>> GetSOHU()
+        {
+            List<help_topic> result = new List<help_topic>();
+            try
+            {              
+                result = await _help_topicService.GetSOHU();
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;                
+            }
+            return result;
+        }
+        [HttpGet]
+        [Route("GetSOHU2025")]
+        public virtual async Task<List<help_topic>> GetSOHU2025(int RowNumber)
+        {
+            List<help_topic> result = new List<help_topic>();
+            try
+            {
+                result = await _help_topicService.GetSOHU2025(RowNumber);
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
+            return result;
+        }
     }
 }
 

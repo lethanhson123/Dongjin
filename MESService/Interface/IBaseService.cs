@@ -1,4 +1,6 @@
-﻿namespace MESService.Interface
+﻿using MySqlConnector;
+
+namespace MESService.Interface
 {
     public interface IBaseService<T>
         where T : class
@@ -26,6 +28,12 @@
         Task<string> ExecuteNonQueryByStoredProcedureAsync(string storedProcedureName, params SqlParameter[] parameters);
         List<T> GetByStoredProcedureToList(string storedProcedureName, params SqlParameter[] parameters);
         Task<List<T>> GetByStoredProcedureToListAsync(string storedProcedureName, params SqlParameter[] parameters);
+        List<T> GetByStoredProcedureToList(string ConnectionString, string storedProcedureName, params SqlParameter[] parameters);
+        Task<List<T>> GetByStoredProcedureToListAsync(string ConnectionString, string storedProcedureName, params SqlParameter[] parameters);
+        List<T> GetByMySQLStoredProcedureToList(string storedProcedureName, params MySqlParameter[] parameters);
+        Task<List<T>> GetByMySQLStoredProcedureToListAsync(string storedProcedureName, params MySqlParameter[] parameters);
+        List<T> GetByMySQLStoredProcedureToList(string ConnectionString, string storedProcedureName, params MySqlParameter[] parameters);
+        Task<List<T>> GetByMySQLStoredProcedureToListAsync(string ConnectionString, string storedProcedureName, params MySqlParameter[] parameters);
         List<T> GetAllAndEmptyToList();
         Task<List<T>> GetAllAndEmptyToListAsync();
         List<T> GetBySearchStringAndEmptyToList(string SearchString);

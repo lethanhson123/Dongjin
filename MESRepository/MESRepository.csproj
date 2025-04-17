@@ -9,6 +9,7 @@
     <ProjectReference Include="..\MESContext\MESContext.csproj" />
     <ProjectReference Include="..\MESData\MESData.csproj" />
     <ProjectReference Include="..\Helper\Helper.csproj" />
+    <ProjectReference Include="..\HelperMySQL\HelperMySQL.csproj" />
   </ItemGroup>
 
 </Project>
