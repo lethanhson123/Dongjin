@@ -23,6 +23,7 @@
         public static IServiceCollection AddContext(this IServiceCollection services)
         {
             services.AddDbContext<MESContext.Context.Context>(opts => opts.UseMySql(GlobalHelper.MariaDBConectionString, ServerVersion.AutoDetect(GlobalHelper.MariaDBConectionString)));            
+
             return services;
         }
         public static IServiceCollection AddService(this IServiceCollection services)
@@ -30,6 +31,7 @@
             services.AddTransient<Ihelp_topicService, help_topicService>();
            
             services.AddSingleton(HtmlEncoder.Create(allowedRanges: new[] { UnicodeRanges.All }));
+
             return services;
         }
 
