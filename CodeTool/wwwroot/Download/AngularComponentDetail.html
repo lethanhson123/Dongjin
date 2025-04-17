@@ -1,19 +1,15 @@
-﻿<form autocomplete="off" class="row" #form="ngForm" (submit)="onSubmit(form)">
-    <div class="col s12 m12 l9">
-        <h5 class="card-title"><b>[ClassName]</b></h5>
-    </div>
-    <div class="col s12 m12 l3">
-        <button title="Lưu thay đổi" type="submit" class="btn-floating waves-effect waves-light cyan">
-            <i class="material-icons">save</i>
-        </button>&nbsp;&nbsp;&nbsp;
-        <a title="Đóng" class="btn-floating waves-effect waves-light purple lightrn-1" (click)="onClose()">
-            <i class="material-icons">close</i>
-        </a>
-    </div>
-    [ListColumnHidden]
-    
-    <div class="col s12 m12 l6">
-        [ListColumn]
-    </div>    
-</form>
-<app-loading *ngIf="isShowLoading"></app-loading>
+﻿<div class="col s12 m12 l9">
+    <h5 class="card-title"><b>[ClassName]</b></h5>
+</div>
+<div class="col s12 m12 l3">
+    <a title="Save" class="btn-floating waves-effect waves-light cyan" (click)="Save()">
+        <i class="material-icons">save</i>
+    </a>&nbsp;&nbsp;&nbsp;
+    <a title="Close" class="btn-floating waves-effect waves-light purple lightrn-1" (click)="Close()">
+        <i class="material-icons">close</i>
+    </a>
+</div>
+<div class="col s12 m12 l12">
+    [Items]
+</div>
+

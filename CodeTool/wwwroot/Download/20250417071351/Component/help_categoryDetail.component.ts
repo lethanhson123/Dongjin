@@ -8,15 +8,15 @@ import { environment } from 'src/environments/environment';
 import { NotificationService } from 'src/app/shared/Notification.service';
 import { DownloadService } from 'src/app/shared/Download.service';
 
-import { [ClassName] } from 'src/app/shared/[ClassName].model';
-import { [ClassName]Service } from 'src/app/shared/[ClassName].service';
+import { help_category } from 'src/app/shared/help_category.model';
+import { help_categoryService } from 'src/app/shared/help_category.service';
 
 @Component({
-  selector: 'app-[ClassName]-info',
-  templateUrl: './[ClassName]-info.component.html',
-  styleUrls: ['./[ClassName]-info.component.css']
+  selector: 'app-help_category-info',
+  templateUrl: './help_category-info.component.html',
+  styleUrls: ['./help_category-info.component.css']
 })
-export class [ClassName]InfoComponent implements OnInit {
+export class help_categoryInfoComponent implements OnInit {
 
   constructor(
     public DialogRef: MatDialogRef<InvoiceInputDetailComponent>
@@ -26,7 +26,7 @@ export class [ClassName]InfoComponent implements OnInit {
     public DownloadService: DownloadService,
 
 
-    public [ClassName]Service: [ClassName]Service,
+    public help_categoryService: help_categoryService,
     ) {
     }
 
@@ -34,35 +34,36 @@ export class [ClassName]InfoComponent implements OnInit {
 
     }
     ngAfterViewInit() {    
-    this.[ClassName]Search();
+    this.help_categorySearch();
     }
     Close() {
     this.DialogRef.close();
     }
-    [ClassName]Search() {
-    this.[ClassName]Service.GetByIDAsync().subscribe(
+    help_categorySearch() {
+    this.help_categoryService.GetByIDAsync().subscribe(
     res => {
-    this.[ClassName]Service.FormData = res as [ClassName];
-    if (this.[ClassName]Service.FormData.[Item] == environment.InitializationNumber) {
+    this.help_categoryService.FormData = res as help_category;
+    if (this.help_categoryService.FormData.help_category_id == environment.InitializationNumber) {
     }
     },
     err => {
     }
     );
     }
-    [ClassName]Save() {
-    this.[ClassName]Service.IsShowLoading = true;
-    this.[ClassName]Service.SaveAsync().subscribe(
+    help_categorySave() {
+    this.help_categoryService.IsShowLoading = true;
+    this.help_categoryService.SaveAsync().subscribe(
     res => {
-    this.[ClassName]Service.FormData = res as [ClassName];    
+    this.help_categoryService.FormData = res as help_category;    
     this.NotificationService.warn(environment.SaveSuccess);
     },
     err => {
     this.NotificationService.warn(environment.SaveNotSuccess);
     },
     () => {
-    this.[ClassName]Service.IsShowLoading = false;
+    this.help_categoryService.IsShowLoading = false;
     }
     );
     }
     }
+

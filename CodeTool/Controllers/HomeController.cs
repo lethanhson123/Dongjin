@@ -1,4 +1,4 @@
-using KingdomCodeTool.ViewModels;
+﻿using KingdomCodeTool.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -92,6 +92,7 @@ namespace CodeTool.Controllers
                             StringBuilder ServiceAngular = new StringBuilder();
                             StringBuilder MasterAngular = new StringBuilder();
                             StringBuilder InlineAngular = new StringBuilder();
+                            StringBuilder InfoAngular = new StringBuilder();
                             string Item = "";
                             Context.AppendLine(@"public virtual DbSet<" + className + "> " + className + " { get; set; }");
                             Service.AppendLine(@"services.AddTransient<I" + className + "Service, " + className + "Service>();");
@@ -123,6 +124,11 @@ namespace CodeTool.Controllers
                                 InlineAngular.AppendLine(@"</td>");
                                 InlineAngular.AppendLine(@"</ng-container>");
 
+                                InfoAngular.AppendLine(@"<div>");
+                                InfoAngular.AppendLine(@"<label>" + ItemName + "</label>");
+                                InfoAngular.AppendLine(@"<input placeholder=""" + ItemName + @""" [(ngModel)]=""" + className + @"Service.FormData." + ItemName + @""" name=""" + className + @"Service.FormData." + ItemName + @""" type=""text"" class=""form-control"">");
+                                InfoAngular.AppendLine(@"</div>");
+
                             }
 
 
@@ -138,7 +144,9 @@ namespace CodeTool.Controllers
                             content = content.Replace("[ClassName]", className);
                             content = content.Replace("[Items]", Model.ToString());
                             string fileName = className + ".cs";
-                            string path = Path.Combine(folderRoot, fileName);
+                            string path = Path.Combine(folderRoot, "Model");
+                            Directory.CreateDirectory(path);
+                            path = Path.Combine(folderRoot, "Model", fileName);
                             using (FileStream fs = new FileStream(path, FileMode.Create))
                             {
                                 using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
@@ -157,7 +165,9 @@ namespace CodeTool.Controllers
                             }
                             content = content.Replace("[ClassName]", className);
                             fileName = className + "Repository.cs";
-                            path = Path.Combine(folderRoot, fileName);
+                            path = Path.Combine(folderRoot, "Repository");
+                            Directory.CreateDirectory(path);
+                            path = Path.Combine(folderRoot, "Repository", fileName);
                             using (FileStream fs = new FileStream(path, FileMode.Create))
                             {
                                 using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
@@ -176,7 +186,9 @@ namespace CodeTool.Controllers
                             }
                             content = content.Replace("[ClassName]", className);
                             fileName = "I" + className + "Repository.cs";
-                            path = Path.Combine(folderRoot, fileName);
+                            path = Path.Combine(folderRoot, "IRepository");
+                            Directory.CreateDirectory(path);
+                            path = Path.Combine(folderRoot, "IRepository", fileName);
                             using (FileStream fs = new FileStream(path, FileMode.Create))
                             {
                                 using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
@@ -196,7 +208,9 @@ namespace CodeTool.Controllers
                             content = content.Replace("[ClassName]", className);
                             content = content.Replace("[Item]", Item);
                             fileName = className + "Service.cs";
-                            path = Path.Combine(folderRoot, fileName);
+                            path = Path.Combine(folderRoot, "Service");
+                            Directory.CreateDirectory(path);
+                            path = Path.Combine(folderRoot, "Service", fileName);
                             using (FileStream fs = new FileStream(path, FileMode.Create))
                             {
                                 using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
@@ -215,7 +229,9 @@ namespace CodeTool.Controllers
                             }
                             content = content.Replace("[ClassName]", className);
                             fileName = "I" + className + "Service.cs";
-                            path = Path.Combine(folderRoot, fileName);
+                            path = Path.Combine(folderRoot, "IService");
+                            Directory.CreateDirectory(path);
+                            path = Path.Combine(folderRoot, "IService", fileName);
                             using (FileStream fs = new FileStream(path, FileMode.Create))
                             {
                                 using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
@@ -234,7 +250,9 @@ namespace CodeTool.Controllers
                             }
                             content = content.Replace("[ClassName]", className);
                             fileName = className + "Controller.cs";
-                            path = Path.Combine(folderRoot, fileName);
+                            path = Path.Combine(folderRoot, "Controller");
+                            Directory.CreateDirectory(path);
+                            path = Path.Combine(folderRoot, "Controller", fileName);
                             using (FileStream fs = new FileStream(path, FileMode.Create))
                             {
                                 using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
@@ -254,7 +272,9 @@ namespace CodeTool.Controllers
                             content = content.Replace("[ClassName]", className);
                             content = content.Replace("[Items]", ModelAngular.ToString());
                             fileName = className + ".model.ts";
-                            path = Path.Combine(folderRoot, fileName);
+                            path = Path.Combine(folderRoot, "shared");
+                            Directory.CreateDirectory(path);
+                            path = Path.Combine(folderRoot, "shared", fileName);
                             using (FileStream fs = new FileStream(path, FileMode.Create))
                             {
                                 using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
@@ -274,7 +294,7 @@ namespace CodeTool.Controllers
                             content = content.Replace("[ClassName]", className);
                             content = content.Replace("[Items]", ServiceAngular.ToString());
                             fileName = className + ".service.ts";
-                            path = Path.Combine(folderRoot, fileName);
+                            path = Path.Combine(folderRoot, "shared", fileName);
                             using (FileStream fs = new FileStream(path, FileMode.Create))
                             {
                                 using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
@@ -293,7 +313,9 @@ namespace CodeTool.Controllers
                             }
                             content = content.Replace("[ClassName]", className);
                             fileName = className + ".component.ts";
-                            path = Path.Combine(folderRoot, fileName);
+                            path = Path.Combine(folderRoot, "Component");
+                            Directory.CreateDirectory(path);
+                            path = Path.Combine(folderRoot, "Component", fileName);
                             using (FileStream fs = new FileStream(path, FileMode.Create))
                             {
                                 using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
@@ -313,7 +335,7 @@ namespace CodeTool.Controllers
                             content = content.Replace("[ClassName]", className);
                             content = content.Replace("[Items]", MasterAngular.ToString());
                             fileName = className + ".component.html";
-                            path = Path.Combine(folderRoot, fileName);
+                            path = Path.Combine(folderRoot, "Component", fileName);
                             using (FileStream fs = new FileStream(path, FileMode.Create))
                             {
                                 using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
@@ -333,7 +355,87 @@ namespace CodeTool.Controllers
                             content = content.Replace("[ClassName]", className);
                             content = content.Replace("[Items]", InlineAngular.ToString());
                             fileName = className + "Inline.component.html";
-                            path = Path.Combine(folderRoot, fileName);
+                            path = Path.Combine(folderRoot, "Component", fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "AngularComponentInfoTypescript.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[Item]", Item);
+                            fileName = className + "Info.component.ts";
+                            path = Path.Combine(folderRoot, "Component", fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "AngularComponentInfo.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[Items]", InfoAngular.ToString());
+                            fileName = className + "Info.component.html";
+                            path = Path.Combine(folderRoot, "Component", fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "AngularComponentDetailTypescript.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[Item]", Item);
+                            fileName = className + "Detail.component.ts";
+                            path = Path.Combine(folderRoot, "Component", fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "AngularComponentDetail.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[Items]", InfoAngular.ToString());
+                            fileName = className + "Detail.component.html";
+                            path = Path.Combine(folderRoot, "Component", fileName);
                             using (FileStream fs = new FileStream(path, FileMode.Create))
                             {
                                 using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
@@ -387,12 +489,13 @@ namespace CodeTool.Controllers
                 }
             }
 
-            string fileNameZIP = folderRootName + ".zip";
-            string inputPath = Path.Combine(folderRoot, folderRootName);
-            string outPath = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", fileNameZIP);
-            ZipFile.CreateFromDirectory(inputPath, outPath, CompressionLevel.Fastest, true);
-            outPath = domain + "Download/" + fileNameZIP;
-            list.Add(outPath);
+            //string fileNameZIP = folderRootName + ".zip";
+            //string inputPath = Path.Combine(folderRoot, folderRootName);
+            //string outPath = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", fileNameZIP);
+            //ZipFile.CreateFromDirectory(inputPath, outPath, CompressionLevel.Fastest, true);
+            //outPath = domain + "Download/" + fileNameZIP;
+            //list.Add(outPath);
+
             return list;
         }
         private string Convert(string sqlDataType)

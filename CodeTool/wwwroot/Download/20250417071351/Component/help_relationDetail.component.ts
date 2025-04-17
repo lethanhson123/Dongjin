@@ -8,15 +8,15 @@ import { environment } from 'src/environments/environment';
 import { NotificationService } from 'src/app/shared/Notification.service';
 import { DownloadService } from 'src/app/shared/Download.service';
 
-import { [ClassName] } from 'src/app/shared/[ClassName].model';
-import { [ClassName]Service } from 'src/app/shared/[ClassName].service';
+import { help_relation } from 'src/app/shared/help_relation.model';
+import { help_relationService } from 'src/app/shared/help_relation.service';
 
 @Component({
-  selector: 'app-[ClassName]-info',
-  templateUrl: './[ClassName]-info.component.html',
-  styleUrls: ['./[ClassName]-info.component.css']
+  selector: 'app-help_relation-info',
+  templateUrl: './help_relation-info.component.html',
+  styleUrls: ['./help_relation-info.component.css']
 })
-export class [ClassName]InfoComponent implements OnInit {
+export class help_relationInfoComponent implements OnInit {
 
   constructor(
     public DialogRef: MatDialogRef<InvoiceInputDetailComponent>
@@ -26,7 +26,7 @@ export class [ClassName]InfoComponent implements OnInit {
     public DownloadService: DownloadService,
 
 
-    public [ClassName]Service: [ClassName]Service,
+    public help_relationService: help_relationService,
     ) {
     }
 
@@ -34,35 +34,36 @@ export class [ClassName]InfoComponent implements OnInit {
 
     }
     ngAfterViewInit() {    
-    this.[ClassName]Search();
+    this.help_relationSearch();
     }
     Close() {
     this.DialogRef.close();
     }
-    [ClassName]Search() {
-    this.[ClassName]Service.GetByIDAsync().subscribe(
+    help_relationSearch() {
+    this.help_relationService.GetByIDAsync().subscribe(
     res => {
-    this.[ClassName]Service.FormData = res as [ClassName];
-    if (this.[ClassName]Service.FormData.[Item] == environment.InitializationNumber) {
+    this.help_relationService.FormData = res as help_relation;
+    if (this.help_relationService.FormData.help_topic_id == environment.InitializationNumber) {
     }
     },
     err => {
     }
     );
     }
-    [ClassName]Save() {
-    this.[ClassName]Service.IsShowLoading = true;
-    this.[ClassName]Service.SaveAsync().subscribe(
+    help_relationSave() {
+    this.help_relationService.IsShowLoading = true;
+    this.help_relationService.SaveAsync().subscribe(
     res => {
-    this.[ClassName]Service.FormData = res as [ClassName];    
+    this.help_relationService.FormData = res as help_relation;    
     this.NotificationService.warn(environment.SaveSuccess);
     },
     err => {
     this.NotificationService.warn(environment.SaveNotSuccess);
     },
     () => {
-    this.[ClassName]Service.IsShowLoading = false;
+    this.help_relationService.IsShowLoading = false;
     }
     );
     }
     }
+

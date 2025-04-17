@@ -1,0 +1,40 @@
+﻿<div class="col s12 m12 l9">
+    <h5 class="card-title"><b>help_topic</b></h5>
+</div>
+<div class="col s12 m12 l3">
+    <a title="Save" class="btn-floating waves-effect waves-light cyan" (click)="Save()">
+        <i class="material-icons">save</i>
+    </a>&nbsp;&nbsp;&nbsp;
+    <a title="Close" class="btn-floating waves-effect waves-light purple lightrn-1" (click)="Close()">
+        <i class="material-icons">close</i>
+    </a>
+</div>
+<div class="col s12 m12 l12">
+    <div>
+<label>help_topic_id</label>
+<input placeholder="help_topic_id" [(ngModel)]="help_topicService.FormData.help_topic_id" name="help_topicService.FormData.help_topic_id" type="text" class="form-control">
+</div>
+<div>
+<label>name</label>
+<input placeholder="name" [(ngModel)]="help_topicService.FormData.name" name="help_topicService.FormData.name" type="text" class="form-control">
+</div>
+<div>
+<label>help_category_id</label>
+<input placeholder="help_category_id" [(ngModel)]="help_topicService.FormData.help_category_id" name="help_topicService.FormData.help_category_id" type="text" class="form-control">
+</div>
+<div>
+<label>description</label>
+<input placeholder="description" [(ngModel)]="help_topicService.FormData.description" name="help_topicService.FormData.description" type="text" class="form-control">
+</div>
+<div>
+<label>example</label>
+<input placeholder="example" [(ngModel)]="help_topicService.FormData.example" name="help_topicService.FormData.example" type="text" class="form-control">
+</div>
+<div>
+<label>url</label>
+<input placeholder="url" [(ngModel)]="help_topicService.FormData.url" name="help_topicService.FormData.url" type="text" class="form-control">
+</div>
+
+</div>
+
+

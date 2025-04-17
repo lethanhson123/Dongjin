@@ -1,0 +1,107 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    help_category
+                    <span *ngIf="help_categoryService.List">({{help_categoryService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/help_category" title="help_category">help_category</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/help_category" title="help_category">help_category</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="help_categoryService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="help_categorySearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="help_categorySearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #help_categorySort="matSort"
+                       [dataSource]="help_categoryService.DataSource">
+                    <ng-container matColumnDef="STT">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="help_categoryPaginator">
+                                {{
+                                    help_categoryPaginator.pageSize *
+                                    help_categoryPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="help_category_id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>help_category_id</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="help_category_id" name="help_category_id{{element.help_category_id}}" [(ngModel)]="element.help_category_id">
+</td>
+</ng-container>
+<ng-container matColumnDef="name">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>name</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="name" name="name{{element.help_category_id}}" [(ngModel)]="element.name">
+</td>
+</ng-container>
+<ng-container matColumnDef="parent_category_id">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>parent_category_id</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="parent_category_id" name="parent_category_id{{element.help_category_id}}" [(ngModel)]="element.parent_category_id">
+</td>
+</ng-container>
+<ng-container matColumnDef="url">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>url</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="url" name="url{{element.help_category_id}}" [(ngModel)]="element.url">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="help_categorySave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.ID>0" (click)="help_categoryDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="help_categoryService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: help_categoryService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #help_categoryPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="help_categoryService.IsShowLoading"></app-loading>
