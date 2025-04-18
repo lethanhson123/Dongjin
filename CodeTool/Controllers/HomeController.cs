@@ -1,5 +1,6 @@
 ﻿using KingdomCodeTool.ViewModels;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MySqlConnector;
@@ -25,7 +26,9 @@ namespace CodeTool.Controllers
         public IActionResult Index()
         {
             BaseViewModel model = new BaseViewModel();
-            model.ConnectionString = "Server=127.0.0.1;UID=root;Password=Sonheo@123;database=mysql;Port=3306;";
+            //model.ConnectionString = "Server=127.0.0.1;UID=root;Password=Sonheo@123;database=mysql;Port=3306;";
+            model.ConnectionString = "Server=113.161.129.118;UID=itpcslave;Password={MesUser123@};database=dongjin;Port=3309;";
+
             return View(model);
         }
 
@@ -33,20 +36,28 @@ namespace CodeTool.Controllers
         {
             List<BaseViewModel> listResult = new List<BaseViewModel>();
             DataTable listTable = new DataTable();
-            using (var cn = new MySqlConnection(connectionString))
+            try
             {
-                cn.Open();
-                string sql = "SHOW TABLES;";
-                MySqlDataAdapter adapter = new MySqlDataAdapter(sql, cn);
-                adapter.Fill(listTable);
-                cn.Close();
+                using (var cn = new MySqlConnection(connectionString))
+                {
+                    cn.Open();
+                    string sql = "SHOW TABLES;";
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(sql, cn);
+                    adapter.Fill(listTable);
+                    cn.Close();
+                }
+                foreach (DataRow row in listTable.Rows)
+                {
+                    BaseViewModel baseViewModel = new BaseViewModel();
+                    baseViewModel.Name = (string)row[0];
+                    listResult.Add(baseViewModel);
+                }
             }
-            foreach (DataRow row in listTable.Rows)
+            catch (Exception ex)
             {
-                BaseViewModel baseViewModel = new BaseViewModel();
-                baseViewModel.Name = (string)row[0];
-                listResult.Add(baseViewModel);
+                string message = ex.Message;
             }
+
             return listResult;
         }
         public List<string> CreateCode(string connectionString, string listIndex)
