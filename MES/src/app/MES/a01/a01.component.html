@@ -28,7 +28,19 @@
                     <a title="Close" (click)="Close()" class="btn waves-effect waves-light purple darken-1">Đóng</a>
                 </div>
             </div>
-            <div class="row">              
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <ul class="tabs">
+                        <li class="tab col s4 p-0"><a ng-class="(Tag001) ? 'active p-0' : 'p-0'"
+                                (click)="TagShow(1)">PART NO List</a></li>
+                        <li class="tab col s4 p-0"><a ng-class="(Tag002) ? 'active p-0' : 'p-0'"
+                                (click)="TagShow(2)">PART NO ECN List</a></li>
+                        <li class="tab col s4 p-0"><a ng-class="(Tag003) ? 'active p-0' : 'p-0'"
+                                (click)="TagShow(3)">Cycle time(Take time)</a></li>
+                    </ul>
+                </div>
+                <div class="col s12 m6 l6">
+                </div>
                 <div class="col s12 m6 l12" *ngIf="Tag001">
                     <div class="row">
                         <div class="col s12 m12 l2">
@@ -373,7 +385,8 @@
                                     <div>
                                         <label>PART_NO</label>
                                         <input placeholder="PART_NO" [(ngModel)]="tspart_ecnService.FormData.PART_NO"
-                                            name="tspart_ecnService.FormData.PART_NO" type="text" class="form-control" [disabled]="IsPART_NOTabPage2">
+                                            name="tspart_ecnService.FormData.PART_NO" type="text" class="form-control"
+                                            [disabled]="IsPART_NOTabPage2">
                                     </div>
                                 </div>
                                 <div class="col s12 m12 l4">
@@ -396,8 +409,7 @@
                                 <div class="col s12 m12 l4">
                                     <div>
                                         <label>PART_ECN_DATE</label>
-                                        <input
-                                            [ngModel]="tspart_ecnService.FormData.PART_ECN_DATE | date:'yyyy-MM-dd'"
+                                        <input [ngModel]="tspart_ecnService.FormData.PART_ECN_DATE | date:'yyyy-MM-dd'"
                                             style="text-align: right;" (ngModelChange)="DatePART_ECN_DATE($event)"
                                             [ngModelOptions]="{ updateOn: 'blur' }" type="date" class="form-control"
                                             autocomplete="off" [disabled]="IsPART_ECN_DATETabPage2">
@@ -444,7 +456,8 @@
                                     </ng-container>
                                     <ng-container matColumnDef="PART_NAME">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header>PART_NAME</th>
-                                        <td mat-cell *matCellDef="let element" (click)="TableSelectTabPage2_001(element)">{{element.PART_NAME}}</td>
+                                        <td mat-cell *matCellDef="let element"
+                                            (click)="TableSelectTabPage2_001(element)">{{element.PART_NAME}}</td>
                                     </ng-container>
                                     <ng-container matColumnDef="PARTECN_IDX">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header>PARTECN_IDX</th>
@@ -456,11 +469,13 @@
                                     </ng-container>
                                     <ng-container matColumnDef="PART_ENCNO">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header>PART_ENCNO</th>
-                                        <td mat-cell *matCellDef="let element" (click)="TableSelectTabPage2_001(element)">{{element.PART_ENCNO}}</td>
+                                        <td mat-cell *matCellDef="let element"
+                                            (click)="TableSelectTabPage2_001(element)">{{element.PART_ENCNO}}</td>
                                     </ng-container>
                                     <ng-container matColumnDef="PART_ECN_DATE">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header>PART_ECN_DATE</th>
-                                        <td mat-cell *matCellDef="let element" (click)="TableSelectTabPage2_001(element)">{{element.PART_ECN_DATE |
+                                        <td mat-cell *matCellDef="let element"
+                                            (click)="TableSelectTabPage2_001(element)">{{element.PART_ECN_DATE |
                                             date:'dd/MM/yyyy'}}</td>
                                     </ng-container>
                                     <ng-container matColumnDef="DWG_NO">
@@ -528,14 +543,227 @@
                                     [pageSizeOptions]="[10,20,50,100]" [pageSize]="10"
                                     [showFirstLastButtons]></mat-paginator>
                             </div>
+
                         </div>
                     </div>
                 </div>
                 <div class="col s12 m6 l12" *ngIf="Tag003">
-                    Tag003
+                    <div class="row">
+                        <div class="col s12 m12 l4">
+                            <div>
+                                <label>PART NO</label>
+                                <input placeholder="PART NO"
+                                    [(ngModel)]="tspart_ecnService.BaseParameter.SearchString001"
+                                    name="tspart_ecnService.BaseParameter.SearchString001" type="text"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <div class="col s12 m12 l4">
+                            <div>
+                                <label>PART NAME</label>
+                                <input placeholder="PART NAME"
+                                    [(ngModel)]="tspart_ecnService.BaseParameter.SearchString002"
+                                    name="tspart_ecnService.BaseParameter.SearchString002" type="text"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <div class="col s12 m12 l4">
+                            <div>
+                                <label>LINE</label>
+                                <input placeholder="LINE" [(ngModel)]="tspart_ecnService.BaseParameter.SearchString003"
+                                    name="tspart_ecnService.BaseParameter.SearchString003" type="text"
+                                    class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col s12 m12 l2">
+                            <div>
+                                <label>PART NO</label>
+                                <input placeholder="PART NO" [(ngModel)]="tspart_ecnService.FormData.PART_NO"
+                                    name="tspart_ecnService.FormData.PART_NO" type="text" class="form-control"
+                                    [disabled]="IsPART_NO">
+                            </div>
+                        </div>
+                        <div class="col s12 m12 l2">
+                            <div>
+                                <label>PART NAME</label>
+                                <input placeholder="PART NAME" [(ngModel)]="tspart_ecnService.FormData.PART_NM"
+                                    name="tspart_ecnService.FormData.PART_NM" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col s12 m12 l2">
+                            <div>
+                                <label>LINE</label>
+                                <input placeholder="LINE" [(ngModel)]="tspart_ecnService.FormData.PART_NM"
+                                    name="tspart_ecnService.FormData.PART_NM" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col s12 m12 l2">
+                            <div>
+                                <label>C/T</label>
+                                <input placeholder="C/T" [(ngModel)]="tspart_ecnService.FormData.PART_NM"
+                                    name="tspart_ecnService.FormData.PART_NM" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col s12 m12 l2">
+                            <div>
+                                <label>L/P</label>
+                                <input placeholder="L/P" [(ngModel)]="tspart_ecnService.FormData.PART_NM"
+                                    name="tspart_ecnService.FormData.PART_NM" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col s12 m12 l2">
+                            <div>
+                                <label>SUB</label>
+                                <input placeholder="SUB" [(ngModel)]="tspart_ecnService.FormData.PART_NM"
+                                    name="tspart_ecnService.FormData.PART_NM" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12 l2">
+                            <div>
+                                <label>FA</label>
+                                <input placeholder="FA" [(ngModel)]="tspart_ecnService.FormData.PART_NM"
+                                    name="tspart_ecnService.FormData.PART_NM" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col s12 m12 l2">
+                            <div>
+                                <label>TOTAL</label>
+                                <input placeholder="TOTAL" [(ngModel)]="tspart_ecnService.FormData.PART_NM"
+                                    name="tspart_ecnService.FormData.PART_NM" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col s12 m12 l2">
+                            <div>
+                                <label>CUT_SUM</label>
+                                <input placeholder="CUT_SUM" [(ngModel)]="tspart_ecnService.FormData.PART_NM"
+                                    name="tspart_ecnService.FormData.PART_NM" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col s12 m12 l2">
+                            <div>
+                                <label>FA_SUM</label>
+                                <input placeholder="FA_SUM" [(ngModel)]="tspart_ecnService.FormData.PART_NM"
+                                    name="tspart_ecnService.FormData.PART_NM" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="KhungOverflow">
+                        <table *ngIf="!NotificationService.IsMobile" mat-table matSort #tspart_ecnSort="matSort"
+                            [dataSource]="tspart_ecnService.DataSourceTabPage3">
+                            <ng-container matColumnDef="No">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                    No
+                                </th>
+                                <td mat-cell *matCellDef="let element; index as i;">
+                                    <div *ngIf="tspart_ecnPaginator">
+                                        {{
+                                        tspart_ecnPaginator.pageSize *
+                                        tspart_ecnPaginator.pageIndex + i + 1
+                                        }}
+                                    </div>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="PART_NO">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>PART_NO</th>
+                                <td mat-cell *matCellDef="let element" (click)="TableSelectTabPage2_001(element)">
+                                    {{element.PART_NO}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="PART_NAME">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>PART_NAME</th>
+                                <td mat-cell *matCellDef="let element" (click)="TableSelectTabPage2_001(element)">
+                                    {{element.PART_NAME}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="PARTECN_IDX">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>PARTECN_IDX</th>
+                                <td mat-cell *matCellDef="let element">{{element.PARTECN_IDX}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="PART_IDX">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>PART_IDX</th>
+                                <td mat-cell *matCellDef="let element">{{element.PART_IDX}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="PART_ENCNO">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>LINE</th>
+                                <td mat-cell *matCellDef="let element" (click)="TableSelectTabPage2_001(element)">
+                                    {{element.PART_ENCNO}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="PART_ECN_DATE">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>DATE</th>
+                                <td mat-cell *matCellDef="let element" (click)="TableSelectTabPage2_001(element)">
+                                    {{element.PART_ECN_DATE |
+                                    date:'dd/MM/yyyy'}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="DWG_NO">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>CT</th>
+                                <td mat-cell *matCellDef="let element">{{element.DWG_NO}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="DWG_FILE_GRP">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>LP</th>
+                                <td mat-cell *matCellDef="let element">{{element.DWG_FILE_GRP}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="DWG_FILE_EXPOR">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>SUB</th>
+                                <td mat-cell *matCellDef="let element">{{element.DWG_FILE_EXPOR}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="PART_ECN_USENY">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>FA</th>
+                                <td mat-cell *matCellDef="let element">{{element.PART_ECN_USENY}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="CREATE_DTM">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>TOTAL</th>
+                                <td mat-cell *matCellDef="let element">{{element.CREATE_DTM |
+                                    date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="CREATE_USER">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>CUT_SUM</th>
+                                <td mat-cell *matCellDef="let element">{{element.CREATE_USER}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="UPDATE_DTM">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>FA_SUM</th>
+                                <td mat-cell *matCellDef="let element">{{element.UPDATE_DTM}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="UPDATE_USER">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+                                <td mat-cell *matCellDef="let element">{{element.UPDATE_USER}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="FVWR">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Viewer</th>
+                                <td mat-cell *matCellDef="let element">{{element.FVWR}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="ADDFILE">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>File down</th>
+                                <td mat-cell *matCellDef="let element">{{element.ADDFILE}}</td>
+                            </ng-container>
+                            <ng-container matColumnDef="Save">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <a (click)="tspart_ecnSave(element)"
+                                        class="btn-floating waves-effect waves-light cyan" title="Save">
+                                        <i class="material-icons">save</i>
+                                    </a>&nbsp;&nbsp;&nbsp;
+                                    <a *ngIf="element.PARTECN_IDX>0" (click)="tspart_ecnDelete(element)"
+                                        class="btn-floating waves-effect waves-light red" style="padding-top: 3px;"
+                                        title="Delete">
+                                        <i class="material-icons">delete_outline</i>
+                                    </a>
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="tspart_ecnService.DisplayColumns003">
+                            </tr>
+                            <tr mat-row *matRowDef="let row; columns: tspart_ecnService.DisplayColumns003;">
+                            </tr>
+                        </table>
+                        <mat-paginator *ngIf="!NotificationService.IsMobile" #tspart_ecnPaginator="matPaginator"
+                            [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+                    </div>
                 </div>
             </div>
-           
+
         </div>
     </div>
 </div>
