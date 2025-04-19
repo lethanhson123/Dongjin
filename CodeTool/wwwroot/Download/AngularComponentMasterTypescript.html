@@ -7,8 +7,8 @@ import { environment } from 'src/environments/environment';
 import { NotificationService } from 'src/app/shared/Notification.service';
 import { DownloadService } from 'src/app/shared/Download.service';
 
-import { [ClassName] } from 'src/app/shared/[ClassName].model';
-import { [ClassName]Service } from 'src/app/shared/[ClassName].service';
+import { [ClassName] } from 'src/app/shared/MES/[ClassName].model';
+import { [ClassName]Service } from 'src/app/shared/MES/[ClassName].service';
 
 @Component({
   selector: 'app-[ClassName]',
@@ -42,11 +42,11 @@ export class [ClassName]Component implements OnInit {
     this.NotificationService.warn(this.[ClassName]Service.ComponentSaveAll(this.[ClassName]Sort, this.[ClassName]Paginator));
   }
   [ClassName]Delete(element: [ClassName]) {
-    this.[ClassName]Service.BaseParameter.ID = element.ID;
+    this.[ClassName]Service.BaseParameter.ID = element.[Item];
     this.NotificationService.warn(this.[ClassName]Service.ComponentDeleteAll(this.[ClassName]Sort, this.[ClassName]Paginator));
   }
   [ClassName]Add(element: [ClassName]) {
-    this.[ClassName]Service.formData = element;
+    this.[ClassName]Service.FormData = element;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;

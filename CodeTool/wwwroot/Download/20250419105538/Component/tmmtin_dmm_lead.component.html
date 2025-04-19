@@ -1,0 +1,139 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tmmtin_dmm_lead
+                    <span *ngIf="tmmtin_dmm_leadService.List">({{tmmtin_dmm_leadService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tmmtin_dmm_lead" title="tmmtin_dmm_lead">tmmtin_dmm_lead</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tmmtin_dmm_lead" title="tmmtin_dmm_lead">tmmtin_dmm_lead</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="tmmtin_dmm_leadService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="tmmtin_dmm_leadSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="tmmtin_dmm_leadSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #tmmtin_dmm_leadSort="matSort"
+                       [dataSource]="tmmtin_dmm_leadService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="tmmtin_dmm_leadPaginator">
+                                {{
+                                    tmmtin_dmm_leadPaginator.pageSize *
+                                    tmmtin_dmm_leadPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="TMMTIN_DMM_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TMMTIN_DMM_IDX</th>
+<td mat-cell *matCellDef="let element">{{element.TMMTIN_DMM_IDX}}</td>
+</ng-container>
+<ng-container matColumnDef="TMMTIN_DMM_STGC">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TMMTIN_DMM_STGC</th>
+<td mat-cell *matCellDef="let element">{{element.TMMTIN_DMM_STGC}}</td>
+</ng-container>
+<ng-container matColumnDef="TMMTIN_DATE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TMMTIN_DATE</th>
+<td mat-cell *matCellDef="let element">{{element.TMMTIN_DATE}}</td>
+</ng-container>
+<ng-container matColumnDef="TMMTIN_PART">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TMMTIN_PART</th>
+<td mat-cell *matCellDef="let element">{{element.TMMTIN_PART}}</td>
+</ng-container>
+<ng-container matColumnDef="TMMTIN_PART_SNP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TMMTIN_PART_SNP</th>
+<td mat-cell *matCellDef="let element">{{element.TMMTIN_PART_SNP}}</td>
+</ng-container>
+<ng-container matColumnDef="TMMTIN_QTY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TMMTIN_QTY</th>
+<td mat-cell *matCellDef="let element">{{element.TMMTIN_QTY}}</td>
+</ng-container>
+<ng-container matColumnDef="TMMTIN_REC_YN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TMMTIN_REC_YN</th>
+<td mat-cell *matCellDef="let element">{{element.TMMTIN_REC_YN}}</td>
+</ng-container>
+<ng-container matColumnDef="TMMTIN_CNF_YN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TMMTIN_CNF_YN</th>
+<td mat-cell *matCellDef="let element">{{element.TMMTIN_CNF_YN}}</td>
+</ng-container>
+<ng-container matColumnDef="TMMTIN_DSCN_YN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TMMTIN_DSCN_YN</th>
+<td mat-cell *matCellDef="let element">{{element.TMMTIN_DSCN_YN}}</td>
+</ng-container>
+<ng-container matColumnDef="TMMTIN_SHEETNO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TMMTIN_SHEETNO</th>
+<td mat-cell *matCellDef="let element">{{element.TMMTIN_SHEETNO}}</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">{{element.CREATE_DTM}}</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">{{element.CREATE_USER}}</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">{{element.UPDATE_DTM}}</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">{{element.UPDATE_USER}}</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="tmmtin_dmm_leadSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.TMMTIN_DMM_IDX>0" (click)="tmmtin_dmm_leadDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="tmmtin_dmm_leadService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: tmmtin_dmm_leadService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #tmmtin_dmm_leadPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>              
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tmmtin_dmm_leadService.IsShowLoading"></app-loading>

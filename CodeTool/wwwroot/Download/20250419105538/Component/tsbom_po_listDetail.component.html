@@ -1,0 +1,48 @@
+﻿<div class="col s12 m12 l10">
+    <h5 class="card-title"><b>tsbom_po_list</b></h5>
+</div>
+<div class="col s12 m12 l2">
+    <a title="Save" class="btn-floating waves-effect waves-light cyan" (click)="tsbom_po_listSave()">
+        <i class="material-icons">save</i>
+    </a>&nbsp;&nbsp;&nbsp;
+    <a title="Close" class="btn-floating waves-effect waves-light purple lightrn-1" (click)="Close()">
+        <i class="material-icons">close</i>
+    </a>
+</div>
+<div class="col s12 m12 l12">
+    <div>
+<label>BOM_PO_LIST_IDX</label>
+<input placeholder="BOM_PO_LIST_IDX" [(ngModel)]="tsbom_po_listService.FormData.BOM_PO_LIST_IDX" name="tsbom_po_listService.FormData.BOM_PO_LIST_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PART_NO</label>
+<input placeholder="PART_NO" [(ngModel)]="tsbom_po_listService.FormData.PART_NO" name="tsbom_po_listService.FormData.PART_NO" type="text" class="form-control">
+</div>
+<div>
+<label>PO_QTY</label>
+<input placeholder="PO_QTY" [(ngModel)]="tsbom_po_listService.FormData.PO_QTY" name="tsbom_po_listService.FormData.PO_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>DSYN</label>
+<input placeholder="DSYN" [(ngModel)]="tsbom_po_listService.FormData.DSYN" name="tsbom_po_listService.FormData.DSYN" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tsbom_po_listService.FormData.CREATE_DTM" name="tsbom_po_listService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tsbom_po_listService.FormData.CREATE_USER" name="tsbom_po_listService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tsbom_po_listService.FormData.UPDATE_DTM" name="tsbom_po_listService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tsbom_po_listService.FormData.UPDATE_USER" name="tsbom_po_listService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+
+</div>
+
+

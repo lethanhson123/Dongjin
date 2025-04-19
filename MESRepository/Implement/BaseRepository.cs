@@ -340,5 +340,41 @@
             }
             return result;
         }
+        public virtual List<T> GetByMySQLToList(string ConnectionString, string sql, params MySqlParameter[] parameters)
+        {
+            List<T> result = new List<T>();
+            try
+            {
+                DataSet ds = MySQLHelper.FillDataSetBySQL(ConnectionString, sql, parameters);
+                for (int i = 0; i < ds.Tables.Count; i++)
+                {
+                    DataTable dt = ds.Tables[i];
+                    result.AddRange(SQLHelper.ToList<T>(dt));
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
+            return result;
+        }
+        public virtual async Task<List<T>> GetByMySQLToListAsync(string ConnectionString, string sql, params MySqlParameter[] parameters)
+        {
+            List<T> result = new List<T>();
+            try
+            {
+                DataSet ds = await MySQLHelper.FillDataSetBySQLAsync(ConnectionString, sql, parameters);
+                for (int i = 0; i < ds.Tables.Count; i++)
+                {
+                    DataTable dt = ds.Tables[i];
+                    result.AddRange(SQLHelper.ToList<T>(dt));
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
+            return result;
+        }
     }
 }

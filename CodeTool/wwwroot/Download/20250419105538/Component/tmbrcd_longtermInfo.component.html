@@ -1,0 +1,89 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tmbrcd_longterm:
+                    <b>{{tmbrcd_longtermService.FormData.Name}} [{{tmbrcd_longtermService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tmbrcd_longterm" title="tmbrcd_longterm">tmbrcd_longterm</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tmbrcd_longterm" title="tmbrcd_longterm">tmbrcd_longterm</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="tmbrcd_longtermAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="tmbrcd_longtermSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>TMBRCD_LONGTERM_IDX</label>
+<input placeholder="TMBRCD_LONGTERM_IDX" [(ngModel)]="tmbrcd_longtermService.FormData.TMBRCD_LONGTERM_IDX" name="tmbrcd_longtermService.FormData.TMBRCD_LONGTERM_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>LT_BARCD_IDX</label>
+<input placeholder="LT_BARCD_IDX" [(ngModel)]="tmbrcd_longtermService.FormData.LT_BARCD_IDX" name="tmbrcd_longtermService.FormData.LT_BARCD_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>LT_INS_DATE</label>
+<input placeholder="LT_INS_DATE" [(ngModel)]="tmbrcd_longtermService.FormData.LT_INS_DATE" name="tmbrcd_longtermService.FormData.LT_INS_DATE" type="text" class="form-control">
+</div>
+<div>
+<label>LT_RUS</label>
+<input placeholder="LT_RUS" [(ngModel)]="tmbrcd_longtermService.FormData.LT_RUS" name="tmbrcd_longtermService.FormData.LT_RUS" type="text" class="form-control">
+</div>
+<div>
+<label>LT_STAY</label>
+<input placeholder="LT_STAY" [(ngModel)]="tmbrcd_longtermService.FormData.LT_STAY" name="tmbrcd_longtermService.FormData.LT_STAY" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tmbrcd_longtermService.FormData.CREATE_DTM" name="tmbrcd_longtermService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tmbrcd_longtermService.FormData.CREATE_USER" name="tmbrcd_longtermService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tmbrcd_longtermService.FormData.UPDATE_DTM" name="tmbrcd_longtermService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tmbrcd_longtermService.FormData.UPDATE_USER" name="tmbrcd_longtermService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tmbrcd_longtermService.IsShowLoading"></app-loading>

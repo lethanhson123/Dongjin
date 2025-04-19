@@ -1,0 +1,136 @@
+﻿<div class="col s12 m12 l10">
+    <h5 class="card-title"><b>torder_lead_bom_excl</b></h5>
+</div>
+<div class="col s12 m12 l2">
+    <a title="Save" class="btn-floating waves-effect waves-light cyan" (click)="torder_lead_bom_exclSave()">
+        <i class="material-icons">save</i>
+    </a>&nbsp;&nbsp;&nbsp;
+    <a title="Close" class="btn-floating waves-effect waves-light purple lightrn-1" (click)="Close()">
+        <i class="material-icons">close</i>
+    </a>
+</div>
+<div class="col s12 m12 l12">
+    <div>
+<label>LEAD_INDEX</label>
+<input placeholder="LEAD_INDEX" [(ngModel)]="torder_lead_bom_exclService.FormData.LEAD_INDEX" name="torder_lead_bom_exclService.FormData.LEAD_INDEX" type="text" class="form-control">
+</div>
+<div>
+<label>LEAD_SCN</label>
+<input placeholder="LEAD_SCN" [(ngModel)]="torder_lead_bom_exclService.FormData.LEAD_SCN" name="torder_lead_bom_exclService.FormData.LEAD_SCN" type="text" class="form-control">
+</div>
+<div>
+<label>LEAD_PN</label>
+<input placeholder="LEAD_PN" [(ngModel)]="torder_lead_bom_exclService.FormData.LEAD_PN" name="torder_lead_bom_exclService.FormData.LEAD_PN" type="text" class="form-control">
+</div>
+<div>
+<label>BUNDLE_SIZE</label>
+<input placeholder="BUNDLE_SIZE" [(ngModel)]="torder_lead_bom_exclService.FormData.BUNDLE_SIZE" name="torder_lead_bom_exclService.FormData.BUNDLE_SIZE" type="text" class="form-control">
+</div>
+<div>
+<label>W_PN_IDX</label>
+<input placeholder="W_PN_IDX" [(ngModel)]="torder_lead_bom_exclService.FormData.W_PN_IDX" name="torder_lead_bom_exclService.FormData.W_PN_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>T1_PN_IDX</label>
+<input placeholder="T1_PN_IDX" [(ngModel)]="torder_lead_bom_exclService.FormData.T1_PN_IDX" name="torder_lead_bom_exclService.FormData.T1_PN_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>S1_PN_IDX</label>
+<input placeholder="S1_PN_IDX" [(ngModel)]="torder_lead_bom_exclService.FormData.S1_PN_IDX" name="torder_lead_bom_exclService.FormData.S1_PN_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>T2_PN_IDX</label>
+<input placeholder="T2_PN_IDX" [(ngModel)]="torder_lead_bom_exclService.FormData.T2_PN_IDX" name="torder_lead_bom_exclService.FormData.T2_PN_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>S2_PN_IDX</label>
+<input placeholder="S2_PN_IDX" [(ngModel)]="torder_lead_bom_exclService.FormData.S2_PN_IDX" name="torder_lead_bom_exclService.FormData.S2_PN_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>STRIP1</label>
+<input placeholder="STRIP1" [(ngModel)]="torder_lead_bom_exclService.FormData.STRIP1" name="torder_lead_bom_exclService.FormData.STRIP1" type="text" class="form-control">
+</div>
+<div>
+<label>STRIP2</label>
+<input placeholder="STRIP2" [(ngModel)]="torder_lead_bom_exclService.FormData.STRIP2" name="torder_lead_bom_exclService.FormData.STRIP2" type="text" class="form-control">
+</div>
+<div>
+<label>CCH_W1</label>
+<input placeholder="CCH_W1" [(ngModel)]="torder_lead_bom_exclService.FormData.CCH_W1" name="torder_lead_bom_exclService.FormData.CCH_W1" type="text" class="form-control">
+</div>
+<div>
+<label>ICH_W1</label>
+<input placeholder="ICH_W1" [(ngModel)]="torder_lead_bom_exclService.FormData.ICH_W1" name="torder_lead_bom_exclService.FormData.ICH_W1" type="text" class="form-control">
+</div>
+<div>
+<label>CCH_W2</label>
+<input placeholder="CCH_W2" [(ngModel)]="torder_lead_bom_exclService.FormData.CCH_W2" name="torder_lead_bom_exclService.FormData.CCH_W2" type="text" class="form-control">
+</div>
+<div>
+<label>ICH_W2</label>
+<input placeholder="ICH_W2" [(ngModel)]="torder_lead_bom_exclService.FormData.ICH_W2" name="torder_lead_bom_exclService.FormData.ICH_W2" type="text" class="form-control">
+</div>
+<div>
+<label>T1NO</label>
+<input placeholder="T1NO" [(ngModel)]="torder_lead_bom_exclService.FormData.T1NO" name="torder_lead_bom_exclService.FormData.T1NO" type="text" class="form-control">
+</div>
+<div>
+<label>T2NO</label>
+<input placeholder="T2NO" [(ngModel)]="torder_lead_bom_exclService.FormData.T2NO" name="torder_lead_bom_exclService.FormData.T2NO" type="text" class="form-control">
+</div>
+<div>
+<label>W_LINK</label>
+<input placeholder="W_LINK" [(ngModel)]="torder_lead_bom_exclService.FormData.W_LINK" name="torder_lead_bom_exclService.FormData.W_LINK" type="text" class="form-control">
+</div>
+<div>
+<label>WR_NO</label>
+<input placeholder="WR_NO" [(ngModel)]="torder_lead_bom_exclService.FormData.WR_NO" name="torder_lead_bom_exclService.FormData.WR_NO" type="text" class="form-control">
+</div>
+<div>
+<label>WIRE_NM</label>
+<input placeholder="WIRE_NM" [(ngModel)]="torder_lead_bom_exclService.FormData.WIRE_NM" name="torder_lead_bom_exclService.FormData.WIRE_NM" type="text" class="form-control">
+</div>
+<div>
+<label>W_Diameter</label>
+<input placeholder="W_Diameter" [(ngModel)]="torder_lead_bom_exclService.FormData.W_Diameter" name="torder_lead_bom_exclService.FormData.W_Diameter" type="text" class="form-control">
+</div>
+<div>
+<label>W_Color</label>
+<input placeholder="W_Color" [(ngModel)]="torder_lead_bom_exclService.FormData.W_Color" name="torder_lead_bom_exclService.FormData.W_Color" type="text" class="form-control">
+</div>
+<div>
+<label>W_Length</label>
+<input placeholder="W_Length" [(ngModel)]="torder_lead_bom_exclService.FormData.W_Length" name="torder_lead_bom_exclService.FormData.W_Length" type="text" class="form-control">
+</div>
+<div>
+<label>DSCN_YN</label>
+<input placeholder="DSCN_YN" [(ngModel)]="torder_lead_bom_exclService.FormData.DSCN_YN" name="torder_lead_bom_exclService.FormData.DSCN_YN" type="text" class="form-control">
+</div>
+<div>
+<label>HOOK_RACK</label>
+<input placeholder="HOOK_RACK" [(ngModel)]="torder_lead_bom_exclService.FormData.HOOK_RACK" name="torder_lead_bom_exclService.FormData.HOOK_RACK" type="text" class="form-control">
+</div>
+<div>
+<label>SFTY_STK</label>
+<input placeholder="SFTY_STK" [(ngModel)]="torder_lead_bom_exclService.FormData.SFTY_STK" name="torder_lead_bom_exclService.FormData.SFTY_STK" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="torder_lead_bom_exclService.FormData.CREATE_DTM" name="torder_lead_bom_exclService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="torder_lead_bom_exclService.FormData.CREATE_USER" name="torder_lead_bom_exclService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="torder_lead_bom_exclService.FormData.UPDATE_DTM" name="torder_lead_bom_exclService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="torder_lead_bom_exclService.FormData.UPDATE_USER" name="torder_lead_bom_exclService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+
+</div>
+
+

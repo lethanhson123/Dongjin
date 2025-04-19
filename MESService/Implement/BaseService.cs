@@ -144,6 +144,14 @@ namespace MESService.Implement
         {
             return await _repository.GetByMySQLStoredProcedureToListAsync(ConnectionString, storedProcedureName, parameters);
         }
+        public virtual List<T> GetByMySQLToList(string ConnectionString, string sql, params MySqlParameter[] parameters)
+        {
+            return _repository.GetByMySQLToList(ConnectionString, sql, parameters);
+        }
+        public virtual async Task<List<T>> GetByMySQLToListAsync(string ConnectionString, string sql, params MySqlParameter[] parameters)
+        {
+            return await _repository.GetByMySQLToListAsync(ConnectionString, sql, parameters);
+        }
         public virtual List<T> GetAllAndEmptyToList()
         {
             List<T> result = new List<T>();

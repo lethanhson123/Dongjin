@@ -1,0 +1,97 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    pd_cmpny_costfile:
+                    <b>{{pd_cmpny_costfileService.FormData.Name}} [{{pd_cmpny_costfileService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pd_cmpny_costfile" title="pd_cmpny_costfile">pd_cmpny_costfile</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pd_cmpny_costfile" title="pd_cmpny_costfile">pd_cmpny_costfile</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="pd_cmpny_costfileAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="pd_cmpny_costfileSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>PD_CMPNY_PART_IDX</label>
+<input placeholder="PD_CMPNY_PART_IDX" [(ngModel)]="pd_cmpny_costfileService.FormData.PD_CMPNY_PART_IDX" name="pd_cmpny_costfileService.FormData.PD_CMPNY_PART_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>CMPNY_IDX</label>
+<input placeholder="CMPNY_IDX" [(ngModel)]="pd_cmpny_costfileService.FormData.CMPNY_IDX" name="pd_cmpny_costfileService.FormData.CMPNY_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>COST_DATE</label>
+<input placeholder="COST_DATE" [(ngModel)]="pd_cmpny_costfileService.FormData.COST_DATE" name="pd_cmpny_costfileService.FormData.COST_DATE" type="text" class="form-control">
+</div>
+<div>
+<label>COST_FILENM</label>
+<input placeholder="COST_FILENM" [(ngModel)]="pd_cmpny_costfileService.FormData.COST_FILENM" name="pd_cmpny_costfileService.FormData.COST_FILENM" type="text" class="form-control">
+</div>
+<div>
+<label>COST_FILETYPE</label>
+<input placeholder="COST_FILETYPE" [(ngModel)]="pd_cmpny_costfileService.FormData.COST_FILETYPE" name="pd_cmpny_costfileService.FormData.COST_FILETYPE" type="text" class="form-control">
+</div>
+<div>
+<label>REMARK</label>
+<input placeholder="REMARK" [(ngModel)]="pd_cmpny_costfileService.FormData.REMARK" name="pd_cmpny_costfileService.FormData.REMARK" type="text" class="form-control">
+</div>
+<div>
+<label>DSN_YN</label>
+<input placeholder="DSN_YN" [(ngModel)]="pd_cmpny_costfileService.FormData.DSN_YN" name="pd_cmpny_costfileService.FormData.DSN_YN" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="pd_cmpny_costfileService.FormData.CREATE_DTM" name="pd_cmpny_costfileService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="pd_cmpny_costfileService.FormData.CREATE_USER" name="pd_cmpny_costfileService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="pd_cmpny_costfileService.FormData.UPDATE_DTM" name="pd_cmpny_costfileService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="pd_cmpny_costfileService.FormData.UPDATE_USER" name="pd_cmpny_costfileService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="pd_cmpny_costfileService.IsShowLoading"></app-loading>

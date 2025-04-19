@@ -1,0 +1,179 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tspart
+                    <span *ngIf="tspartService.List">({{tspartService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tspart" title="tspart">tspart</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tspart" title="tspart">tspart</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="tspartService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="tspartSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="tspartSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #tspartSort="matSort"
+                       [dataSource]="tspartService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="tspartPaginator">
+                                {{
+                                    tspartPaginator.pageSize *
+                                    tspartPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="PART_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PART_IDX" name="PART_IDX{{element.PART_IDX}}" [(ngModel)]="element.PART_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="PART_NO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_NO</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PART_NO" name="PART_NO{{element.PART_IDX}}" [(ngModel)]="element.PART_NO">
+</td>
+</ng-container>
+<ng-container matColumnDef="PART_NM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_NM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PART_NM" name="PART_NM{{element.PART_IDX}}" [(ngModel)]="element.PART_NM">
+</td>
+</ng-container>
+<ng-container matColumnDef="BOM_GRP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>BOM_GRP</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="BOM_GRP" name="BOM_GRP{{element.PART_IDX}}" [(ngModel)]="element.BOM_GRP">
+</td>
+</ng-container>
+<ng-container matColumnDef="PART_CAR">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_CAR</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PART_CAR" name="PART_CAR{{element.PART_IDX}}" [(ngModel)]="element.PART_CAR">
+</td>
+</ng-container>
+<ng-container matColumnDef="PART_FML">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_FML</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PART_FML" name="PART_FML{{element.PART_IDX}}" [(ngModel)]="element.PART_FML">
+</td>
+</ng-container>
+<ng-container matColumnDef="PART_SNP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_SNP</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PART_SNP" name="PART_SNP{{element.PART_IDX}}" [(ngModel)]="element.PART_SNP">
+</td>
+</ng-container>
+<ng-container matColumnDef="PART_SCN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_SCN</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PART_SCN" name="PART_SCN{{element.PART_IDX}}" [(ngModel)]="element.PART_SCN">
+</td>
+</ng-container>
+<ng-container matColumnDef="PART_LOC">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_LOC</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PART_LOC" name="PART_LOC{{element.PART_IDX}}" [(ngModel)]="element.PART_LOC">
+</td>
+</ng-container>
+<ng-container matColumnDef="PART_USENY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_USENY</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PART_USENY" name="PART_USENY{{element.PART_IDX}}" [(ngModel)]="element.PART_USENY">
+</td>
+</ng-container>
+<ng-container matColumnDef="PART_RMK">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_RMK</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PART_RMK" name="PART_RMK{{element.PART_IDX}}" [(ngModel)]="element.PART_RMK">
+</td>
+</ng-container>
+<ng-container matColumnDef="PART_SUPL">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_SUPL</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PART_SUPL" name="PART_SUPL{{element.PART_IDX}}" [(ngModel)]="element.PART_SUPL">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_DTM" name="CREATE_DTM{{element.PART_IDX}}" [(ngModel)]="element.CREATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_USER" name="CREATE_USER{{element.PART_IDX}}" [(ngModel)]="element.CREATE_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_DTM" name="UPDATE_DTM{{element.PART_IDX}}" [(ngModel)]="element.UPDATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_USER" name="UPDATE_USER{{element.PART_IDX}}" [(ngModel)]="element.UPDATE_USER">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="tspartSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.PART_IDX>0" (click)="tspartDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="tspartService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: tspartService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #tspartPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tspartService.IsShowLoading"></app-loading>

@@ -1,0 +1,167 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tspart_addtnl
+                    <span *ngIf="tspart_addtnlService.List">({{tspart_addtnlService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tspart_addtnl" title="tspart_addtnl">tspart_addtnl</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tspart_addtnl" title="tspart_addtnl">tspart_addtnl</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="tspart_addtnlService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="tspart_addtnlSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="tspart_addtnlSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #tspart_addtnlSort="matSort"
+                       [dataSource]="tspart_addtnlService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="tspart_addtnlPaginator">
+                                {{
+                                    tspart_addtnlPaginator.pageSize *
+                                    tspart_addtnlPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="PART_ADDTNL_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_ADDTNL_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PART_ADDTNL_IDX" name="PART_ADDTNL_IDX{{element.PART_ADDTNL_IDX}}" [(ngModel)]="element.PART_ADDTNL_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="PARTNO_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PARTNO_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PARTNO_IDX" name="PARTNO_IDX{{element.PART_ADDTNL_IDX}}" [(ngModel)]="element.PARTNO_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="OP_W">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>OP_W</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="OP_W" name="OP_W{{element.PART_ADDTNL_IDX}}" [(ngModel)]="element.OP_W">
+</td>
+</ng-container>
+<ng-container matColumnDef="OP_L">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>OP_L</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="OP_L" name="OP_L{{element.PART_ADDTNL_IDX}}" [(ngModel)]="element.OP_L">
+</td>
+</ng-container>
+<ng-container matColumnDef="OP_H">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>OP_H</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="OP_H" name="OP_H{{element.PART_ADDTNL_IDX}}" [(ngModel)]="element.OP_H">
+</td>
+</ng-container>
+<ng-container matColumnDef="OP_MRP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>OP_MRP</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="OP_MRP" name="OP_MRP{{element.PART_ADDTNL_IDX}}" [(ngModel)]="element.OP_MRP">
+</td>
+</ng-container>
+<ng-container matColumnDef="OP_TMP1">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>OP_TMP1</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="OP_TMP1" name="OP_TMP1{{element.PART_ADDTNL_IDX}}" [(ngModel)]="element.OP_TMP1">
+</td>
+</ng-container>
+<ng-container matColumnDef="OP_TMP2">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>OP_TMP2</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="OP_TMP2" name="OP_TMP2{{element.PART_ADDTNL_IDX}}" [(ngModel)]="element.OP_TMP2">
+</td>
+</ng-container>
+<ng-container matColumnDef="OP_TMP3">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>OP_TMP3</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="OP_TMP3" name="OP_TMP3{{element.PART_ADDTNL_IDX}}" [(ngModel)]="element.OP_TMP3">
+</td>
+</ng-container>
+<ng-container matColumnDef="Weight">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Weight</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="Weight" name="Weight{{element.PART_ADDTNL_IDX}}" [(ngModel)]="element.Weight">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_DTM" name="CREATE_DTM{{element.PART_ADDTNL_IDX}}" [(ngModel)]="element.CREATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_USER" name="CREATE_USER{{element.PART_ADDTNL_IDX}}" [(ngModel)]="element.CREATE_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_DTM" name="UPDATE_DTM{{element.PART_ADDTNL_IDX}}" [(ngModel)]="element.UPDATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_USER" name="UPDATE_USER{{element.PART_ADDTNL_IDX}}" [(ngModel)]="element.UPDATE_USER">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="tspart_addtnlSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.PART_ADDTNL_IDX>0" (click)="tspart_addtnlDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="tspart_addtnlService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: tspart_addtnlService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #tspart_addtnlPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tspart_addtnlService.IsShowLoading"></app-loading>

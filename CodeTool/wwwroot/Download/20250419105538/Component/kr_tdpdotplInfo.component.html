@@ -1,0 +1,105 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    kr_tdpdotpl:
+                    <b>{{kr_tdpdotplService.FormData.Name}} [{{kr_tdpdotplService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/kr_tdpdotpl" title="kr_tdpdotpl">kr_tdpdotpl</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/kr_tdpdotpl" title="kr_tdpdotpl">kr_tdpdotpl</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="kr_tdpdotplAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="kr_tdpdotplSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>PDOTPL_IDX</label>
+<input placeholder="PDOTPL_IDX" [(ngModel)]="kr_tdpdotplService.FormData.PDOTPL_IDX" name="kr_tdpdotplService.FormData.PDOTPL_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PO_CODE</label>
+<input placeholder="PO_CODE" [(ngModel)]="kr_tdpdotplService.FormData.PO_CODE" name="kr_tdpdotplService.FormData.PO_CODE" type="text" class="form-control">
+</div>
+<div>
+<label>PART_IDX</label>
+<input placeholder="PART_IDX" [(ngModel)]="kr_tdpdotplService.FormData.PART_IDX" name="kr_tdpdotplService.FormData.PART_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PART_IDX_SNP</label>
+<input placeholder="PART_IDX_SNP" [(ngModel)]="kr_tdpdotplService.FormData.PART_IDX_SNP" name="kr_tdpdotplService.FormData.PART_IDX_SNP" type="text" class="form-control">
+</div>
+<div>
+<label>PO_QTY</label>
+<input placeholder="PO_QTY" [(ngModel)]="kr_tdpdotplService.FormData.PO_QTY" name="kr_tdpdotplService.FormData.PO_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>NT_QTY</label>
+<input placeholder="NT_QTY" [(ngModel)]="kr_tdpdotplService.FormData.NT_QTY" name="kr_tdpdotplService.FormData.NT_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>PACK_QTY</label>
+<input placeholder="PACK_QTY" [(ngModel)]="kr_tdpdotplService.FormData.PACK_QTY" name="kr_tdpdotplService.FormData.PACK_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>DONE_YN</label>
+<input placeholder="DONE_YN" [(ngModel)]="kr_tdpdotplService.FormData.DONE_YN" name="kr_tdpdotplService.FormData.DONE_YN" type="text" class="form-control">
+</div>
+<div>
+<label>SORTNO</label>
+<input placeholder="SORTNO" [(ngModel)]="kr_tdpdotplService.FormData.SORTNO" name="kr_tdpdotplService.FormData.SORTNO" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="kr_tdpdotplService.FormData.CREATE_DTM" name="kr_tdpdotplService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="kr_tdpdotplService.FormData.CREATE_USER" name="kr_tdpdotplService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="kr_tdpdotplService.FormData.UPDATE_DTM" name="kr_tdpdotplService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="kr_tdpdotplService.FormData.UPDATE_USER" name="kr_tdpdotplService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="kr_tdpdotplService.IsShowLoading"></app-loading>

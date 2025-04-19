@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MySqlConnector;
 using System.Data;
+using System.Data.Odbc;
 using System.IO.Compression;
 using System.Text;
 using System.Xml.Linq;
@@ -27,8 +28,8 @@ namespace CodeTool.Controllers
         {
             BaseViewModel model = new BaseViewModel();
             //model.ConnectionString = "Server=127.0.0.1;UID=root;Password=Sonheo@123;database=mysql;Port=3306;";
-            model.ConnectionString = "Server=113.161.129.118;UID=itpcslave;Password={MesUser123@};database=dongjin;Port=3309;";
-
+            //model.ConnectionString = "Driver={MariaDB ODBC 3.1 Driver};server=113.161.129.118;uid=itpcslave;pwd={MesUser123@};database=dongjin;port=3309;conn_timeout=60";
+            model.ConnectionString = "Server=113.161.129.118;UID=itpcslave;Password=MesUser123@;database=dongjin;Port=3309;";
             return View(model);
         }
 
@@ -37,7 +38,7 @@ namespace CodeTool.Controllers
             List<BaseViewModel> listResult = new List<BaseViewModel>();
             DataTable listTable = new DataTable();
             try
-            {
+            {            
                 using (var cn = new MySqlConnection(connectionString))
                 {
                     cn.Open();
@@ -92,11 +93,12 @@ namespace CodeTool.Controllers
                             DataTable dtItems = new DataTable();
                             using (var cn = new MySqlConnection(connectionString))
                             {
+                                cn.Open();
                                 string sql = "SHOW COLUMNS FROM " + className + ";";
                                 MySqlDataAdapter adapter = new MySqlDataAdapter(sql, cn);
                                 adapter.Fill(dtItems);
+                                cn.Close();
                             }
-
 
                             StringBuilder Model = new StringBuilder();
                             StringBuilder ModelAngular = new StringBuilder();
@@ -323,6 +325,7 @@ namespace CodeTool.Controllers
                                 }
                             }
                             content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[Item]", Item);
                             fileName = className + ".component.ts";
                             path = Path.Combine(folderRoot, "Component");
                             Directory.CreateDirectory(path);
@@ -344,6 +347,7 @@ namespace CodeTool.Controllers
                                 }
                             }
                             content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[Item]", Item);
                             content = content.Replace("[Items]", MasterAngular.ToString());
                             fileName = className + ".component.html";
                             path = Path.Combine(folderRoot, "Component", fileName);
@@ -364,6 +368,7 @@ namespace CodeTool.Controllers
                                 }
                             }
                             content = content.Replace("[ClassName]", className);
+                            content = content.Replace("[Item]", Item);
                             content = content.Replace("[Items]", InlineAngular.ToString());
                             fileName = className + "Inline.component.html";
                             path = Path.Combine(folderRoot, "Component", fileName);
@@ -522,6 +527,7 @@ namespace CodeTool.Controllers
                     return "int";
                 case "bigint":
                     return "long";
+                case "date":
                 case "datetime":
                 case "smalldatetime":
                 case "timestamp":
@@ -556,6 +562,7 @@ namespace CodeTool.Controllers
                 case "decimal":
                 case "float":
                     return "number";
+                case "date":
                 case "datetime":
                 case "smalldatetime":
                 case "timestamp":

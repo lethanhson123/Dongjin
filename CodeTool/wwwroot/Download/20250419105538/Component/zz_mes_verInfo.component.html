@@ -1,0 +1,73 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    zz_mes_ver:
+                    <b>{{zz_mes_verService.FormData.Name}} [{{zz_mes_verService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/zz_mes_ver" title="zz_mes_ver">zz_mes_ver</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/zz_mes_ver" title="zz_mes_ver">zz_mes_ver</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="zz_mes_verAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="zz_mes_verSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>VER_IDX</label>
+<input placeholder="VER_IDX" [(ngModel)]="zz_mes_verService.FormData.VER_IDX" name="zz_mes_verService.FormData.VER_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>VER_MAJOR</label>
+<input placeholder="VER_MAJOR" [(ngModel)]="zz_mes_verService.FormData.VER_MAJOR" name="zz_mes_verService.FormData.VER_MAJOR" type="text" class="form-control">
+</div>
+<div>
+<label>VER_MINJOR</label>
+<input placeholder="VER_MINJOR" [(ngModel)]="zz_mes_verService.FormData.VER_MINJOR" name="zz_mes_verService.FormData.VER_MINJOR" type="text" class="form-control">
+</div>
+<div>
+<label>VER_BUILD</label>
+<input placeholder="VER_BUILD" [(ngModel)]="zz_mes_verService.FormData.VER_BUILD" name="zz_mes_verService.FormData.VER_BUILD" type="text" class="form-control">
+</div>
+<div>
+<label>VER_REVISION</label>
+<input placeholder="VER_REVISION" [(ngModel)]="zz_mes_verService.FormData.VER_REVISION" name="zz_mes_verService.FormData.VER_REVISION" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="zz_mes_verService.IsShowLoading"></app-loading>

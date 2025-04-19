@@ -1,0 +1,155 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tscut_st_uph
+                    <span *ngIf="tscut_st_uphService.List">({{tscut_st_uphService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tscut_st_uph" title="tscut_st_uph">tscut_st_uph</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tscut_st_uph" title="tscut_st_uph">tscut_st_uph</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="tscut_st_uphService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="tscut_st_uphSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="tscut_st_uphSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #tscut_st_uphSort="matSort"
+                       [dataSource]="tscut_st_uphService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="tscut_st_uphPaginator">
+                                {{
+                                    tscut_st_uphPaginator.pageSize *
+                                    tscut_st_uphPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="TSCUT_ST_UPH_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TSCUT_ST_UPH_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TSCUT_ST_UPH_IDX" name="TSCUT_ST_UPH_IDX{{element.TSCUT_ST_UPH_IDX}}" [(ngModel)]="element.TSCUT_ST_UPH_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="TSCUT_ST_UPH_RUT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TSCUT_ST_UPH_RUT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TSCUT_ST_UPH_RUT" name="TSCUT_ST_UPH_RUT{{element.TSCUT_ST_UPH_IDX}}" [(ngModel)]="element.TSCUT_ST_UPH_RUT">
+</td>
+</ng-container>
+<ng-container matColumnDef="TSCUT_ST_UPH_NAME">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TSCUT_ST_UPH_NAME</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TSCUT_ST_UPH_NAME" name="TSCUT_ST_UPH_NAME{{element.TSCUT_ST_UPH_IDX}}" [(ngModel)]="element.TSCUT_ST_UPH_NAME">
+</td>
+</ng-container>
+<ng-container matColumnDef="TSCUT_ST_UPH_MIN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TSCUT_ST_UPH_MIN</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TSCUT_ST_UPH_MIN" name="TSCUT_ST_UPH_MIN{{element.TSCUT_ST_UPH_IDX}}" [(ngModel)]="element.TSCUT_ST_UPH_MIN">
+</td>
+</ng-container>
+<ng-container matColumnDef="TSCUT_ST_UPH_MAX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TSCUT_ST_UPH_MAX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TSCUT_ST_UPH_MAX" name="TSCUT_ST_UPH_MAX{{element.TSCUT_ST_UPH_IDX}}" [(ngModel)]="element.TSCUT_ST_UPH_MAX">
+</td>
+</ng-container>
+<ng-container matColumnDef="TSCUT_ST_UPH_TCNT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TSCUT_ST_UPH_TCNT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TSCUT_ST_UPH_TCNT" name="TSCUT_ST_UPH_TCNT{{element.TSCUT_ST_UPH_IDX}}" [(ngModel)]="element.TSCUT_ST_UPH_TCNT">
+</td>
+</ng-container>
+<ng-container matColumnDef="TSCUT_ST_UPH_SCNT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TSCUT_ST_UPH_SCNT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TSCUT_ST_UPH_SCNT" name="TSCUT_ST_UPH_SCNT{{element.TSCUT_ST_UPH_IDX}}" [(ngModel)]="element.TSCUT_ST_UPH_SCNT">
+</td>
+</ng-container>
+<ng-container matColumnDef="TSCUT_ST_UPH_RUS">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TSCUT_ST_UPH_RUS</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TSCUT_ST_UPH_RUS" name="TSCUT_ST_UPH_RUS{{element.TSCUT_ST_UPH_IDX}}" [(ngModel)]="element.TSCUT_ST_UPH_RUS">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_DTM" name="CREATE_DTM{{element.TSCUT_ST_UPH_IDX}}" [(ngModel)]="element.CREATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_USER" name="CREATE_USER{{element.TSCUT_ST_UPH_IDX}}" [(ngModel)]="element.CREATE_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_DTM" name="UPDATE_DTM{{element.TSCUT_ST_UPH_IDX}}" [(ngModel)]="element.UPDATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_USER" name="UPDATE_USER{{element.TSCUT_ST_UPH_IDX}}" [(ngModel)]="element.UPDATE_USER">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="tscut_st_uphSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.TSCUT_ST_UPH_IDX>0" (click)="tscut_st_uphDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="tscut_st_uphService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: tscut_st_uphService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #tscut_st_uphPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tscut_st_uphService.IsShowLoading"></app-loading>

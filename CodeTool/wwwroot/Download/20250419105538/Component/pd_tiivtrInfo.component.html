@@ -1,0 +1,93 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    pd_tiivtr:
+                    <b>{{pd_tiivtrService.FormData.Name}} [{{pd_tiivtrService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pd_tiivtr" title="pd_tiivtr">pd_tiivtr</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pd_tiivtr" title="pd_tiivtr">pd_tiivtr</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="pd_tiivtrAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="pd_tiivtrSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>IV_IDX</label>
+<input placeholder="IV_IDX" [(ngModel)]="pd_tiivtrService.FormData.IV_IDX" name="pd_tiivtrService.FormData.IV_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PART_IDX</label>
+<input placeholder="PART_IDX" [(ngModel)]="pd_tiivtrService.FormData.PART_IDX" name="pd_tiivtrService.FormData.PART_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>LOC_IDX</label>
+<input placeholder="LOC_IDX" [(ngModel)]="pd_tiivtrService.FormData.LOC_IDX" name="pd_tiivtrService.FormData.LOC_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>ORDER_IDX</label>
+<input placeholder="ORDER_IDX" [(ngModel)]="pd_tiivtrService.FormData.ORDER_IDX" name="pd_tiivtrService.FormData.ORDER_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>IMP_YN</label>
+<input placeholder="IMP_YN" [(ngModel)]="pd_tiivtrService.FormData.IMP_YN" name="pd_tiivtrService.FormData.IMP_YN" type="text" class="form-control">
+</div>
+<div>
+<label>QTY</label>
+<input placeholder="QTY" [(ngModel)]="pd_tiivtrService.FormData.QTY" name="pd_tiivtrService.FormData.QTY" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="pd_tiivtrService.FormData.CREATE_DTM" name="pd_tiivtrService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="pd_tiivtrService.FormData.CREATE_USER" name="pd_tiivtrService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="pd_tiivtrService.FormData.UPDATE_DTM" name="pd_tiivtrService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="pd_tiivtrService.FormData.UPDATE_USER" name="pd_tiivtrService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="pd_tiivtrService.IsShowLoading"></app-loading>

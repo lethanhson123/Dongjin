@@ -1,0 +1,97 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    trackmaster:
+                    <b>{{trackmasterService.FormData.Name}} [{{trackmasterService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/trackmaster" title="trackmaster">trackmaster</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/trackmaster" title="trackmaster">trackmaster</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="trackmasterAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="trackmasterSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>RACK_IDX</label>
+<input placeholder="RACK_IDX" [(ngModel)]="trackmasterService.FormData.RACK_IDX" name="trackmasterService.FormData.RACK_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>LEAD_NO</label>
+<input placeholder="LEAD_NO" [(ngModel)]="trackmasterService.FormData.LEAD_NO" name="trackmasterService.FormData.LEAD_NO" type="text" class="form-control">
+</div>
+<div>
+<label>HOOK_RACK</label>
+<input placeholder="HOOK_RACK" [(ngModel)]="trackmasterService.FormData.HOOK_RACK" name="trackmasterService.FormData.HOOK_RACK" type="text" class="form-control">
+</div>
+<div>
+<label>SFTY_STK</label>
+<input placeholder="SFTY_STK" [(ngModel)]="trackmasterService.FormData.SFTY_STK" name="trackmasterService.FormData.SFTY_STK" type="text" class="form-control">
+</div>
+<div>
+<label>REP</label>
+<input placeholder="REP" [(ngModel)]="trackmasterService.FormData.REP" name="trackmasterService.FormData.REP" type="text" class="form-control">
+</div>
+<div>
+<label>CUR_LEADS</label>
+<input placeholder="CUR_LEADS" [(ngModel)]="trackmasterService.FormData.CUR_LEADS" name="trackmasterService.FormData.CUR_LEADS" type="text" class="form-control">
+</div>
+<div>
+<label>SP</label>
+<input placeholder="SP" [(ngModel)]="trackmasterService.FormData.SP" name="trackmasterService.FormData.SP" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="trackmasterService.FormData.CREATE_DTM" name="trackmasterService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="trackmasterService.FormData.CREATE_USER" name="trackmasterService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="trackmasterService.FormData.UPDATE_DTM" name="trackmasterService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="trackmasterService.FormData.UPDATE_USER" name="trackmasterService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="trackmasterService.IsShowLoading"></app-loading>

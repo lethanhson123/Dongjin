@@ -1,0 +1,85 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tscdgr:
+                    <b>{{tscdgrService.FormData.Name}} [{{tscdgrService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tscdgr" title="tscdgr">tscdgr</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tscdgr" title="tscdgr">tscdgr</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="tscdgrAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="tscdgrSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>CDGR_IDX</label>
+<input placeholder="CDGR_IDX" [(ngModel)]="tscdgrService.FormData.CDGR_IDX" name="tscdgrService.FormData.CDGR_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>CDGR_SYSNOTE</label>
+<input placeholder="CDGR_SYSNOTE" [(ngModel)]="tscdgrService.FormData.CDGR_SYSNOTE" name="tscdgrService.FormData.CDGR_SYSNOTE" type="text" class="form-control">
+</div>
+<div>
+<label>CDGR_NM_HAN</label>
+<input placeholder="CDGR_NM_HAN" [(ngModel)]="tscdgrService.FormData.CDGR_NM_HAN" name="tscdgrService.FormData.CDGR_NM_HAN" type="text" class="form-control">
+</div>
+<div>
+<label>CDGR_NM_EN</label>
+<input placeholder="CDGR_NM_EN" [(ngModel)]="tscdgrService.FormData.CDGR_NM_EN" name="tscdgrService.FormData.CDGR_NM_EN" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tscdgrService.FormData.CREATE_DTM" name="tscdgrService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tscdgrService.FormData.CREATE_USER" name="tscdgrService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tscdgrService.FormData.UPDATE_DTM" name="tscdgrService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tscdgrService.FormData.UPDATE_USER" name="tscdgrService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tscdgrService.IsShowLoading"></app-loading>

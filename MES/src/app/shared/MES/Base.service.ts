@@ -36,6 +36,12 @@ export class BaseService {
         };
         this.BaseParameter = {
             SearchString: environment.InitializationString,            
+            SearchString001: environment.InitializationString,              
+            SearchString002: environment.InitializationString,  
+            SearchString003: environment.InitializationString,  
+            SearchString004: environment.InitializationString,  
+            SearchString005: environment.InitializationString,  
+            SearchString006: environment.InitializationString,  
         };
         this.List = [];
         this.ListFilter = [];
@@ -53,7 +59,18 @@ export class BaseService {
             }
         }
         else {
-            this.ComponentGetAllAndEmptyToListAsync(sort, paginator);
+            this.SearchGetAllAndEmptyToListAsync(sort, paginator);
+        }
+    }
+    Search(sort: MatSort, paginator: MatPaginator) {
+        if (this.BaseParameter.SearchString.length > 0) {
+            this.BaseParameter.SearchString = this.BaseParameter.SearchString.trim();
+            if (this.DataSource) {
+                this.DataSource.filter = this.BaseParameter.SearchString.toLowerCase();
+            }
+        }
+        else {
+            this.SearchGetAllToListAsync(sort, paginator);
         }
     }
     ComponentGetAllToListAsync(Service: BaseService) {
@@ -76,7 +93,23 @@ export class BaseService {
         else {
         }
     }
-    ComponentGetAllAndEmptyToListAsync(sort: MatSort, paginator: MatPaginator) {
+    SearchGetAllToListAsync(sort: MatSort, paginator: MatPaginator) {
+        this.IsShowLoading = true;
+        this.GetAllToListAsync().subscribe(
+            res => {
+                this.List = (res as any[]);
+                this.DataSource = new MatTableDataSource(this.List);
+                this.DataSource.sort = sort;
+                this.DataSource.paginator = paginator;
+            },
+            err => {
+            },
+            () => {
+                this.IsShowLoading = false;
+            }
+        );
+    }
+    SearchGetAllAndEmptyToListAsync(sort: MatSort, paginator: MatPaginator) {
         this.IsShowLoading = true;
         this.GetAllAndEmptyToListAsync().subscribe(
             res => {

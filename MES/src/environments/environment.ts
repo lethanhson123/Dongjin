@@ -1,6 +1,6 @@
 export const environment = {
   production: false,  
-  APIURL: "https://localhost:7080/api/v1/",
+  APIURL: "https://localhost:7080/api/",
   APIRootURL: "https://localhost:7080/",  
   LoadingFile: "loading.gif",
   DialogConfigWidth: "80%",
@@ -21,8 +21,8 @@ export const environment = {
   LoginNotSuccess: "Đăng nhập không thành công.",
   UserNameNotExists: "Tài khoản chưa tồn tại.",
   UserNameExists: "Tài khoản đã tồn tại.",
-  UserNameRequired: "UserName là bắt buộc.",
-  ToChucExists: "Tổ chức đã tồn tại.",
+  UserNameRequired: "Tài khoản là bắt buộc.",
+  Help: "Chức năng này không khả dụng đối với Web application.",
   PageTitle: "DONGJIN GLOBAL COMPANY LIMITED",
   PageTitleShort: "DONGJIN",
   PageDescription: "DONGJIN GLOBAL COMPANY LIMITED | MES",

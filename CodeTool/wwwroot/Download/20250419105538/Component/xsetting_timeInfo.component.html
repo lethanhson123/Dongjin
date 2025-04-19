@@ -1,0 +1,81 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    xsetting_time:
+                    <b>{{xsetting_timeService.FormData.Name}} [{{xsetting_timeService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/xsetting_time" title="xsetting_time">xsetting_time</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/xsetting_time" title="xsetting_time">xsetting_time</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="xsetting_timeAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="xsetting_timeSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>SETTING_IDX</label>
+<input placeholder="SETTING_IDX" [(ngModel)]="xsetting_timeService.FormData.SETTING_IDX" name="xsetting_timeService.FormData.SETTING_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>TABLE_NM</label>
+<input placeholder="TABLE_NM" [(ngModel)]="xsetting_timeService.FormData.TABLE_NM" name="xsetting_timeService.FormData.TABLE_NM" type="text" class="form-control">
+</div>
+<div>
+<label>SUB_NM</label>
+<input placeholder="SUB_NM" [(ngModel)]="xsetting_timeService.FormData.SUB_NM" name="xsetting_timeService.FormData.SUB_NM" type="text" class="form-control">
+</div>
+<div>
+<label>REMARK</label>
+<input placeholder="REMARK" [(ngModel)]="xsetting_timeService.FormData.REMARK" name="xsetting_timeService.FormData.REMARK" type="text" class="form-control">
+</div>
+<div>
+<label>BASIC_TIME</label>
+<input placeholder="BASIC_TIME" [(ngModel)]="xsetting_timeService.FormData.BASIC_TIME" name="xsetting_timeService.FormData.BASIC_TIME" type="text" class="form-control">
+</div>
+<div>
+<label>UNIT</label>
+<input placeholder="UNIT" [(ngModel)]="xsetting_timeService.FormData.UNIT" name="xsetting_timeService.FormData.UNIT" type="text" class="form-control">
+</div>
+<div>
+<label>TIME</label>
+<input placeholder="TIME" [(ngModel)]="xsetting_timeService.FormData.TIME" name="xsetting_timeService.FormData.TIME" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="xsetting_timeService.IsShowLoading"></app-loading>

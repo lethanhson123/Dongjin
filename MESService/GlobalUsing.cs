@@ -9,6 +9,7 @@ global using MESData.Model;
 global using MESRepository.Implement;
 global using MESRepository.Interface;
 
+global using MESService.Model;
 global using MESService.Implement;
 global using MESService.Interface;
 

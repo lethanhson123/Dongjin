@@ -2,15 +2,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomepageComponent } from './homepage/homepage.component';
-import { HelpTopicComponent } from './MES/help-topic/help-topic.component';
+import { TscodeComponent } from './MES/tscode/tscode.component';
+import { A01Component } from './MES/a01/a01.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/Homepage', pathMatch: 'full' },
+  { path: '', redirectTo: '/Tscode', pathMatch: 'full' },
   {
     path: 'Homepage', component: HomepageComponent,
   }, 
   {
-    path: 'HelpTopic', component: HelpTopicComponent,
+    path: 'Tscode', component: TscodeComponent,
+  }, 
+  {
+    path: 'A01', component: A01Component,
   }, 
 ];
 

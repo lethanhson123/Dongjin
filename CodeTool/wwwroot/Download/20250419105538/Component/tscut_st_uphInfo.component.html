@@ -1,0 +1,101 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tscut_st_uph:
+                    <b>{{tscut_st_uphService.FormData.Name}} [{{tscut_st_uphService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tscut_st_uph" title="tscut_st_uph">tscut_st_uph</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tscut_st_uph" title="tscut_st_uph">tscut_st_uph</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="tscut_st_uphAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="tscut_st_uphSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>TSCUT_ST_UPH_IDX</label>
+<input placeholder="TSCUT_ST_UPH_IDX" [(ngModel)]="tscut_st_uphService.FormData.TSCUT_ST_UPH_IDX" name="tscut_st_uphService.FormData.TSCUT_ST_UPH_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>TSCUT_ST_UPH_RUT</label>
+<input placeholder="TSCUT_ST_UPH_RUT" [(ngModel)]="tscut_st_uphService.FormData.TSCUT_ST_UPH_RUT" name="tscut_st_uphService.FormData.TSCUT_ST_UPH_RUT" type="text" class="form-control">
+</div>
+<div>
+<label>TSCUT_ST_UPH_NAME</label>
+<input placeholder="TSCUT_ST_UPH_NAME" [(ngModel)]="tscut_st_uphService.FormData.TSCUT_ST_UPH_NAME" name="tscut_st_uphService.FormData.TSCUT_ST_UPH_NAME" type="text" class="form-control">
+</div>
+<div>
+<label>TSCUT_ST_UPH_MIN</label>
+<input placeholder="TSCUT_ST_UPH_MIN" [(ngModel)]="tscut_st_uphService.FormData.TSCUT_ST_UPH_MIN" name="tscut_st_uphService.FormData.TSCUT_ST_UPH_MIN" type="text" class="form-control">
+</div>
+<div>
+<label>TSCUT_ST_UPH_MAX</label>
+<input placeholder="TSCUT_ST_UPH_MAX" [(ngModel)]="tscut_st_uphService.FormData.TSCUT_ST_UPH_MAX" name="tscut_st_uphService.FormData.TSCUT_ST_UPH_MAX" type="text" class="form-control">
+</div>
+<div>
+<label>TSCUT_ST_UPH_TCNT</label>
+<input placeholder="TSCUT_ST_UPH_TCNT" [(ngModel)]="tscut_st_uphService.FormData.TSCUT_ST_UPH_TCNT" name="tscut_st_uphService.FormData.TSCUT_ST_UPH_TCNT" type="text" class="form-control">
+</div>
+<div>
+<label>TSCUT_ST_UPH_SCNT</label>
+<input placeholder="TSCUT_ST_UPH_SCNT" [(ngModel)]="tscut_st_uphService.FormData.TSCUT_ST_UPH_SCNT" name="tscut_st_uphService.FormData.TSCUT_ST_UPH_SCNT" type="text" class="form-control">
+</div>
+<div>
+<label>TSCUT_ST_UPH_RUS</label>
+<input placeholder="TSCUT_ST_UPH_RUS" [(ngModel)]="tscut_st_uphService.FormData.TSCUT_ST_UPH_RUS" name="tscut_st_uphService.FormData.TSCUT_ST_UPH_RUS" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tscut_st_uphService.FormData.CREATE_DTM" name="tscut_st_uphService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tscut_st_uphService.FormData.CREATE_USER" name="tscut_st_uphService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tscut_st_uphService.FormData.UPDATE_DTM" name="tscut_st_uphService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tscut_st_uphService.FormData.UPDATE_USER" name="tscut_st_uphService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tscut_st_uphService.IsShowLoading"></app-loading>

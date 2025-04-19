@@ -1,0 +1,235 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    torderlist_lp
+                    <span *ngIf="torderlist_lpService.List">({{torderlist_lpService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/torderlist_lp" title="torderlist_lp">torderlist_lp</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/torderlist_lp" title="torderlist_lp">torderlist_lp</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="torderlist_lpService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="torderlist_lpSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="torderlist_lpSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #torderlist_lpSort="matSort"
+                       [dataSource]="torderlist_lpService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="torderlist_lpPaginator">
+                                {{
+                                    torderlist_lpPaginator.pageSize *
+                                    torderlist_lpPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="ORDER_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ORDER_IDX</th>
+<td mat-cell *matCellDef="let element">{{element.ORDER_IDX}}</td>
+</ng-container>
+<ng-container matColumnDef="MC">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MC</th>
+<td mat-cell *matCellDef="let element">{{element.MC}}</td>
+</ng-container>
+<ng-container matColumnDef="TOT_QTY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TOT_QTY</th>
+<td mat-cell *matCellDef="let element">{{element.TOT_QTY}}</td>
+</ng-container>
+<ng-container matColumnDef="PERFORMN_L">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PERFORMN_L</th>
+<td mat-cell *matCellDef="let element">{{element.PERFORMN_L}}</td>
+</ng-container>
+<ng-container matColumnDef="PERFORMN_R">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PERFORMN_R</th>
+<td mat-cell *matCellDef="let element">{{element.PERFORMN_R}}</td>
+</ng-container>
+<ng-container matColumnDef="CONDITION">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CONDITION</th>
+<td mat-cell *matCellDef="let element">{{element.CONDITION}}</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">{{element.CREATE_DTM}}</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">{{element.CREATE_USER}}</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">{{element.UPDATE_DTM}}</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">{{element.UPDATE_USER}}</td>
+</ng-container>
+<ng-container matColumnDef="LEAD_NO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LEAD_NO</th>
+<td mat-cell *matCellDef="let element">{{element.LEAD_NO}}</td>
+</ng-container>
+<ng-container matColumnDef="PROJECT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PROJECT</th>
+<td mat-cell *matCellDef="let element">{{element.PROJECT}}</td>
+</ng-container>
+<ng-container matColumnDef="ADJ_AF_QTY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ADJ_AF_QTY</th>
+<td mat-cell *matCellDef="let element">{{element.ADJ_AF_QTY}}</td>
+</ng-container>
+<ng-container matColumnDef="CUR_LEADS">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CUR_LEADS</th>
+<td mat-cell *matCellDef="let element">{{element.CUR_LEADS}}</td>
+</ng-container>
+<ng-container matColumnDef="CT_LEADS">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CT_LEADS</th>
+<td mat-cell *matCellDef="let element">{{element.CT_LEADS}}</td>
+</ng-container>
+<ng-container matColumnDef="CT_LEADS_PR">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CT_LEADS_PR</th>
+<td mat-cell *matCellDef="let element">{{element.CT_LEADS_PR}}</td>
+</ng-container>
+<ng-container matColumnDef="GRP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GRP</th>
+<td mat-cell *matCellDef="let element">{{element.GRP}}</td>
+</ng-container>
+<ng-container matColumnDef="PRT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PRT</th>
+<td mat-cell *matCellDef="let element">{{element.PRT}}</td>
+</ng-container>
+<ng-container matColumnDef="DT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DT</th>
+<td mat-cell *matCellDef="let element">{{element.DT}}</td>
+</ng-container>
+<ng-container matColumnDef="MC2">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MC2</th>
+<td mat-cell *matCellDef="let element">{{element.MC2}}</td>
+</ng-container>
+<ng-container matColumnDef="BUNDLE_SIZE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>BUNDLE_SIZE</th>
+<td mat-cell *matCellDef="let element">{{element.BUNDLE_SIZE}}</td>
+</ng-container>
+<ng-container matColumnDef="HOOK_RACK">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HOOK_RACK</th>
+<td mat-cell *matCellDef="let element">{{element.HOOK_RACK}}</td>
+</ng-container>
+<ng-container matColumnDef="WIRE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>WIRE</th>
+<td mat-cell *matCellDef="let element">{{element.WIRE}}</td>
+</ng-container>
+<ng-container matColumnDef="T1_DIR">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>T1_DIR</th>
+<td mat-cell *matCellDef="let element">{{element.T1_DIR}}</td>
+</ng-container>
+<ng-container matColumnDef="TERM1">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TERM1</th>
+<td mat-cell *matCellDef="let element">{{element.TERM1}}</td>
+</ng-container>
+<ng-container matColumnDef="STRIP1">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>STRIP1</th>
+<td mat-cell *matCellDef="let element">{{element.STRIP1}}</td>
+</ng-container>
+<ng-container matColumnDef="SEAL1">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SEAL1</th>
+<td mat-cell *matCellDef="let element">{{element.SEAL1}}</td>
+</ng-container>
+<ng-container matColumnDef="CCH_W1">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CCH_W1</th>
+<td mat-cell *matCellDef="let element">{{element.CCH_W1}}</td>
+</ng-container>
+<ng-container matColumnDef="ICH_W1">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ICH_W1</th>
+<td mat-cell *matCellDef="let element">{{element.ICH_W1}}</td>
+</ng-container>
+<ng-container matColumnDef="T2_DIR">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>T2_DIR</th>
+<td mat-cell *matCellDef="let element">{{element.T2_DIR}}</td>
+</ng-container>
+<ng-container matColumnDef="TERM2">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TERM2</th>
+<td mat-cell *matCellDef="let element">{{element.TERM2}}</td>
+</ng-container>
+<ng-container matColumnDef="STRIP2">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>STRIP2</th>
+<td mat-cell *matCellDef="let element">{{element.STRIP2}}</td>
+</ng-container>
+<ng-container matColumnDef="SEAL2">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SEAL2</th>
+<td mat-cell *matCellDef="let element">{{element.SEAL2}}</td>
+</ng-container>
+<ng-container matColumnDef="CCH_W2">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CCH_W2</th>
+<td mat-cell *matCellDef="let element">{{element.CCH_W2}}</td>
+</ng-container>
+<ng-container matColumnDef="ICH_W2">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ICH_W2</th>
+<td mat-cell *matCellDef="let element">{{element.ICH_W2}}</td>
+</ng-container>
+<ng-container matColumnDef="SP_ST">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SP_ST</th>
+<td mat-cell *matCellDef="let element">{{element.SP_ST}}</td>
+</ng-container>
+<ng-container matColumnDef="REP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>REP</th>
+<td mat-cell *matCellDef="let element">{{element.REP}}</td>
+</ng-container>
+<ng-container matColumnDef="DSCN_YN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DSCN_YN</th>
+<td mat-cell *matCellDef="let element">{{element.DSCN_YN}}</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="torderlist_lpSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.ORDER_IDX>0" (click)="torderlist_lpDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="torderlist_lpService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: torderlist_lpService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #torderlist_lpPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>              
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="torderlist_lpService.IsShowLoading"></app-loading>

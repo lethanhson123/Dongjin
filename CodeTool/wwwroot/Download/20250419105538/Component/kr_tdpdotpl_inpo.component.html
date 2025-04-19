@@ -1,0 +1,127 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    kr_tdpdotpl_inpo
+                    <span *ngIf="kr_tdpdotpl_inpoService.List">({{kr_tdpdotpl_inpoService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/kr_tdpdotpl_inpo" title="kr_tdpdotpl_inpo">kr_tdpdotpl_inpo</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/kr_tdpdotpl_inpo" title="kr_tdpdotpl_inpo">kr_tdpdotpl_inpo</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="kr_tdpdotpl_inpoService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="kr_tdpdotpl_inpoSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="kr_tdpdotpl_inpoSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #kr_tdpdotpl_inpoSort="matSort"
+                       [dataSource]="kr_tdpdotpl_inpoService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="kr_tdpdotpl_inpoPaginator">
+                                {{
+                                    kr_tdpdotpl_inpoPaginator.pageSize *
+                                    kr_tdpdotpl_inpoPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="PDOTPL_INPO_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDOTPL_INPO_IDX</th>
+<td mat-cell *matCellDef="let element">{{element.PDOTPL_INPO_IDX}}</td>
+</ng-container>
+<ng-container matColumnDef="PO_CODE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PO_CODE</th>
+<td mat-cell *matCellDef="let element">{{element.PO_CODE}}</td>
+</ng-container>
+<ng-container matColumnDef="PART_NO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_NO</th>
+<td mat-cell *matCellDef="let element">{{element.PART_NO}}</td>
+</ng-container>
+<ng-container matColumnDef="PART_SNP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_SNP</th>
+<td mat-cell *matCellDef="let element">{{element.PART_SNP}}</td>
+</ng-container>
+<ng-container matColumnDef="PO_QTY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PO_QTY</th>
+<td mat-cell *matCellDef="let element">{{element.PO_QTY}}</td>
+</ng-container>
+<ng-container matColumnDef="IN_QTY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>IN_QTY</th>
+<td mat-cell *matCellDef="let element">{{element.IN_QTY}}</td>
+</ng-container>
+<ng-container matColumnDef="DONE_YN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DONE_YN</th>
+<td mat-cell *matCellDef="let element">{{element.DONE_YN}}</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">{{element.CREATE_DTM}}</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">{{element.CREATE_USER}}</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">{{element.UPDATE_DTM}}</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">{{element.UPDATE_USER}}</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="kr_tdpdotpl_inpoSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.PDOTPL_INPO_IDX>0" (click)="kr_tdpdotpl_inpoDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="kr_tdpdotpl_inpoService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: kr_tdpdotpl_inpoService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #kr_tdpdotpl_inpoPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>              
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="kr_tdpdotpl_inpoService.IsShowLoading"></app-loading>

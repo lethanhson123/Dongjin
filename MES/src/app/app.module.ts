@@ -14,7 +14,10 @@ import { NotificationService } from './shared/Notification.service';
 import { AppComponent } from './app.component';
 import { LoadingComponent } from './loading/loading.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { HelpTopicComponent } from './MES/help-topic/help-topic.component';
+import { TscodeComponent } from './MES/tscode/tscode.component';
+import { A01Component } from './MES/a01/a01.component';
+import { TscodeDetailComponent } from './MES/tscode-detail/tscode-detail.component';
+import { WMPPLAYComponent } from './MES/wmp-play/wmp-play.component';
 
 
 
@@ -25,8 +28,10 @@ import { HelpTopicComponent } from './MES/help-topic/help-topic.component';
   declarations: [
     AppComponent,
     LoadingComponent,
-    HomepageComponent,
-    HelpTopicComponent,  
+    HomepageComponent,    
+    TscodeComponent,
+    TscodeDetailComponent,  
+    A01Component, WMPPLAYComponent,   
 
   ],
   imports: [

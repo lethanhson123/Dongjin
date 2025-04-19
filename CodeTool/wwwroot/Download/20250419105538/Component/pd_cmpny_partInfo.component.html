@@ -1,0 +1,85 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    pd_cmpny_part:
+                    <b>{{pd_cmpny_partService.FormData.Name}} [{{pd_cmpny_partService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pd_cmpny_part" title="pd_cmpny_part">pd_cmpny_part</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pd_cmpny_part" title="pd_cmpny_part">pd_cmpny_part</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="pd_cmpny_partAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="pd_cmpny_partSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>PD_CMPNY_PART_IDX</label>
+<input placeholder="PD_CMPNY_PART_IDX" [(ngModel)]="pd_cmpny_partService.FormData.PD_CMPNY_PART_IDX" name="pd_cmpny_partService.FormData.PD_CMPNY_PART_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>CMPNY_IDX</label>
+<input placeholder="CMPNY_IDX" [(ngModel)]="pd_cmpny_partService.FormData.CMPNY_IDX" name="pd_cmpny_partService.FormData.CMPNY_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PDPART_IDX</label>
+<input placeholder="PDPART_IDX" [(ngModel)]="pd_cmpny_partService.FormData.PDPART_IDX" name="pd_cmpny_partService.FormData.PDPART_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>DSC_YN</label>
+<input placeholder="DSC_YN" [(ngModel)]="pd_cmpny_partService.FormData.DSC_YN" name="pd_cmpny_partService.FormData.DSC_YN" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="pd_cmpny_partService.FormData.CREATE_DTM" name="pd_cmpny_partService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="pd_cmpny_partService.FormData.CREATE_USER" name="pd_cmpny_partService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="pd_cmpny_partService.FormData.UPDATE_DTM" name="pd_cmpny_partService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="pd_cmpny_partService.FormData.UPDATE_USER" name="pd_cmpny_partService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="pd_cmpny_partService.IsShowLoading"></app-loading>

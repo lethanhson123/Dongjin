@@ -1,0 +1,119 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    torderinspection_spst
+                    <span *ngIf="torderinspection_spstService.List">({{torderinspection_spstService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/torderinspection_spst" title="torderinspection_spst">torderinspection_spst</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/torderinspection_spst" title="torderinspection_spst">torderinspection_spst</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="torderinspection_spstService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="torderinspection_spstSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="torderinspection_spstSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #torderinspection_spstSort="matSort"
+                       [dataSource]="torderinspection_spstService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="torderinspection_spstPaginator">
+                                {{
+                                    torderinspection_spstPaginator.pageSize *
+                                    torderinspection_spstPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="INSPECTION_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>INSPECTION_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="INSPECTION_IDX" name="INSPECTION_IDX{{element.INSPECTION_IDX}}" [(ngModel)]="element.INSPECTION_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="ORDER_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ORDER_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="ORDER_IDX" name="ORDER_IDX{{element.INSPECTION_IDX}}" [(ngModel)]="element.ORDER_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="COLSIP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>COLSIP</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="COLSIP" name="COLSIP{{element.INSPECTION_IDX}}" [(ngModel)]="element.COLSIP">
+</td>
+</ng-container>
+<ng-container matColumnDef="RES_H">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>RES_H</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="RES_H" name="RES_H{{element.INSPECTION_IDX}}" [(ngModel)]="element.RES_H">
+</td>
+</ng-container>
+<ng-container matColumnDef="RES_V">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>RES_V</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="RES_V" name="RES_V{{element.INSPECTION_IDX}}" [(ngModel)]="element.RES_V">
+</td>
+</ng-container>
+<ng-container matColumnDef="IN_RESILT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>IN_RESILT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="IN_RESILT" name="IN_RESILT{{element.INSPECTION_IDX}}" [(ngModel)]="element.IN_RESILT">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="torderinspection_spstSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.INSPECTION_IDX>0" (click)="torderinspection_spstDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="torderinspection_spstService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: torderinspection_spstService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #torderinspection_spstPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="torderinspection_spstService.IsShowLoading"></app-loading>

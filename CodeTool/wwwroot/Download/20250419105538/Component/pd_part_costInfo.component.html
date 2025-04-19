@@ -1,0 +1,89 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    pd_part_cost:
+                    <b>{{pd_part_costService.FormData.Name}} [{{pd_part_costService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pd_part_cost" title="pd_part_cost">pd_part_cost</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pd_part_cost" title="pd_part_cost">pd_part_cost</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="pd_part_costAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="pd_part_costSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>PDCOST_IDX</label>
+<input placeholder="PDCOST_IDX" [(ngModel)]="pd_part_costService.FormData.PDCOST_IDX" name="pd_part_costService.FormData.PDCOST_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PDPART_IDX</label>
+<input placeholder="PDPART_IDX" [(ngModel)]="pd_part_costService.FormData.PDPART_IDX" name="pd_part_costService.FormData.PDPART_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>CMPNY_IDX</label>
+<input placeholder="CMPNY_IDX" [(ngModel)]="pd_part_costService.FormData.CMPNY_IDX" name="pd_part_costService.FormData.CMPNY_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PD_COST_DATE</label>
+<input placeholder="PD_COST_DATE" [(ngModel)]="pd_part_costService.FormData.PD_COST_DATE" name="pd_part_costService.FormData.PD_COST_DATE" type="text" class="form-control">
+</div>
+<div>
+<label>PD_COST</label>
+<input placeholder="PD_COST" [(ngModel)]="pd_part_costService.FormData.PD_COST" name="pd_part_costService.FormData.PD_COST" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="pd_part_costService.FormData.CREATE_DTM" name="pd_part_costService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="pd_part_costService.FormData.CREATE_USER" name="pd_part_costService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="pd_part_costService.FormData.UPDATE_DTM" name="pd_part_costService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="pd_part_costService.FormData.UPDATE_USER" name="pd_part_costService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="pd_part_costService.IsShowLoading"></app-loading>

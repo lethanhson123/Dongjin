@@ -1,0 +1,89 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    ttensilbndlst:
+                    <b>{{ttensilbndlstService.FormData.Name}} [{{ttensilbndlstService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/ttensilbndlst" title="ttensilbndlst">ttensilbndlst</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/ttensilbndlst" title="ttensilbndlst">ttensilbndlst</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="ttensilbndlstAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="ttensilbndlstSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>BNDLST_IDX</label>
+<input placeholder="BNDLST_IDX" [(ngModel)]="ttensilbndlstService.FormData.BNDLST_IDX" name="ttensilbndlstService.FormData.BNDLST_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>BNDLST_NM</label>
+<input placeholder="BNDLST_NM" [(ngModel)]="ttensilbndlstService.FormData.BNDLST_NM" name="ttensilbndlstService.FormData.BNDLST_NM" type="text" class="form-control">
+</div>
+<div>
+<label>BNDLST_MIN</label>
+<input placeholder="BNDLST_MIN" [(ngModel)]="ttensilbndlstService.FormData.BNDLST_MIN" name="ttensilbndlstService.FormData.BNDLST_MIN" type="text" class="form-control">
+</div>
+<div>
+<label>BNDLST_MAX</label>
+<input placeholder="BNDLST_MAX" [(ngModel)]="ttensilbndlstService.FormData.BNDLST_MAX" name="ttensilbndlstService.FormData.BNDLST_MAX" type="text" class="form-control">
+</div>
+<div>
+<label>STRENGTH</label>
+<input placeholder="STRENGTH" [(ngModel)]="ttensilbndlstService.FormData.STRENGTH" name="ttensilbndlstService.FormData.STRENGTH" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="ttensilbndlstService.FormData.CREATE_DTM" name="ttensilbndlstService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="ttensilbndlstService.FormData.CREATE_USER" name="ttensilbndlstService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="ttensilbndlstService.FormData.UPDATE_DTM" name="ttensilbndlstService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="ttensilbndlstService.FormData.UPDATE_USER" name="ttensilbndlstService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="ttensilbndlstService.IsShowLoading"></app-loading>

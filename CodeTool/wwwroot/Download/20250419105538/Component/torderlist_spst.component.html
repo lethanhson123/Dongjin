@@ -1,0 +1,175 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    torderlist_spst
+                    <span *ngIf="torderlist_spstService.List">({{torderlist_spstService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/torderlist_spst" title="torderlist_spst">torderlist_spst</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/torderlist_spst" title="torderlist_spst">torderlist_spst</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="torderlist_spstService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="torderlist_spstSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="torderlist_spstSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #torderlist_spstSort="matSort"
+                       [dataSource]="torderlist_spstService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="torderlist_spstPaginator">
+                                {{
+                                    torderlist_spstPaginator.pageSize *
+                                    torderlist_spstPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="ORDER_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ORDER_IDX</th>
+<td mat-cell *matCellDef="let element">{{element.ORDER_IDX}}</td>
+</ng-container>
+<ng-container matColumnDef="OR_NO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>OR_NO</th>
+<td mat-cell *matCellDef="let element">{{element.OR_NO}}</td>
+</ng-container>
+<ng-container matColumnDef="WORK_WEEK">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>WORK_WEEK</th>
+<td mat-cell *matCellDef="let element">{{element.WORK_WEEK}}</td>
+</ng-container>
+<ng-container matColumnDef="PO_DT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PO_DT</th>
+<td mat-cell *matCellDef="let element">{{element.PO_DT}}</td>
+</ng-container>
+<ng-container matColumnDef="LEAD_NO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LEAD_NO</th>
+<td mat-cell *matCellDef="let element">{{element.LEAD_NO}}</td>
+</ng-container>
+<ng-container matColumnDef="PO_QTY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PO_QTY</th>
+<td mat-cell *matCellDef="let element">{{element.PO_QTY}}</td>
+</ng-container>
+<ng-container matColumnDef="SAFTY_QTY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SAFTY_QTY</th>
+<td mat-cell *matCellDef="let element">{{element.SAFTY_QTY}}</td>
+</ng-container>
+<ng-container matColumnDef="MC">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MC</th>
+<td mat-cell *matCellDef="let element">{{element.MC}}</td>
+</ng-container>
+<ng-container matColumnDef="BUNDLE_SIZE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>BUNDLE_SIZE</th>
+<td mat-cell *matCellDef="let element">{{element.BUNDLE_SIZE}}</td>
+</ng-container>
+<ng-container matColumnDef="PERFORMN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PERFORMN</th>
+<td mat-cell *matCellDef="let element">{{element.PERFORMN}}</td>
+</ng-container>
+<ng-container matColumnDef="CONDITION">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CONDITION</th>
+<td mat-cell *matCellDef="let element">{{element.CONDITION}}</td>
+</ng-container>
+<ng-container matColumnDef="LEAD_COUNT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LEAD_COUNT</th>
+<td mat-cell *matCellDef="let element">{{element.LEAD_COUNT}}</td>
+</ng-container>
+<ng-container matColumnDef="PO_YN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PO_YN</th>
+<td mat-cell *matCellDef="let element">{{element.PO_YN}}</td>
+</ng-container>
+<ng-container matColumnDef="DSCN_YN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DSCN_YN</th>
+<td mat-cell *matCellDef="let element">{{element.DSCN_YN}}</td>
+</ng-container>
+<ng-container matColumnDef="ERROR_YN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ERROR_YN</th>
+<td mat-cell *matCellDef="let element">{{element.ERROR_YN}}</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">{{element.CREATE_DTM}}</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">{{element.CREATE_USER}}</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">{{element.UPDATE_DTM}}</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">{{element.UPDATE_USER}}</td>
+</ng-container>
+<ng-container matColumnDef="FCTRY_NM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>FCTRY_NM</th>
+<td mat-cell *matCellDef="let element">{{element.FCTRY_NM}}</td>
+</ng-container>
+<ng-container matColumnDef="REP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>REP</th>
+<td mat-cell *matCellDef="let element">{{element.REP}}</td>
+</ng-container>
+<ng-container matColumnDef="TORDER_FG">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TORDER_FG</th>
+<td mat-cell *matCellDef="let element">{{element.TORDER_FG}}</td>
+</ng-container>
+<ng-container matColumnDef="TOEXCEL_QTY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TOEXCEL_QTY</th>
+<td mat-cell *matCellDef="let element">{{element.TOEXCEL_QTY}}</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="torderlist_spstSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.ORDER_IDX>0" (click)="torderlist_spstDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="torderlist_spstService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: torderlist_spstService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #torderlist_spstPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>              
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="torderlist_spstService.IsShowLoading"></app-loading>

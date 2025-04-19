@@ -34,6 +34,8 @@ namespace MESService.Interface
         Task<List<T>> GetByMySQLStoredProcedureToListAsync(string storedProcedureName, params MySqlParameter[] parameters);
         List<T> GetByMySQLStoredProcedureToList(string ConnectionString, string storedProcedureName, params MySqlParameter[] parameters);
         Task<List<T>> GetByMySQLStoredProcedureToListAsync(string ConnectionString, string storedProcedureName, params MySqlParameter[] parameters);
+        List<T> GetByMySQLToList(string ConnectionString, string sql, params MySqlParameter[] parameters);
+        Task<List<T>> GetByMySQLToListAsync(string ConnectionString, string sql, params MySqlParameter[] parameters);
         List<T> GetAllAndEmptyToList();
         Task<List<T>> GetAllAndEmptyToListAsync();
         List<T> GetBySearchStringAndEmptyToList(string SearchString);

@@ -1,0 +1,359 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    ttoolmaster
+                    <span *ngIf="ttoolmasterService.List">({{ttoolmasterService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/ttoolmaster" title="ttoolmaster">ttoolmaster</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/ttoolmaster" title="ttoolmaster">ttoolmaster</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="ttoolmasterService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="ttoolmasterSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="ttoolmasterSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #ttoolmasterSort="matSort"
+                       [dataSource]="ttoolmasterService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="ttoolmasterPaginator">
+                                {{
+                                    ttoolmasterPaginator.pageSize *
+                                    ttoolmasterPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="TOOL_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TOOL_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TOOL_IDX" name="TOOL_IDX{{element.TOOL_IDX}}" [(ngModel)]="element.TOOL_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="APPLICATOR">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>APPLICATOR</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="APPLICATOR" name="APPLICATOR{{element.TOOL_IDX}}" [(ngModel)]="element.APPLICATOR">
+</td>
+</ng-container>
+<ng-container matColumnDef="SEQ_TOT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SEQ_TOT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="SEQ_TOT" name="SEQ_TOT{{element.TOOL_IDX}}" [(ngModel)]="element.SEQ_TOT">
+</td>
+</ng-container>
+<ng-container matColumnDef="TOO_SUPPLY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TOO_SUPPLY</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TOO_SUPPLY" name="TOO_SUPPLY{{element.TOOL_IDX}}" [(ngModel)]="element.TOO_SUPPLY">
+</td>
+</ng-container>
+<ng-container matColumnDef="MAX_CNT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MAX_CNT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="MAX_CNT" name="MAX_CNT{{element.TOOL_IDX}}" [(ngModel)]="element.MAX_CNT">
+</td>
+</ng-container>
+<ng-container matColumnDef="TOT_WK_CNT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TOT_WK_CNT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TOT_WK_CNT" name="TOT_WK_CNT{{element.TOOL_IDX}}" [(ngModel)]="element.TOT_WK_CNT">
+</td>
+</ng-container>
+<ng-container matColumnDef="WK_CNT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>WK_CNT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="WK_CNT" name="WK_CNT{{element.TOOL_IDX}}" [(ngModel)]="element.WK_CNT">
+</td>
+</ng-container>
+<ng-container matColumnDef="SPP_NO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SPP_NO</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="SPP_NO" name="SPP_NO{{element.TOOL_IDX}}" [(ngModel)]="element.SPP_NO">
+</td>
+</ng-container>
+<ng-container matColumnDef="TYPE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TYPE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TYPE" name="TYPE{{element.TOOL_IDX}}" [(ngModel)]="element.TYPE">
+</td>
+</ng-container>
+<ng-container matColumnDef="GAUGE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>GAUGE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="GAUGE" name="GAUGE{{element.TOOL_IDX}}" [(ngModel)]="element.GAUGE">
+</td>
+</ng-container>
+<ng-container matColumnDef="COPL_NOR">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>COPL_NOR</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="COPL_NOR" name="COPL_NOR{{element.TOOL_IDX}}" [(ngModel)]="element.COPL_NOR">
+</td>
+</ng-container>
+<ng-container matColumnDef="COPL_SPE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>COPL_SPE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="COPL_SPE" name="COPL_SPE{{element.TOOL_IDX}}" [(ngModel)]="element.COPL_SPE">
+</td>
+</ng-container>
+<ng-container matColumnDef="INSPL_SEALTYPE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>INSPL_SEALTYPE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="INSPL_SEALTYPE" name="INSPL_SEALTYPE{{element.TOOL_IDX}}" [(ngModel)]="element.INSPL_SEALTYPE">
+</td>
+</ng-container>
+<ng-container matColumnDef="INSPL_NONSEAL">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>INSPL_NONSEAL</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="INSPL_NONSEAL" name="INSPL_NONSEAL{{element.TOOL_IDX}}" [(ngModel)]="element.INSPL_NONSEAL">
+</td>
+</ng-container>
+<ng-container matColumnDef="INSPL_XTYPE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>INSPL_XTYPE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="INSPL_XTYPE" name="INSPL_XTYPE{{element.TOOL_IDX}}" [(ngModel)]="element.INSPL_XTYPE">
+</td>
+</ng-container>
+<ng-container matColumnDef="INSPL_KTYPE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>INSPL_KTYPE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="INSPL_KTYPE" name="INSPL_KTYPE{{element.TOOL_IDX}}" [(ngModel)]="element.INSPL_KTYPE">
+</td>
+</ng-container>
+<ng-container matColumnDef="INSPL_SPE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>INSPL_SPE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="INSPL_SPE" name="INSPL_SPE{{element.TOOL_IDX}}" [(ngModel)]="element.INSPL_SPE">
+</td>
+</ng-container>
+<ng-container matColumnDef="ANVIL_NOR">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ANVIL_NOR</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="ANVIL_NOR" name="ANVIL_NOR{{element.TOOL_IDX}}" [(ngModel)]="element.ANVIL_NOR">
+</td>
+</ng-container>
+<ng-container matColumnDef="ANVIL_SPE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ANVIL_SPE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="ANVIL_SPE" name="ANVIL_SPE{{element.TOOL_IDX}}" [(ngModel)]="element.ANVIL_SPE">
+</td>
+</ng-container>
+<ng-container matColumnDef="CMU_NOR">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CMU_NOR</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CMU_NOR" name="CMU_NOR{{element.TOOL_IDX}}" [(ngModel)]="element.CMU_NOR">
+</td>
+</ng-container>
+<ng-container matColumnDef="CMU_SPE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CMU_SPE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CMU_SPE" name="CMU_SPE{{element.TOOL_IDX}}" [(ngModel)]="element.CMU_SPE">
+</td>
+</ng-container>
+<ng-container matColumnDef="IMU_NOR">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>IMU_NOR</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="IMU_NOR" name="IMU_NOR{{element.TOOL_IDX}}" [(ngModel)]="element.IMU_NOR">
+</td>
+</ng-container>
+<ng-container matColumnDef="IMU_NONSEAL">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>IMU_NONSEAL</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="IMU_NONSEAL" name="IMU_NONSEAL{{element.TOOL_IDX}}" [(ngModel)]="element.IMU_NONSEAL">
+</td>
+</ng-container>
+<ng-container matColumnDef="IMU_SPE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>IMU_SPE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="IMU_SPE" name="IMU_SPE{{element.TOOL_IDX}}" [(ngModel)]="element.IMU_SPE">
+</td>
+</ng-container>
+<ng-container matColumnDef="CUTPL_ONE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CUTPL_ONE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CUTPL_ONE" name="CUTPL_ONE{{element.TOOL_IDX}}" [(ngModel)]="element.CUTPL_ONE">
+</td>
+</ng-container>
+<ng-container matColumnDef="CUTPL_DET">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CUTPL_DET</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CUTPL_DET" name="CUTPL_DET{{element.TOOL_IDX}}" [(ngModel)]="element.CUTPL_DET">
+</td>
+</ng-container>
+<ng-container matColumnDef="CUTAN_ONE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CUTAN_ONE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CUTAN_ONE" name="CUTAN_ONE{{element.TOOL_IDX}}" [(ngModel)]="element.CUTAN_ONE">
+</td>
+</ng-container>
+<ng-container matColumnDef="CUTAN_DET">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CUTAN_DET</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CUTAN_DET" name="CUTAN_DET{{element.TOOL_IDX}}" [(ngModel)]="element.CUTAN_DET">
+</td>
+</ng-container>
+<ng-container matColumnDef="CUTHO_ONE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CUTHO_ONE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CUTHO_ONE" name="CUTHO_ONE{{element.TOOL_IDX}}" [(ngModel)]="element.CUTHO_ONE">
+</td>
+</ng-container>
+<ng-container matColumnDef="CUTHO_DET">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CUTHO_DET</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CUTHO_DET" name="CUTHO_DET{{element.TOOL_IDX}}" [(ngModel)]="element.CUTHO_DET">
+</td>
+</ng-container>
+<ng-container matColumnDef="RRBLK_ONE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>RRBLK_ONE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="RRBLK_ONE" name="RRBLK_ONE{{element.TOOL_IDX}}" [(ngModel)]="element.RRBLK_ONE">
+</td>
+</ng-container>
+<ng-container matColumnDef="RRBLK_DET">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>RRBLK_DET</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="RRBLK_DET" name="RRBLK_DET{{element.TOOL_IDX}}" [(ngModel)]="element.RRBLK_DET">
+</td>
+</ng-container>
+<ng-container matColumnDef="RRCUTHO_ONE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>RRCUTHO_ONE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="RRCUTHO_ONE" name="RRCUTHO_ONE{{element.TOOL_IDX}}" [(ngModel)]="element.RRCUTHO_ONE">
+</td>
+</ng-container>
+<ng-container matColumnDef="RRCUTHO_DET">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>RRCUTHO_DET</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="RRCUTHO_DET" name="RRCUTHO_DET{{element.TOOL_IDX}}" [(ngModel)]="element.RRCUTHO_DET">
+</td>
+</ng-container>
+<ng-container matColumnDef="FRCUTHO_ONE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>FRCUTHO_ONE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="FRCUTHO_ONE" name="FRCUTHO_ONE{{element.TOOL_IDX}}" [(ngModel)]="element.FRCUTHO_ONE">
+</td>
+</ng-container>
+<ng-container matColumnDef="FRCUTHO_DET">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>FRCUTHO_DET</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="FRCUTHO_DET" name="FRCUTHO_DET{{element.TOOL_IDX}}" [(ngModel)]="element.FRCUTHO_DET">
+</td>
+</ng-container>
+<ng-container matColumnDef="RRCUTAN_ONE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>RRCUTAN_ONE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="RRCUTAN_ONE" name="RRCUTAN_ONE{{element.TOOL_IDX}}" [(ngModel)]="element.RRCUTAN_ONE">
+</td>
+</ng-container>
+<ng-container matColumnDef="RRCUTAN_DET">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>RRCUTAN_DET</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="RRCUTAN_DET" name="RRCUTAN_DET{{element.TOOL_IDX}}" [(ngModel)]="element.RRCUTAN_DET">
+</td>
+</ng-container>
+<ng-container matColumnDef="WRDN_ONE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>WRDN_ONE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="WRDN_ONE" name="WRDN_ONE{{element.TOOL_IDX}}" [(ngModel)]="element.WRDN_ONE">
+</td>
+</ng-container>
+<ng-container matColumnDef="WRDN_DET">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>WRDN_DET</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="WRDN_DET" name="WRDN_DET{{element.TOOL_IDX}}" [(ngModel)]="element.WRDN_DET">
+</td>
+</ng-container>
+<ng-container matColumnDef="DESC">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DESC</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="DESC" name="DESC{{element.TOOL_IDX}}" [(ngModel)]="element.DESC">
+</td>
+</ng-container>
+<ng-container matColumnDef="COMB_CODE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>COMB_CODE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="COMB_CODE" name="COMB_CODE{{element.TOOL_IDX}}" [(ngModel)]="element.COMB_CODE">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_DTM" name="CREATE_DTM{{element.TOOL_IDX}}" [(ngModel)]="element.CREATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_USER" name="CREATE_USER{{element.TOOL_IDX}}" [(ngModel)]="element.CREATE_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_DTM" name="UPDATE_DTM{{element.TOOL_IDX}}" [(ngModel)]="element.UPDATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_USER" name="UPDATE_USER{{element.TOOL_IDX}}" [(ngModel)]="element.UPDATE_USER">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="ttoolmasterSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.TOOL_IDX>0" (click)="ttoolmasterDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="ttoolmasterService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: ttoolmasterService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #ttoolmasterPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="ttoolmasterService.IsShowLoading"></app-loading>

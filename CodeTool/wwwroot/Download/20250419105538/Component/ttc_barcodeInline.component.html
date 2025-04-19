@@ -1,0 +1,155 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    ttc_barcode
+                    <span *ngIf="ttc_barcodeService.List">({{ttc_barcodeService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/ttc_barcode" title="ttc_barcode">ttc_barcode</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/ttc_barcode" title="ttc_barcode">ttc_barcode</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="ttc_barcodeService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="ttc_barcodeSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="ttc_barcodeSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #ttc_barcodeSort="matSort"
+                       [dataSource]="ttc_barcodeService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="ttc_barcodePaginator">
+                                {{
+                                    ttc_barcodePaginator.pageSize *
+                                    ttc_barcodePaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="TTC_BARCODE_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TTC_BARCODE_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TTC_BARCODE_IDX" name="TTC_BARCODE_IDX{{element.TTC_BARCODE_IDX}}" [(ngModel)]="element.TTC_BARCODE_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="TTC_BARCODENM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TTC_BARCODENM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TTC_BARCODENM" name="TTC_BARCODENM{{element.TTC_BARCODE_IDX}}" [(ngModel)]="element.TTC_BARCODENM">
+</td>
+</ng-container>
+<ng-container matColumnDef="TTC_ORDER_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TTC_ORDER_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TTC_ORDER_IDX" name="TTC_ORDER_IDX{{element.TTC_BARCODE_IDX}}" [(ngModel)]="element.TTC_ORDER_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="Barcode_SEQ">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>Barcode_SEQ</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="Barcode_SEQ" name="Barcode_SEQ{{element.TTC_BARCODE_IDX}}" [(ngModel)]="element.Barcode_SEQ">
+</td>
+</ng-container>
+<ng-container matColumnDef="TTC_BC_WORK">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TTC_BC_WORK</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TTC_BC_WORK" name="TTC_BC_WORK{{element.TTC_BARCODE_IDX}}" [(ngModel)]="element.TTC_BC_WORK">
+</td>
+</ng-container>
+<ng-container matColumnDef="DSCN_YN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DSCN_YN</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="DSCN_YN" name="DSCN_YN{{element.TTC_BARCODE_IDX}}" [(ngModel)]="element.DSCN_YN">
+</td>
+</ng-container>
+<ng-container matColumnDef="WORK_START">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>WORK_START</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="WORK_START" name="WORK_START{{element.TTC_BARCODE_IDX}}" [(ngModel)]="element.WORK_START">
+</td>
+</ng-container>
+<ng-container matColumnDef="WORK_END">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>WORK_END</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="WORK_END" name="WORK_END{{element.TTC_BARCODE_IDX}}" [(ngModel)]="element.WORK_END">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_DTM" name="CREATE_DTM{{element.TTC_BARCODE_IDX}}" [(ngModel)]="element.CREATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_USER" name="CREATE_USER{{element.TTC_BARCODE_IDX}}" [(ngModel)]="element.CREATE_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_DTM" name="UPDATE_DTM{{element.TTC_BARCODE_IDX}}" [(ngModel)]="element.UPDATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_USER" name="UPDATE_USER{{element.TTC_BARCODE_IDX}}" [(ngModel)]="element.UPDATE_USER">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="ttc_barcodeSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.TTC_BARCODE_IDX>0" (click)="ttc_barcodeDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="ttc_barcodeService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: ttc_barcodeService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #ttc_barcodePaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="ttc_barcodeService.IsShowLoading"></app-loading>

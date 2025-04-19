@@ -1,0 +1,225 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    torderlist:
+                    <b>{{torderlistService.FormData.Name}} [{{torderlistService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/torderlist" title="torderlist">torderlist</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/torderlist" title="torderlist">torderlist</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="torderlistAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="torderlistSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>ORDER_IDX</label>
+<input placeholder="ORDER_IDX" [(ngModel)]="torderlistService.FormData.ORDER_IDX" name="torderlistService.FormData.ORDER_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>OR_NO</label>
+<input placeholder="OR_NO" [(ngModel)]="torderlistService.FormData.OR_NO" name="torderlistService.FormData.OR_NO" type="text" class="form-control">
+</div>
+<div>
+<label>WORK_WEEK</label>
+<input placeholder="WORK_WEEK" [(ngModel)]="torderlistService.FormData.WORK_WEEK" name="torderlistService.FormData.WORK_WEEK" type="text" class="form-control">
+</div>
+<div>
+<label>LEAD_NO</label>
+<input placeholder="LEAD_NO" [(ngModel)]="torderlistService.FormData.LEAD_NO" name="torderlistService.FormData.LEAD_NO" type="text" class="form-control">
+</div>
+<div>
+<label>PROJECT</label>
+<input placeholder="PROJECT" [(ngModel)]="torderlistService.FormData.PROJECT" name="torderlistService.FormData.PROJECT" type="text" class="form-control">
+</div>
+<div>
+<label>TOT_QTY</label>
+<input placeholder="TOT_QTY" [(ngModel)]="torderlistService.FormData.TOT_QTY" name="torderlistService.FormData.TOT_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>ADJ_AF_QTY</label>
+<input placeholder="ADJ_AF_QTY" [(ngModel)]="torderlistService.FormData.ADJ_AF_QTY" name="torderlistService.FormData.ADJ_AF_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>CUR_LEADS</label>
+<input placeholder="CUR_LEADS" [(ngModel)]="torderlistService.FormData.CUR_LEADS" name="torderlistService.FormData.CUR_LEADS" type="text" class="form-control">
+</div>
+<div>
+<label>CT_LEADS</label>
+<input placeholder="CT_LEADS" [(ngModel)]="torderlistService.FormData.CT_LEADS" name="torderlistService.FormData.CT_LEADS" type="text" class="form-control">
+</div>
+<div>
+<label>CT_LEADS_PR</label>
+<input placeholder="CT_LEADS_PR" [(ngModel)]="torderlistService.FormData.CT_LEADS_PR" name="torderlistService.FormData.CT_LEADS_PR" type="text" class="form-control">
+</div>
+<div>
+<label>GRP</label>
+<input placeholder="GRP" [(ngModel)]="torderlistService.FormData.GRP" name="torderlistService.FormData.GRP" type="text" class="form-control">
+</div>
+<div>
+<label>PRT</label>
+<input placeholder="PRT" [(ngModel)]="torderlistService.FormData.PRT" name="torderlistService.FormData.PRT" type="text" class="form-control">
+</div>
+<div>
+<label>DT</label>
+<input placeholder="DT" [(ngModel)]="torderlistService.FormData.DT" name="torderlistService.FormData.DT" type="text" class="form-control">
+</div>
+<div>
+<label>MC</label>
+<input placeholder="MC" [(ngModel)]="torderlistService.FormData.MC" name="torderlistService.FormData.MC" type="text" class="form-control">
+</div>
+<div>
+<label>MC2</label>
+<input placeholder="MC2" [(ngModel)]="torderlistService.FormData.MC2" name="torderlistService.FormData.MC2" type="text" class="form-control">
+</div>
+<div>
+<label>BUNDLE_SIZE</label>
+<input placeholder="BUNDLE_SIZE" [(ngModel)]="torderlistService.FormData.BUNDLE_SIZE" name="torderlistService.FormData.BUNDLE_SIZE" type="text" class="form-control">
+</div>
+<div>
+<label>HOOK_RACK</label>
+<input placeholder="HOOK_RACK" [(ngModel)]="torderlistService.FormData.HOOK_RACK" name="torderlistService.FormData.HOOK_RACK" type="text" class="form-control">
+</div>
+<div>
+<label>WIRE</label>
+<input placeholder="WIRE" [(ngModel)]="torderlistService.FormData.WIRE" name="torderlistService.FormData.WIRE" type="text" class="form-control">
+</div>
+<div>
+<label>T1_DIR</label>
+<input placeholder="T1_DIR" [(ngModel)]="torderlistService.FormData.T1_DIR" name="torderlistService.FormData.T1_DIR" type="text" class="form-control">
+</div>
+<div>
+<label>TERM1</label>
+<input placeholder="TERM1" [(ngModel)]="torderlistService.FormData.TERM1" name="torderlistService.FormData.TERM1" type="text" class="form-control">
+</div>
+<div>
+<label>STRIP1</label>
+<input placeholder="STRIP1" [(ngModel)]="torderlistService.FormData.STRIP1" name="torderlistService.FormData.STRIP1" type="text" class="form-control">
+</div>
+<div>
+<label>SEAL1</label>
+<input placeholder="SEAL1" [(ngModel)]="torderlistService.FormData.SEAL1" name="torderlistService.FormData.SEAL1" type="text" class="form-control">
+</div>
+<div>
+<label>CCH_W1</label>
+<input placeholder="CCH_W1" [(ngModel)]="torderlistService.FormData.CCH_W1" name="torderlistService.FormData.CCH_W1" type="text" class="form-control">
+</div>
+<div>
+<label>ICH_W1</label>
+<input placeholder="ICH_W1" [(ngModel)]="torderlistService.FormData.ICH_W1" name="torderlistService.FormData.ICH_W1" type="text" class="form-control">
+</div>
+<div>
+<label>T2_DIR</label>
+<input placeholder="T2_DIR" [(ngModel)]="torderlistService.FormData.T2_DIR" name="torderlistService.FormData.T2_DIR" type="text" class="form-control">
+</div>
+<div>
+<label>TERM2</label>
+<input placeholder="TERM2" [(ngModel)]="torderlistService.FormData.TERM2" name="torderlistService.FormData.TERM2" type="text" class="form-control">
+</div>
+<div>
+<label>STRIP2</label>
+<input placeholder="STRIP2" [(ngModel)]="torderlistService.FormData.STRIP2" name="torderlistService.FormData.STRIP2" type="text" class="form-control">
+</div>
+<div>
+<label>SEAL2</label>
+<input placeholder="SEAL2" [(ngModel)]="torderlistService.FormData.SEAL2" name="torderlistService.FormData.SEAL2" type="text" class="form-control">
+</div>
+<div>
+<label>CCH_W2</label>
+<input placeholder="CCH_W2" [(ngModel)]="torderlistService.FormData.CCH_W2" name="torderlistService.FormData.CCH_W2" type="text" class="form-control">
+</div>
+<div>
+<label>ICH_W2</label>
+<input placeholder="ICH_W2" [(ngModel)]="torderlistService.FormData.ICH_W2" name="torderlistService.FormData.ICH_W2" type="text" class="form-control">
+</div>
+<div>
+<label>SP_ST</label>
+<input placeholder="SP_ST" [(ngModel)]="torderlistService.FormData.SP_ST" name="torderlistService.FormData.SP_ST" type="text" class="form-control">
+</div>
+<div>
+<label>REP</label>
+<input placeholder="REP" [(ngModel)]="torderlistService.FormData.REP" name="torderlistService.FormData.REP" type="text" class="form-control">
+</div>
+<div>
+<label>DSCN_YN</label>
+<input placeholder="DSCN_YN" [(ngModel)]="torderlistService.FormData.DSCN_YN" name="torderlistService.FormData.DSCN_YN" type="text" class="form-control">
+</div>
+<div>
+<label>PERFORMN</label>
+<input placeholder="PERFORMN" [(ngModel)]="torderlistService.FormData.PERFORMN" name="torderlistService.FormData.PERFORMN" type="text" class="form-control">
+</div>
+<div>
+<label>CONDITION</label>
+<input placeholder="CONDITION" [(ngModel)]="torderlistService.FormData.CONDITION" name="torderlistService.FormData.CONDITION" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="torderlistService.FormData.CREATE_DTM" name="torderlistService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="torderlistService.FormData.CREATE_USER" name="torderlistService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="torderlistService.FormData.UPDATE_DTM" name="torderlistService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="torderlistService.FormData.UPDATE_USER" name="torderlistService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>FCTRY_NM</label>
+<input placeholder="FCTRY_NM" [(ngModel)]="torderlistService.FormData.FCTRY_NM" name="torderlistService.FormData.FCTRY_NM" type="text" class="form-control">
+</div>
+<div>
+<label>MTRL_RQUST</label>
+<input placeholder="MTRL_RQUST" [(ngModel)]="torderlistService.FormData.MTRL_RQUST" name="torderlistService.FormData.MTRL_RQUST" type="text" class="form-control">
+</div>
+<div>
+<label>TORDER_FG</label>
+<input placeholder="TORDER_FG" [(ngModel)]="torderlistService.FormData.TORDER_FG" name="torderlistService.FormData.TORDER_FG" type="text" class="form-control">
+</div>
+<div>
+<label>TOEXCEL_QTY</label>
+<input placeholder="TOEXCEL_QTY" [(ngModel)]="torderlistService.FormData.TOEXCEL_QTY" name="torderlistService.FormData.TOEXCEL_QTY" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="torderlistService.IsShowLoading"></app-loading>

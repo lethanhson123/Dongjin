@@ -1,0 +1,185 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    kr_tdpdmtim_tmp
+                    <span *ngIf="kr_tdpdmtim_tmpService.List">({{kr_tdpdmtim_tmpService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/kr_tdpdmtim_tmp" title="kr_tdpdmtim_tmp">kr_tdpdmtim_tmp</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/kr_tdpdmtim_tmp" title="kr_tdpdmtim_tmp">kr_tdpdmtim_tmp</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="kr_tdpdmtim_tmpService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="kr_tdpdmtim_tmpSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="kr_tdpdmtim_tmpSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #kr_tdpdmtim_tmpSort="matSort"
+                       [dataSource]="kr_tdpdmtim_tmpService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="kr_tdpdmtim_tmpPaginator">
+                                {{
+                                    kr_tdpdmtim_tmpPaginator.pageSize *
+                                    kr_tdpdmtim_tmpPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="KR_TDPDMTIN_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_TDPDMTIN_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_TDPDMTIN_IDX" name="KR_TDPDMTIN_IDX{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.KR_TDPDMTIN_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_TDPDMTIN_POCODE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_TDPDMTIN_POCODE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_TDPDMTIN_POCODE" name="KR_TDPDMTIN_POCODE{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.KR_TDPDMTIN_POCODE">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_TDPDMTIN_PLTNO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_TDPDMTIN_PLTNO</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_TDPDMTIN_PLTNO" name="KR_TDPDMTIN_PLTNO{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.KR_TDPDMTIN_PLTNO">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_TDPDMTIN_PART_NO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_TDPDMTIN_PART_NO</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_TDPDMTIN_PART_NO" name="KR_TDPDMTIN_PART_NO{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.KR_TDPDMTIN_PART_NO">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_TDPDMTIN_SNP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_TDPDMTIN_SNP</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_TDPDMTIN_SNP" name="KR_TDPDMTIN_SNP{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.KR_TDPDMTIN_SNP">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_TDPDMTIN_VLID_GRP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_TDPDMTIN_VLID_GRP</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_TDPDMTIN_VLID_GRP" name="KR_TDPDMTIN_VLID_GRP{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.KR_TDPDMTIN_VLID_GRP">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_TDPDMTIN_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_TDPDMTIN_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_TDPDMTIN_DTM" name="KR_TDPDMTIN_DTM{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.KR_TDPDMTIN_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_TDPDMTIN_BARCODE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_TDPDMTIN_BARCODE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_TDPDMTIN_BARCODE" name="KR_TDPDMTIN_BARCODE{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.KR_TDPDMTIN_BARCODE">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_TDPDMTIN_REMARK">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_TDPDMTIN_REMARK</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_TDPDMTIN_REMARK" name="KR_TDPDMTIN_REMARK{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.KR_TDPDMTIN_REMARK">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_TDPDMTIN_DSNY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_TDPDMTIN_DSNY</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_TDPDMTIN_DSNY" name="KR_TDPDMTIN_DSNY{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.KR_TDPDMTIN_DSNY">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_TDPDMTIN_GRUPCD">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_TDPDMTIN_GRUPCD</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_TDPDMTIN_GRUPCD" name="KR_TDPDMTIN_GRUPCD{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.KR_TDPDMTIN_GRUPCD">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_TDPDMTIN_INSPNY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_TDPDMTIN_INSPNY</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_TDPDMTIN_INSPNY" name="KR_TDPDMTIN_INSPNY{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.KR_TDPDMTIN_INSPNY">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_TDPDMTIN_MIDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_TDPDMTIN_MIDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_TDPDMTIN_MIDX" name="KR_TDPDMTIN_MIDX{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.KR_TDPDMTIN_MIDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_DTM" name="CREATE_DTM{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.CREATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_USER" name="CREATE_USER{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.CREATE_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_DTM" name="UPDATE_DTM{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.UPDATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_USER" name="UPDATE_USER{{element.KR_TDPDMTIN_IDX}}" [(ngModel)]="element.UPDATE_USER">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="kr_tdpdmtim_tmpSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.KR_TDPDMTIN_IDX>0" (click)="kr_tdpdmtim_tmpDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="kr_tdpdmtim_tmpService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: kr_tdpdmtim_tmpService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #kr_tdpdmtim_tmpPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="kr_tdpdmtim_tmpService.IsShowLoading"></app-loading>

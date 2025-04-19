@@ -1,0 +1,97 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tsnon_oper_worker:
+                    <b>{{tsnon_oper_workerService.FormData.Name}} [{{tsnon_oper_workerService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tsnon_oper_worker" title="tsnon_oper_worker">tsnon_oper_worker</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tsnon_oper_worker" title="tsnon_oper_worker">tsnon_oper_worker</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="tsnon_oper_workerAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="tsnon_oper_workerSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>TSNON_OPER_IDX</label>
+<input placeholder="TSNON_OPER_IDX" [(ngModel)]="tsnon_oper_workerService.FormData.TSNON_OPER_IDX" name="tsnon_oper_workerService.FormData.TSNON_OPER_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>TSNON_OPER_CODE</label>
+<input placeholder="TSNON_OPER_CODE" [(ngModel)]="tsnon_oper_workerService.FormData.TSNON_OPER_CODE" name="tsnon_oper_workerService.FormData.TSNON_OPER_CODE" type="text" class="form-control">
+</div>
+<div>
+<label>TSNON_OPER_MCNM</label>
+<input placeholder="TSNON_OPER_MCNM" [(ngModel)]="tsnon_oper_workerService.FormData.TSNON_OPER_MCNM" name="tsnon_oper_workerService.FormData.TSNON_OPER_MCNM" type="text" class="form-control">
+</div>
+<div>
+<label>TSNON_OPER_USERNM</label>
+<input placeholder="TSNON_OPER_USERNM" [(ngModel)]="tsnon_oper_workerService.FormData.TSNON_OPER_USERNM" name="tsnon_oper_workerService.FormData.TSNON_OPER_USERNM" type="text" class="form-control">
+</div>
+<div>
+<label>TSNON_OPER_DATE</label>
+<input placeholder="TSNON_OPER_DATE" [(ngModel)]="tsnon_oper_workerService.FormData.TSNON_OPER_DATE" name="tsnon_oper_workerService.FormData.TSNON_OPER_DATE" type="text" class="form-control">
+</div>
+<div>
+<label>TSNON_OPER_COL</label>
+<input placeholder="TSNON_OPER_COL" [(ngModel)]="tsnon_oper_workerService.FormData.TSNON_OPER_COL" name="tsnon_oper_workerService.FormData.TSNON_OPER_COL" type="text" class="form-control">
+</div>
+<div>
+<label>TSNON_OPER_TIME</label>
+<input placeholder="TSNON_OPER_TIME" [(ngModel)]="tsnon_oper_workerService.FormData.TSNON_OPER_TIME" name="tsnon_oper_workerService.FormData.TSNON_OPER_TIME" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tsnon_oper_workerService.FormData.CREATE_DTM" name="tsnon_oper_workerService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tsnon_oper_workerService.FormData.CREATE_USER" name="tsnon_oper_workerService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tsnon_oper_workerService.FormData.UPDATE_DTM" name="tsnon_oper_workerService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tsnon_oper_workerService.FormData.UPDATE_USER" name="tsnon_oper_workerService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tsnon_oper_workerService.IsShowLoading"></app-loading>

@@ -43,7 +43,7 @@
             <div class="KhungOverflow">
                 <table *ngIf="!NotificationService.IsMobile" mat-table matSort #[ClassName]Sort="matSort"
                        [dataSource]="[ClassName]Service.DataSource">
-                    <ng-container matColumnDef="STT">
+                    <ng-container matColumnDef="No">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header>
                             No
                         </th>
@@ -64,7 +64,7 @@
                             <a (click)="[ClassName]Save(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
                                 <i class="material-icons">save</i>
                             </a>&nbsp;&nbsp;&nbsp;
-                            <a *ngIf="element.ID>0" (click)="[ClassName]Delete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                            <a *ngIf="element.[Item]>0" (click)="[ClassName]Delete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
                                 <i class="material-icons">delete_outline</i>
                             </a>
                         </td>

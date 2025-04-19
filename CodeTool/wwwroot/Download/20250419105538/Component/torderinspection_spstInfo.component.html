@@ -1,0 +1,77 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    torderinspection_spst:
+                    <b>{{torderinspection_spstService.FormData.Name}} [{{torderinspection_spstService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/torderinspection_spst" title="torderinspection_spst">torderinspection_spst</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/torderinspection_spst" title="torderinspection_spst">torderinspection_spst</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="torderinspection_spstAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="torderinspection_spstSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>INSPECTION_IDX</label>
+<input placeholder="INSPECTION_IDX" [(ngModel)]="torderinspection_spstService.FormData.INSPECTION_IDX" name="torderinspection_spstService.FormData.INSPECTION_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>ORDER_IDX</label>
+<input placeholder="ORDER_IDX" [(ngModel)]="torderinspection_spstService.FormData.ORDER_IDX" name="torderinspection_spstService.FormData.ORDER_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>COLSIP</label>
+<input placeholder="COLSIP" [(ngModel)]="torderinspection_spstService.FormData.COLSIP" name="torderinspection_spstService.FormData.COLSIP" type="text" class="form-control">
+</div>
+<div>
+<label>RES_H</label>
+<input placeholder="RES_H" [(ngModel)]="torderinspection_spstService.FormData.RES_H" name="torderinspection_spstService.FormData.RES_H" type="text" class="form-control">
+</div>
+<div>
+<label>RES_V</label>
+<input placeholder="RES_V" [(ngModel)]="torderinspection_spstService.FormData.RES_V" name="torderinspection_spstService.FormData.RES_V" type="text" class="form-control">
+</div>
+<div>
+<label>IN_RESILT</label>
+<input placeholder="IN_RESILT" [(ngModel)]="torderinspection_spstService.FormData.IN_RESILT" name="torderinspection_spstService.FormData.IN_RESILT" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="torderinspection_spstService.IsShowLoading"></app-loading>

@@ -8,23 +8,20 @@ import { environment } from 'src/environments/environment';
 import { NotificationService } from 'src/app/shared/Notification.service';
 import { DownloadService } from 'src/app/shared/Download.service';
 
-import { [ClassName] } from 'src/app/shared/[ClassName].model';
-import { [ClassName]Service } from 'src/app/shared/[ClassName].service';
+import { [ClassName] } from 'src/app/shared/MES/[ClassName].model';
+import { [ClassName]Service } from 'src/app/shared/MES/[ClassName].service';
 
 @Component({
   selector: 'app-[ClassName]-info',
   templateUrl: './[ClassName]-info.component.html',
   styleUrls: ['./[ClassName]-info.component.css']
 })
-export class [ClassName]InfoComponent implements OnInit {
+export class [ClassName]DetailComponent implements OnInit {
 
   constructor(
-    public DialogRef: MatDialogRef<InvoiceInputDetailComponent>
-    ,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    public DialogRef: MatDialogRef<[ClassName]DetailComponent>,    
     public NotificationService: NotificationService,
     public DownloadService: DownloadService,
-
 
     public [ClassName]Service: [ClassName]Service,
     ) {
@@ -33,8 +30,8 @@ export class [ClassName]InfoComponent implements OnInit {
     ngOnInit(): void {
 
     }
-    ngAfterViewInit() {    
-    this.[ClassName]Search();
+    ngAfterViewInit() {
+    //this.[ClassName]Search();
     }
     Close() {
     this.DialogRef.close();
@@ -54,7 +51,7 @@ export class [ClassName]InfoComponent implements OnInit {
     this.[ClassName]Service.IsShowLoading = true;
     this.[ClassName]Service.SaveAsync().subscribe(
     res => {
-    this.[ClassName]Service.FormData = res as [ClassName];    
+    this.[ClassName]Service.FormData = res as [ClassName];
     this.NotificationService.warn(environment.SaveSuccess);
     },
     err => {

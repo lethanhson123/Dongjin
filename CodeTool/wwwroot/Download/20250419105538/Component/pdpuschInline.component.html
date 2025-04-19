@@ -1,0 +1,263 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    pdpusch
+                    <span *ngIf="pdpuschService.List">({{pdpuschService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pdpusch" title="pdpusch">pdpusch</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pdpusch" title="pdpusch">pdpusch</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="pdpuschService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="pdpuschSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="pdpuschSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #pdpuschSort="matSort"
+                       [dataSource]="pdpuschService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="pdpuschPaginator">
+                                {{
+                                    pdpuschPaginator.pageSize *
+                                    pdpuschPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="PDPUSCH_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDPUSCH_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDPUSCH_IDX" name="PDPUSCH_IDX{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDPUSCH_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_CONF">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_CONF</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_CONF" name="PDP_CONF{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_CONF">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_FACT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_FACT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_FACT" name="PDP_FACT{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_FACT">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_NO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_NO</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_NO" name="PDP_NO{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_NO">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_COMPY_NO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_COMPY_NO</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_COMPY_NO" name="PDP_COMPY_NO{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_COMPY_NO">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_DATE1">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_DATE1</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_DATE1" name="PDP_DATE1{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_DATE1">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_DEPA">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_DEPA</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_DEPA" name="PDP_DEPA{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_DEPA">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_PART">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_PART</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_PART" name="PDP_PART{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_PART">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_QTY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_QTY</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_QTY" name="PDP_QTY{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_QTY">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_MEMO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_MEMO</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_MEMO" name="PDP_MEMO{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_MEMO">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_REC_YN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_REC_YN</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_REC_YN" name="PDP_REC_YN{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_REC_YN">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_CMPY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_CMPY</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_CMPY" name="PDP_CMPY{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_CMPY">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_DATE2">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_DATE2</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_DATE2" name="PDP_DATE2{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_DATE2">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_COST">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_COST</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_COST" name="PDP_COST{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_COST">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_VAT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_VAT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_VAT" name="PDP_VAT{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_VAT">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_ECTCOST">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_ECTCOST</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_ECTCOST" name="PDP_ECTCOST{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_ECTCOST">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_TOTCOST">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_TOTCOST</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_TOTCOST" name="PDP_TOTCOST{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_TOTCOST">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_CNF_DATE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_CNF_DATE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_CNF_DATE" name="PDP_CNF_DATE{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_CNF_DATE">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_CNF_YN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_CNF_YN</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_CNF_YN" name="PDP_CNF_YN{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_CNF_YN">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_ORD_ST">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_ORD_ST</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_ORD_ST" name="PDP_ORD_ST{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_ORD_ST">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_REMARK">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_REMARK</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_REMARK" name="PDP_REMARK{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_REMARK">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_BE_COST">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_BE_COST</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_BE_COST" name="PDP_BE_COST{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_BE_COST">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_INCO_DT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_INCO_DT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_INCO_DT" name="PDP_INCO_DT{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_INCO_DT">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_IN_QTY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_IN_QTY</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_IN_QTY" name="PDP_IN_QTY{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_IN_QTY">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_FIFO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_FIFO</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_FIFO" name="PDP_FIFO{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_FIFO">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_PRIENT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_PRIENT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_PRIENT" name="PDP_PRIENT{{element.PDPUSCH_IDX}}" [(ngModel)]="element.PDP_PRIENT">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_DTM" name="CREATE_DTM{{element.PDPUSCH_IDX}}" [(ngModel)]="element.CREATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_USER" name="CREATE_USER{{element.PDPUSCH_IDX}}" [(ngModel)]="element.CREATE_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_DTM" name="UPDATE_DTM{{element.PDPUSCH_IDX}}" [(ngModel)]="element.UPDATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_USER" name="UPDATE_USER{{element.PDPUSCH_IDX}}" [(ngModel)]="element.UPDATE_USER">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="pdpuschSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.PDPUSCH_IDX>0" (click)="pdpuschDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="pdpuschService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: pdpuschService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #pdpuschPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="pdpuschService.IsShowLoading"></app-loading>

@@ -1,0 +1,36 @@
+﻿<div class="col s12 m12 l10">
+    <h5 class="card-title"><b>tsnotice</b></h5>
+</div>
+<div class="col s12 m12 l2">
+    <a title="Save" class="btn-floating waves-effect waves-light cyan" (click)="tsnoticeSave()">
+        <i class="material-icons">save</i>
+    </a>&nbsp;&nbsp;&nbsp;
+    <a title="Close" class="btn-floating waves-effect waves-light purple lightrn-1" (click)="Close()">
+        <i class="material-icons">close</i>
+    </a>
+</div>
+<div class="col s12 m12 l12">
+    <div>
+<label>Notice_IDX</label>
+<input placeholder="Notice_IDX" [(ngModel)]="tsnoticeService.FormData.Notice_IDX" name="tsnoticeService.FormData.Notice_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>Title</label>
+<input placeholder="Title" [(ngModel)]="tsnoticeService.FormData.Title" name="tsnoticeService.FormData.Title" type="text" class="form-control">
+</div>
+<div>
+<label>Contents</label>
+<input placeholder="Contents" [(ngModel)]="tsnoticeService.FormData.Contents" name="tsnoticeService.FormData.Contents" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tsnoticeService.FormData.CREATE_DTM" name="tsnoticeService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tsnoticeService.FormData.CREATE_USER" name="tsnoticeService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+
+</div>
+
+

@@ -1,0 +1,137 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tscode
+                    <span *ngIf="tscodeService.List">({{tscodeService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tscode" title="tscode">tscode</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tscode" title="tscode">tscode</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="tscodeService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="tscodeSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="tscodeSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #tscodeSort="matSort"
+                       [dataSource]="tscodeService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="tscodePaginator">
+                                {{
+                                    tscodePaginator.pageSize *
+                                    tscodePaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="CD_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CD_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CD_IDX" name="CD_IDX{{element.CD_IDX}}" [(ngModel)]="element.CD_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="CDGR_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CDGR_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CDGR_IDX" name="CDGR_IDX{{element.CD_IDX}}" [(ngModel)]="element.CDGR_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="CD_SYS_NOTE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CD_SYS_NOTE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CD_SYS_NOTE" name="CD_SYS_NOTE{{element.CD_IDX}}" [(ngModel)]="element.CD_SYS_NOTE">
+</td>
+</ng-container>
+<ng-container matColumnDef="CD_NM_HAN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CD_NM_HAN</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CD_NM_HAN" name="CD_NM_HAN{{element.CD_IDX}}" [(ngModel)]="element.CD_NM_HAN">
+</td>
+</ng-container>
+<ng-container matColumnDef="CD_NM_EN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CD_NM_EN</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CD_NM_EN" name="CD_NM_EN{{element.CD_IDX}}" [(ngModel)]="element.CD_NM_EN">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_DTM" name="CREATE_DTM{{element.CD_IDX}}" [(ngModel)]="element.CREATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_USER" name="CREATE_USER{{element.CD_IDX}}" [(ngModel)]="element.CREATE_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_DTM" name="UPDATE_DTM{{element.CD_IDX}}" [(ngModel)]="element.UPDATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_USER" name="UPDATE_USER{{element.CD_IDX}}" [(ngModel)]="element.UPDATE_USER">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="tscodeSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.CD_IDX>0" (click)="tscodeDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="tscodeService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: tscodeService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #tscodePaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tscodeService.IsShowLoading"></app-loading>

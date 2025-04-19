@@ -1,0 +1,117 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    torderinspection:
+                    <b>{{torderinspectionService.FormData.Name}} [{{torderinspectionService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/torderinspection" title="torderinspection">torderinspection</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/torderinspection" title="torderinspection">torderinspection</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="torderinspectionAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="torderinspectionSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>INSPECTION_IDX</label>
+<input placeholder="INSPECTION_IDX" [(ngModel)]="torderinspectionService.FormData.INSPECTION_IDX" name="torderinspectionService.FormData.INSPECTION_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>ORDER_IDX</label>
+<input placeholder="ORDER_IDX" [(ngModel)]="torderinspectionService.FormData.ORDER_IDX" name="torderinspectionService.FormData.ORDER_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>COLSIP</label>
+<input placeholder="COLSIP" [(ngModel)]="torderinspectionService.FormData.COLSIP" name="torderinspectionService.FormData.COLSIP" type="text" class="form-control">
+</div>
+<div>
+<label>CCH1</label>
+<input placeholder="CCH1" [(ngModel)]="torderinspectionService.FormData.CCH1" name="torderinspectionService.FormData.CCH1" type="text" class="form-control">
+</div>
+<div>
+<label>CCW1</label>
+<input placeholder="CCW1" [(ngModel)]="torderinspectionService.FormData.CCW1" name="torderinspectionService.FormData.CCW1" type="text" class="form-control">
+</div>
+<div>
+<label>CCH2</label>
+<input placeholder="CCH2" [(ngModel)]="torderinspectionService.FormData.CCH2" name="torderinspectionService.FormData.CCH2" type="text" class="form-control">
+</div>
+<div>
+<label>CCW2</label>
+<input placeholder="CCW2" [(ngModel)]="torderinspectionService.FormData.CCW2" name="torderinspectionService.FormData.CCW2" type="text" class="form-control">
+</div>
+<div>
+<label>ICH1</label>
+<input placeholder="ICH1" [(ngModel)]="torderinspectionService.FormData.ICH1" name="torderinspectionService.FormData.ICH1" type="text" class="form-control">
+</div>
+<div>
+<label>ICW1</label>
+<input placeholder="ICW1" [(ngModel)]="torderinspectionService.FormData.ICW1" name="torderinspectionService.FormData.ICW1" type="text" class="form-control">
+</div>
+<div>
+<label>ICH2</label>
+<input placeholder="ICH2" [(ngModel)]="torderinspectionService.FormData.ICH2" name="torderinspectionService.FormData.ICH2" type="text" class="form-control">
+</div>
+<div>
+<label>ICW2</label>
+<input placeholder="ICW2" [(ngModel)]="torderinspectionService.FormData.ICW2" name="torderinspectionService.FormData.ICW2" type="text" class="form-control">
+</div>
+<div>
+<label>WIRE_FORCE</label>
+<input placeholder="WIRE_FORCE" [(ngModel)]="torderinspectionService.FormData.WIRE_FORCE" name="torderinspectionService.FormData.WIRE_FORCE" type="text" class="form-control">
+</div>
+<div>
+<label>WIRE_LENGTH</label>
+<input placeholder="WIRE_LENGTH" [(ngModel)]="torderinspectionService.FormData.WIRE_LENGTH" name="torderinspectionService.FormData.WIRE_LENGTH" type="text" class="form-control">
+</div>
+<div>
+<label>IN_RESILT</label>
+<input placeholder="IN_RESILT" [(ngModel)]="torderinspectionService.FormData.IN_RESILT" name="torderinspectionService.FormData.IN_RESILT" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="torderinspectionService.FormData.CREATE_DTM" name="torderinspectionService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="torderinspectionService.FormData.CREATE_USER" name="torderinspectionService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="torderinspectionService.IsShowLoading"></app-loading>

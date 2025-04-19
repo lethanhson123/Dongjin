@@ -1,0 +1,117 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tspart:
+                    <b>{{tspartService.FormData.Name}} [{{tspartService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tspart" title="tspart">tspart</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tspart" title="tspart">tspart</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="tspartAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="tspartSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>PART_IDX</label>
+<input placeholder="PART_IDX" [(ngModel)]="tspartService.FormData.PART_IDX" name="tspartService.FormData.PART_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PART_NO</label>
+<input placeholder="PART_NO" [(ngModel)]="tspartService.FormData.PART_NO" name="tspartService.FormData.PART_NO" type="text" class="form-control">
+</div>
+<div>
+<label>PART_NM</label>
+<input placeholder="PART_NM" [(ngModel)]="tspartService.FormData.PART_NM" name="tspartService.FormData.PART_NM" type="text" class="form-control">
+</div>
+<div>
+<label>BOM_GRP</label>
+<input placeholder="BOM_GRP" [(ngModel)]="tspartService.FormData.BOM_GRP" name="tspartService.FormData.BOM_GRP" type="text" class="form-control">
+</div>
+<div>
+<label>PART_CAR</label>
+<input placeholder="PART_CAR" [(ngModel)]="tspartService.FormData.PART_CAR" name="tspartService.FormData.PART_CAR" type="text" class="form-control">
+</div>
+<div>
+<label>PART_FML</label>
+<input placeholder="PART_FML" [(ngModel)]="tspartService.FormData.PART_FML" name="tspartService.FormData.PART_FML" type="text" class="form-control">
+</div>
+<div>
+<label>PART_SNP</label>
+<input placeholder="PART_SNP" [(ngModel)]="tspartService.FormData.PART_SNP" name="tspartService.FormData.PART_SNP" type="text" class="form-control">
+</div>
+<div>
+<label>PART_SCN</label>
+<input placeholder="PART_SCN" [(ngModel)]="tspartService.FormData.PART_SCN" name="tspartService.FormData.PART_SCN" type="text" class="form-control">
+</div>
+<div>
+<label>PART_LOC</label>
+<input placeholder="PART_LOC" [(ngModel)]="tspartService.FormData.PART_LOC" name="tspartService.FormData.PART_LOC" type="text" class="form-control">
+</div>
+<div>
+<label>PART_USENY</label>
+<input placeholder="PART_USENY" [(ngModel)]="tspartService.FormData.PART_USENY" name="tspartService.FormData.PART_USENY" type="text" class="form-control">
+</div>
+<div>
+<label>PART_RMK</label>
+<input placeholder="PART_RMK" [(ngModel)]="tspartService.FormData.PART_RMK" name="tspartService.FormData.PART_RMK" type="text" class="form-control">
+</div>
+<div>
+<label>PART_SUPL</label>
+<input placeholder="PART_SUPL" [(ngModel)]="tspartService.FormData.PART_SUPL" name="tspartService.FormData.PART_SUPL" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tspartService.FormData.CREATE_DTM" name="tspartService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tspartService.FormData.CREATE_USER" name="tspartService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tspartService.FormData.UPDATE_DTM" name="tspartService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tspartService.FormData.UPDATE_USER" name="tspartService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tspartService.IsShowLoading"></app-loading>

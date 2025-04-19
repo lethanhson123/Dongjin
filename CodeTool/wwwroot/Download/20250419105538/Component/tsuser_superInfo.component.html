@@ -1,0 +1,89 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tsuser_super:
+                    <b>{{tsuser_superService.FormData.Name}} [{{tsuser_superService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tsuser_super" title="tsuser_super">tsuser_super</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tsuser_super" title="tsuser_super">tsuser_super</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="tsuser_superAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="tsuser_superSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>USER_IDX</label>
+<input placeholder="USER_IDX" [(ngModel)]="tsuser_superService.FormData.USER_IDX" name="tsuser_superService.FormData.USER_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>USER_ID_NAME</label>
+<input placeholder="USER_ID_NAME" [(ngModel)]="tsuser_superService.FormData.USER_ID_NAME" name="tsuser_superService.FormData.USER_ID_NAME" type="text" class="form-control">
+</div>
+<div>
+<label>NAS_TEST_SER</label>
+<input placeholder="NAS_TEST_SER" [(ngModel)]="tsuser_superService.FormData.NAS_TEST_SER" name="tsuser_superService.FormData.NAS_TEST_SER" type="text" class="form-control">
+</div>
+<div>
+<label>LOC_TEST_SER</label>
+<input placeholder="LOC_TEST_SER" [(ngModel)]="tsuser_superService.FormData.LOC_TEST_SER" name="tsuser_superService.FormData.LOC_TEST_SER" type="text" class="form-control">
+</div>
+<div>
+<label>DESC_YN</label>
+<input placeholder="DESC_YN" [(ngModel)]="tsuser_superService.FormData.DESC_YN" name="tsuser_superService.FormData.DESC_YN" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tsuser_superService.FormData.CREATE_DTM" name="tsuser_superService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tsuser_superService.FormData.CREATE_USER" name="tsuser_superService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tsuser_superService.FormData.UPDATE_DTM" name="tsuser_superService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tsuser_superService.FormData.UPDATE_USER" name="tsuser_superService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tsuser_superService.IsShowLoading"></app-loading>

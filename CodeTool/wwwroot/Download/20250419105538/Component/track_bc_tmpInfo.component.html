@@ -1,0 +1,73 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    track_bc_tmp:
+                    <b>{{track_bc_tmpService.FormData.Name}} [{{track_bc_tmpService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/track_bc_tmp" title="track_bc_tmp">track_bc_tmp</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/track_bc_tmp" title="track_bc_tmp">track_bc_tmp</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="track_bc_tmpAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="track_bc_tmpSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>TRACK_BC_IDX</label>
+<input placeholder="TRACK_BC_IDX" [(ngModel)]="track_bc_tmpService.FormData.TRACK_BC_IDX" name="track_bc_tmpService.FormData.TRACK_BC_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>TRACK_BC_LEAD</label>
+<input placeholder="TRACK_BC_LEAD" [(ngModel)]="track_bc_tmpService.FormData.TRACK_BC_LEAD" name="track_bc_tmpService.FormData.TRACK_BC_LEAD" type="text" class="form-control">
+</div>
+<div>
+<label>TRACK_BC_NAME</label>
+<input placeholder="TRACK_BC_NAME" [(ngModel)]="track_bc_tmpService.FormData.TRACK_BC_NAME" name="track_bc_tmpService.FormData.TRACK_BC_NAME" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="track_bc_tmpService.FormData.CREATE_DTM" name="track_bc_tmpService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="track_bc_tmpService.FormData.CREATE_USER" name="track_bc_tmpService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="track_bc_tmpService.IsShowLoading"></app-loading>
