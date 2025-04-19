@@ -35,7 +35,7 @@ Creation_date?: Date;
 Creation_User?: string;
 Update_Date?: Date;
 Update_User?: string;
-
+CD_IDX?: number;
 
 }
 

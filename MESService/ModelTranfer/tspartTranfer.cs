@@ -18,6 +18,7 @@
         public DateTime? Creation_date { get; set; }
         public string? Creation_User { get; set; }
         public DateTime? Update_Date { get; set; }
+        public int? CD_IDX { get; set; }        
         //public string? Update_User { get; set; }
         public tspartTranfer()
 		{

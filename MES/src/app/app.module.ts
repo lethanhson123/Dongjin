@@ -18,6 +18,8 @@ import { TscodeComponent } from './MES/tscode/tscode.component';
 import { A01Component } from './MES/a01/a01.component';
 import { TscodeDetailComponent } from './MES/tscode-detail/tscode-detail.component';
 import { WMPPLAYComponent } from './MES/wmp-play/wmp-play.component';
+import { A01PNADDComponent } from './MES/a01-pnadd/a01-pnadd.component';
+import { A01FileComponent } from './MES/a01-file/a01-file.component';
 
 
 
@@ -31,7 +33,7 @@ import { WMPPLAYComponent } from './MES/wmp-play/wmp-play.component';
     HomepageComponent,    
     TscodeComponent,
     TscodeDetailComponent,  
-    A01Component, WMPPLAYComponent,   
+    A01Component, WMPPLAYComponent, A01PNADDComponent, A01FileComponent,   
 
   ],
   imports: [

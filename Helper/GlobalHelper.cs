@@ -109,6 +109,22 @@
         }
         #endregion
         #region AppSettings 
+        public static string Download
+        {
+            get
+            {
+                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                return builder.Build().GetSection("AppSettings").GetSection("Download").Value;
+            }
+        }
+        public static string APISite
+        {
+            get
+            {
+                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                return builder.Build().GetSection("AppSettings").GetSection("APISite").Value;
+            }
+        }
         public static string EAN13CountryCode
         {
             get

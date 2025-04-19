@@ -11,8 +11,7 @@
                 <ol class="breadcrumbs mb-0">
                     <li class="breadcrumb-item">
                         <a href="javascript:history.back()" title="Back">
-                            <<< Back
-                        </a>
+                            <<< Back </a>
                     </li>
                     <li class="breadcrumb-item">
                         <a routerLink="/Homepage" title="Home">Home</a>
@@ -33,7 +32,7 @@
         <div class="card-content">
             <div class="col s12 m12 l11">
                 <input [(ngModel)]="tspart_ecnService.BaseParameter.SearchString" placeholder="Tìm ..."
-                       class="form-control" (keyup.enter)="tspart_ecnSearch()">
+                    class="form-control" (keyup.enter)="tspart_ecnSearch()">
             </div>
             <div class="col s12 m12 l1">
                 <a title="search" (click)="tspart_ecnSearch()" class="btn waves-effect waves-light green darken-1">
@@ -42,7 +41,7 @@
             </div>
             <div class="KhungOverflow">
                 <table *ngIf="!NotificationService.IsMobile" mat-table matSort #tspart_ecnSort="matSort"
-                       [dataSource]="tspart_ecnService.DataSource">
+                    [dataSource]="tspart_ecnService.DataSource">
                     <ng-container matColumnDef="No">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header>
                             No
@@ -50,69 +49,72 @@
                         <td mat-cell *matCellDef="let element; index as i;">
                             <div *ngIf="tspart_ecnPaginator">
                                 {{
-                                    tspart_ecnPaginator.pageSize *
-                                    tspart_ecnPaginator.pageIndex + i + 1
+                                tspart_ecnPaginator.pageSize *
+                                tspart_ecnPaginator.pageIndex + i + 1
                                 }}
                             </div>
                         </td>
                     </ng-container>
                     <ng-container matColumnDef="PARTECN_IDX">
-<th mat-header-cell *matHeaderCellDef mat-sort-header>PARTECN_IDX</th>
-<td mat-cell *matCellDef="let element">{{element.PARTECN_IDX}}</td>
-</ng-container>
-<ng-container matColumnDef="PART_IDX">
-<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_IDX</th>
-<td mat-cell *matCellDef="let element">{{element.PART_IDX}}</td>
-</ng-container>
-<ng-container matColumnDef="PART_ENCNO">
-<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_ENCNO</th>
-<td mat-cell *matCellDef="let element">{{element.PART_ENCNO}}</td>
-</ng-container>
-<ng-container matColumnDef="PART_ECN_DATE">
-<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_ECN_DATE</th>
-<td mat-cell *matCellDef="let element">{{element.PART_ECN_DATE}}</td>
-</ng-container>
-<ng-container matColumnDef="DWG_NO">
-<th mat-header-cell *matHeaderCellDef mat-sort-header>DWG_NO</th>
-<td mat-cell *matCellDef="let element">{{element.DWG_NO}}</td>
-</ng-container>
-<ng-container matColumnDef="DWG_FILE_GRP">
-<th mat-header-cell *matHeaderCellDef mat-sort-header>DWG_FILE_GRP</th>
-<td mat-cell *matCellDef="let element">{{element.DWG_FILE_GRP}}</td>
-</ng-container>
-<ng-container matColumnDef="DWG_FILE_EXPOR">
-<th mat-header-cell *matHeaderCellDef mat-sort-header>DWG_FILE_EXPOR</th>
-<td mat-cell *matCellDef="let element">{{element.DWG_FILE_EXPOR}}</td>
-</ng-container>
-<ng-container matColumnDef="PART_ECN_USENY">
-<th mat-header-cell *matHeaderCellDef mat-sort-header>PART_ECN_USENY</th>
-<td mat-cell *matCellDef="let element">{{element.PART_ECN_USENY}}</td>
-</ng-container>
-<ng-container matColumnDef="CREATE_DTM">
-<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
-<td mat-cell *matCellDef="let element">{{element.CREATE_DTM}}</td>
-</ng-container>
-<ng-container matColumnDef="CREATE_USER">
-<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
-<td mat-cell *matCellDef="let element">{{element.CREATE_USER}}</td>
-</ng-container>
-<ng-container matColumnDef="UPDATE_DTM">
-<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
-<td mat-cell *matCellDef="let element">{{element.UPDATE_DTM}}</td>
-</ng-container>
-<ng-container matColumnDef="UPDATE_USER">
-<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
-<td mat-cell *matCellDef="let element">{{element.UPDATE_USER}}</td>
-</ng-container>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>PARTECN_IDX</th>
+                        <td mat-cell *matCellDef="let element">{{element.PARTECN_IDX}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="PART_IDX">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>PART_IDX</th>
+                        <td mat-cell *matCellDef="let element">{{element.PART_IDX}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="PART_ENCNO">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>PART_ENCNO</th>
+                        <td mat-cell *matCellDef="let element">{{element.PART_ENCNO}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="PART_ECN_DATE">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>PART_ECN_DATE</th>
+                        <td mat-cell *matCellDef="let element">{{element.PART_ECN_DATE}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="DWG_NO">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>DWG_NO</th>
+                        <td mat-cell *matCellDef="let element">{{element.DWG_NO}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="DWG_FILE_GRP">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>DWG_FILE_GRP</th>
+                        <td mat-cell *matCellDef="let element">{{element.DWG_FILE_GRP}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="DWG_FILE_EXPOR">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>DWG_FILE_EXPOR</th>
+                        <td mat-cell *matCellDef="let element">{{element.DWG_FILE_EXPOR}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="PART_ECN_USENY">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>PART_ECN_USENY</th>
+                        <td mat-cell *matCellDef="let element">{{element.PART_ECN_USENY}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="CREATE_DTM">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+                        <td mat-cell *matCellDef="let element">{{element.CREATE_DTM}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="CREATE_USER">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+                        <td mat-cell *matCellDef="let element">{{element.CREATE_USER}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="UPDATE_DTM">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+                        <td mat-cell *matCellDef="let element">{{element.UPDATE_DTM}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="UPDATE_USER">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+                        <td mat-cell *matCellDef="let element">{{element.UPDATE_USER}}</td>
+                    </ng-container>
 
                     <ng-container matColumnDef="Save">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header>
                         </th>
                         <td mat-cell *matCellDef="let element">
-                            <a (click)="tspart_ecnSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                            <a (click)="tspart_ecnSave(element)" class="btn-floating waves-effect waves-light cyan"
+                                title="Save">
                                 <i class="material-icons">save</i>
                             </a>&nbsp;&nbsp;&nbsp;
-                            <a *ngIf="element.PARTECN_IDX>0" (click)="tspart_ecnDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                            <a *ngIf="element.PARTECN_IDX>0" (click)="tspart_ecnDelete(element)"
+                                class="btn-floating waves-effect waves-light red" style="padding-top: 3px;"
+                                title="Delete">
                                 <i class="material-icons">delete_outline</i>
                             </a>
                         </td>
@@ -123,7 +125,7 @@
                     </tr>
                 </table>
                 <mat-paginator *ngIf="!NotificationService.IsMobile" #tspart_ecnPaginator="matPaginator"
-                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>              
+                    [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
             </div>
         </div>
     </div>

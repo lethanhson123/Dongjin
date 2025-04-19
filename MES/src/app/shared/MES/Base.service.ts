@@ -216,7 +216,6 @@ export class BaseService {
         return this.httpClient.post(url, formUpload, { headers: this.Headers });
     }
     SaveAsync() {
-
         let url = this.APIURL + this.Controller + '/SaveAsync';
         const formUpload: FormData = new FormData();
         formUpload.append('data', JSON.stringify(this.FormData));
