@@ -6,7 +6,7 @@ import { TscodeComponent } from './MES/tscode/tscode.component';
 import { A01Component } from './MES/a01/a01.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/Tscode', pathMatch: 'full' },
+  { path: '', redirectTo: '/A01', pathMatch: 'full' },
   {
     path: 'Homepage', component: HomepageComponent,
   }, 
