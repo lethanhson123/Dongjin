@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using MESData.Model;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Collections.Generic;
 
 namespace MESService.Implement
 {
@@ -43,7 +45,7 @@ namespace MESService.Implement
             string result = GlobalHelper.InitializationString;
             try
             {
-                string sql = @"INSERT INTO tsnon_oper_mitor (`tsnon_oper_mitor_MCNM`, `tsnon_oper_mitor_NOIC`, `tsnon_oper_mitor_RUNYN`) VALUES ('" + SearchString + "', '-----', 'N') ON DUPLICATE KEY UPDATE `tsnon_oper_mitor_NOIC` = '-----', `tsnon_oper_mitor_RUNYN` = 'N'";
+                string sql = @"INSERT INTO tsnon_oper_mitor (`tsnon_oper_mitor_MCNM`, `tsnon_oper_mitor_NOIC`, `tsnon_oper_mitor_RUNYN`) VALUES ('" + SearchString + "', '-----', 'N') ON DUPLICATE KEY UPDATE `tsnon_oper_mitor_NOIC` = '-----', `tsnon_oper_mitor_RUNYN` = 'N'";                
                 result = await MySQLHelper.ExecuteNonQueryAsync(GlobalHelper.MariaDBConectionString, sql);
 
                 sql = @"ALTER TABLE `tsnon_oper_mitor` AUTO_INCREMENT= 1";
@@ -55,7 +57,25 @@ namespace MESService.Implement
             }
 
             return result;
-        }       
+        }
+        public virtual async Task<string> C02_STOP_LoadAsync(string SearchString, string SearchString001)
+        {
+            string result = GlobalHelper.InitializationString;
+            try
+            {                
+                string sql = @"INSERT INTO tsnon_oper_mitor(`tsnon_oper_mitor_MCNM`, `tsnon_oper_mitor_NOIC`, `tsnon_oper_mitor_RUNYN`) VALUES('" + SearchString + "', '" + SearchString001 + "', 'Y') ON DUPLICATE KEY UPDATE `tsnon_oper_mitor_NOIC`= '" + SearchString001 + "', `tsnon_oper_mitor_RUNYN` = 'Y'";
+                result = await MySQLHelper.ExecuteNonQueryAsync(GlobalHelper.MariaDBConectionString, sql);
+
+                sql = @"ALTER TABLE `tsnon_oper_mitor` AUTO_INCREMENT= 1";
+                result = await MySQLHelper.ExecuteNonQueryAsync(GlobalHelper.MariaDBConectionString, sql);
+            }
+            catch (Exception ex)
+            {
+                result = ex.Message;
+            }
+
+            return result;
+        }
     }
 }
 

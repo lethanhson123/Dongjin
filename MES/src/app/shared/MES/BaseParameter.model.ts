@@ -23,7 +23,10 @@ export class BaseParameter extends Base{
     Code?: string;
     Account?: string;
     Begin?: Date;
+    End?: Date;
     ListBegin?: Date[];
+    ListID?: number[];
+    ListSearchString?: string[];
     ListSearchString001?: string[];
     ListSearchString002?: string[];
 }

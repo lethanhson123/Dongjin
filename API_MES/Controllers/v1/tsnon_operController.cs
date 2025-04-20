@@ -3,31 +3,14 @@
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiVersion("1.0")]
-    public class tsnon_oper_mitorController : BaseController<tsnon_oper_mitor, Itsnon_oper_mitorService>
+    public class tsnon_operController : BaseController<tsnon_oper, Itsnon_operService>
     {
-        private readonly Itsnon_oper_mitorService _tsnon_oper_mitorService;
+        private readonly Itsnon_operService _tsnon_operService;
         private readonly IWebHostEnvironment _WebHostEnvironment;
-        public tsnon_oper_mitorController(Itsnon_oper_mitorService tsnon_oper_mitorService, IWebHostEnvironment WebHostEnvironment) : base(tsnon_oper_mitorService, WebHostEnvironment)
+        public tsnon_operController(Itsnon_operService tsnon_operService, IWebHostEnvironment WebHostEnvironment) : base(tsnon_operService, WebHostEnvironment)
         {
-            _tsnon_oper_mitorService = tsnon_oper_mitorService;
+            _tsnon_operService = tsnon_operService;
             _WebHostEnvironment = WebHostEnvironment;
-        }
-        [HttpPost]
-        [Route("C02_LoadAsync")]
-        public virtual async Task<string> C02_LoadAsync()
-        {
-            string result = GlobalHelper.InitializationString;
-            try
-            {
-                BaseParameter baseParameter = JsonConvert.DeserializeObject<BaseParameter>(Request.Form["data"]);
-                result = await _tsnon_oper_mitorService.C02_LoadAsync(baseParameter.SearchString);
-            }
-            catch (Exception ex)
-            {
-                string message = ex.Message;
-                result = message;
-            }
-            return result;
         }
         [HttpPost]
         [Route("C02_STOP_LoadAsync")]
@@ -37,12 +20,28 @@
             try
             {
                 BaseParameter baseParameter = JsonConvert.DeserializeObject<BaseParameter>(Request.Form["data"]);
-                result = await _tsnon_oper_mitorService.C02_STOP_LoadAsync(baseParameter.SearchString, baseParameter.SearchString001);
+                result = await _tsnon_operService.C02_STOP_LoadAsync(baseParameter.Account, baseParameter.SearchString, baseParameter.SearchString001, baseParameter.Begin.Value);
             }
             catch (Exception ex)
             {
                 string message = ex.Message;
                 result = message;
+            }
+            return result;
+        }
+        [HttpPost]
+        [Route("C02_STOP_LoadToListAsync")]
+        public virtual async Task<List<tsnon_oper>> C02_STOP_LoadToListAsync()
+        {
+            List<tsnon_oper> result = new List<tsnon_oper>();
+            try
+            {
+                BaseParameter baseParameter = JsonConvert.DeserializeObject<BaseParameter>(Request.Form["data"]);
+                result = await _tsnon_operService.C02_STOP_LoadToListAsync(baseParameter.Begin.Value);
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
             }
             return result;
         }

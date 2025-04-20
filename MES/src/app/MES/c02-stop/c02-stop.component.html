@@ -1,12 +1,29 @@
 <div class="row">
     <div class="col s12 m12 l11">
-        <h5 class="card-title"><b>Alert notification</b></h5>
+        <h5 style="color: crimson;"><b>Alert notification</b></h5>
     </div>
-    <div class="col s12 m12 l1">      
+    <div class="col s12 m12 l1">
         <a title="Close" class="btn-floating waves-effect waves-light purple lightrn-1" (click)="Close()">
             <i class="material-icons">close</i>
         </a>
     </div>
-    <div class="col s12 m12 l12">        
-    </div>    
+    <div class="col s12 m12 l4">
+        <h5>{{this.tsnon_operService.BaseParameter.SearchString001}}</h5>
+    </div>
+    <div class="col s12 m12 l4">
+        <h5>{{this.tsnon_operService.BaseParameter.SearchString003}}</h5>
+    </div>
+    <div class="col s12 m12 l4">
+        <h5>{{this.tsnon_operService.BaseParameter.SearchString}}</h5>
+    </div>
+    <div class="col s12 m12 l12" style="text-align: center;">
+        <h1 style="color: crimson;">{{tsnon_operService.BaseParameter.SearchString002}}</h1>
+        <h1>Non-operational</h1>
+        <h1 style="color: blue;">{{Hour}} : {{Minute}} : {{Second}}</h1>
+        <button [disabled]="IsButton2"title="Check" class="btn btn-large waves-effect waves-light green darken-1" style="margin-right: 10px;" (click)="Button2()">점검 / 
+            Đang kiểm tra</button>
+        <button title="Reset" class="btn btn-large waves-effect waves-light cyan darken-1" style="margin-right: 10px;" (click)="Button1()">재 시 작 / Khởi động lại</button>
+    </div>
+
 </div>
+<app-loading *ngIf="tsnon_operService.IsShowLoading"></app-loading>

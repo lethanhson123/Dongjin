@@ -1,6 +1,4 @@
-﻿using OfficeOpenXml.FormulaParsing.Excel.Functions.Text;
-using ZXing.QrCode.Internal;
-
+﻿
 namespace API_MES.Controllers.v1
 {
     [ApiController]

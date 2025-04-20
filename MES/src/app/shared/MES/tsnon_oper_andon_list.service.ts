@@ -14,7 +14,25 @@ export class tsnon_oper_andon_listService extends BaseService{
     FormData!: tsnon_oper_andon_list;
     constructor(public httpClient: HttpClient) {
         super(httpClient);
-        this.Controller = "tsnon_oper_andon_list";
+        this.Controller = "v1/tsnon_oper_andon_list";
+    }
+    C02_STOP_LoadAsync() {
+        let url = this.APIURL + this.Controller + '/C02_STOP_LoadAsync';
+        const formUpload: FormData = new FormData();
+        formUpload.append('data', JSON.stringify(this.BaseParameter));
+        return this.httpClient.post(url, formUpload, { headers: this.Headers });
+    }
+    C02_STOP_Button2_ClickAsync() {
+        let url = this.APIURL + this.Controller + '/C02_STOP_Button2_ClickAsync';
+        const formUpload: FormData = new FormData();
+        formUpload.append('data', JSON.stringify(this.BaseParameter));
+        return this.httpClient.post(url, formUpload, { headers: this.Headers });
+    }
+    C02_STOP_Button1_ClickAsync() {
+        let url = this.APIURL + this.Controller + '/C02_STOP_Button2_ClickAsync';
+        const formUpload: FormData = new FormData();
+        formUpload.append('data', JSON.stringify(this.BaseParameter));
+        return this.httpClient.post(url, formUpload, { headers: this.Headers });
     }
 }
 

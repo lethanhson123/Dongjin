@@ -14,7 +14,20 @@ export class tsnon_operService extends BaseService{
     FormData!: tsnon_oper;
     constructor(public httpClient: HttpClient) {
         super(httpClient);
-        this.Controller = "tsnon_oper";
+        this.Controller = "v1/tsnon_oper";
+    }
+    C02_STOP_LoadAsync() {
+        let url = this.APIURL + this.Controller + '/C02_STOP_LoadAsync';
+        const formUpload: FormData = new FormData();
+        formUpload.append('data', JSON.stringify(this.BaseParameter));
+        return this.httpClient.post(url, formUpload, { headers: this.Headers });
+    }
+    C02_STOP_LoadToListAsync() {
+        let url = this.APIURL + this.Controller + '/C02_STOP_LoadToListAsync';
+        const formUpload: FormData = new FormData();
+        formUpload.append('data', JSON.stringify(this.BaseParameter));
+        return this.httpClient.post(url, formUpload, { headers: this.Headers });
     }
 }
+
 

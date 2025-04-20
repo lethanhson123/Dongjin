@@ -1,6 +1,4 @@
-﻿using OfficeOpenXml.FormulaParsing.Excel.Functions.Text;
-using System.Reflection;
-
+﻿
 namespace API_MES.Controllers.v1
 {
     [ApiController]
@@ -169,7 +167,59 @@ namespace API_MES.Controllers.v1
                 BaseParameter baseParameter = JsonConvert.DeserializeObject<BaseParameter>(Request.Form["data"]);
                 List<torderlistTranfer> List = new List<torderlistTranfer>();
                 List = await _torderlistService.C02Buttonfind_ClickToListAsync(baseParameter.SearchString001, baseParameter.SearchString002, baseParameter.SearchString003, baseParameter.SearchString004, baseParameter.SearchString005, baseParameter.SearchString006, baseParameter.Begin.Value);
-                string fileName = @"PARTNO" + GlobalHelper.InitializationDateTimeCode + ".xlsx";
+                string fileName = @"C02" + GlobalHelper.InitializationDateTimeCode + ".xlsx";
+                var streamExport = new MemoryStream();
+                InitializationC02Buttonfind_ClickToExcelAsync(List, streamExport);
+                var physicalPathCreate = Path.Combine(_WebHostEnvironment.WebRootPath, GlobalHelper.Download, fileName);
+                using (var stream = new FileStream(physicalPathCreate, FileMode.Create))
+                {
+                    streamExport.CopyTo(stream);
+                }
+                result = GlobalHelper.APISite + "/" + GlobalHelper.Download + "/" + fileName;
+            }
+            catch (Exception ex)
+            {
+                result = ex.Message;
+            }
+            return Json(result);
+        }
+        [HttpPost]
+        [Route("C02_LISTButtonfind_ClickToExcelAsync")]
+        public async Task<JsonResult> C02_LISTButtonfind_ClickToExcelAsync()
+        {
+            string result = GlobalHelper.InitializationString;
+            try
+            {
+                BaseParameter baseParameter = JsonConvert.DeserializeObject<BaseParameter>(Request.Form["data"]);
+                List<torderlistTranfer> List = new List<torderlistTranfer>();
+                List = await _torderlistService.C02_LISTButtonfind_ClickToListAsync(baseParameter.SearchString001);
+                string fileName = @"C02_LIST" + GlobalHelper.InitializationDateTimeCode + ".xlsx";
+                var streamExport = new MemoryStream();
+                InitializationC02Buttonfind_ClickToExcelAsync(List, streamExport);
+                var physicalPathCreate = Path.Combine(_WebHostEnvironment.WebRootPath, GlobalHelper.Download, fileName);
+                using (var stream = new FileStream(physicalPathCreate, FileMode.Create))
+                {
+                    streamExport.CopyTo(stream);
+                }
+                result = GlobalHelper.APISite + "/" + GlobalHelper.Download + "/" + fileName;
+            }
+            catch (Exception ex)
+            {
+                result = ex.Message;
+            }
+            return Json(result);
+        }
+        [HttpPost]
+        [Route("C02_LISTButton1_ClickToExcelAsync")]
+        public async Task<JsonResult> C02_LISTButton1_ClickToExcelAsync()
+        {
+            string result = GlobalHelper.InitializationString;
+            try
+            {
+                BaseParameter baseParameter = JsonConvert.DeserializeObject<BaseParameter>(Request.Form["data"]);
+                List<torderlistTranfer> List = new List<torderlistTranfer>();
+                List = await _torderlistService.C02_LISTButton1_ClickToListAsync();
+                string fileName = @"C02_LIST" + GlobalHelper.InitializationDateTimeCode + ".xlsx";
                 var streamExport = new MemoryStream();
                 InitializationC02Buttonfind_ClickToExcelAsync(List, streamExport);
                 var physicalPathCreate = Path.Combine(_WebHostEnvironment.WebRootPath, GlobalHelper.Download, fileName);
@@ -260,6 +310,67 @@ namespace API_MES.Controllers.v1
                 package.Save();
             }
             streamExport.Position = 0;
+        }
+
+        [HttpPost]
+        [Route("C02_LISTButtonfind_ClickToListAsync")]
+        public virtual async Task<List<torderlistTranfer>> C02_LISTButtonfind_ClickToListAsync()
+        {
+            List<torderlistTranfer> result = new List<torderlistTranfer>();
+            try
+            {
+                BaseParameter baseParameter = JsonConvert.DeserializeObject<BaseParameter>(Request.Form["data"]);
+                result = await _torderlistService.C02_LISTButtonfind_ClickToListAsync(baseParameter.SearchString001);
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
+            return result;
+        }
+        [HttpPost]
+        [Route("C02_LISTButtonsave_ClickGroupAsync")]
+        public virtual async Task<string> C02_LISTButtonsave_ClickGroupAsync()
+        {
+            string result = GlobalHelper.InitializationString;
+            try
+            {
+                BaseParameter baseParameter = JsonConvert.DeserializeObject<BaseParameter>(Request.Form["data"]);
+                for (int i = 0; i < baseParameter.ListID.Count; i++)
+                {
+                    baseParameter.ID = baseParameter.ListID[i];
+                    baseParameter.SearchString = baseParameter.ListSearchString[i];                    
+                    result = await _torderlistService.C02_LISTButtonsave_ClickAsync(baseParameter.ID.Value, baseParameter.SearchString);
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+                result = message;
+            }
+            return result;
+        }
+        [HttpPost]
+        [Route("C02_LISTButtondelete_ClickGroupAsync")]
+        public virtual async Task<string> C02_LISTButtondelete_ClickGroupAsync()
+        {
+            string result = GlobalHelper.InitializationString;
+            try
+            {
+                BaseParameter baseParameter = JsonConvert.DeserializeObject<BaseParameter>(Request.Form["data"]);
+                for (int i = 0; i < baseParameter.ListID.Count; i++)
+                {
+                    baseParameter.ID = baseParameter.ListID[i];                    
+                    result = await _torderlistService.C02_LISTButtondelete_ClickAsync(baseParameter.ID.Value);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+                result = message;
+            }
+            return result;
         }
     }
 }

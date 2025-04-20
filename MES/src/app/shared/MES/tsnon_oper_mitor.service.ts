@@ -22,5 +22,11 @@ export class tsnon_oper_mitorService extends BaseService{
         formUpload.append('data', JSON.stringify(this.BaseParameter));
         return this.httpClient.post(url, formUpload, { headers: this.Headers });
     }
+    C02_STOP_LoadAsync() {
+        let url = this.APIURL + this.Controller + '/C02_STOP_LoadAsync';
+        const formUpload: FormData = new FormData();
+        formUpload.append('data', JSON.stringify(this.BaseParameter));
+        return this.httpClient.post(url, formUpload, { headers: this.Headers });
+    }
 }
 

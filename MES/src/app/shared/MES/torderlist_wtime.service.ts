@@ -14,7 +14,25 @@ export class torderlist_wtimeService extends BaseService{
     FormData!: torderlist_wtime;
     constructor(public httpClient: HttpClient) {
         super(httpClient);
-        this.Controller = "torderlist_wtime";
+        this.Controller = "v1/torderlist_wtime";
+    }
+    C02_STOP_SW_TIMEAsync() {
+        let url = this.APIURL + this.Controller + '/C02_STOP_SW_TIMEAsync';
+        const formUpload: FormData = new FormData();
+        formUpload.append('data', JSON.stringify(this.BaseParameter));
+        return this.httpClient.post(url, formUpload, { headers: this.Headers });
+    }
+    C02_STOP_EW_TIMEAsync() {
+        let url = this.APIURL + this.Controller + '/C02_STOP_EW_TIMEAsync';
+        const formUpload: FormData = new FormData();
+        formUpload.append('data', JSON.stringify(this.BaseParameter));
+        return this.httpClient.post(url, formUpload, { headers: this.Headers });
+    }
+    C02_STOP_SW_TIMEToListAsync() {
+        let url = this.APIURL + this.Controller + '/C02_STOP_SW_TIMEToListAsync';
+        const formUpload: FormData = new FormData();
+        formUpload.append('data', JSON.stringify(this.BaseParameter));
+        return this.httpClient.post(url, formUpload, { headers: this.Headers });
     }
 }
 

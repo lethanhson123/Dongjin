@@ -2,6 +2,7 @@
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
+using System;
 
 namespace MESService.Implement
 {
@@ -165,8 +166,8 @@ namespace MESService.Implement
             string result = GlobalHelper.InitializationString;
             try
             {
-                string SearchString003 = Begin.ToString("yyyy-MM-dd HH:mm:ss");
-                string sql = "UPDATE TORDERLIST SET `MC2`='"+ SearchString001 + "' WHERE `LEAD_NO` = '" + SearchString002 + "' AND  `CREATE_DTM` = '" + SearchString003 + "' ";
+                string BeginString = Begin.ToString("yyyy-MM-dd HH:mm:ss");
+                string sql = "UPDATE TORDERLIST SET `MC2`='" + SearchString001 + "' WHERE `LEAD_NO` = '" + SearchString002 + "' AND  `CREATE_DTM` = '" + BeginString + "' ";
                 result = await MySQLHelper.ExecuteNonQueryAsync(GlobalHelper.MariaDBConectionString, sql);
             }
             catch (Exception ex)
@@ -181,8 +182,8 @@ namespace MESService.Implement
             string result = GlobalHelper.InitializationString;
             try
             {
-                string SearchString003 = Begin.ToString("yyyy-MM-dd HH:mm:ss");
-                string sql = "UPDATE TORDERLIST SET `CONDITION`='Close', `UPDATE_DTM` = NOW(), `UPDATE_USER` = '" + Acount + "'   WHERE  NOT(`CONDITION`='Complete') AND   `LEAD_NO` = '" + SearchString001 + "' AND  `CREATE_DTM` = '" + SearchString003 + "'";
+                string BeginString = Begin.ToString("yyyy-MM-dd HH:mm:ss");
+                string sql = "UPDATE TORDERLIST SET `CONDITION`='Close', `UPDATE_DTM` = NOW(), `UPDATE_USER` = '" + Acount + "'   WHERE  NOT(`CONDITION`='Complete') AND   `LEAD_NO` = '" + SearchString001 + "' AND  `CREATE_DTM` = '" + BeginString + "'";
                 result = await MySQLHelper.ExecuteNonQueryAsync(GlobalHelper.MariaDBConectionString, sql);
             }
             catch (Exception ex)
@@ -190,6 +191,91 @@ namespace MESService.Implement
                 result = ex.Message;
             }
 
+            return result;
+        }
+        public virtual async Task<List<torderlistTranfer>> C02_LISTButtonfind_ClickToListAsync(string SearchString001)
+        {
+            List<torderlistTranfer> result = new List<torderlistTranfer>();
+            try
+            {
+                string sql = @"SELECT 'FALSE' AS `CHK`, IF(LEFT(`OR_NO`, 1)='N','','E') AS `OR_NO`, `WORK_WEEK`, `CONDITION`, `TORDER_FG`, `LEAD_NO`, IF(`CONDITION` = 'Stay' , IFNULL(`MTRL_RQUST` ,'N'), 'F') AS `MTRL_RQUST`, ";
+                sql = sql + "`WIRE`, IFNULL(`TOEXCEL_QTY`, 0) AS `TOEXCEL_QTY`, IFNULL(`B`.`QTY_STOCK`, 0) AS `QTY_STOCK`, `TOT_QTY`, 0 AS `MES_QTY`, `PERFORMN`, IFNULL(`MC2`, `MC`) AS `MC`, `ADJ_AF_QTY`, `TERM1`, `SEAL1`, `TERM2`, `SEAL2`, `CCH_W1`, `ICH_W1`, `CCH_W2`, `ICH_W2`, `DT`, derivedtbl_1.`LS_DATE`, `PROJECT`, ";
+                sql = sql + "`CUR_LEADS`, `CT_LEADS`, `CT_LEADS_PR`, `GRP`, `BUNDLE_SIZE`, `HOOK_RACK`, `T1_DIR`, `STRIP1`, `T2_DIR`, `STRIP2`, `SP_ST`, `DSCN_YN`, `REP`, `ORDER_IDX` ";
+                sql = sql + "FROM  (TORDERLIST LEFT OUTER JOIN ";
+                sql = sql + "(SELECT  TORDER_IDX, MAX(CREATE_DTM) AS LS_DATE  FROM   TWWKAR   GROUP BY TORDER_IDX) derivedtbl_1 ON TORDERLIST.ORDER_IDX = derivedtbl_1.TORDER_IDX) ";
+                sql = sql + "LEFT OUTER JOIN   (SELECT `LEAD_PN`, `QTY` AS `QTY_STOCK` FROM  torder_lead_bom LEFT OUTER JOIN tiivtr_lead ON LEAD_INDEX = PART_IDX AND  tiivtr_lead.`LOC_IDX` = '3') AS `B` ON `B`.LEAD_PN = TORDERLIST.LEAD_NO ";
+                sql = sql + "WHERE  TORDERLIST.`DSCN_YN` = 'Y' AND TORDERLIST.LEAD_NO = '" + SearchString001 + "'   AND  NOT(TORDERLIST.`CONDITION` = 'Close') ";
+                sql = sql + "AND `DT` >= DATE_ADD(NOW(), INTERVAL - 15 DAY) ";
+                sql = sql + "ORDER BY TORDERLIST.`CONDITION` DESC, TORDERLIST.DT DESC, TORDERLIST.LEAD_NO";
+
+                DataSet ds = await MySQLHelper.FillDataSetBySQLAsync(GlobalHelper.MariaDBConectionString, sql);
+                for (int i = 0; i < ds.Tables.Count; i++)
+                {
+                    DataTable dt = ds.Tables[i];
+                    result.AddRange(SQLHelper.ToList<torderlistTranfer>(dt));
+                }
+            }
+            catch (Exception ex)
+            {
+                string mes = ex.Message;
+            }
+            if (result == null)
+            {
+                result = new List<torderlistTranfer>();
+            }
+            return result;
+        }
+        public virtual async Task<string> C02_LISTButtonsave_ClickAsync(int ID, string SearchString)
+        {
+            string result = GlobalHelper.InitializationString;
+            try
+            {
+                string sql = "UPDATE TORDERLIST SET `MC2`='" + SearchString + "' WHERE `ORDER_IDX` = " + ID;
+                result = await MySQLHelper.ExecuteNonQueryAsync(GlobalHelper.MariaDBConectionString, sql);
+            }
+            catch (Exception ex)
+            {
+                result = ex.Message;
+            }
+
+            return result;
+        }
+        public virtual async Task<string> C02_LISTButtondelete_ClickAsync(int ID)
+        {
+            string result = GlobalHelper.InitializationString;
+            try
+            {
+                string sql = "UPDATE TORDERLIST SET `CONDITION`='Close' WHERE `ORDER_IDX` = " + ID;
+                result = await MySQLHelper.ExecuteNonQueryAsync(GlobalHelper.MariaDBConectionString, sql);
+            }
+            catch (Exception ex)
+            {
+                result = ex.Message;
+            }
+
+            return result;
+        }
+        public virtual async Task<List<torderlistTranfer>> C02_LISTButton1_ClickToListAsync()
+        {
+            List<torderlistTranfer> result = new List<torderlistTranfer>();
+            try
+            {
+                string sql = "SELECT `LEAD_NO`, SUM(`TOT_QTY`) AS `TOTAL_QTY`  FROM   TORDERLIST WHERE `CONDITION` = 'STAY' AND(IFNULL(`MC2`, `MC`) LIKE 'A8%' OR IFNULL(`MC2`, `MC`) LIKE 'PLAN') GROUP BY `LEAD_NO`";
+                DataSet ds = await MySQLHelper.FillDataSetBySQLAsync(GlobalHelper.MariaDBConectionString, sql);
+                for (int i = 0; i < ds.Tables.Count; i++)
+                {
+                    DataTable dt = ds.Tables[i];
+                    result.AddRange(SQLHelper.ToList<torderlistTranfer>(dt));
+                }
+            }
+            catch (Exception ex)
+            {
+                string mes = ex.Message;
+            }
+            if (result == null)
+            {
+                result = new List<torderlistTranfer>();
+            }
             return result;
         }
     }

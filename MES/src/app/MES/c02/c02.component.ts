@@ -19,6 +19,9 @@ import { tsnon_oper_mitorService } from 'src/app/shared/MES/tsnon_oper_mitor.ser
 import { C02STOPComponent } from '../c02-stop/c02-stop.component';
 import { C02LISTComponent } from '../c02-list/c02-list.component';
 
+import { tsnon_oper } from 'src/app/shared/MES/tsnon_oper.model';
+import { tsnon_operService } from 'src/app/shared/MES/tsnon_oper.service';
+
 @Component({
   selector: 'app-c02',
   templateUrl: './c02.component.html',
@@ -39,6 +42,7 @@ export class C02Component {
     public tuser_logService: tuser_logService,
     public torderlistService: torderlistService,
     public tsnon_oper_mitorService: tsnon_oper_mitorService,
+    public tsnon_operService: tsnon_operService,
   ) { }
 
   ngOnInit(): void {
@@ -48,9 +52,11 @@ export class C02Component {
     this.torderlistService.BaseParameter.SearchString = "ZA801";
     this.torderlistService.BaseParameter.Account = "25041801";
     this.torderlistService.BaseParameter.SearchString004 = "";
+    this.tsnon_operService.BaseParameter.SearchString001 = "S";
     this.torderlistSearch();
     this.tuser_logSearch();
     this.tsnon_oper_mitorSearch();
+    this.tscodeServiceSearch();
   }
 
   Search() {
@@ -162,6 +168,18 @@ export class C02Component {
   DateBegin(value) {
     this.torderlistService.BaseParameter.Begin = new Date(value);
   }
+  tscodeServiceSearch() {   
+    this.tscodeService.C02_LoadToListAsync().subscribe(
+      res => {
+        this.tscodeService.List = (res as tscode[]);
+      },
+      err => {
+      },
+      () => {
+        this.torderlistService.IsShowLoading = false;
+      }
+    );
+  }
   tsnon_oper_mitorSearch() {
     this.tsnon_oper_mitorService.C02_LoadAsync().subscribe(
       res => {
@@ -264,6 +282,31 @@ export class C02Component {
     element.CHK = true;
   }
   Stop() {
+    this.tsnon_operService.BaseParameter.Account = this.torderlistService.BaseParameter.Account;
+    this.tsnon_operService.BaseParameter.SearchString = this.torderlistService.BaseParameter.SearchString;
+    switch (this.tsnon_operService.BaseParameter.SearchString001) {
+      case "S":
+        this.tsnon_operService.BaseParameter.SearchString002 = "Chuẩn bị thiết bị(S)";
+        break;
+      case "I":
+        this.tsnon_operService.BaseParameter.SearchString002 = "Thiếu nguyên vật liệu(I)";
+        break;
+      case "Q":
+        this.tsnon_operService.BaseParameter.SearchString002 = "Vấn đề chất lượng(Q)";
+        break;
+      case "M":
+        this.tsnon_operService.BaseParameter.SearchString002 = "Máy hư(M)";
+        break;
+      case "T":
+        this.tsnon_operService.BaseParameter.SearchString002 = "Đào tạo/ họp(T)";
+        break;
+      case "L":
+        this.tsnon_operService.BaseParameter.SearchString002 = "Giờ ăn(L)";
+        break;
+      case "E":
+        this.tsnon_operService.BaseParameter.SearchString002 = "Khác(E)";
+        break;
+    }
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -275,6 +318,7 @@ export class C02Component {
   }
   CONDITION(element: torderlist) {
     if (element.CONDITION != "Complete") {
+      this.torderlistService.FormData = element;      
       const dialogConfig = new MatDialogConfig();
       dialogConfig.disableClose = true;
       dialogConfig.autoFocus = true;
@@ -283,6 +327,6 @@ export class C02Component {
       const dialog = this.Dialog.open(C02LISTComponent, dialogConfig);
       dialog.afterClosed().subscribe(() => {
       });
-    }    
+    }
   }
 }

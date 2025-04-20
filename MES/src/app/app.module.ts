@@ -24,6 +24,7 @@ import { C02Component } from './MES/c02/c02.component';
 import { B09Component } from './MES/b09/b09.component';
 import { C02STOPComponent } from './MES/c02-stop/c02-stop.component';
 import { C02LISTComponent } from './MES/c02-list/c02-list.component';
+import { C02COUNTComponent } from './MES/c02-count/c02-count.component';
 
 
 
@@ -37,7 +38,7 @@ import { C02LISTComponent } from './MES/c02-list/c02-list.component';
     HomepageComponent,    
     TscodeComponent,
     TscodeDetailComponent,  
-    A01Component, WMPPLAYComponent, A01PNADDComponent, A01FileComponent, C02Component, B09Component, C02STOPComponent, C02LISTComponent,   
+    A01Component, WMPPLAYComponent, A01PNADDComponent, A01FileComponent, C02Component, B09Component, C02STOPComponent, C02LISTComponent, C02COUNTComponent,   
 
   ],
   imports: [
