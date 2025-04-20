@@ -14,7 +14,13 @@ export class tsnon_oper_mitorService extends BaseService{
     FormData!: tsnon_oper_mitor;
     constructor(public httpClient: HttpClient) {
         super(httpClient);
-        this.Controller = "tsnon_oper_mitor";
+        this.Controller = "v1/tsnon_oper_mitor";
+    }
+    C02_LoadAsync() {
+        let url = this.APIURL + this.Controller + '/C02_LoadAsync';
+        const formUpload: FormData = new FormData();
+        formUpload.append('data', JSON.stringify(this.BaseParameter));
+        return this.httpClient.post(url, formUpload, { headers: this.Headers });
     }
 }
 

@@ -1,0 +1,288 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { environment } from 'src/environments/environment';
+import { NotificationService } from 'src/app/shared/Notification.service';
+import { DownloadService } from 'src/app/shared/Download.service';
+import { WMPPLAYComponent } from '../wmp-play/wmp-play.component';
+
+import { tscode } from 'src/app/shared/MES/tscode.model';
+import { tscodeService } from 'src/app/shared/MES/tscode.service';
+import { tuser_log } from 'src/app/shared/MES/tuser_log.model';
+import { tuser_logService } from 'src/app/shared/MES/tuser_log.service';
+import { torderlist } from 'src/app/shared/MES/torderlist.model';
+import { torderlistService } from 'src/app/shared/MES/torderlist.service';
+import { tsnon_oper_mitor } from 'src/app/shared/MES/tsnon_oper_mitor.model';
+import { tsnon_oper_mitorService } from 'src/app/shared/MES/tsnon_oper_mitor.service';
+import { C02STOPComponent } from '../c02-stop/c02-stop.component';
+import { C02LISTComponent } from '../c02-list/c02-list.component';
+
+@Component({
+  selector: 'app-c02',
+  templateUrl: './c02.component.html',
+  styleUrls: ['./c02.component.css']
+})
+export class C02Component {
+  @ViewChild('torderlistSort') torderlistSort: MatSort;
+  @ViewChild('torderlistPaginator') torderlistPaginator: MatPaginator;
+
+  IsSeletAll: boolean = false;
+
+  constructor(
+    public Dialog: MatDialog,
+    public NotificationService: NotificationService,
+    public DownloadService: DownloadService,
+
+    public tscodeService: tscodeService,
+    public tuser_logService: tuser_logService,
+    public torderlistService: torderlistService,
+    public tsnon_oper_mitorService: tsnon_oper_mitorService,
+  ) { }
+
+  ngOnInit(): void {
+
+  }
+  ngAfterViewInit() {
+    this.torderlistService.BaseParameter.SearchString = "ZA801";
+    this.torderlistService.BaseParameter.Account = "25041801";
+    this.torderlistService.BaseParameter.SearchString004 = "";
+    this.torderlistSearch();
+    this.tuser_logSearch();
+    this.tsnon_oper_mitorSearch();
+  }
+
+  Search() {
+    this.torderlistService.C02Buttonfind_ClickAsync().subscribe(
+      res => {
+      },
+      err => {
+      },
+      () => {
+      }
+    );
+
+    this.torderlistSearch01();
+
+  }
+  Add() {
+
+  }
+  Save() {
+    this.torderlistService.BaseParameter.ListBegin = [];
+    this.torderlistService.BaseParameter.ListSearchString001 = [];
+    this.torderlistService.BaseParameter.ListSearchString002 = [];
+    for (let i = 0; i < this.torderlistService.List.length; i++) {
+      if (this.torderlistService.List[i].CHK == true) {
+        this.torderlistService.BaseParameter.ListBegin.push(this.torderlistService.List[i].CREATE_DTM);
+        this.torderlistService.BaseParameter.ListSearchString001.push(this.torderlistService.List[i].MC);
+        this.torderlistService.BaseParameter.ListSearchString002.push(this.torderlistService.List[i].LEAD_NO);
+      }
+    }
+    this.torderlistService.IsShowLoading = true;
+    this.torderlistService.C02Buttonsave_ClickGroupAsync().subscribe(
+      res => {
+        this.NotificationService.warn(environment.SaveSuccess);
+        this.torderlistSearch01();
+
+      },
+      err => {
+        this.NotificationService.warn(environment.SaveNotSuccess);
+      },
+      () => {
+        this.torderlistService.IsShowLoading = false;
+      }
+    );
+  }
+  Delete() {
+
+    this.torderlistService.BaseParameter.ListBegin = [];
+    this.torderlistService.BaseParameter.ListSearchString001 = [];
+    this.torderlistService.BaseParameter.ListSearchString002 = [];
+    for (let i = 0; i < this.torderlistService.List.length; i++) {
+      if (this.torderlistService.List[i].CHK == true) {
+        this.torderlistService.BaseParameter.ListBegin.push(this.torderlistService.List[i].CREATE_DTM);
+        this.torderlistService.BaseParameter.ListSearchString001.push(this.torderlistService.List[i].LEAD_NO);
+      }
+    }
+    this.torderlistService.IsShowLoading = true;
+    this.torderlistService.C02Buttondelete_ClickGroupAsync().subscribe(
+      res => {
+        this.NotificationService.warn(environment.DeleteSuccess);
+        this.torderlistSearch01();
+
+      },
+      err => {
+        this.NotificationService.warn(environment.DeleteNotSuccess);
+      },
+      () => {
+        this.torderlistService.IsShowLoading = false;
+      }
+    );
+  }
+  Cancel() {
+
+
+  }
+  ExcelImport() {
+
+  }
+  ExcelExport() {
+    this.torderlistService.IsShowLoading = true;
+    this.torderlistService.C02Buttonfind_ClickToExcelAsync().subscribe(
+      res => {
+        window.open(res.toString(), "_blank");
+      },
+      err => {
+      },
+      () => {
+        this.torderlistService.IsShowLoading = false;
+      }
+    );
+
+  }
+  Print() {
+
+  }
+  Help() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = environment.DialogConfigWidth;
+    dialogConfig.data = { ID: 0 };
+    const dialog = this.Dialog.open(WMPPLAYComponent, dialogConfig);
+    dialog.afterClosed().subscribe(() => {
+    });
+  }
+  Close() {
+    alert(environment.Help);
+  }
+
+  DateBegin(value) {
+    this.torderlistService.BaseParameter.Begin = new Date(value);
+  }
+  tsnon_oper_mitorSearch() {
+    this.tsnon_oper_mitorService.C02_LoadAsync().subscribe(
+      res => {
+      },
+      err => {
+      },
+      () => {
+      }
+    );
+    this.tuser_logService.C02TS_USERUSER_TIMEToListAsync().subscribe(
+      res => {
+        this.tuser_logService.List = (res as tuser_log[]);
+      },
+      err => {
+      },
+      () => {
+        this.torderlistService.IsShowLoading = false;
+      }
+    );
+  }
+  tuser_logSearch() {
+    this.tuser_logService.BaseParameter.SearchString = this.torderlistService.BaseParameter.SearchString;
+    this.tuser_logService.BaseParameter.Account = this.torderlistService.BaseParameter.Account;
+    this.tuser_logService.C02TS_USERToListAsync().subscribe(
+      res => {
+      },
+      err => {
+      },
+      () => {
+      }
+    );
+    this.tuser_logService.C02TS_USERUSER_TIMEToListAsync().subscribe(
+      res => {
+        this.tuser_logService.List = (res as tuser_log[]);
+      },
+      err => {
+      },
+      () => {
+        this.torderlistService.IsShowLoading = false;
+      }
+    );
+  }
+  torderlistSearch() {
+    this.torderlistService.IsShowLoading = true;
+    this.torderlistService.C02MC_LISTToListAsync().subscribe(
+      res => {
+        this.torderlistService.ListFilter001 = (res as torderlist[]);
+        if (this.torderlistService.ListFilter001) {
+          if (this.torderlistService.ListFilter001.length > 0) {
+            this.torderlistService.BaseParameter.SearchString005 = this.torderlistService.ListFilter001[0].MC;
+          }
+        }
+      },
+      err => {
+      },
+      () => {
+        this.torderlistService.IsShowLoading = false;
+      }
+    );
+
+    this.torderlistService.C02DB_LISECHKAsync().subscribe(
+      res => {
+      },
+      err => {
+      },
+      () => {
+      }
+    );
+  }
+  torderlistSearch01() {
+    this.torderlistService.IsShowLoading = true;
+    this.torderlistService.BaseParameter.SearchString006 = this.torderlistService.BaseParameter.SearchString;
+    this.torderlistService.C02Buttonfind_ClickToListAsync().subscribe(
+      res => {
+        this.torderlistService.List = (res as torderlist[]);
+        this.torderlistService.DataSource = new MatTableDataSource(this.torderlistService.List);
+        this.torderlistService.DataSource.sort = this.torderlistSort;
+        this.torderlistService.DataSource.paginator = this.torderlistPaginator;
+      },
+      err => {
+      },
+      () => {
+        this.torderlistService.IsShowLoading = false;
+      }
+    );
+  }
+  IsSeletAllChange() {
+    if (this.IsSeletAll == true) {
+      for (let i = 0; i < this.torderlistService.List.length; i++) {
+        this.torderlistService.List[i].CHK = this.IsSeletAll;
+      }
+    }
+    else {
+      for (let i = 0; i < this.torderlistService.List.length; i++) {
+        this.torderlistService.List[i].CHK = !this.torderlistService.List[i].CHK;
+      }
+    }
+  }
+  MCClick(element: torderlist) {
+    element.CHK = true;
+  }
+  Stop() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = environment.DialogConfigWidth;
+    dialogConfig.data = { ID: 0 };
+    const dialog = this.Dialog.open(C02STOPComponent, dialogConfig);
+    dialog.afterClosed().subscribe(() => {
+    });
+  }
+  CONDITION(element: torderlist) {
+    if (element.CONDITION != "Complete") {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.disableClose = true;
+      dialogConfig.autoFocus = true;
+      dialogConfig.width = environment.DialogConfigWidth;
+      dialogConfig.data = { ID: 0 };
+      const dialog = this.Dialog.open(C02LISTComponent, dialogConfig);
+      dialog.afterClosed().subscribe(() => {
+      });
+    }    
+  }
+}

@@ -2,6 +2,52 @@
 {
 	public static class MySQLHelper
 	{
+        public static string ExecuteNonQuery(string connectionString, string sql, params MySqlParameter[] parameters)
+        {
+            string result = "";
+            try
+            {
+
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddRange(parameters);
+                        conn.Open();
+                        result = cmd.ExecuteNonQuery().ToString();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                result = e.Message;
+            }
+            return result;
+        }
+        public static async Task<string> ExecuteNonQueryAsync(string connectionString, string sql, params MySqlParameter[] parameters)
+        {
+            string result = "";
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddRange(parameters);
+                        await conn.OpenAsync();
+                        int result01 = await cmd.ExecuteNonQueryAsync();
+                        result = result01.ToString();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                result = e.Message;
+            }
+            return result;
+        }
         public static DataSet FillDataSetBySQL(string connectionString, string sql, params MySqlParameter[] parameters)
         {
             DataSet ds = new DataSet();

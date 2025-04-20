@@ -540,6 +540,8 @@ namespace CodeTool.Controllers
                     return "decimal";
                 case "float":
                     return "float";
+                case "double":
+                    return "double";
                 case "uniqueidentifier":
                     return "Guid";
                 default: return "string";
@@ -561,6 +563,7 @@ namespace CodeTool.Controllers
                 case "smallmoney":
                 case "decimal":
                 case "float":
+                case "double":
                     return "number";
                 case "date":
                 case "datetime":

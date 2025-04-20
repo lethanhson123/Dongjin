@@ -41,7 +41,8 @@ export class BaseService {
             SearchString003: environment.InitializationString,  
             SearchString004: environment.InitializationString,  
             SearchString005: environment.InitializationString,  
-            SearchString006: environment.InitializationString,  
+            SearchString006: environment.InitializationString, 
+            Begin: new Date(), 
         };
         this.List = [];
         this.ListFilter = [];

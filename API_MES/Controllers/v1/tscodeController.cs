@@ -28,6 +28,22 @@
             }
             return result;
         }
+        [HttpPost]
+        [Route("C02_LoadToListAsync")]
+        public virtual async Task<List<tscode>> C02_LoadToListAsync()
+        {
+            List<tscode> result = new List<tscode>();
+            try
+            {
+                BaseParameter baseParameter = JsonConvert.DeserializeObject<BaseParameter>(Request.Form["data"]);
+                result = await _tscodeService.C02_LoadToListAsync(baseParameter.SearchString);
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
+            return result;
+        }
     }
 }
 

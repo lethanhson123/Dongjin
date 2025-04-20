@@ -20,5 +20,10 @@ export class BaseParameter extends Base{
     ParentID003?: number;
     ParentID004?: number;
     ParentID005?: number;
-    Code?: number;
+    Code?: string;
+    Account?: string;
+    Begin?: Date;
+    ListBegin?: Date[];
+    ListSearchString001?: string[];
+    ListSearchString002?: string[];
 }

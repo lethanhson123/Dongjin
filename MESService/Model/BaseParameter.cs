@@ -14,6 +14,11 @@
         public int? ID { get; set; }
         public int? ParentID { get; set; }
         public string? Code { get; set; }
+        public string? Account { get; set; }
+        public DateTime? Begin { get; set; }
+        public List<DateTime>? ListBegin { get; set; }
+        public List<string>? ListSearchString001 { get; set; }
+        public List<string>? ListSearchString002 { get; set; }
         public BaseParameter()
 		{
 		}

@@ -172,6 +172,19 @@ export class A01Component {
         break;
       }
       case 2: {
+        this.tspartService.IsShowLoading = true;
+        this.tspart_ecnService.SaveAsync().subscribe(
+          res => {
+            this.tspart_ecnService.FormData = (res as tspart_ecn);
+            this.NotificationService.warn(environment.SaveSuccess);
+            this.tspart_ecnSearch();
+          },
+          err => {
+            this.NotificationService.warn(environment.SaveNotSuccess);
+          },
+          () => {
+          }
+        );
         break;
       }
       case 3: {

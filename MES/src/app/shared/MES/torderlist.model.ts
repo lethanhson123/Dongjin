@@ -6,8 +6,8 @@ OR_NO?: string;
 WORK_WEEK?: number;
 LEAD_NO?: string;
 PROJECT?: string;
-TOT_QTY?: string;
-ADJ_AF_QTY?: string;
+TOT_QTY?: number;
+ADJ_AF_QTY?: number;
 CUR_LEADS?: string;
 CT_LEADS?: string;
 CT_LEADS_PR?: string;
@@ -16,7 +16,7 @@ PRT?: string;
 DT?: Date;
 MC?: string;
 MC2?: string;
-BUNDLE_SIZE?: string;
+BUNDLE_SIZE?: number;
 HOOK_RACK?: string;
 WIRE?: string;
 T1_DIR?: string;
@@ -34,7 +34,7 @@ ICH_W2?: string;
 SP_ST?: string;
 REP?: string;
 DSCN_YN?: string;
-PERFORMN?: string;
+PERFORMN?: number;
 CONDITION?: string;
 CREATE_DTM?: Date;
 CREATE_USER?: string;
@@ -43,7 +43,15 @@ UPDATE_USER?: string;
 FCTRY_NM?: string;
 MTRL_RQUST?: string;
 TORDER_FG?: string;
-TOEXCEL_QTY?: string;
+TOEXCEL_QTY?: number;
+
+
+CHK?: boolean;
+QTY_STOCK?: number;
+REM_QTY?: number;
+SUM_QTY?: number;
+ACT?: number;
+LS_DATE?: Date;
 
 }
 

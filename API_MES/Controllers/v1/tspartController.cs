@@ -97,7 +97,7 @@ namespace API_MES.Controllers.v1
        
         [HttpPost]
         [Route("A001GetBySearchToExcelAsync")]
-        public async Task<JsonResult> ReportAToaThuoc_MinhToExcelAsync()
+        public async Task<JsonResult> A001GetBySearchToExcelAsync()
         {
             string result = GlobalHelper.InitializationString;
             try
@@ -190,7 +190,7 @@ namespace API_MES.Controllers.v1
         {
             using (var package = new ExcelPackage(streamExport))
             {
-                var workSheet = package.Workbook.Worksheets.Add("PARTNO");
+                var workSheet = package.Workbook.Worksheets.Add("A01");
                 int row = 1;
                 int column = 1;
                 workSheet.Cells[row, column].Value = "No";

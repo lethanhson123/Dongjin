@@ -184,7 +184,7 @@ namespace MESService.Implement
                 sql = sql + "ON tspart.PART_IDX = TM_A.PART_IDX ";
                 sql = sql + "WHERE tspart.PART_NO LIKE '%" + SearchString001 + "%' AND tspart.PART_NM LIKE '%" + SearchString002 + "%'  AND tspart.PART_CAR LIKE  '%" + SearchString003 + "%' ";
                 sql = sql + "AND tspart.PART_FML LIKE '%" + SearchString004 + "%' AND tspart.BOM_GRP LIKE '%" + SearchString005 + "%' " + SearchString006;
-                DataSet ds = await HelperMySQL.MySQLHelper.FillDataSetBySQLAsync(GlobalHelper.MariaDBConectionString, sql);
+                DataSet ds = await MySQLHelper.FillDataSetBySQLAsync(GlobalHelper.MariaDBConectionString, sql);
                 for (int i = 0; i < ds.Tables.Count; i++)
                 {
                     DataTable dt = ds.Tables[i];

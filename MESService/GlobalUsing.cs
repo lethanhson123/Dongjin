@@ -15,6 +15,7 @@ global using MESService.Interface;
 
 global using Helper;
 global using Helper.Model;
+global using HelperMySQL;
 
 global using System.Text;
 global using System.Text.Encodings.Web;

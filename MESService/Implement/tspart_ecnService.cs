@@ -55,7 +55,7 @@ namespace MESService.Implement
                 sql = sql + "FROM tspart_ecn ";
                 sql = sql + "WHERE tspart_ecn.`PART_ECN_USENY` = 'Y' AND tspart_ecn.`PART_IDX` = '" + ParentID + "' ";
                 sql = sql + "ORDER BY    tspart_ecn.`PART_ECN_DATE` DESC , tspart_ecn.`PART_ENCNO`   DESC    ";
-                DataSet ds = await HelperMySQL.MySQLHelper.FillDataSetBySQLAsync(GlobalHelper.MariaDBConectionString, sql);
+                DataSet ds = await MySQLHelper.FillDataSetBySQLAsync(GlobalHelper.MariaDBConectionString, sql);
                 for (int i = 0; i < ds.Tables.Count; i++)
                 {
                     DataTable dt = ds.Tables[i];

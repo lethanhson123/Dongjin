@@ -1,7 +1,7 @@
 export const environment = {
   production: false,  
-  APIURL: "https://dongjin.api.sohu.vn/api/",
-  APIRootURL: "https://dongjin.api.sohu.vn/",  
+  APIURL: "https://localhost:7080/api/",
+  APIRootURL: "https://localhost:7080/",  
   LoadingFile: "loading.gif",
   DialogConfigWidth: "80%",
   DialogConfigWidth60: "60%",
