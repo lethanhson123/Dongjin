@@ -80,7 +80,7 @@ export class C02LISTComponent {
         this.torderlistService.BaseParameter.ListSearchString.push(this.torderlistService.ListFilter[i].MC);
       }
     }
-    this.torderlistService.IsShowLoading = true;
+    this.tuser_logService.IsShowLoading = true;
     this.torderlistService.C02_LISTButtonsave_ClickGroupAsync().subscribe(
       res => {
         this.NotificationService.warn(environment.SaveSuccess);
@@ -91,7 +91,7 @@ export class C02LISTComponent {
         this.NotificationService.warn(environment.SaveNotSuccess);
       },
       () => {
-        this.torderlistService.IsShowLoading = false;
+        this.tuser_logService.IsShowLoading = false;
       }
     );
   }
@@ -102,7 +102,7 @@ export class C02LISTComponent {
         this.torderlistService.BaseParameter.ListID.push(this.torderlistService.ListFilter[i].ORDER_IDX);
       }
     }
-    this.torderlistService.IsShowLoading = true;
+    this.tuser_logService.IsShowLoading = true;
     this.torderlistService.C02_LISTButtondelete_ClickGroupAsync().subscribe(
       res => {
         this.NotificationService.warn(environment.DeleteSuccess);
@@ -113,7 +113,7 @@ export class C02LISTComponent {
         this.NotificationService.warn(environment.DeleteNotSuccess);
       },
       () => {
-        this.torderlistService.IsShowLoading = false;
+        this.tuser_logService.IsShowLoading = false;
       }
     );
   }
@@ -125,7 +125,7 @@ export class C02LISTComponent {
 
   }
   ExcelExport() {
-    this.torderlistService.IsShowLoading = true;
+    this.tuser_logService.IsShowLoading = true;
     this.torderlistService.BaseParameter.SearchString001 = this.torderlistService.FormData.LEAD_NO;
     this.torderlistService.C02_LISTButtonfind_ClickToExcelAsync().subscribe(
       res => {        
@@ -134,7 +134,7 @@ export class C02LISTComponent {
       err => {
       },
       () => {
-        this.torderlistService.IsShowLoading = false;
+        this.tuser_logService.IsShowLoading = false;
       }
     );
     this.torderlistService.BaseParameter.SearchString001 = environment.InitializationString;
@@ -167,7 +167,7 @@ export class C02LISTComponent {
       err => {
       },
       () => {
-        this.torderlistService.IsShowLoading = false;
+        this.tuser_logService.IsShowLoading = false;
       }
     );
   }
@@ -187,7 +187,7 @@ export class C02LISTComponent {
       err => {
       },
       () => {
-        this.torderlistService.IsShowLoading = false;
+        this.tuser_logService.IsShowLoading = false;
       }
     );
   }
@@ -202,6 +202,7 @@ export class C02LISTComponent {
       () => {
       }
     );
+
     this.tuser_logService.C02TS_USERUSER_TIMEToListAsync().subscribe(
       res => {
         this.tuser_logService.List = (res as tuser_log[]);
@@ -209,12 +210,12 @@ export class C02LISTComponent {
       err => {
       },
       () => {
-        this.torderlistService.IsShowLoading = false;
+       
       }
     );
   }
   torderlistSearch() {
-    this.torderlistService.IsShowLoading = true;
+    this.tuser_logService.IsShowLoading = true;
     this.torderlistService.C02MC_LISTToListAsync().subscribe(
       res => {
         this.torderlistService.ListFilter001 = (res as torderlist[]);
@@ -227,7 +228,7 @@ export class C02LISTComponent {
       err => {
       },
       () => {
-        this.torderlistService.IsShowLoading = false;
+        this.tuser_logService.IsShowLoading = false;
       }
     );
 
@@ -241,7 +242,7 @@ export class C02LISTComponent {
     );
   }
   torderlistSearch01() {
-    this.torderlistService.IsShowLoading = true;
+    this.tuser_logService.IsShowLoading = true;
     this.torderlistService.BaseParameter.SearchString001 = this.torderlistService.FormData.LEAD_NO;
     this.torderlistService.C02_LISTButtonfind_ClickToListAsync().subscribe(
       res => {
@@ -254,7 +255,7 @@ export class C02LISTComponent {
       err => {
       },
       () => {
-        this.torderlistService.IsShowLoading = false;
+        this.tuser_logService.IsShowLoading = false;
       }
     );
     this.torderlistService.BaseParameter.SearchString001 = environment.InitializationString;
@@ -324,7 +325,7 @@ export class C02LISTComponent {
     });
   }
   Button1() {
-    this.torderlistService.IsShowLoading = true;
+    this.tuser_logService.IsShowLoading = true;
     this.torderlistService.C02_LISTButton1_ClickToExcelAsync().subscribe(
       res => {
         window.open(res.toString(), "_blank");
@@ -332,7 +333,7 @@ export class C02LISTComponent {
       err => {
       },
       () => {
-        this.torderlistService.IsShowLoading = false;
+        this.tuser_logService.IsShowLoading = false;
       }
     );
 
