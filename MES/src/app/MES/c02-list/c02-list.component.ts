@@ -73,11 +73,11 @@ export class C02LISTComponent {
   }
   Save() {
     this.torderlistService.BaseParameter.ListID = [];
-    this.torderlistService.BaseParameter.ListSearchString = [];    
+    this.torderlistService.BaseParameter.ListSearchString = [];
     for (let i = 0; i < this.torderlistService.ListFilter.length; i++) {
       if (this.torderlistService.ListFilter[i].CHK == true) {
         this.torderlistService.BaseParameter.ListID.push(this.torderlistService.ListFilter[i].ORDER_IDX);
-        this.torderlistService.BaseParameter.ListSearchString.push(this.torderlistService.ListFilter[i].MC);        
+        this.torderlistService.BaseParameter.ListSearchString.push(this.torderlistService.ListFilter[i].MC);
       }
     }
     this.torderlistService.IsShowLoading = true;
@@ -96,10 +96,10 @@ export class C02LISTComponent {
     );
   }
   Delete() {
-    this.torderlistService.BaseParameter.ListID = [];    
+    this.torderlistService.BaseParameter.ListID = [];
     for (let i = 0; i < this.torderlistService.ListFilter.length; i++) {
       if (this.torderlistService.ListFilter[i].CHK == true) {
-        this.torderlistService.BaseParameter.ListID.push(this.torderlistService.ListFilter[i].ORDER_IDX);        
+        this.torderlistService.BaseParameter.ListID.push(this.torderlistService.ListFilter[i].ORDER_IDX);
       }
     }
     this.torderlistService.IsShowLoading = true;
@@ -128,7 +128,7 @@ export class C02LISTComponent {
     this.torderlistService.IsShowLoading = true;
     this.torderlistService.BaseParameter.SearchString001 = this.torderlistService.FormData.LEAD_NO;
     this.torderlistService.C02_LISTButtonfind_ClickToExcelAsync().subscribe(
-      res => {
+      res => {        
         window.open(res.toString(), "_blank");
       },
       err => {
@@ -137,7 +137,7 @@ export class C02LISTComponent {
         this.torderlistService.IsShowLoading = false;
       }
     );
-
+    this.torderlistService.BaseParameter.SearchString001 = environment.InitializationString;
   }
   Print() {
 
@@ -245,6 +245,7 @@ export class C02LISTComponent {
     this.torderlistService.BaseParameter.SearchString001 = this.torderlistService.FormData.LEAD_NO;
     this.torderlistService.C02_LISTButtonfind_ClickToListAsync().subscribe(
       res => {
+        
         this.torderlistService.ListFilter = (res as torderlist[]);
         this.torderlistService.DataSourceFilter = new MatTableDataSource(this.torderlistService.ListFilter);
         this.torderlistService.DataSourceFilter.sort = this.torderlistSortFilter;
@@ -256,7 +257,7 @@ export class C02LISTComponent {
         this.torderlistService.IsShowLoading = false;
       }
     );
-
+    this.torderlistService.BaseParameter.SearchString001 = environment.InitializationString;
   }
   IsSeletAllChange() {
     if (this.IsSeletAll == true) {
@@ -323,7 +324,7 @@ export class C02LISTComponent {
     });
   }
   Button1() {
-    this.torderlistService.IsShowLoading = true;    
+    this.torderlistService.IsShowLoading = true;
     this.torderlistService.C02_LISTButton1_ClickToExcelAsync().subscribe(
       res => {
         window.open(res.toString(), "_blank");
