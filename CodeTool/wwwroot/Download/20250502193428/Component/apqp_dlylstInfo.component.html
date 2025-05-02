@@ -1,0 +1,89 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    apqp_dlylst:
+                    <b>{{apqp_dlylstService.FormData.Name}} [{{apqp_dlylstService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/apqp_dlylst" title="apqp_dlylst">apqp_dlylst</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/apqp_dlylst" title="apqp_dlylst">apqp_dlylst</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="apqp_dlylstAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="apqp_dlylstSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>APQP_DLYLST_IDX</label>
+<input placeholder="APQP_DLYLST_IDX" [(ngModel)]="apqp_dlylstService.FormData.APQP_DLYLST_IDX" name="apqp_dlylstService.FormData.APQP_DLYLST_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MSTLST_IDX</label>
+<input placeholder="APQP_MSTLST_IDX" [(ngModel)]="apqp_dlylstService.FormData.APQP_MSTLST_IDX" name="apqp_dlylstService.FormData.APQP_MSTLST_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_DLYLST_RNK</label>
+<input placeholder="APQP_DLYLST_RNK" [(ngModel)]="apqp_dlylstService.FormData.APQP_DLYLST_RNK" name="apqp_dlylstService.FormData.APQP_DLYLST_RNK" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_DLYLST_NXTDT</label>
+<input placeholder="APQP_DLYLST_NXTDT" [(ngModel)]="apqp_dlylstService.FormData.APQP_DLYLST_NXTDT" name="apqp_dlylstService.FormData.APQP_DLYLST_NXTDT" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_DLYLST_NM</label>
+<input placeholder="APQP_DLYLST_NM" [(ngModel)]="apqp_dlylstService.FormData.APQP_DLYLST_NM" name="apqp_dlylstService.FormData.APQP_DLYLST_NM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="apqp_dlylstService.FormData.CREATE_DTM" name="apqp_dlylstService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="apqp_dlylstService.FormData.CREATE_USER" name="apqp_dlylstService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="apqp_dlylstService.FormData.UPDATE_DTM" name="apqp_dlylstService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="apqp_dlylstService.FormData.UPDATE_USER" name="apqp_dlylstService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="apqp_dlylstService.IsShowLoading"></app-loading>

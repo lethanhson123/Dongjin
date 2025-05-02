@@ -1,0 +1,97 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tsbom_ver02_po:
+                    <b>{{tsbom_ver02_poService.FormData.Name}} [{{tsbom_ver02_poService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tsbom_ver02_po" title="tsbom_ver02_po">tsbom_ver02_po</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tsbom_ver02_po" title="tsbom_ver02_po">tsbom_ver02_po</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="tsbom_ver02_poAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="tsbom_ver02_poSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>BOM_IDX</label>
+<input placeholder="BOM_IDX" [(ngModel)]="tsbom_ver02_poService.FormData.BOM_IDX" name="tsbom_ver02_poService.FormData.BOM_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PO_DATE</label>
+<input placeholder="PO_DATE" [(ngModel)]="tsbom_ver02_poService.FormData.PO_DATE" name="tsbom_ver02_poService.FormData.PO_DATE" type="text" class="form-control">
+</div>
+<div>
+<label>PAREN_PART_IDX</label>
+<input placeholder="PAREN_PART_IDX" [(ngModel)]="tsbom_ver02_poService.FormData.PAREN_PART_IDX" name="tsbom_ver02_poService.FormData.PAREN_PART_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PAREN_EO_IDX</label>
+<input placeholder="PAREN_EO_IDX" [(ngModel)]="tsbom_ver02_poService.FormData.PAREN_EO_IDX" name="tsbom_ver02_poService.FormData.PAREN_EO_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PO_QTY</label>
+<input placeholder="PO_QTY" [(ngModel)]="tsbom_ver02_poService.FormData.PO_QTY" name="tsbom_ver02_poService.FormData.PO_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>DSYN</label>
+<input placeholder="DSYN" [(ngModel)]="tsbom_ver02_poService.FormData.DSYN" name="tsbom_ver02_poService.FormData.DSYN" type="text" class="form-control">
+</div>
+<div>
+<label>PO_GRUP</label>
+<input placeholder="PO_GRUP" [(ngModel)]="tsbom_ver02_poService.FormData.PO_GRUP" name="tsbom_ver02_poService.FormData.PO_GRUP" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tsbom_ver02_poService.FormData.CREATE_DTM" name="tsbom_ver02_poService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tsbom_ver02_poService.FormData.CREATE_USER" name="tsbom_ver02_poService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tsbom_ver02_poService.FormData.UPDATE_DTM" name="tsbom_ver02_poService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tsbom_ver02_poService.FormData.UPDATE_USER" name="tsbom_ver02_poService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tsbom_ver02_poService.IsShowLoading"></app-loading>

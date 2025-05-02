@@ -1,0 +1,77 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    zadmin_function:
+                    <b>{{zadmin_functionService.FormData.Name}} [{{zadmin_functionService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/zadmin_function" title="zadmin_function">zadmin_function</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/zadmin_function" title="zadmin_function">zadmin_function</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="zadmin_functionAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="zadmin_functionSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>ZADMIN_FUNCTION_IDX</label>
+<input placeholder="ZADMIN_FUNCTION_IDX" [(ngModel)]="zadmin_functionService.FormData.ZADMIN_FUNCTION_IDX" name="zadmin_functionService.FormData.ZADMIN_FUNCTION_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>ZADMIN_FUNCTION_CODE</label>
+<input placeholder="ZADMIN_FUNCTION_CODE" [(ngModel)]="zadmin_functionService.FormData.ZADMIN_FUNCTION_CODE" name="zadmin_functionService.FormData.ZADMIN_FUNCTION_CODE" type="text" class="form-control">
+</div>
+<div>
+<label>ZADMIN_FUNCTION_NAME</label>
+<input placeholder="ZADMIN_FUNCTION_NAME" [(ngModel)]="zadmin_functionService.FormData.ZADMIN_FUNCTION_NAME" name="zadmin_functionService.FormData.ZADMIN_FUNCTION_NAME" type="text" class="form-control">
+</div>
+<div>
+<label>ZADMIN_FUNCTION_YN</label>
+<input placeholder="ZADMIN_FUNCTION_YN" [(ngModel)]="zadmin_functionService.FormData.ZADMIN_FUNCTION_YN" name="zadmin_functionService.FormData.ZADMIN_FUNCTION_YN" type="text" class="form-control">
+</div>
+<div>
+<label>ZADMIN_FUNCTION_DATE</label>
+<input placeholder="ZADMIN_FUNCTION_DATE" [(ngModel)]="zadmin_functionService.FormData.ZADMIN_FUNCTION_DATE" name="zadmin_functionService.FormData.ZADMIN_FUNCTION_DATE" type="text" class="form-control">
+</div>
+<div>
+<label>ZADMIN_FUNCTION_REMARK</label>
+<input placeholder="ZADMIN_FUNCTION_REMARK" [(ngModel)]="zadmin_functionService.FormData.ZADMIN_FUNCTION_REMARK" name="zadmin_functionService.FormData.ZADMIN_FUNCTION_REMARK" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="zadmin_functionService.IsShowLoading"></app-loading>

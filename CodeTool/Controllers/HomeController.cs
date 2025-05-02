@@ -80,6 +80,7 @@ namespace CodeTool.Controllers
             StringBuilder Context = new StringBuilder();
             StringBuilder Service = new StringBuilder();
             StringBuilder Repository = new StringBuilder();
+            StringBuilder BaseResult = new StringBuilder();
             for (int i = 0; i < listTable.Rows.Count; i++)
             {
                 foreach (string index in listIndex.Split(';'))
@@ -110,6 +111,8 @@ namespace CodeTool.Controllers
                             Context.AppendLine(@"public virtual DbSet<" + className + "> " + className + " { get; set; }");
                             Service.AppendLine(@"services.AddTransient<I" + className + "Service, " + className + "Service>();");
                             Repository.AppendLine(@"services.AddTransient<I" + className + "Repository, " + className + "Repository>();");
+                            BaseResult.AppendLine(@"public List<"+ className + ">? List"+ className + " { get; set; }");
+                            BaseResult.AppendLine(@"public List<" + className + "Tranfer>? List" + className + "Tranfer { get; set; }");
                             for (int j = 0; j < dtItems.Rows.Count; j++)
                             {
                                 string sqlDataType = dtItems.Rows[j][1].ToString().Split('(')[0];
@@ -142,8 +145,7 @@ namespace CodeTool.Controllers
                                 InfoAngular.AppendLine(@"<input placeholder=""" + ItemName + @""" [(ngModel)]=""" + className + @"Service.FormData." + ItemName + @""" name=""" + className + @"Service.FormData." + ItemName + @""" type=""text"" class=""form-control"">");
                                 InfoAngular.AppendLine(@"</div>");
 
-                            }
-
+                            }                           
 
 
                             string content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "Model.html");
@@ -160,6 +162,27 @@ namespace CodeTool.Controllers
                             string path = Path.Combine(folderRoot, "Model");
                             Directory.CreateDirectory(path);
                             path = Path.Combine(folderRoot, "Model", fileName);
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    w.WriteLine(content);
+                                }
+                            }
+
+                            content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "Tranfer.html");
+                            using (FileStream fs = new FileStream(content, FileMode.Open))
+                            {
+                                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                                {
+                                    content = r.ReadToEnd();
+                                }
+                            }
+                            content = content.Replace("[ClassName]", className);
+                            fileName = className + "Tranfer.cs";
+                            path = Path.Combine(folderRoot, "Tranfer");
+                            Directory.CreateDirectory(path);
+                            path = Path.Combine(folderRoot, "Tranfer", fileName);
                             using (FileStream fs = new FileStream(path, FileMode.Create))
                             {
                                 using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
@@ -496,6 +519,26 @@ namespace CodeTool.Controllers
             ContentContext = ContentContext.Replace("[Service]", Service.ToString());
             ContentContext = ContentContext.Replace("[Repository]", Repository.ToString());
             fileNameContext = "ConfigureService.cs";
+            pathContext = Path.Combine(folderRoot, fileNameContext);
+            using (FileStream fs = new FileStream(pathContext, FileMode.Create))
+            {
+                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                {
+                    w.WriteLine(ContentContext);
+                }
+            }
+
+            ContentContext = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "BaseResult.html");
+            using (FileStream fs = new FileStream(ContentContext, FileMode.Open))
+            {
+                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                {
+                    ContentContext = r.ReadToEnd();
+                }
+            }
+
+            ContentContext = ContentContext.Replace("[Items]", BaseResult.ToString());            
+            fileNameContext = "BaseResult.cs";
             pathContext = Path.Combine(folderRoot, fileNameContext);
             using (FileStream fs = new FileStream(pathContext, FileMode.Create))
             {

@@ -1,0 +1,85 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    ttensilforce_usw:
+                    <b>{{ttensilforce_uswService.FormData.Name}} [{{ttensilforce_uswService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/ttensilforce_usw" title="ttensilforce_usw">ttensilforce_usw</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/ttensilforce_usw" title="ttensilforce_usw">ttensilforce_usw</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="ttensilforce_uswAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="ttensilforce_uswSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>FORCE_USW_IDX</label>
+<input placeholder="FORCE_USW_IDX" [(ngModel)]="ttensilforce_uswService.FormData.FORCE_USW_IDX" name="ttensilforce_uswService.FormData.FORCE_USW_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>FORCE_USW_NM</label>
+<input placeholder="FORCE_USW_NM" [(ngModel)]="ttensilforce_uswService.FormData.FORCE_USW_NM" name="ttensilforce_uswService.FormData.FORCE_USW_NM" type="text" class="form-control">
+</div>
+<div>
+<label>FORCE_USW_MIN_HORI</label>
+<input placeholder="FORCE_USW_MIN_HORI" [(ngModel)]="ttensilforce_uswService.FormData.FORCE_USW_MIN_HORI" name="ttensilforce_uswService.FormData.FORCE_USW_MIN_HORI" type="text" class="form-control">
+</div>
+<div>
+<label>FORCE_USW_MIN_VERT</label>
+<input placeholder="FORCE_USW_MIN_VERT" [(ngModel)]="ttensilforce_uswService.FormData.FORCE_USW_MIN_VERT" name="ttensilforce_uswService.FormData.FORCE_USW_MIN_VERT" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="ttensilforce_uswService.FormData.CREATE_DTM" name="ttensilforce_uswService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="ttensilforce_uswService.FormData.CREATE_USER" name="ttensilforce_uswService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="ttensilforce_uswService.FormData.UPDATE_DTM" name="ttensilforce_uswService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="ttensilforce_uswService.FormData.UPDATE_USER" name="ttensilforce_uswService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="ttensilforce_uswService.IsShowLoading"></app-loading>

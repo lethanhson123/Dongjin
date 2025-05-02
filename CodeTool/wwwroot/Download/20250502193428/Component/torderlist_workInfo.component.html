@@ -1,0 +1,69 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    torderlist_work:
+                    <b>{{torderlist_workService.FormData.Name}} [{{torderlist_workService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/torderlist_work" title="torderlist_work">torderlist_work</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/torderlist_work" title="torderlist_work">torderlist_work</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="torderlist_workAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="torderlist_workSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>TORDERLIST_WORK_IDX</label>
+<input placeholder="TORDERLIST_WORK_IDX" [(ngModel)]="torderlist_workService.FormData.TORDERLIST_WORK_IDX" name="torderlist_workService.FormData.TORDERLIST_WORK_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>TORDERLIST_WORK_MC</label>
+<input placeholder="TORDERLIST_WORK_MC" [(ngModel)]="torderlist_workService.FormData.TORDERLIST_WORK_MC" name="torderlist_workService.FormData.TORDERLIST_WORK_MC" type="text" class="form-control">
+</div>
+<div>
+<label>TORDERLIST_WORK_ORDERIDX</label>
+<input placeholder="TORDERLIST_WORK_ORDERIDX" [(ngModel)]="torderlist_workService.FormData.TORDERLIST_WORK_ORDERIDX" name="torderlist_workService.FormData.TORDERLIST_WORK_ORDERIDX" type="text" class="form-control">
+</div>
+<div>
+<label>TORDERLIST_WORK_USER</label>
+<input placeholder="TORDERLIST_WORK_USER" [(ngModel)]="torderlist_workService.FormData.TORDERLIST_WORK_USER" name="torderlist_workService.FormData.TORDERLIST_WORK_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="torderlist_workService.IsShowLoading"></app-loading>

@@ -1,0 +1,173 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    pdpusch:
+                    <b>{{pdpuschService.FormData.Name}} [{{pdpuschService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pdpusch" title="pdpusch">pdpusch</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pdpusch" title="pdpusch">pdpusch</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="pdpuschAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="pdpuschSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>PDPUSCH_IDX</label>
+<input placeholder="PDPUSCH_IDX" [(ngModel)]="pdpuschService.FormData.PDPUSCH_IDX" name="pdpuschService.FormData.PDPUSCH_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_CONF</label>
+<input placeholder="PDP_CONF" [(ngModel)]="pdpuschService.FormData.PDP_CONF" name="pdpuschService.FormData.PDP_CONF" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_FACT</label>
+<input placeholder="PDP_FACT" [(ngModel)]="pdpuschService.FormData.PDP_FACT" name="pdpuschService.FormData.PDP_FACT" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_NO</label>
+<input placeholder="PDP_NO" [(ngModel)]="pdpuschService.FormData.PDP_NO" name="pdpuschService.FormData.PDP_NO" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_COMPY_NO</label>
+<input placeholder="PDP_COMPY_NO" [(ngModel)]="pdpuschService.FormData.PDP_COMPY_NO" name="pdpuschService.FormData.PDP_COMPY_NO" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_DATE1</label>
+<input placeholder="PDP_DATE1" [(ngModel)]="pdpuschService.FormData.PDP_DATE1" name="pdpuschService.FormData.PDP_DATE1" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_DEPA</label>
+<input placeholder="PDP_DEPA" [(ngModel)]="pdpuschService.FormData.PDP_DEPA" name="pdpuschService.FormData.PDP_DEPA" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_PART</label>
+<input placeholder="PDP_PART" [(ngModel)]="pdpuschService.FormData.PDP_PART" name="pdpuschService.FormData.PDP_PART" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_QTY</label>
+<input placeholder="PDP_QTY" [(ngModel)]="pdpuschService.FormData.PDP_QTY" name="pdpuschService.FormData.PDP_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_MEMO</label>
+<input placeholder="PDP_MEMO" [(ngModel)]="pdpuschService.FormData.PDP_MEMO" name="pdpuschService.FormData.PDP_MEMO" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_REC_YN</label>
+<input placeholder="PDP_REC_YN" [(ngModel)]="pdpuschService.FormData.PDP_REC_YN" name="pdpuschService.FormData.PDP_REC_YN" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_CMPY</label>
+<input placeholder="PDP_CMPY" [(ngModel)]="pdpuschService.FormData.PDP_CMPY" name="pdpuschService.FormData.PDP_CMPY" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_DATE2</label>
+<input placeholder="PDP_DATE2" [(ngModel)]="pdpuschService.FormData.PDP_DATE2" name="pdpuschService.FormData.PDP_DATE2" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_COST</label>
+<input placeholder="PDP_COST" [(ngModel)]="pdpuschService.FormData.PDP_COST" name="pdpuschService.FormData.PDP_COST" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_VAT</label>
+<input placeholder="PDP_VAT" [(ngModel)]="pdpuschService.FormData.PDP_VAT" name="pdpuschService.FormData.PDP_VAT" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_ECTCOST</label>
+<input placeholder="PDP_ECTCOST" [(ngModel)]="pdpuschService.FormData.PDP_ECTCOST" name="pdpuschService.FormData.PDP_ECTCOST" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_TOTCOST</label>
+<input placeholder="PDP_TOTCOST" [(ngModel)]="pdpuschService.FormData.PDP_TOTCOST" name="pdpuschService.FormData.PDP_TOTCOST" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_CNF_DATE</label>
+<input placeholder="PDP_CNF_DATE" [(ngModel)]="pdpuschService.FormData.PDP_CNF_DATE" name="pdpuschService.FormData.PDP_CNF_DATE" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_CNF_YN</label>
+<input placeholder="PDP_CNF_YN" [(ngModel)]="pdpuschService.FormData.PDP_CNF_YN" name="pdpuschService.FormData.PDP_CNF_YN" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_ORD_ST</label>
+<input placeholder="PDP_ORD_ST" [(ngModel)]="pdpuschService.FormData.PDP_ORD_ST" name="pdpuschService.FormData.PDP_ORD_ST" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_REMARK</label>
+<input placeholder="PDP_REMARK" [(ngModel)]="pdpuschService.FormData.PDP_REMARK" name="pdpuschService.FormData.PDP_REMARK" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_BE_COST</label>
+<input placeholder="PDP_BE_COST" [(ngModel)]="pdpuschService.FormData.PDP_BE_COST" name="pdpuschService.FormData.PDP_BE_COST" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_INCO_DT</label>
+<input placeholder="PDP_INCO_DT" [(ngModel)]="pdpuschService.FormData.PDP_INCO_DT" name="pdpuschService.FormData.PDP_INCO_DT" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_IN_QTY</label>
+<input placeholder="PDP_IN_QTY" [(ngModel)]="pdpuschService.FormData.PDP_IN_QTY" name="pdpuschService.FormData.PDP_IN_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_FIFO</label>
+<input placeholder="PDP_FIFO" [(ngModel)]="pdpuschService.FormData.PDP_FIFO" name="pdpuschService.FormData.PDP_FIFO" type="text" class="form-control">
+</div>
+<div>
+<label>PDP_PRIENT</label>
+<input placeholder="PDP_PRIENT" [(ngModel)]="pdpuschService.FormData.PDP_PRIENT" name="pdpuschService.FormData.PDP_PRIENT" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="pdpuschService.FormData.CREATE_DTM" name="pdpuschService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="pdpuschService.FormData.CREATE_USER" name="pdpuschService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="pdpuschService.FormData.UPDATE_DTM" name="pdpuschService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="pdpuschService.FormData.UPDATE_USER" name="pdpuschService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="pdpuschService.IsShowLoading"></app-loading>

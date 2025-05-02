@@ -1,0 +1,28 @@
+﻿<div class="col s12 m12 l10">
+    <h5 class="card-title"><b>aatable</b></h5>
+</div>
+<div class="col s12 m12 l2">
+    <a title="Save" class="btn-floating waves-effect waves-light cyan" (click)="aatableSave()">
+        <i class="material-icons">save</i>
+    </a>&nbsp;&nbsp;&nbsp;
+    <a title="Close" class="btn-floating waves-effect waves-light purple lightrn-1" (click)="Close()">
+        <i class="material-icons">close</i>
+    </a>
+</div>
+<div class="col s12 m12 l12">
+    <div>
+<label>ID</label>
+<input placeholder="ID" [(ngModel)]="aatableService.FormData.ID" name="aatableService.FormData.ID" type="text" class="form-control">
+</div>
+<div>
+<label>Name</label>
+<input placeholder="Name" [(ngModel)]="aatableService.FormData.Name" name="aatableService.FormData.Name" type="text" class="form-control">
+</div>
+<div>
+<label>Email</label>
+<input placeholder="Email" [(ngModel)]="aatableService.FormData.Email" name="aatableService.FormData.Email" type="text" class="form-control">
+</div>
+
+</div>
+
+

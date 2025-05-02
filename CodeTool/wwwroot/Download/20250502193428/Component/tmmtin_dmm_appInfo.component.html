@@ -1,0 +1,117 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tmmtin_dmm_app:
+                    <b>{{tmmtin_dmm_appService.FormData.Name}} [{{tmmtin_dmm_appService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tmmtin_dmm_app" title="tmmtin_dmm_app">tmmtin_dmm_app</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tmmtin_dmm_app" title="tmmtin_dmm_app">tmmtin_dmm_app</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="tmmtin_dmm_appAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="tmmtin_dmm_appSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>TMMTIN_DMM_IDX</label>
+<input placeholder="TMMTIN_DMM_IDX" [(ngModel)]="tmmtin_dmm_appService.FormData.TMMTIN_DMM_IDX" name="tmmtin_dmm_appService.FormData.TMMTIN_DMM_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>TMMTIN_DMM_STGC</label>
+<input placeholder="TMMTIN_DMM_STGC" [(ngModel)]="tmmtin_dmm_appService.FormData.TMMTIN_DMM_STGC" name="tmmtin_dmm_appService.FormData.TMMTIN_DMM_STGC" type="text" class="form-control">
+</div>
+<div>
+<label>TMMTIN_DATE</label>
+<input placeholder="TMMTIN_DATE" [(ngModel)]="tmmtin_dmm_appService.FormData.TMMTIN_DATE" name="tmmtin_dmm_appService.FormData.TMMTIN_DATE" type="text" class="form-control">
+</div>
+<div>
+<label>TMMTIN_CODE</label>
+<input placeholder="TMMTIN_CODE" [(ngModel)]="tmmtin_dmm_appService.FormData.TMMTIN_CODE" name="tmmtin_dmm_appService.FormData.TMMTIN_CODE" type="text" class="form-control">
+</div>
+<div>
+<label>TMMTIN_PART</label>
+<input placeholder="TMMTIN_PART" [(ngModel)]="tmmtin_dmm_appService.FormData.TMMTIN_PART" name="tmmtin_dmm_appService.FormData.TMMTIN_PART" type="text" class="form-control">
+</div>
+<div>
+<label>TMMTIN_PART_SNP</label>
+<input placeholder="TMMTIN_PART_SNP" [(ngModel)]="tmmtin_dmm_appService.FormData.TMMTIN_PART_SNP" name="tmmtin_dmm_appService.FormData.TMMTIN_PART_SNP" type="text" class="form-control">
+</div>
+<div>
+<label>TMMTIN_QTY</label>
+<input placeholder="TMMTIN_QTY" [(ngModel)]="tmmtin_dmm_appService.FormData.TMMTIN_QTY" name="tmmtin_dmm_appService.FormData.TMMTIN_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>TMMTIN_REC_YN</label>
+<input placeholder="TMMTIN_REC_YN" [(ngModel)]="tmmtin_dmm_appService.FormData.TMMTIN_REC_YN" name="tmmtin_dmm_appService.FormData.TMMTIN_REC_YN" type="text" class="form-control">
+</div>
+<div>
+<label>TMMTIN_CNF_YN</label>
+<input placeholder="TMMTIN_CNF_YN" [(ngModel)]="tmmtin_dmm_appService.FormData.TMMTIN_CNF_YN" name="tmmtin_dmm_appService.FormData.TMMTIN_CNF_YN" type="text" class="form-control">
+</div>
+<div>
+<label>TMMTIN_DSCN_YN</label>
+<input placeholder="TMMTIN_DSCN_YN" [(ngModel)]="tmmtin_dmm_appService.FormData.TMMTIN_DSCN_YN" name="tmmtin_dmm_appService.FormData.TMMTIN_DSCN_YN" type="text" class="form-control">
+</div>
+<div>
+<label>TMMTIN_SHEETNO</label>
+<input placeholder="TMMTIN_SHEETNO" [(ngModel)]="tmmtin_dmm_appService.FormData.TMMTIN_SHEETNO" name="tmmtin_dmm_appService.FormData.TMMTIN_SHEETNO" type="text" class="form-control">
+</div>
+<div>
+<label>TMMTIN_MTORDR</label>
+<input placeholder="TMMTIN_MTORDR" [(ngModel)]="tmmtin_dmm_appService.FormData.TMMTIN_MTORDR" name="tmmtin_dmm_appService.FormData.TMMTIN_MTORDR" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tmmtin_dmm_appService.FormData.CREATE_DTM" name="tmmtin_dmm_appService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tmmtin_dmm_appService.FormData.CREATE_USER" name="tmmtin_dmm_appService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tmmtin_dmm_appService.FormData.UPDATE_DTM" name="tmmtin_dmm_appService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tmmtin_dmm_appService.FormData.UPDATE_USER" name="tmmtin_dmm_appService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tmmtin_dmm_appService.IsShowLoading"></app-loading>

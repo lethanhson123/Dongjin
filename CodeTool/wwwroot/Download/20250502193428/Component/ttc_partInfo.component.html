@@ -1,0 +1,109 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    ttc_part:
+                    <b>{{ttc_partService.FormData.Name}} [{{ttc_partService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/ttc_part" title="ttc_part">ttc_part</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/ttc_part" title="ttc_part">ttc_part</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="ttc_partAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="ttc_partSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>TTC_PART_IDX</label>
+<input placeholder="TTC_PART_IDX" [(ngModel)]="ttc_partService.FormData.TTC_PART_IDX" name="ttc_partService.FormData.TTC_PART_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>TC_PART_NM</label>
+<input placeholder="TC_PART_NM" [(ngModel)]="ttc_partService.FormData.TC_PART_NM" name="ttc_partService.FormData.TC_PART_NM" type="text" class="form-control">
+</div>
+<div>
+<label>TC_DESC</label>
+<input placeholder="TC_DESC" [(ngModel)]="ttc_partService.FormData.TC_DESC" name="ttc_partService.FormData.TC_DESC" type="text" class="form-control">
+</div>
+<div>
+<label>RAW_PART_IDX</label>
+<input placeholder="RAW_PART_IDX" [(ngModel)]="ttc_partService.FormData.RAW_PART_IDX" name="ttc_partService.FormData.RAW_PART_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>TC_SIZE</label>
+<input placeholder="TC_SIZE" [(ngModel)]="ttc_partService.FormData.TC_SIZE" name="ttc_partService.FormData.TC_SIZE" type="text" class="form-control">
+</div>
+<div>
+<label>TC_MC</label>
+<input placeholder="TC_MC" [(ngModel)]="ttc_partService.FormData.TC_MC" name="ttc_partService.FormData.TC_MC" type="text" class="form-control">
+</div>
+<div>
+<label>TC_PACKUNIT</label>
+<input placeholder="TC_PACKUNIT" [(ngModel)]="ttc_partService.FormData.TC_PACKUNIT" name="ttc_partService.FormData.TC_PACKUNIT" type="text" class="form-control">
+</div>
+<div>
+<label>TC_LOC</label>
+<input placeholder="TC_LOC" [(ngModel)]="ttc_partService.FormData.TC_LOC" name="ttc_partService.FormData.TC_LOC" type="text" class="form-control">
+</div>
+<div>
+<label>TC_W_S</label>
+<input placeholder="TC_W_S" [(ngModel)]="ttc_partService.FormData.TC_W_S" name="ttc_partService.FormData.TC_W_S" type="text" class="form-control">
+</div>
+<div>
+<label>TC_W_MS</label>
+<input placeholder="TC_W_MS" [(ngModel)]="ttc_partService.FormData.TC_W_MS" name="ttc_partService.FormData.TC_W_MS" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="ttc_partService.FormData.CREATE_DTM" name="ttc_partService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="ttc_partService.FormData.CREATE_USER" name="ttc_partService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="ttc_partService.FormData.UPDATE_DTM" name="ttc_partService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="ttc_partService.FormData.UPDATE_USER" name="ttc_partService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="ttc_partService.IsShowLoading"></app-loading>

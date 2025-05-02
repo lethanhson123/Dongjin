@@ -1,0 +1,129 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tsmnau:
+                    <b>{{tsmnauService.FormData.Name}} [{{tsmnauService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tsmnau" title="tsmnau">tsmnau</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tsmnau" title="tsmnau">tsmnau</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="tsmnauAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="tsmnauSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>MENU_AUTH_IDX</label>
+<input placeholder="MENU_AUTH_IDX" [(ngModel)]="tsmnauService.FormData.MENU_AUTH_IDX" name="tsmnauService.FormData.MENU_AUTH_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>MENU_IDX</label>
+<input placeholder="MENU_IDX" [(ngModel)]="tsmnauService.FormData.MENU_IDX" name="tsmnauService.FormData.MENU_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>AUTH_IDX</label>
+<input placeholder="AUTH_IDX" [(ngModel)]="tsmnauService.FormData.AUTH_IDX" name="tsmnauService.FormData.AUTH_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>MENU_AUTH_YN</label>
+<input placeholder="MENU_AUTH_YN" [(ngModel)]="tsmnauService.FormData.MENU_AUTH_YN" name="tsmnauService.FormData.MENU_AUTH_YN" type="text" class="form-control">
+</div>
+<div>
+<label>IQ_AUTH_YN</label>
+<input placeholder="IQ_AUTH_YN" [(ngModel)]="tsmnauService.FormData.IQ_AUTH_YN" name="tsmnauService.FormData.IQ_AUTH_YN" type="text" class="form-control">
+</div>
+<div>
+<label>RGST_AUTH_YN</label>
+<input placeholder="RGST_AUTH_YN" [(ngModel)]="tsmnauService.FormData.RGST_AUTH_YN" name="tsmnauService.FormData.RGST_AUTH_YN" type="text" class="form-control">
+</div>
+<div>
+<label>MDFY_AUTH_YN</label>
+<input placeholder="MDFY_AUTH_YN" [(ngModel)]="tsmnauService.FormData.MDFY_AUTH_YN" name="tsmnauService.FormData.MDFY_AUTH_YN" type="text" class="form-control">
+</div>
+<div>
+<label>DEL_AUTH_YN</label>
+<input placeholder="DEL_AUTH_YN" [(ngModel)]="tsmnauService.FormData.DEL_AUTH_YN" name="tsmnauService.FormData.DEL_AUTH_YN" type="text" class="form-control">
+</div>
+<div>
+<label>CAN_AUTH_YN</label>
+<input placeholder="CAN_AUTH_YN" [(ngModel)]="tsmnauService.FormData.CAN_AUTH_YN" name="tsmnauService.FormData.CAN_AUTH_YN" type="text" class="form-control">
+</div>
+<div>
+<label>EXCL_AUTH_YN</label>
+<input placeholder="EXCL_AUTH_YN" [(ngModel)]="tsmnauService.FormData.EXCL_AUTH_YN" name="tsmnauService.FormData.EXCL_AUTH_YN" type="text" class="form-control">
+</div>
+<div>
+<label>DNLD_AUTH_YN</label>
+<input placeholder="DNLD_AUTH_YN" [(ngModel)]="tsmnauService.FormData.DNLD_AUTH_YN" name="tsmnauService.FormData.DNLD_AUTH_YN" type="text" class="form-control">
+</div>
+<div>
+<label>PRNT_AUTH_YN</label>
+<input placeholder="PRNT_AUTH_YN" [(ngModel)]="tsmnauService.FormData.PRNT_AUTH_YN" name="tsmnauService.FormData.PRNT_AUTH_YN" type="text" class="form-control">
+</div>
+<div>
+<label>ETC1_AUTH_YN</label>
+<input placeholder="ETC1_AUTH_YN" [(ngModel)]="tsmnauService.FormData.ETC1_AUTH_YN" name="tsmnauService.FormData.ETC1_AUTH_YN" type="text" class="form-control">
+</div>
+<div>
+<label>ETC2_AUTH_YN</label>
+<input placeholder="ETC2_AUTH_YN" [(ngModel)]="tsmnauService.FormData.ETC2_AUTH_YN" name="tsmnauService.FormData.ETC2_AUTH_YN" type="text" class="form-control">
+</div>
+<div>
+<label>ETC3_AUTH_YN</label>
+<input placeholder="ETC3_AUTH_YN" [(ngModel)]="tsmnauService.FormData.ETC3_AUTH_YN" name="tsmnauService.FormData.ETC3_AUTH_YN" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tsmnauService.FormData.CREATE_DTM" name="tsmnauService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tsmnauService.FormData.CREATE_USER" name="tsmnauService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tsmnauService.FormData.UPDATE_DTM" name="tsmnauService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tsmnauService.FormData.UPDATE_USER" name="tsmnauService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tsmnauService.IsShowLoading"></app-loading>

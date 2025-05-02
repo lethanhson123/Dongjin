@@ -1,0 +1,81 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tdpdotpl_aloc:
+                    <b>{{tdpdotpl_alocService.FormData.Name}} [{{tdpdotpl_alocService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tdpdotpl_aloc" title="tdpdotpl_aloc">tdpdotpl_aloc</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tdpdotpl_aloc" title="tdpdotpl_aloc">tdpdotpl_aloc</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="tdpdotpl_alocAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="tdpdotpl_alocSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>PDOTPL_IDX</label>
+<input placeholder="PDOTPL_IDX" [(ngModel)]="tdpdotpl_alocService.FormData.PDOTPL_IDX" name="tdpdotpl_alocService.FormData.PDOTPL_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PART_IDX</label>
+<input placeholder="PART_IDX" [(ngModel)]="tdpdotpl_alocService.FormData.PART_IDX" name="tdpdotpl_alocService.FormData.PART_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>D_ARRVL</label>
+<input placeholder="D_ARRVL" [(ngModel)]="tdpdotpl_alocService.FormData.D_ARRVL" name="tdpdotpl_alocService.FormData.D_ARRVL" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tdpdotpl_alocService.FormData.CREATE_DTM" name="tdpdotpl_alocService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tdpdotpl_alocService.FormData.CREATE_USER" name="tdpdotpl_alocService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tdpdotpl_alocService.FormData.UPDATE_DTM" name="tdpdotpl_alocService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tdpdotpl_alocService.FormData.UPDATE_USER" name="tdpdotpl_alocService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tdpdotpl_alocService.IsShowLoading"></app-loading>

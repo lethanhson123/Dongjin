@@ -1,0 +1,161 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    ttc_order
+                    <span *ngIf="ttc_orderService.List">({{ttc_orderService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/ttc_order" title="ttc_order">ttc_order</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/ttc_order" title="ttc_order">ttc_order</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="ttc_orderService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="ttc_orderSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="ttc_orderSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #ttc_orderSort="matSort"
+                       [dataSource]="ttc_orderService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="ttc_orderPaginator">
+                                {{
+                                    ttc_orderPaginator.pageSize *
+                                    ttc_orderPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="TTC_PO_INX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TTC_PO_INX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TTC_PO_INX" name="TTC_PO_INX{{element.TTC_PO_INX}}" [(ngModel)]="element.TTC_PO_INX">
+</td>
+</ng-container>
+<ng-container matColumnDef="TTC_PN_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TTC_PN_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TTC_PN_IDX" name="TTC_PN_IDX{{element.TTC_PO_INX}}" [(ngModel)]="element.TTC_PN_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="TTC_PO_DT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TTC_PO_DT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TTC_PO_DT" name="TTC_PO_DT{{element.TTC_PO_INX}}" [(ngModel)]="element.TTC_PO_DT">
+</td>
+</ng-container>
+<ng-container matColumnDef="TTC_PO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TTC_PO</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TTC_PO" name="TTC_PO{{element.TTC_PO_INX}}" [(ngModel)]="element.TTC_PO">
+</td>
+</ng-container>
+<ng-container matColumnDef="PERFORMN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PERFORMN</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PERFORMN" name="PERFORMN{{element.TTC_PO_INX}}" [(ngModel)]="element.PERFORMN">
+</td>
+</ng-container>
+<ng-container matColumnDef="CONDITION">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CONDITION</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CONDITION" name="CONDITION{{element.TTC_PO_INX}}" [(ngModel)]="element.CONDITION">
+</td>
+</ng-container>
+<ng-container matColumnDef="DSCN_YN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DSCN_YN</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="DSCN_YN" name="DSCN_YN{{element.TTC_PO_INX}}" [(ngModel)]="element.DSCN_YN">
+</td>
+</ng-container>
+<ng-container matColumnDef="ERROR_YN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ERROR_YN</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="ERROR_YN" name="ERROR_YN{{element.TTC_PO_INX}}" [(ngModel)]="element.ERROR_YN">
+</td>
+</ng-container>
+<ng-container matColumnDef="TTC_ENG">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>TTC_ENG</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="TTC_ENG" name="TTC_ENG{{element.TTC_PO_INX}}" [(ngModel)]="element.TTC_ENG">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_DTM" name="CREATE_DTM{{element.TTC_PO_INX}}" [(ngModel)]="element.CREATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_USER" name="CREATE_USER{{element.TTC_PO_INX}}" [(ngModel)]="element.CREATE_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_DTM" name="UPDATE_DTM{{element.TTC_PO_INX}}" [(ngModel)]="element.UPDATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_USER" name="UPDATE_USER{{element.TTC_PO_INX}}" [(ngModel)]="element.UPDATE_USER">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="ttc_orderSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.TTC_PO_INX>0" (click)="ttc_orderDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="ttc_orderService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: ttc_orderService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #ttc_orderPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="ttc_orderService.IsShowLoading"></app-loading>

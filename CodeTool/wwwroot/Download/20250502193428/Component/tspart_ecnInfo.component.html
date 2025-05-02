@@ -1,0 +1,101 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tspart_ecn:
+                    <b>{{tspart_ecnService.FormData.Name}} [{{tspart_ecnService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tspart_ecn" title="tspart_ecn">tspart_ecn</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tspart_ecn" title="tspart_ecn">tspart_ecn</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="tspart_ecnAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="tspart_ecnSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>PARTECN_IDX</label>
+<input placeholder="PARTECN_IDX" [(ngModel)]="tspart_ecnService.FormData.PARTECN_IDX" name="tspart_ecnService.FormData.PARTECN_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PART_IDX</label>
+<input placeholder="PART_IDX" [(ngModel)]="tspart_ecnService.FormData.PART_IDX" name="tspart_ecnService.FormData.PART_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PART_ENCNO</label>
+<input placeholder="PART_ENCNO" [(ngModel)]="tspart_ecnService.FormData.PART_ENCNO" name="tspart_ecnService.FormData.PART_ENCNO" type="text" class="form-control">
+</div>
+<div>
+<label>PART_ECN_DATE</label>
+<input placeholder="PART_ECN_DATE" [(ngModel)]="tspart_ecnService.FormData.PART_ECN_DATE" name="tspart_ecnService.FormData.PART_ECN_DATE" type="text" class="form-control">
+</div>
+<div>
+<label>DWG_NO</label>
+<input placeholder="DWG_NO" [(ngModel)]="tspart_ecnService.FormData.DWG_NO" name="tspart_ecnService.FormData.DWG_NO" type="text" class="form-control">
+</div>
+<div>
+<label>DWG_FILE_GRP</label>
+<input placeholder="DWG_FILE_GRP" [(ngModel)]="tspart_ecnService.FormData.DWG_FILE_GRP" name="tspart_ecnService.FormData.DWG_FILE_GRP" type="text" class="form-control">
+</div>
+<div>
+<label>DWG_FILE_EXPOR</label>
+<input placeholder="DWG_FILE_EXPOR" [(ngModel)]="tspart_ecnService.FormData.DWG_FILE_EXPOR" name="tspart_ecnService.FormData.DWG_FILE_EXPOR" type="text" class="form-control">
+</div>
+<div>
+<label>PART_ECN_USENY</label>
+<input placeholder="PART_ECN_USENY" [(ngModel)]="tspart_ecnService.FormData.PART_ECN_USENY" name="tspart_ecnService.FormData.PART_ECN_USENY" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tspart_ecnService.FormData.CREATE_DTM" name="tspart_ecnService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tspart_ecnService.FormData.CREATE_USER" name="tspart_ecnService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tspart_ecnService.FormData.UPDATE_DTM" name="tspart_ecnService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tspart_ecnService.FormData.UPDATE_USER" name="tspart_ecnService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tspart_ecnService.IsShowLoading"></app-loading>

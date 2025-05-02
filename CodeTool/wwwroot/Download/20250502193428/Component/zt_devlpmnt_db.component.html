@@ -1,0 +1,167 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    zt_devlpmnt_db
+                    <span *ngIf="zt_devlpmnt_dbService.List">({{zt_devlpmnt_dbService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/zt_devlpmnt_db" title="zt_devlpmnt_db">zt_devlpmnt_db</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/zt_devlpmnt_db" title="zt_devlpmnt_db">zt_devlpmnt_db</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="zt_devlpmnt_dbService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="zt_devlpmnt_dbSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="zt_devlpmnt_dbSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #zt_devlpmnt_dbSort="matSort"
+                       [dataSource]="zt_devlpmnt_dbService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="zt_devlpmnt_dbPaginator">
+                                {{
+                                    zt_devlpmnt_dbPaginator.pageSize *
+                                    zt_devlpmnt_dbPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="DELP_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DELP_IDX</th>
+<td mat-cell *matCellDef="let element">{{element.DELP_IDX}}</td>
+</ng-container>
+<ng-container matColumnDef="DELP_DATE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DELP_DATE</th>
+<td mat-cell *matCellDef="let element">{{element.DELP_DATE}}</td>
+</ng-container>
+<ng-container matColumnDef="DELP_DEPT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DELP_DEPT</th>
+<td mat-cell *matCellDef="let element">{{element.DELP_DEPT}}</td>
+</ng-container>
+<ng-container matColumnDef="MES_MENU">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MES_MENU</th>
+<td mat-cell *matCellDef="let element">{{element.MES_MENU}}</td>
+</ng-container>
+<ng-container matColumnDef="DELP_NAME">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DELP_NAME</th>
+<td mat-cell *matCellDef="let element">{{element.DELP_NAME}}</td>
+</ng-container>
+<ng-container matColumnDef="DELP_DETIL">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DELP_DETIL</th>
+<td mat-cell *matCellDef="let element">{{element.DELP_DETIL}}</td>
+</ng-container>
+<ng-container matColumnDef="FILE_DSYN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>FILE_DSYN</th>
+<td mat-cell *matCellDef="let element">{{element.FILE_DSYN}}</td>
+</ng-container>
+<ng-container matColumnDef="FILE_NM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>FILE_NM</th>
+<td mat-cell *matCellDef="let element">{{element.FILE_NM}}</td>
+</ng-container>
+<ng-container matColumnDef="FILE_EX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>FILE_EX</th>
+<td mat-cell *matCellDef="let element">{{element.FILE_EX}}</td>
+</ng-container>
+<ng-container matColumnDef="FILE_SIZE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>FILE_SIZE</th>
+<td mat-cell *matCellDef="let element">{{element.FILE_SIZE}}</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">{{element.CREATE_DTM}}</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">{{element.CREATE_USER}}</td>
+</ng-container>
+<ng-container matColumnDef="STATE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>STATE</th>
+<td mat-cell *matCellDef="let element">{{element.STATE}}</td>
+</ng-container>
+<ng-container matColumnDef="PROGRESS">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PROGRESS</th>
+<td mat-cell *matCellDef="let element">{{element.PROGRESS}}</td>
+</ng-container>
+<ng-container matColumnDef="DONE_DATE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DONE_DATE</th>
+<td mat-cell *matCellDef="let element">{{element.DONE_DATE}}</td>
+</ng-container>
+<ng-container matColumnDef="MES_VER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MES_VER</th>
+<td mat-cell *matCellDef="let element">{{element.MES_VER}}</td>
+</ng-container>
+<ng-container matColumnDef="DELP_DELT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DELP_DELT</th>
+<td mat-cell *matCellDef="let element">{{element.DELP_DELT}}</td>
+</ng-container>
+<ng-container matColumnDef="RESULT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>RESULT</th>
+<td mat-cell *matCellDef="let element">{{element.RESULT}}</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">{{element.UPDATE_DTM}}</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">{{element.UPDATE_USER}}</td>
+</ng-container>
+<ng-container matColumnDef="DEP_PHOTO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DEP_PHOTO</th>
+<td mat-cell *matCellDef="let element">{{element.DEP_PHOTO}}</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="zt_devlpmnt_dbSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.DELP_IDX>0" (click)="zt_devlpmnt_dbDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="zt_devlpmnt_dbService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: zt_devlpmnt_dbService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #zt_devlpmnt_dbPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>              
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="zt_devlpmnt_dbService.IsShowLoading"></app-loading>

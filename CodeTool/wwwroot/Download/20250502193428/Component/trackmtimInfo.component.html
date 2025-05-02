@@ -1,0 +1,109 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    trackmtim:
+                    <b>{{trackmtimService.FormData.Name}} [{{trackmtimService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/trackmtim" title="trackmtim">trackmtim</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/trackmtim" title="trackmtim">trackmtim</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="trackmtimAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="trackmtimSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>TRACK_IDX</label>
+<input placeholder="TRACK_IDX" [(ngModel)]="trackmtimService.FormData.TRACK_IDX" name="trackmtimService.FormData.TRACK_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>RACK_IDX</label>
+<input placeholder="RACK_IDX" [(ngModel)]="trackmtimService.FormData.RACK_IDX" name="trackmtimService.FormData.RACK_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>RACKCODE</label>
+<input placeholder="RACKCODE" [(ngModel)]="trackmtimService.FormData.RACKCODE" name="trackmtimService.FormData.RACKCODE" type="text" class="form-control">
+</div>
+<div>
+<label>TABLE_IDX</label>
+<input placeholder="TABLE_IDX" [(ngModel)]="trackmtimService.FormData.TABLE_IDX" name="trackmtimService.FormData.TABLE_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>TABLE_NM</label>
+<input placeholder="TABLE_NM" [(ngModel)]="trackmtimService.FormData.TABLE_NM" name="trackmtimService.FormData.TABLE_NM" type="text" class="form-control">
+</div>
+<div>
+<label>LEAD_NM</label>
+<input placeholder="LEAD_NM" [(ngModel)]="trackmtimService.FormData.LEAD_NM" name="trackmtimService.FormData.LEAD_NM" type="text" class="form-control">
+</div>
+<div>
+<label>BARCODE_NM</label>
+<input placeholder="BARCODE_NM" [(ngModel)]="trackmtimService.FormData.BARCODE_NM" name="trackmtimService.FormData.BARCODE_NM" type="text" class="form-control">
+</div>
+<div>
+<label>RACKDTM</label>
+<input placeholder="RACKDTM" [(ngModel)]="trackmtimService.FormData.RACKDTM" name="trackmtimService.FormData.RACKDTM" type="text" class="form-control">
+</div>
+<div>
+<label>RACKOUT_DTM</label>
+<input placeholder="RACKOUT_DTM" [(ngModel)]="trackmtimService.FormData.RACKOUT_DTM" name="trackmtimService.FormData.RACKOUT_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>QTY</label>
+<input placeholder="QTY" [(ngModel)]="trackmtimService.FormData.QTY" name="trackmtimService.FormData.QTY" type="text" class="form-control">
+</div>
+<div>
+<label>RACKIN_YN</label>
+<input placeholder="RACKIN_YN" [(ngModel)]="trackmtimService.FormData.RACKIN_YN" name="trackmtimService.FormData.RACKIN_YN" type="text" class="form-control">
+</div>
+<div>
+<label>RACKOUT_YN</label>
+<input placeholder="RACKOUT_YN" [(ngModel)]="trackmtimService.FormData.RACKOUT_YN" name="trackmtimService.FormData.RACKOUT_YN" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="trackmtimService.FormData.CREATE_DTM" name="trackmtimService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="trackmtimService.FormData.CREATE_USER" name="trackmtimService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="trackmtimService.IsShowLoading"></app-loading>

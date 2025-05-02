@@ -1,0 +1,131 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tscmpny
+                    <span *ngIf="tscmpnyService.List">({{tscmpnyService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tscmpny" title="tscmpny">tscmpny</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tscmpny" title="tscmpny">tscmpny</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="tscmpnyService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="tscmpnySearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="tscmpnySearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #tscmpnySort="matSort"
+                       [dataSource]="tscmpnyService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="tscmpnyPaginator">
+                                {{
+                                    tscmpnyPaginator.pageSize *
+                                    tscmpnyPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="CMPNY_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CMPNY_IDX</th>
+<td mat-cell *matCellDef="let element">{{element.CMPNY_IDX}}</td>
+</ng-container>
+<ng-container matColumnDef="CMPNY_NM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CMPNY_NM</th>
+<td mat-cell *matCellDef="let element">{{element.CMPNY_NM}}</td>
+</ng-container>
+<ng-container matColumnDef="CMPNY_DVS">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CMPNY_DVS</th>
+<td mat-cell *matCellDef="let element">{{element.CMPNY_DVS}}</td>
+</ng-container>
+<ng-container matColumnDef="CMPNY_ADDR">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CMPNY_ADDR</th>
+<td mat-cell *matCellDef="let element">{{element.CMPNY_ADDR}}</td>
+</ng-container>
+<ng-container matColumnDef="CMPNY_TEL">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CMPNY_TEL</th>
+<td mat-cell *matCellDef="let element">{{element.CMPNY_TEL}}</td>
+</ng-container>
+<ng-container matColumnDef="CMPNY_FAX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CMPNY_FAX</th>
+<td mat-cell *matCellDef="let element">{{element.CMPNY_FAX}}</td>
+</ng-container>
+<ng-container matColumnDef="CMPNY_mngr">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CMPNY_mngr</th>
+<td mat-cell *matCellDef="let element">{{element.CMPNY_mngr}}</td>
+</ng-container>
+<ng-container matColumnDef="CMPNY_rmk">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CMPNY_rmk</th>
+<td mat-cell *matCellDef="let element">{{element.CMPNY_rmk}}</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">{{element.CREATE_DTM}}</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">{{element.CREATE_USER}}</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">{{element.UPDATE_DTM}}</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">{{element.UPDATE_USER}}</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="tscmpnySave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.CMPNY_IDX>0" (click)="tscmpnyDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="tscmpnyService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: tscmpnyService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #tscmpnyPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>              
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tscmpnyService.IsShowLoading"></app-loading>

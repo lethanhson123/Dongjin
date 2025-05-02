@@ -1,0 +1,167 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    kr_inspctn_st
+                    <span *ngIf="kr_inspctn_stService.List">({{kr_inspctn_stService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/kr_inspctn_st" title="kr_inspctn_st">kr_inspctn_st</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/kr_inspctn_st" title="kr_inspctn_st">kr_inspctn_st</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="kr_inspctn_stService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="kr_inspctn_stSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="kr_inspctn_stSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #kr_inspctn_stSort="matSort"
+                       [dataSource]="kr_inspctn_stService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="kr_inspctn_stPaginator">
+                                {{
+                                    kr_inspctn_stPaginator.pageSize *
+                                    kr_inspctn_stPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="KR_INSPCTN_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_INSPCTN_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_INSPCTN_IDX" name="KR_INSPCTN_IDX{{element.KR_INSPCTN_IDX}}" [(ngModel)]="element.KR_INSPCTN_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_INSPCTN_PARTIDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_INSPCTN_PARTIDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_INSPCTN_PARTIDX" name="KR_INSPCTN_PARTIDX{{element.KR_INSPCTN_IDX}}" [(ngModel)]="element.KR_INSPCTN_PARTIDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_INSPCTN_EO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_INSPCTN_EO</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_INSPCTN_EO" name="KR_INSPCTN_EO{{element.KR_INSPCTN_IDX}}" [(ngModel)]="element.KR_INSPCTN_EO">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_INSPCTN_VER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_INSPCTN_VER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_INSPCTN_VER" name="KR_INSPCTN_VER{{element.KR_INSPCTN_IDX}}" [(ngModel)]="element.KR_INSPCTN_VER">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_INSPCTN_DATE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_INSPCTN_DATE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_INSPCTN_DATE" name="KR_INSPCTN_DATE{{element.KR_INSPCTN_IDX}}" [(ngModel)]="element.KR_INSPCTN_DATE">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_INSPCTN_NO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_INSPCTN_NO</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_INSPCTN_NO" name="KR_INSPCTN_NO{{element.KR_INSPCTN_IDX}}" [(ngModel)]="element.KR_INSPCTN_NO">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_INSPCTN_TEXT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_INSPCTN_TEXT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_INSPCTN_TEXT" name="KR_INSPCTN_TEXT{{element.KR_INSPCTN_IDX}}" [(ngModel)]="element.KR_INSPCTN_TEXT">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_INSPCTN_ST">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_INSPCTN_ST</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_INSPCTN_ST" name="KR_INSPCTN_ST{{element.KR_INSPCTN_IDX}}" [(ngModel)]="element.KR_INSPCTN_ST">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_INSPCTN_MIN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_INSPCTN_MIN</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_INSPCTN_MIN" name="KR_INSPCTN_MIN{{element.KR_INSPCTN_IDX}}" [(ngModel)]="element.KR_INSPCTN_MIN">
+</td>
+</ng-container>
+<ng-container matColumnDef="KR_INSPCTN_MAX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>KR_INSPCTN_MAX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="KR_INSPCTN_MAX" name="KR_INSPCTN_MAX{{element.KR_INSPCTN_IDX}}" [(ngModel)]="element.KR_INSPCTN_MAX">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_DTM" name="CREATE_DTM{{element.KR_INSPCTN_IDX}}" [(ngModel)]="element.CREATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_USER" name="CREATE_USER{{element.KR_INSPCTN_IDX}}" [(ngModel)]="element.CREATE_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_DTM" name="UPDATE_DTM{{element.KR_INSPCTN_IDX}}" [(ngModel)]="element.UPDATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_USER" name="UPDATE_USER{{element.KR_INSPCTN_IDX}}" [(ngModel)]="element.UPDATE_USER">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="kr_inspctn_stSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.KR_INSPCTN_IDX>0" (click)="kr_inspctn_stDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="kr_inspctn_stService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: kr_inspctn_stService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #kr_inspctn_stPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="kr_inspctn_stService.IsShowLoading"></app-loading>

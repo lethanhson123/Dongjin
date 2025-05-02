@@ -1,0 +1,89 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    twtool:
+                    <b>{{twtoolService.FormData.Name}} [{{twtoolService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/twtool" title="twtool">twtool</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/twtool" title="twtool">twtool</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="twtoolAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="twtoolSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>TOOLWORK_IDX</label>
+<input placeholder="TOOLWORK_IDX" [(ngModel)]="twtoolService.FormData.TOOLWORK_IDX" name="twtoolService.FormData.TOOLWORK_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>TOOL_IDX</label>
+<input placeholder="TOOL_IDX" [(ngModel)]="twtoolService.FormData.TOOL_IDX" name="twtoolService.FormData.TOOL_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>TOOL_WORK</label>
+<input placeholder="TOOL_WORK" [(ngModel)]="twtoolService.FormData.TOOL_WORK" name="twtoolService.FormData.TOOL_WORK" type="text" class="form-control">
+</div>
+<div>
+<label>WK_QTY</label>
+<input placeholder="WK_QTY" [(ngModel)]="twtoolService.FormData.WK_QTY" name="twtoolService.FormData.WK_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>TOT_WK_QTY</label>
+<input placeholder="TOT_WK_QTY" [(ngModel)]="twtoolService.FormData.TOT_WK_QTY" name="twtoolService.FormData.TOT_WK_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="twtoolService.FormData.CREATE_DTM" name="twtoolService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="twtoolService.FormData.CREATE_USER" name="twtoolService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="twtoolService.FormData.UPDATE_DTM" name="twtoolService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="twtoolService.FormData.UPDATE_USER" name="twtoolService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="twtoolService.IsShowLoading"></app-loading>

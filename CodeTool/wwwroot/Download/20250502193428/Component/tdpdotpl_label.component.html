@@ -1,0 +1,107 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tdpdotpl_label
+                    <span *ngIf="tdpdotpl_labelService.List">({{tdpdotpl_labelService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tdpdotpl_label" title="tdpdotpl_label">tdpdotpl_label</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tdpdotpl_label" title="tdpdotpl_label">tdpdotpl_label</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="tdpdotpl_labelService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="tdpdotpl_labelSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="tdpdotpl_labelSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #tdpdotpl_labelSort="matSort"
+                       [dataSource]="tdpdotpl_labelService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="tdpdotpl_labelPaginator">
+                                {{
+                                    tdpdotpl_labelPaginator.pageSize *
+                                    tdpdotpl_labelPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="PDOTPL_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDOTPL_IDX</th>
+<td mat-cell *matCellDef="let element">{{element.PDOTPL_IDX}}</td>
+</ng-container>
+<ng-container matColumnDef="PDLB_DATE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDLB_DATE</th>
+<td mat-cell *matCellDef="let element">{{element.PDLB_DATE}}</td>
+</ng-container>
+<ng-container matColumnDef="LABEL_NO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LABEL_NO</th>
+<td mat-cell *matCellDef="let element">{{element.LABEL_NO}}</td>
+</ng-container>
+<ng-container matColumnDef="LABEL_TXT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LABEL_TXT</th>
+<td mat-cell *matCellDef="let element">{{element.LABEL_TXT}}</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">{{element.CREATE_DTM}}</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">{{element.CREATE_USER}}</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="tdpdotpl_labelSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.PDOTPL_IDX>0" (click)="tdpdotpl_labelDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="tdpdotpl_labelService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: tdpdotpl_labelService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #tdpdotpl_labelPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>              
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tdpdotpl_labelService.IsShowLoading"></app-loading>

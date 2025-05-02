@@ -1,0 +1,44 @@
+﻿<div class="col s12 m12 l10">
+    <h5 class="card-title"><b>tsauth</b></h5>
+</div>
+<div class="col s12 m12 l2">
+    <a title="Save" class="btn-floating waves-effect waves-light cyan" (click)="tsauthSave()">
+        <i class="material-icons">save</i>
+    </a>&nbsp;&nbsp;&nbsp;
+    <a title="Close" class="btn-floating waves-effect waves-light purple lightrn-1" (click)="Close()">
+        <i class="material-icons">close</i>
+    </a>
+</div>
+<div class="col s12 m12 l12">
+    <div>
+<label>AUTH_IDX</label>
+<input placeholder="AUTH_IDX" [(ngModel)]="tsauthService.FormData.AUTH_IDX" name="tsauthService.FormData.AUTH_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>AUTH_ID</label>
+<input placeholder="AUTH_ID" [(ngModel)]="tsauthService.FormData.AUTH_ID" name="tsauthService.FormData.AUTH_ID" type="text" class="form-control">
+</div>
+<div>
+<label>AUTH_NM</label>
+<input placeholder="AUTH_NM" [(ngModel)]="tsauthService.FormData.AUTH_NM" name="tsauthService.FormData.AUTH_NM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tsauthService.FormData.CREATE_DTM" name="tsauthService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tsauthService.FormData.CREATE_USER" name="tsauthService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tsauthService.FormData.UPDATE_DTM" name="tsauthService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tsauthService.FormData.UPDATE_USER" name="tsauthService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+
+</div>
+
+

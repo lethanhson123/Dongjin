@@ -1,0 +1,85 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tdpdmtim_autobc_list:
+                    <b>{{tdpdmtim_autobc_listService.FormData.Name}} [{{tdpdmtim_autobc_listService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tdpdmtim_autobc_list" title="tdpdmtim_autobc_list">tdpdmtim_autobc_list</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tdpdmtim_autobc_list" title="tdpdmtim_autobc_list">tdpdmtim_autobc_list</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="tdpdmtim_autobc_listAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="tdpdmtim_autobc_listSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>PDMTINABC_IDX</label>
+<input placeholder="PDMTINABC_IDX" [(ngModel)]="tdpdmtim_autobc_listService.FormData.PDMTINABC_IDX" name="tdpdmtim_autobc_listService.FormData.PDMTINABC_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PDMTINABC_PRT_IDX</label>
+<input placeholder="PDMTINABC_PRT_IDX" [(ngModel)]="tdpdmtim_autobc_listService.FormData.PDMTINABC_PRT_IDX" name="tdpdmtim_autobc_listService.FormData.PDMTINABC_PRT_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PDMTN_BARCODE</label>
+<input placeholder="PDMTN_BARCODE" [(ngModel)]="tdpdmtim_autobc_listService.FormData.PDMTN_BARCODE" name="tdpdmtim_autobc_listService.FormData.PDMTN_BARCODE" type="text" class="form-control">
+</div>
+<div>
+<label>PDMTINABC_DSCN_YN</label>
+<input placeholder="PDMTINABC_DSCN_YN" [(ngModel)]="tdpdmtim_autobc_listService.FormData.PDMTINABC_DSCN_YN" name="tdpdmtim_autobc_listService.FormData.PDMTINABC_DSCN_YN" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tdpdmtim_autobc_listService.FormData.CREATE_DTM" name="tdpdmtim_autobc_listService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tdpdmtim_autobc_listService.FormData.CREATE_USER" name="tdpdmtim_autobc_listService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tdpdmtim_autobc_listService.FormData.UPDATE_DTM" name="tdpdmtim_autobc_listService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tdpdmtim_autobc_listService.FormData.UPDATE_USER" name="tdpdmtim_autobc_listService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tdpdmtim_autobc_listService.IsShowLoading"></app-loading>

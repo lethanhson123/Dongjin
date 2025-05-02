@@ -1,0 +1,149 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    pd_inout_part
+                    <span *ngIf="pd_inout_partService.List">({{pd_inout_partService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pd_inout_part" title="pd_inout_part">pd_inout_part</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pd_inout_part" title="pd_inout_part">pd_inout_part</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="pd_inout_partService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="pd_inout_partSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="pd_inout_partSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #pd_inout_partSort="matSort"
+                       [dataSource]="pd_inout_partService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="pd_inout_partPaginator">
+                                {{
+                                    pd_inout_partPaginator.pageSize *
+                                    pd_inout_partPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="PD_INPUT_PART_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PD_INPUT_PART_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PD_INPUT_PART_IDX" name="PD_INPUT_PART_IDX{{element.PD_INPUT_PART_IDX}}" [(ngModel)]="element.PD_INPUT_PART_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="ORDER_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>ORDER_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="ORDER_IDX" name="ORDER_IDX{{element.PD_INPUT_PART_IDX}}" [(ngModel)]="element.ORDER_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDPART_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDPART_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDPART_IDX" name="PDPART_IDX{{element.PD_INPUT_PART_IDX}}" [(ngModel)]="element.PDPART_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="DSC_INOUT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DSC_INOUT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="DSC_INOUT" name="DSC_INOUT{{element.PD_INPUT_PART_IDX}}" [(ngModel)]="element.DSC_INOUT">
+</td>
+</ng-container>
+<ng-container matColumnDef="PUR_QTY">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PUR_QTY</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PUR_QTY" name="PUR_QTY{{element.PD_INPUT_PART_IDX}}" [(ngModel)]="element.PUR_QTY">
+</td>
+</ng-container>
+<ng-container matColumnDef="PUR_TIME">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PUR_TIME</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PUR_TIME" name="PUR_TIME{{element.PD_INPUT_PART_IDX}}" [(ngModel)]="element.PUR_TIME">
+</td>
+</ng-container>
+<ng-container matColumnDef="OUT_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>OUT_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="OUT_USER" name="OUT_USER{{element.PD_INPUT_PART_IDX}}" [(ngModel)]="element.OUT_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_DTM" name="CREATE_DTM{{element.PD_INPUT_PART_IDX}}" [(ngModel)]="element.CREATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_USER" name="CREATE_USER{{element.PD_INPUT_PART_IDX}}" [(ngModel)]="element.CREATE_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_DTM" name="UPDATE_DTM{{element.PD_INPUT_PART_IDX}}" [(ngModel)]="element.UPDATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_USER" name="UPDATE_USER{{element.PD_INPUT_PART_IDX}}" [(ngModel)]="element.UPDATE_USER">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="pd_inout_partSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.PD_INPUT_PART_IDX>0" (click)="pd_inout_partDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="pd_inout_partService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: pd_inout_partService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #pd_inout_partPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="pd_inout_partService.IsShowLoading"></app-loading>

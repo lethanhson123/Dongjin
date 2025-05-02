@@ -1,0 +1,141 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    apqp_mstlst:
+                    <b>{{apqp_mstlstService.FormData.Name}} [{{apqp_mstlstService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/apqp_mstlst" title="apqp_mstlst">apqp_mstlst</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/apqp_mstlst" title="apqp_mstlst">apqp_mstlst</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="apqp_mstlstAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="apqp_mstlstSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>APQP_MS_IDX</label>
+<input placeholder="APQP_MS_IDX" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_IDX" name="apqp_mstlstService.FormData.APQP_MS_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_CSTM</label>
+<input placeholder="APQP_CSTM" [(ngModel)]="apqp_mstlstService.FormData.APQP_CSTM" name="apqp_mstlstService.FormData.APQP_CSTM" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_RNK</label>
+<input placeholder="APQP_MS_RNK" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_RNK" name="apqp_mstlstService.FormData.APQP_MS_RNK" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_PRJT</label>
+<input placeholder="APQP_MS_PRJT" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_PRJT" name="apqp_mstlstService.FormData.APQP_MS_PRJT" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_CODE0</label>
+<input placeholder="APQP_MS_CODE0" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_CODE0" name="apqp_mstlstService.FormData.APQP_MS_CODE0" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_CODE1</label>
+<input placeholder="APQP_MS_CODE1" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_CODE1" name="apqp_mstlstService.FormData.APQP_MS_CODE1" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_CODE2</label>
+<input placeholder="APQP_MS_CODE2" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_CODE2" name="apqp_mstlstService.FormData.APQP_MS_CODE2" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_CODE3</label>
+<input placeholder="APQP_MS_CODE3" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_CODE3" name="apqp_mstlstService.FormData.APQP_MS_CODE3" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_NM</label>
+<input placeholder="APQP_MS_NM" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_NM" name="apqp_mstlstService.FormData.APQP_MS_NM" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_TM</label>
+<input placeholder="APQP_MS_TM" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_TM" name="apqp_mstlstService.FormData.APQP_MS_TM" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_USER</label>
+<input placeholder="APQP_MS_USER" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_USER" name="apqp_mstlstService.FormData.APQP_MS_USER" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_SDT</label>
+<input placeholder="APQP_MS_SDT" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_SDT" name="apqp_mstlstService.FormData.APQP_MS_SDT" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_EDT</label>
+<input placeholder="APQP_MS_EDT" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_EDT" name="apqp_mstlstService.FormData.APQP_MS_EDT" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_DSYN</label>
+<input placeholder="APQP_MS_DSYN" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_DSYN" name="apqp_mstlstService.FormData.APQP_MS_DSYN" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_NOTE</label>
+<input placeholder="APQP_MS_NOTE" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_NOTE" name="apqp_mstlstService.FormData.APQP_MS_NOTE" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_REMARK</label>
+<input placeholder="APQP_MS_REMARK" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_REMARK" name="apqp_mstlstService.FormData.APQP_MS_REMARK" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_FLDSYN</label>
+<input placeholder="APQP_MS_FLDSYN" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_FLDSYN" name="apqp_mstlstService.FormData.APQP_MS_FLDSYN" type="text" class="form-control">
+</div>
+<div>
+<label>APQP_MS_FILE</label>
+<input placeholder="APQP_MS_FILE" [(ngModel)]="apqp_mstlstService.FormData.APQP_MS_FILE" name="apqp_mstlstService.FormData.APQP_MS_FILE" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="apqp_mstlstService.FormData.CREATE_DTM" name="apqp_mstlstService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="apqp_mstlstService.FormData.CREATE_USER" name="apqp_mstlstService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="apqp_mstlstService.FormData.UPDATE_DTM" name="apqp_mstlstService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="apqp_mstlstService.FormData.UPDATE_USER" name="apqp_mstlstService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="apqp_mstlstService.IsShowLoading"></app-loading>

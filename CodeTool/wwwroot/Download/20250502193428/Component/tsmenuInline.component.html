@@ -1,0 +1,155 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tsmenu
+                    <span *ngIf="tsmenuService.List">({{tsmenuService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tsmenu" title="tsmenu">tsmenu</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tsmenu" title="tsmenu">tsmenu</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="tsmenuService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="tsmenuSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="tsmenuSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #tsmenuSort="matSort"
+                       [dataSource]="tsmenuService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="tsmenuPaginator">
+                                {{
+                                    tsmenuPaginator.pageSize *
+                                    tsmenuPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="MENU_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MENU_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="MENU_IDX" name="MENU_IDX{{element.MENU_IDX}}" [(ngModel)]="element.MENU_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="MENU_CD">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MENU_CD</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="MENU_CD" name="MENU_CD{{element.MENU_IDX}}" [(ngModel)]="element.MENU_CD">
+</td>
+</ng-container>
+<ng-container matColumnDef="MENU_LVL">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MENU_LVL</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="MENU_LVL" name="MENU_LVL{{element.MENU_IDX}}" [(ngModel)]="element.MENU_LVL">
+</td>
+</ng-container>
+<ng-container matColumnDef="MENU_NM_EN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MENU_NM_EN</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="MENU_NM_EN" name="MENU_NM_EN{{element.MENU_IDX}}" [(ngModel)]="element.MENU_NM_EN">
+</td>
+</ng-container>
+<ng-container matColumnDef="MENU_NM_HAN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MENU_NM_HAN</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="MENU_NM_HAN" name="MENU_NM_HAN{{element.MENU_IDX}}" [(ngModel)]="element.MENU_NM_HAN">
+</td>
+</ng-container>
+<ng-container matColumnDef="MENU_NM_VIE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>MENU_NM_VIE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="MENU_NM_VIE" name="MENU_NM_VIE{{element.MENU_IDX}}" [(ngModel)]="element.MENU_NM_VIE">
+</td>
+</ng-container>
+<ng-container matColumnDef="SCRN_PATH">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SCRN_PATH</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="SCRN_PATH" name="SCRN_PATH{{element.MENU_IDX}}" [(ngModel)]="element.SCRN_PATH">
+</td>
+</ng-container>
+<ng-container matColumnDef="DECYN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>DECYN</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="DECYN" name="DECYN{{element.MENU_IDX}}" [(ngModel)]="element.DECYN">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_DTM" name="CREATE_DTM{{element.MENU_IDX}}" [(ngModel)]="element.CREATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_USER" name="CREATE_USER{{element.MENU_IDX}}" [(ngModel)]="element.CREATE_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_DTM" name="UPDATE_DTM{{element.MENU_IDX}}" [(ngModel)]="element.UPDATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_USER" name="UPDATE_USER{{element.MENU_IDX}}" [(ngModel)]="element.UPDATE_USER">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="tsmenuSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.MENU_IDX>0" (click)="tsmenuDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="tsmenuService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: tsmenuService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #tsmenuPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tsmenuService.IsShowLoading"></app-loading>

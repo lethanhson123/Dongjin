@@ -1,0 +1,161 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    pd_asset_mm
+                    <span *ngIf="pd_asset_mmService.List">({{pd_asset_mmService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pd_asset_mm" title="pd_asset_mm">pd_asset_mm</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pd_asset_mm" title="pd_asset_mm">pd_asset_mm</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="pd_asset_mmService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="pd_asset_mmSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="pd_asset_mmSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #pd_asset_mmSort="matSort"
+                       [dataSource]="pd_asset_mmService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="pd_asset_mmPaginator">
+                                {{
+                                    pd_asset_mmPaginator.pageSize *
+                                    pd_asset_mmPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="PD_ASSET_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PD_ASSET_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PD_ASSET_IDX" name="PD_ASSET_IDX{{element.PD_ASSET_IDX}}" [(ngModel)]="element.PD_ASSET_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_ASSET_ID">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_ASSET_ID</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_ASSET_ID" name="PDP_ASSET_ID{{element.PD_ASSET_IDX}}" [(ngModel)]="element.PDP_ASSET_ID">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_ASSET_INDATE">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_ASSET_INDATE</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_ASSET_INDATE" name="PDP_ASSET_INDATE{{element.PD_ASSET_IDX}}" [(ngModel)]="element.PDP_ASSET_INDATE">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_ASSET_NAME">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_ASSET_NAME</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_ASSET_NAME" name="PDP_ASSET_NAME{{element.PD_ASSET_IDX}}" [(ngModel)]="element.PDP_ASSET_NAME">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_ASSET_SPC">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_ASSET_SPC</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_ASSET_SPC" name="PDP_ASSET_SPC{{element.PD_ASSET_IDX}}" [(ngModel)]="element.PDP_ASSET_SPC">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_DEPA">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_DEPA</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_DEPA" name="PDP_DEPA{{element.PD_ASSET_IDX}}" [(ngModel)]="element.PDP_DEPA">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_DEPA_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_DEPA_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_DEPA_USER" name="PDP_DEPA_USER{{element.PD_ASSET_IDX}}" [(ngModel)]="element.PDP_DEPA_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_DEPA_USERDT">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_DEPA_USERDT</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_DEPA_USERDT" name="PDP_DEPA_USERDT{{element.PD_ASSET_IDX}}" [(ngModel)]="element.PDP_DEPA_USERDT">
+</td>
+</ng-container>
+<ng-container matColumnDef="PDP_DEPA_DYN">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>PDP_DEPA_DYN</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="PDP_DEPA_DYN" name="PDP_DEPA_DYN{{element.PD_ASSET_IDX}}" [(ngModel)]="element.PDP_DEPA_DYN">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_DTM" name="CREATE_DTM{{element.PD_ASSET_IDX}}" [(ngModel)]="element.CREATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_USER" name="CREATE_USER{{element.PD_ASSET_IDX}}" [(ngModel)]="element.CREATE_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_DTM" name="UPDATE_DTM{{element.PD_ASSET_IDX}}" [(ngModel)]="element.UPDATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_USER" name="UPDATE_USER{{element.PD_ASSET_IDX}}" [(ngModel)]="element.UPDATE_USER">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="pd_asset_mmSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.PD_ASSET_IDX>0" (click)="pd_asset_mmDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="pd_asset_mmService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: pd_asset_mmService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #pd_asset_mmPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="pd_asset_mmService.IsShowLoading"></app-loading>

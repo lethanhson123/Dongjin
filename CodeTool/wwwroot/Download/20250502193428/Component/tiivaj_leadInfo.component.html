@@ -1,0 +1,101 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tiivaj_lead:
+                    <b>{{tiivaj_leadService.FormData.Name}} [{{tiivaj_leadService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tiivaj_lead" title="tiivaj_lead">tiivaj_lead</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tiivaj_lead" title="tiivaj_lead">tiivaj_lead</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="tiivaj_leadAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="tiivaj_leadSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>IVAJ_IDX</label>
+<input placeholder="IVAJ_IDX" [(ngModel)]="tiivaj_leadService.FormData.IVAJ_IDX" name="tiivaj_leadService.FormData.IVAJ_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PART_IDX</label>
+<input placeholder="PART_IDX" [(ngModel)]="tiivaj_leadService.FormData.PART_IDX" name="tiivaj_leadService.FormData.PART_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>ADJ_SCN</label>
+<input placeholder="ADJ_SCN" [(ngModel)]="tiivaj_leadService.FormData.ADJ_SCN" name="tiivaj_leadService.FormData.ADJ_SCN" type="text" class="form-control">
+</div>
+<div>
+<label>ADJ_DTM</label>
+<input placeholder="ADJ_DTM" [(ngModel)]="tiivaj_leadService.FormData.ADJ_DTM" name="tiivaj_leadService.FormData.ADJ_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>ADJ_QTY</label>
+<input placeholder="ADJ_QTY" [(ngModel)]="tiivaj_leadService.FormData.ADJ_QTY" name="tiivaj_leadService.FormData.ADJ_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>ADJ_BF_QTY</label>
+<input placeholder="ADJ_BF_QTY" [(ngModel)]="tiivaj_leadService.FormData.ADJ_BF_QTY" name="tiivaj_leadService.FormData.ADJ_BF_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>ADJ_AF_QTY</label>
+<input placeholder="ADJ_AF_QTY" [(ngModel)]="tiivaj_leadService.FormData.ADJ_AF_QTY" name="tiivaj_leadService.FormData.ADJ_AF_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>ADJ_RSON</label>
+<input placeholder="ADJ_RSON" [(ngModel)]="tiivaj_leadService.FormData.ADJ_RSON" name="tiivaj_leadService.FormData.ADJ_RSON" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tiivaj_leadService.FormData.CREATE_DTM" name="tiivaj_leadService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tiivaj_leadService.FormData.CREATE_USER" name="tiivaj_leadService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tiivaj_leadService.FormData.UPDATE_DTM" name="tiivaj_leadService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tiivaj_leadService.FormData.UPDATE_USER" name="tiivaj_leadService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tiivaj_leadService.IsShowLoading"></app-loading>

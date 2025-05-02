@@ -1,0 +1,60 @@
+﻿<div class="col s12 m12 l10">
+    <h5 class="card-title"><b>tsuser</b></h5>
+</div>
+<div class="col s12 m12 l2">
+    <a title="Save" class="btn-floating waves-effect waves-light cyan" (click)="tsuserSave()">
+        <i class="material-icons">save</i>
+    </a>&nbsp;&nbsp;&nbsp;
+    <a title="Close" class="btn-floating waves-effect waves-light purple lightrn-1" (click)="Close()">
+        <i class="material-icons">close</i>
+    </a>
+</div>
+<div class="col s12 m12 l12">
+    <div>
+<label>USER_IDX</label>
+<input placeholder="USER_IDX" [(ngModel)]="tsuserService.FormData.USER_IDX" name="tsuserService.FormData.USER_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>USER_ID</label>
+<input placeholder="USER_ID" [(ngModel)]="tsuserService.FormData.USER_ID" name="tsuserService.FormData.USER_ID" type="text" class="form-control">
+</div>
+<div>
+<label>USER_NM</label>
+<input placeholder="USER_NM" [(ngModel)]="tsuserService.FormData.USER_NM" name="tsuserService.FormData.USER_NM" type="text" class="form-control">
+</div>
+<div>
+<label>PW</label>
+<input placeholder="PW" [(ngModel)]="tsuserService.FormData.PW" name="tsuserService.FormData.PW" type="text" class="form-control">
+</div>
+<div>
+<label>Dept</label>
+<input placeholder="Dept" [(ngModel)]="tsuserService.FormData.Dept" name="tsuserService.FormData.Dept" type="text" class="form-control">
+</div>
+<div>
+<label>Note</label>
+<input placeholder="Note" [(ngModel)]="tsuserService.FormData.Note" name="tsuserService.FormData.Note" type="text" class="form-control">
+</div>
+<div>
+<label>DESC_YN</label>
+<input placeholder="DESC_YN" [(ngModel)]="tsuserService.FormData.DESC_YN" name="tsuserService.FormData.DESC_YN" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tsuserService.FormData.CREATE_DTM" name="tsuserService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tsuserService.FormData.CREATE_USER" name="tsuserService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tsuserService.FormData.UPDATE_DTM" name="tsuserService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tsuserService.FormData.UPDATE_USER" name="tsuserService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+
+</div>
+
+

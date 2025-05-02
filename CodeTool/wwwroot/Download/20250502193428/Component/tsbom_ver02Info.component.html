@@ -1,0 +1,105 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tsbom_ver02:
+                    <b>{{tsbom_ver02Service.FormData.Name}} [{{tsbom_ver02Service.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tsbom_ver02" title="tsbom_ver02">tsbom_ver02</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tsbom_ver02" title="tsbom_ver02">tsbom_ver02</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="tsbom_ver02Add()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="tsbom_ver02Save()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>BOM_IDX</label>
+<input placeholder="BOM_IDX" [(ngModel)]="tsbom_ver02Service.FormData.BOM_IDX" name="tsbom_ver02Service.FormData.BOM_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PAREN_PART_IDX</label>
+<input placeholder="PAREN_PART_IDX" [(ngModel)]="tsbom_ver02Service.FormData.PAREN_PART_IDX" name="tsbom_ver02Service.FormData.PAREN_PART_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PAREN_EO_IDX</label>
+<input placeholder="PAREN_EO_IDX" [(ngModel)]="tsbom_ver02Service.FormData.PAREN_EO_IDX" name="tsbom_ver02Service.FormData.PAREN_EO_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PART_IDX</label>
+<input placeholder="PART_IDX" [(ngModel)]="tsbom_ver02Service.FormData.PART_IDX" name="tsbom_ver02Service.FormData.PART_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>LV_NO</label>
+<input placeholder="LV_NO" [(ngModel)]="tsbom_ver02Service.FormData.LV_NO" name="tsbom_ver02Service.FormData.LV_NO" type="text" class="form-control">
+</div>
+<div>
+<label>BOM_GRUP</label>
+<input placeholder="BOM_GRUP" [(ngModel)]="tsbom_ver02Service.FormData.BOM_GRUP" name="tsbom_ver02Service.FormData.BOM_GRUP" type="text" class="form-control">
+</div>
+<div>
+<label>BOM_DES</label>
+<input placeholder="BOM_DES" [(ngModel)]="tsbom_ver02Service.FormData.BOM_DES" name="tsbom_ver02Service.FormData.BOM_DES" type="text" class="form-control">
+</div>
+<div>
+<label>BOM_RMK</label>
+<input placeholder="BOM_RMK" [(ngModel)]="tsbom_ver02Service.FormData.BOM_RMK" name="tsbom_ver02Service.FormData.BOM_RMK" type="text" class="form-control">
+</div>
+<div>
+<label>DSYN</label>
+<input placeholder="DSYN" [(ngModel)]="tsbom_ver02Service.FormData.DSYN" name="tsbom_ver02Service.FormData.DSYN" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tsbom_ver02Service.FormData.CREATE_DTM" name="tsbom_ver02Service.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tsbom_ver02Service.FormData.CREATE_USER" name="tsbom_ver02Service.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tsbom_ver02Service.FormData.UPDATE_DTM" name="tsbom_ver02Service.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tsbom_ver02Service.FormData.UPDATE_USER" name="tsbom_ver02Service.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tsbom_ver02Service.IsShowLoading"></app-loading>

@@ -1,0 +1,149 @@
+﻿<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    trackmaster
+                    <span *ngIf="trackmasterService.List">({{trackmasterService.List.length}} items)</span>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Trang chủ">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/trackmaster" title="trackmaster">trackmaster</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/trackmaster" title="trackmaster">trackmaster</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="col s12 m12 l11">
+                <input [(ngModel)]="trackmasterService.BaseParameter.SearchString" placeholder="Tìm ..."
+                       class="form-control" (keyup.enter)="trackmasterSearch()">
+            </div>
+            <div class="col s12 m12 l1">
+                <a title="search" (click)="trackmasterSearch()" class="btn waves-effect waves-light green darken-1">
+                    <i class="material-icons">search</i>
+                </a>
+            </div>
+            <div class="KhungOverflow">
+                <table *ngIf="!NotificationService.IsMobile" mat-table matSort #trackmasterSort="matSort"
+                       [dataSource]="trackmasterService.DataSource">
+                    <ng-container matColumnDef="No">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            No
+                        </th>
+                        <td mat-cell *matCellDef="let element; index as i;">
+                            <div *ngIf="trackmasterPaginator">
+                                {{
+                                    trackmasterPaginator.pageSize *
+                                    trackmasterPaginator.pageIndex + i + 1
+                                }}
+                            </div>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="RACK_IDX">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>RACK_IDX</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="RACK_IDX" name="RACK_IDX{{element.RACK_IDX}}" [(ngModel)]="element.RACK_IDX">
+</td>
+</ng-container>
+<ng-container matColumnDef="LEAD_NO">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>LEAD_NO</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="LEAD_NO" name="LEAD_NO{{element.RACK_IDX}}" [(ngModel)]="element.LEAD_NO">
+</td>
+</ng-container>
+<ng-container matColumnDef="HOOK_RACK">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>HOOK_RACK</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="HOOK_RACK" name="HOOK_RACK{{element.RACK_IDX}}" [(ngModel)]="element.HOOK_RACK">
+</td>
+</ng-container>
+<ng-container matColumnDef="SFTY_STK">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SFTY_STK</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="SFTY_STK" name="SFTY_STK{{element.RACK_IDX}}" [(ngModel)]="element.SFTY_STK">
+</td>
+</ng-container>
+<ng-container matColumnDef="REP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>REP</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="REP" name="REP{{element.RACK_IDX}}" [(ngModel)]="element.REP">
+</td>
+</ng-container>
+<ng-container matColumnDef="CUR_LEADS">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CUR_LEADS</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CUR_LEADS" name="CUR_LEADS{{element.RACK_IDX}}" [(ngModel)]="element.CUR_LEADS">
+</td>
+</ng-container>
+<ng-container matColumnDef="SP">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>SP</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="SP" name="SP{{element.RACK_IDX}}" [(ngModel)]="element.SP">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_DTM" name="CREATE_DTM{{element.RACK_IDX}}" [(ngModel)]="element.CREATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="CREATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>CREATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="CREATE_USER" name="CREATE_USER{{element.RACK_IDX}}" [(ngModel)]="element.CREATE_USER">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_DTM">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_DTM</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_DTM" name="UPDATE_DTM{{element.RACK_IDX}}" [(ngModel)]="element.UPDATE_DTM">
+</td>
+</ng-container>
+<ng-container matColumnDef="UPDATE_USER">
+<th mat-header-cell *matHeaderCellDef mat-sort-header>UPDATE_USER</th>
+<td mat-cell *matCellDef="let element">
+<input class="form-control" type="text" placeholder="UPDATE_USER" name="UPDATE_USER{{element.RACK_IDX}}" [(ngModel)]="element.UPDATE_USER">
+</td>
+</ng-container>
+
+                    <ng-container matColumnDef="Save">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            <a (click)="trackmasterSave(element)" class="btn-floating waves-effect waves-light cyan" title="Save">
+                                <i class="material-icons">save</i>
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <a *ngIf="element.RACK_IDX>0" (click)="trackmasterDelete(element)" class="btn-floating waves-effect waves-light red" style="padding-top: 3px;" title="Delete">
+                                <i class="material-icons">delete_outline</i>
+                            </a>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="trackmasterService.DisplayColumns001">
+                    </tr>
+                    <tr mat-row *matRowDef="let row; columns: trackmasterService.DisplayColumns001;">
+                    </tr>
+                </table>
+                <mat-paginator *ngIf="!NotificationService.IsMobile" #trackmasterPaginator="matPaginator"
+                               [pageSizeOptions]="[10,20,50,100]" [pageSize]="10" [showFirstLastButtons]></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="trackmasterService.IsShowLoading"></app-loading>

@@ -1,0 +1,113 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    tmbrcd:
+                    <b>{{tmbrcdService.FormData.Name}} [{{tmbrcdService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tmbrcd" title="tmbrcd">tmbrcd</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/tmbrcd" title="tmbrcd">tmbrcd</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="tmbrcdAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="tmbrcdSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>BARCD_IDX</label>
+<input placeholder="BARCD_IDX" [(ngModel)]="tmbrcdService.FormData.BARCD_IDX" name="tmbrcdService.FormData.BARCD_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>BARCD_ID</label>
+<input placeholder="BARCD_ID" [(ngModel)]="tmbrcdService.FormData.BARCD_ID" name="tmbrcdService.FormData.BARCD_ID" type="text" class="form-control">
+</div>
+<div>
+<label>PKG_GRP_IDX</label>
+<input placeholder="PKG_GRP_IDX" [(ngModel)]="tmbrcdService.FormData.PKG_GRP_IDX" name="tmbrcdService.FormData.PKG_GRP_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PKG_GRP</label>
+<input placeholder="PKG_GRP" [(ngModel)]="tmbrcdService.FormData.PKG_GRP" name="tmbrcdService.FormData.PKG_GRP" type="text" class="form-control">
+</div>
+<div>
+<label>PKG_QTY</label>
+<input placeholder="PKG_QTY" [(ngModel)]="tmbrcdService.FormData.PKG_QTY" name="tmbrcdService.FormData.PKG_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>PKG_OUTQTY</label>
+<input placeholder="PKG_OUTQTY" [(ngModel)]="tmbrcdService.FormData.PKG_OUTQTY" name="tmbrcdService.FormData.PKG_OUTQTY" type="text" class="form-control">
+</div>
+<div>
+<label>DSCN_YN</label>
+<input placeholder="DSCN_YN" [(ngModel)]="tmbrcdService.FormData.DSCN_YN" name="tmbrcdService.FormData.DSCN_YN" type="text" class="form-control">
+</div>
+<div>
+<label>OUT_DTM</label>
+<input placeholder="OUT_DTM" [(ngModel)]="tmbrcdService.FormData.OUT_DTM" name="tmbrcdService.FormData.OUT_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>MTIN_IDX</label>
+<input placeholder="MTIN_IDX" [(ngModel)]="tmbrcdService.FormData.MTIN_IDX" name="tmbrcdService.FormData.MTIN_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>BARCD_LOC</label>
+<input placeholder="BARCD_LOC" [(ngModel)]="tmbrcdService.FormData.BARCD_LOC" name="tmbrcdService.FormData.BARCD_LOC" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="tmbrcdService.FormData.CREATE_DTM" name="tmbrcdService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="tmbrcdService.FormData.CREATE_USER" name="tmbrcdService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="tmbrcdService.FormData.UPDATE_DTM" name="tmbrcdService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="tmbrcdService.FormData.UPDATE_USER" name="tmbrcdService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>BBCO</label>
+<input placeholder="BBCO" [(ngModel)]="tmbrcdService.FormData.BBCO" name="tmbrcdService.FormData.BBCO" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="tmbrcdService.IsShowLoading"></app-loading>

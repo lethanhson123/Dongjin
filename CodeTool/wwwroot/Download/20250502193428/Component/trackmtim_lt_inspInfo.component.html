@@ -1,0 +1,97 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    trackmtim_lt_insp:
+                    <b>{{trackmtim_lt_inspService.FormData.Name}} [{{trackmtim_lt_inspService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/trackmtim_lt_insp" title="trackmtim_lt_insp">trackmtim_lt_insp</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/trackmtim_lt_insp" title="trackmtim_lt_insp">trackmtim_lt_insp</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="trackmtim_lt_inspAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="trackmtim_lt_inspSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>LT_INSP_IDX</label>
+<input placeholder="LT_INSP_IDX" [(ngModel)]="trackmtim_lt_inspService.FormData.LT_INSP_IDX" name="trackmtim_lt_inspService.FormData.LT_INSP_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>TRACKMTIN_IDX</label>
+<input placeholder="TRACKMTIN_IDX" [(ngModel)]="trackmtim_lt_inspService.FormData.TRACKMTIN_IDX" name="trackmtim_lt_inspService.FormData.TRACKMTIN_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>INSP_DATE</label>
+<input placeholder="INSP_DATE" [(ngModel)]="trackmtim_lt_inspService.FormData.INSP_DATE" name="trackmtim_lt_inspService.FormData.INSP_DATE" type="text" class="form-control">
+</div>
+<div>
+<label>INSP_QTY</label>
+<input placeholder="INSP_QTY" [(ngModel)]="trackmtim_lt_inspService.FormData.INSP_QTY" name="trackmtim_lt_inspService.FormData.INSP_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>OK_QTY</label>
+<input placeholder="OK_QTY" [(ngModel)]="trackmtim_lt_inspService.FormData.OK_QTY" name="trackmtim_lt_inspService.FormData.OK_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>NG_QTY</label>
+<input placeholder="NG_QTY" [(ngModel)]="trackmtim_lt_inspService.FormData.NG_QTY" name="trackmtim_lt_inspService.FormData.NG_QTY" type="text" class="form-control">
+</div>
+<div>
+<label>INSP_RESULT</label>
+<input placeholder="INSP_RESULT" [(ngModel)]="trackmtim_lt_inspService.FormData.INSP_RESULT" name="trackmtim_lt_inspService.FormData.INSP_RESULT" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="trackmtim_lt_inspService.FormData.CREATE_DTM" name="trackmtim_lt_inspService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="trackmtim_lt_inspService.FormData.CREATE_USER" name="trackmtim_lt_inspService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_DTM</label>
+<input placeholder="UPDATE_DTM" [(ngModel)]="trackmtim_lt_inspService.FormData.UPDATE_DTM" name="trackmtim_lt_inspService.FormData.UPDATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>UPDATE_USER</label>
+<input placeholder="UPDATE_USER" [(ngModel)]="trackmtim_lt_inspService.FormData.UPDATE_USER" name="trackmtim_lt_inspService.FormData.UPDATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="trackmtim_lt_inspService.IsShowLoading"></app-loading>

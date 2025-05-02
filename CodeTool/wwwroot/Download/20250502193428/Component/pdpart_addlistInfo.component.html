@@ -1,0 +1,89 @@
+﻿
+<div id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <h6 class="breadcrumbs-title">
+                    pdpart_addlist:
+                    <b>{{pdpart_addlistService.FormData.Name}} [{{pdpart_addlistService.FormData.ID}}]</b>
+                </h6>
+            </div>
+            <div class="col s12 m6 l6 right-align-md">
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:history.back()" title="Back">
+                            <<< Back
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/Homepage" title="Home">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pdpart_addlist" title="pdpart_addlist">pdpart_addlist</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/pdpart_addlist" title="pdpart_addlist">pdpart_addlist</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col s12 m12 l12">
+    <div class="card card card-default scrollspy">
+        <div class="card-content">
+            <div class="row">
+                <div class="col s12 m12 l12">                  
+                    <a title="Add" (click)="pdpart_addlistAdd()" class="btn waves-effect waves-light green darken-1">
+                        <i class="material-icons">add_box</i>
+                    </a>
+                    <a title="Lưu thay đổi" (click)="pdpart_addlistSave()" class="btn waves-effect waves-light cyan">
+                        <i class="material-icons">save</i>
+                    </a>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div>
+<label>PDPART_AL_IDX</label>
+<input placeholder="PDPART_AL_IDX" [(ngModel)]="pdpart_addlistService.FormData.PDPART_AL_IDX" name="pdpart_addlistService.FormData.PDPART_AL_IDX" type="text" class="form-control">
+</div>
+<div>
+<label>PN_NM_AL</label>
+<input placeholder="PN_NM_AL" [(ngModel)]="pdpart_addlistService.FormData.PN_NM_AL" name="pdpart_addlistService.FormData.PN_NM_AL" type="text" class="form-control">
+</div>
+<div>
+<label>PN_V_AL</label>
+<input placeholder="PN_V_AL" [(ngModel)]="pdpart_addlistService.FormData.PN_V_AL" name="pdpart_addlistService.FormData.PN_V_AL" type="text" class="form-control">
+</div>
+<div>
+<label>PSPEC_V_AL</label>
+<input placeholder="PSPEC_V_AL" [(ngModel)]="pdpart_addlistService.FormData.PSPEC_V_AL" name="pdpart_addlistService.FormData.PSPEC_V_AL" type="text" class="form-control">
+</div>
+<div>
+<label>PN_K_AL</label>
+<input placeholder="PN_K_AL" [(ngModel)]="pdpart_addlistService.FormData.PN_K_AL" name="pdpart_addlistService.FormData.PN_K_AL" type="text" class="form-control">
+</div>
+<div>
+<label>PSPEC_K_AL</label>
+<input placeholder="PSPEC_K_AL" [(ngModel)]="pdpart_addlistService.FormData.PSPEC_K_AL" name="pdpart_addlistService.FormData.PSPEC_K_AL" type="text" class="form-control">
+</div>
+<div>
+<label>PQTY_AL</label>
+<input placeholder="PQTY_AL" [(ngModel)]="pdpart_addlistService.FormData.PQTY_AL" name="pdpart_addlistService.FormData.PQTY_AL" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_DTM</label>
+<input placeholder="CREATE_DTM" [(ngModel)]="pdpart_addlistService.FormData.CREATE_DTM" name="pdpart_addlistService.FormData.CREATE_DTM" type="text" class="form-control">
+</div>
+<div>
+<label>CREATE_USER</label>
+<input placeholder="CREATE_USER" [(ngModel)]="pdpart_addlistService.FormData.CREATE_USER" name="pdpart_addlistService.FormData.CREATE_USER" type="text" class="form-control">
+</div>
+                                 
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>
+<app-loading *ngIf="pdpart_addlistService.IsShowLoading"></app-loading>
