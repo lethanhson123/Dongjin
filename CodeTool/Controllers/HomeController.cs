@@ -650,10 +650,13 @@ namespace CodeTool.Controllers
             string folderRootName = DateTime.Now.ToString("yyyyMMddHHmmss");
             string folderRoot = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", folderRootName);
             Directory.CreateDirectory(folderRoot);
-
+            StringBuilder Service = new StringBuilder();
             foreach (tsmenuTranfer tsmenuTranfer in ListtsmenuTranfer2)
             {
                 string className = tsmenuTranfer.SCRN_PATH;
+
+                Service.AppendLine(@"services.AddTransient<I" + className + "Service, " + className + "Service>();");
+
                 string content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "ViewController.html");
                 using (FileStream fs = new FileStream(content, FileMode.Open))
                 {
@@ -740,7 +743,25 @@ namespace CodeTool.Controllers
 
 
             }
+            string ContentContext = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "ConfigureService.html");
+            using (FileStream fs = new FileStream(ContentContext, FileMode.Open))
+            {
+                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                {
+                    ContentContext = r.ReadToEnd();
+                }
+            }
 
+            ContentContext = ContentContext.Replace("[Service]", Service.ToString());
+            string fileNameContext = "ConfigureService.cs";
+            string pathContext = Path.Combine(folderRoot, fileNameContext);
+            using (FileStream fs = new FileStream(pathContext, FileMode.Create))
+            {
+                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                {
+                    w.WriteLine(ContentContext);
+                }
+            }
 
 
         }
