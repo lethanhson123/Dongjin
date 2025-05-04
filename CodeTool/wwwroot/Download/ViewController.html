@@ -1,0 +1,15 @@
+﻿namespace MES.Controllers
+{
+    public class [ClassName]Controller : Controller
+    {
+        private readonly I[ClassName]Service _[ClassName]Service;
+        public [ClassName]Controller(I[ClassName]Service [ClassName]Service)
+        {
+            _[ClassName]Service = [ClassName]Service;
+        }
+        public IActionResult Index()
+        {
+            return View();
+        }
+    }
+}

@@ -1,0 +1,18 @@
+﻿namespace MESService.Implement
+{
+    public class [ClassName]Service : BaseService<torderlist, ItorderlistRepository>
+    , I[ClassName]Service
+    {
+    private readonly ItorderlistRepository _torderlistRepository;
+    public [ClassName]Service(ItorderlistRepository torderlistRepository
+
+    ) : base(torderlistRepository)
+    {
+    _torderlistRepository = torderlistRepository;
+    }
+    public override void Initialization(torderlist model)
+    {
+    BaseInitialization(model);
+    }
+    }
+    }

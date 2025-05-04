@@ -22,7 +22,10 @@
             <div class="col-sm-2">
                 <input type="button" value="Create Code" id="CreateCode" class="btn btn-primary" onclick='onCreateCodeClick()' style="width: 100%;" />
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-2">
+                <input type="button" value="Create View" id="CreateView" class="btn btn-primary" onclick='onCreateViewClick()' style="width: 100%;" />
+            </div>
+            <div class="col-sm-6">
                 <input type="checkbox" id="TableAll" onchange="onCheckAll(event)" />Check All
             </div>
         </div>
@@ -34,6 +37,23 @@
 </div>
 <script>
     var tables;
+    function onCreateViewClick() {     
+        var url = "https://localhost:7223/Home/CreateView";
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: {             
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                console.log(data);               
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
     function onCreateCodeClick() {
         var connectionString = document.getElementById("ConnectionString").value;
         var listIndex = "";
