@@ -683,7 +683,7 @@ namespace CodeTool.Controllers
                         content = r.ReadToEnd();
                     }
                 }
-                fileName = "Index.html";
+                fileName = "Index.cshtml";
                 path = Path.Combine(folderRoot, className);
                 Directory.CreateDirectory(path);
                 path = Path.Combine(folderRoot, className, fileName);
