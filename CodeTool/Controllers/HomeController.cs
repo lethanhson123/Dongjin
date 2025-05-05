@@ -686,6 +686,7 @@ namespace CodeTool.Controllers
                         content = r.ReadToEnd();
                     }
                 }
+                content = content.Replace("[ClassName]", className);
                 fileName = "Index.cshtml";
                 path = Path.Combine(folderRoot, className);
                 Directory.CreateDirectory(path);
@@ -740,6 +741,26 @@ namespace CodeTool.Controllers
                     }
                 }
 
+                content = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "ViewJS.html");
+                using (FileStream fs = new FileStream(content, FileMode.Open))
+                {
+                    using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                    {
+                        content = r.ReadToEnd();
+                    }
+                }
+                content = content.Replace("[ClassName]", className);
+                fileName = className + ".js";
+                path = Path.Combine(folderRoot, "Scripts");
+                Directory.CreateDirectory(path);
+                path = Path.Combine(folderRoot, "Scripts", fileName);
+                using (FileStream fs = new FileStream(path, FileMode.Create))
+                {
+                    using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                    {
+                        w.WriteLine(content);
+                    }
+                }
 
 
             }
