@@ -1,0 +1,221 @@
+﻿$("#Buttonfind").click(function () {
+    $("#BackGround").css("display", "block");
+    let BaseParameter = new Object();
+    BaseParameter = {       
+    }   
+    let formUpload = new FormData();
+    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+    let url = "/[ClassName]/Buttonfind_Click";
+
+    fetch(url, {
+        method: "POST",
+        body: formUpload,
+        headers: {
+        }
+    }).then((response) => {
+        response.json().then((data) => {           
+            $("#BackGround").css("display", "none");
+            }).catch((err) => {
+                $("#BackGround").css("display", "none");
+            })
+    });
+});
+$("#Buttonadd").click(function () {
+    $("#BackGround").css("display", "block");
+    let BaseParameter = new Object();
+    BaseParameter = {
+    }
+    let formUpload = new FormData();
+    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+    let url = "/[ClassName]/Buttonadd_Click";
+
+    fetch(url, {
+        method: "POST",
+        body: formUpload,
+        headers: {
+        }
+    }).then((response) => {
+        response.json().then((data) => {
+            $("#BackGround").css("display", "none");
+        }).catch((err) => {
+            $("#BackGround").css("display", "none");
+        })
+    });
+});
+$("#Buttonsave").click(function () {
+    $("#BackGround").css("display", "block");
+    let BaseParameter = new Object();
+    BaseParameter = {
+    }
+    let formUpload = new FormData();
+    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+    let url = "/[ClassName]/Buttonsave_Click";
+
+    fetch(url, {
+        method: "POST",
+        body: formUpload,
+        headers: {
+        }
+    }).then((response) => {
+        response.json().then((data) => {
+            $("#BackGround").css("display", "none");
+        }).catch((err) => {
+            $("#BackGround").css("display", "none");
+        })
+    });
+});
+$("#Buttondelete").click(function () {
+    $("#BackGround").css("display", "block");
+    let BaseParameter = new Object();
+    BaseParameter = {
+    }
+    let formUpload = new FormData();
+    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+    let url = "/[ClassName]/Buttondelete_Click";
+
+    fetch(url, {
+        method: "POST",
+        body: formUpload,
+        headers: {
+        }
+    }).then((response) => {
+        response.json().then((data) => {
+            $("#BackGround").css("display", "none");
+        }).catch((err) => {
+            $("#BackGround").css("display", "none");
+        })
+    });
+});
+$("#Buttoncancel").click(function () {
+    $("#BackGround").css("display", "block");
+    let BaseParameter = new Object();
+    BaseParameter = {
+    }
+    let formUpload = new FormData();
+    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+    let url = "/[ClassName]/Buttoncancel_Click";
+
+    fetch(url, {
+        method: "POST",
+        body: formUpload,
+        headers: {
+        }
+    }).then((response) => {
+        response.json().then((data) => {
+            $("#BackGround").css("display", "none");
+        }).catch((err) => {
+            $("#BackGround").css("display", "none");
+        })
+    });
+});
+$("#Buttoninport").click(function () {
+    $("#BackGround").css("display", "block");
+    let BaseParameter = new Object();
+    BaseParameter = {
+    }
+    let formUpload = new FormData();
+    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+    let url = "/[ClassName]/Buttoninport_Click";
+
+    fetch(url, {
+        method: "POST",
+        body: formUpload,
+        headers: {
+        }
+    }).then((response) => {
+        response.json().then((data) => {
+            $("#BackGround").css("display", "none");
+        }).catch((err) => {
+            $("#BackGround").css("display", "none");
+        })
+    });
+});
+$("#Buttonexport").click(function () {
+    $("#BackGround").css("display", "block");
+    let BaseParameter = new Object();
+    BaseParameter = {
+    }
+    let formUpload = new FormData();
+    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+    let url = "/[ClassName]/Buttonexport_Click";
+
+    fetch(url, {
+        method: "POST",
+        body: formUpload,
+        headers: {
+        }
+    }).then((response) => {
+        response.json().then((data) => {
+            $("#BackGround").css("display", "none");
+        }).catch((err) => {
+            $("#BackGround").css("display", "none");
+        })
+    });
+});
+$("#Buttonprint").click(function () {
+    $("#BackGround").css("display", "block");
+    let BaseParameter = new Object();
+    BaseParameter = {
+    }
+    let formUpload = new FormData();
+    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+    let url = "/[ClassName]/Buttonprint_Click";
+
+    fetch(url, {
+        method: "POST",
+        body: formUpload,
+        headers: {
+        }
+    }).then((response) => {
+        response.json().then((data) => {
+            $("#BackGround").css("display", "none");
+        }).catch((err) => {
+            $("#BackGround").css("display", "none");
+        })
+    });
+});
+$("#Buttonhelp").click(function () {
+    $("#BackGround").css("display", "block");
+    let BaseParameter = new Object();
+    BaseParameter = {
+    }
+    let formUpload = new FormData();
+    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+    let url = "/[ClassName]/Buttonhelp_Click";
+
+    fetch(url, {
+        method: "POST",
+        body: formUpload,
+        headers: {
+        }
+    }).then((response) => {
+        response.json().then((data) => {
+            $("#BackGround").css("display", "none");
+        }).catch((err) => {
+            $("#BackGround").css("display", "none");
+        })
+    });
+});
+$("#Buttonclose").click(function () {
+    $("#BackGround").css("display", "block");
+    let BaseParameter = new Object();
+    BaseParameter = {
+    }
+    let formUpload = new FormData();
+    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+    let url = "/[ClassName]/Buttonclose_Click";
+
+    fetch(url, {
+        method: "POST",
+        body: formUpload,
+        headers: {
+        }
+    }).then((response) => {
+        response.json().then((data) => {
+            $("#BackGround").css("display", "none");
+        }).catch((err) => {
+            $("#BackGround").css("display", "none");
+        })
+    });
+});
+
