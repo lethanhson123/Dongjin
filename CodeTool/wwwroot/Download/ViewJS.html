@@ -1,221 +1,253 @@
-﻿$("#Buttonfind").click(function () {
-    $("#BackGround").css("display", "block");
-    let BaseParameter = new Object();
-    BaseParameter = {       
-    }   
-    let formUpload = new FormData();
-    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
-    let url = "/[ClassName]/Buttonfind_Click";
+﻿let BaseResult;
 
-    fetch(url, {
-        method: "POST",
-        body: formUpload,
-        headers: {
-        }
-    }).then((response) => {
-        response.json().then((data) => {           
-            $("#BackGround").css("display", "none");
-            }).catch((err) => {
-                $("#BackGround").css("display", "none");
-            })
-    });
+$("#Buttonfind").click(function () {
+Buttonfind_Click();
 });
 $("#Buttonadd").click(function () {
-    $("#BackGround").css("display", "block");
-    let BaseParameter = new Object();
-    BaseParameter = {
-    }
-    let formUpload = new FormData();
-    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
-    let url = "/[ClassName]/Buttonadd_Click";
-
-    fetch(url, {
-        method: "POST",
-        body: formUpload,
-        headers: {
-        }
-    }).then((response) => {
-        response.json().then((data) => {
-            $("#BackGround").css("display", "none");
-        }).catch((err) => {
-            $("#BackGround").css("display", "none");
-        })
-    });
+Buttonadd_Click();
 });
 $("#Buttonsave").click(function () {
-    $("#BackGround").css("display", "block");
-    let BaseParameter = new Object();
-    BaseParameter = {
-    }
-    let formUpload = new FormData();
-    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
-    let url = "/[ClassName]/Buttonsave_Click";
-
-    fetch(url, {
-        method: "POST",
-        body: formUpload,
-        headers: {
-        }
-    }).then((response) => {
-        response.json().then((data) => {
-            $("#BackGround").css("display", "none");
-        }).catch((err) => {
-            $("#BackGround").css("display", "none");
-        })
-    });
+Buttonsave_Click();
 });
 $("#Buttondelete").click(function () {
-    $("#BackGround").css("display", "block");
-    let BaseParameter = new Object();
-    BaseParameter = {
-    }
-    let formUpload = new FormData();
-    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
-    let url = "/[ClassName]/Buttondelete_Click";
-
-    fetch(url, {
-        method: "POST",
-        body: formUpload,
-        headers: {
-        }
-    }).then((response) => {
-        response.json().then((data) => {
-            $("#BackGround").css("display", "none");
-        }).catch((err) => {
-            $("#BackGround").css("display", "none");
-        })
-    });
+Buttondelete_Click();
 });
 $("#Buttoncancel").click(function () {
-    $("#BackGround").css("display", "block");
-    let BaseParameter = new Object();
-    BaseParameter = {
-    }
-    let formUpload = new FormData();
-    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
-    let url = "/[ClassName]/Buttoncancel_Click";
-
-    fetch(url, {
-        method: "POST",
-        body: formUpload,
-        headers: {
-        }
-    }).then((response) => {
-        response.json().then((data) => {
-            $("#BackGround").css("display", "none");
-        }).catch((err) => {
-            $("#BackGround").css("display", "none");
-        })
-    });
+Buttoncancel_Click();
 });
 $("#Buttoninport").click(function () {
-    $("#BackGround").css("display", "block");
-    let BaseParameter = new Object();
-    BaseParameter = {
-    }
-    let formUpload = new FormData();
-    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
-    let url = "/[ClassName]/Buttoninport_Click";
-
-    fetch(url, {
-        method: "POST",
-        body: formUpload,
-        headers: {
-        }
-    }).then((response) => {
-        response.json().then((data) => {
-            $("#BackGround").css("display", "none");
-        }).catch((err) => {
-            $("#BackGround").css("display", "none");
-        })
-    });
+Buttoninport_Click();
 });
 $("#Buttonexport").click(function () {
-    $("#BackGround").css("display", "block");
-    let BaseParameter = new Object();
-    BaseParameter = {
-    }
-    let formUpload = new FormData();
-    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
-    let url = "/[ClassName]/Buttonexport_Click";
-
-    fetch(url, {
-        method: "POST",
-        body: formUpload,
-        headers: {
-        }
-    }).then((response) => {
-        response.json().then((data) => {
-            $("#BackGround").css("display", "none");
-        }).catch((err) => {
-            $("#BackGround").css("display", "none");
-        })
-    });
+Buttonexport_Click();
 });
 $("#Buttonprint").click(function () {
-    $("#BackGround").css("display", "block");
-    let BaseParameter = new Object();
-    BaseParameter = {
-    }
-    let formUpload = new FormData();
-    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
-    let url = "/[ClassName]/Buttonprint_Click";
-
-    fetch(url, {
-        method: "POST",
-        body: formUpload,
-        headers: {
-        }
-    }).then((response) => {
-        response.json().then((data) => {
-            $("#BackGround").css("display", "none");
-        }).catch((err) => {
-            $("#BackGround").css("display", "none");
-        })
-    });
+Buttonprint_Click();
 });
 $("#Buttonhelp").click(function () {
-    $("#BackGround").css("display", "block");
-    let BaseParameter = new Object();
-    BaseParameter = {
-    }
-    let formUpload = new FormData();
-    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
-    let url = "/[ClassName]/Buttonhelp_Click";
-
-    fetch(url, {
-        method: "POST",
-        body: formUpload,
-        headers: {
-        }
-    }).then((response) => {
-        response.json().then((data) => {
-            $("#BackGround").css("display", "none");
-        }).catch((err) => {
-            $("#BackGround").css("display", "none");
-        })
-    });
+Buttonhelp_Click();
 });
 $("#Buttonclose").click(function () {
-    $("#BackGround").css("display", "block");
-    let BaseParameter = new Object();
-    BaseParameter = {
-    }
-    let formUpload = new FormData();
-    formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
-    let url = "/[ClassName]/Buttonclose_Click";
+Buttonclose_Click();
+});
+function Buttonfind_Click() {
+$("#BackGround").css("display", "block");
+let BaseParameter = new Object();
+BaseParameter = {
+}
+let formUpload = new FormData();
+formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+let url = "/[ClassName]/Buttonfind_Click";
 
-    fetch(url, {
-        method: "POST",
-        body: formUpload,
-        headers: {
-        }
-    }).then((response) => {
-        response.json().then((data) => {
-            $("#BackGround").css("display", "none");
+fetch(url, {
+    method: "POST",
+    body: formUpload,
+    headers: {
+    }
+}).then((response) => {
+    response.json().then((data) => {
+        $("#BackGround").css("display", "none");
         }).catch((err) => {
             $("#BackGround").css("display", "none");
         })
-    });
 });
+}
+function Buttonadd_Click() {
+$("#BackGround").css("display", "block");
+let BaseParameter = new Object();
+BaseParameter = {
+}
+let formUpload = new FormData();
+formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+let url = "/[ClassName]/Buttonadd_Click";
+
+fetch(url, {
+    method: "POST",
+    body: formUpload,
+    headers: {
+    }
+}).then((response) => {
+    response.json().then((data) => {
+        $("#BackGround").css("display", "none");
+    }).catch((err) => {
+        $("#BackGround").css("display", "none");
+    })
+});
+}
+function Buttonsave_Click() {
+$("#BackGround").css("display", "block");
+let BaseParameter = new Object();
+BaseParameter = {
+}
+let formUpload = new FormData();
+formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+let url = "/[ClassName]/Buttonsave_Click";
+
+fetch(url, {
+    method: "POST",
+    body: formUpload,
+    headers: {
+    }
+}).then((response) => {
+    response.json().then((data) => {
+        $("#BackGround").css("display", "none");
+    }).catch((err) => {
+        $("#BackGround").css("display", "none");
+    })
+});
+}
+function Buttondelete_Click() {
+$("#BackGround").css("display", "block");
+let BaseParameter = new Object();
+BaseParameter = {
+}
+let formUpload = new FormData();
+formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+let url = "/[ClassName]/Buttondelete_Click";
+
+fetch(url, {
+    method: "POST",
+    body: formUpload,
+    headers: {
+    }
+}).then((response) => {
+    response.json().then((data) => {
+        $("#BackGround").css("display", "none");
+    }).catch((err) => {
+        $("#BackGround").css("display", "none");
+    })
+});
+}
+function Buttoncancel_Click() {
+$("#BackGround").css("display", "block");
+let BaseParameter = new Object();
+BaseParameter = {
+}
+let formUpload = new FormData();
+formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+let url = "/[ClassName]/Buttoncancel_Click";
+
+fetch(url, {
+    method: "POST",
+    body: formUpload,
+    headers: {
+    }
+}).then((response) => {
+    response.json().then((data) => {
+        $("#BackGround").css("display", "none");
+    }).catch((err) => {
+        $("#BackGround").css("display", "none");
+    })
+});
+}
+function Buttoninport_Click() {
+$("#BackGround").css("display", "block");
+let BaseParameter = new Object();
+BaseParameter = {
+}
+let formUpload = new FormData();
+formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+let url = "/[ClassName]/Buttoninport_Click";
+
+fetch(url, {
+    method: "POST",
+    body: formUpload,
+    headers: {
+    }
+}).then((response) => {
+    response.json().then((data) => {
+        $("#BackGround").css("display", "none");
+    }).catch((err) => {
+        $("#BackGround").css("display", "none");
+    })
+});
+}
+function Buttonexport_Click() {
+$("#BackGround").css("display", "block");
+let BaseParameter = new Object();
+BaseParameter = {
+}
+let formUpload = new FormData();
+formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+let url = "/[ClassName]/Buttonexport_Click";
+
+fetch(url, {
+    method: "POST",
+    body: formUpload,
+    headers: {
+    }
+}).then((response) => {
+    response.json().then((data) => {
+        $("#BackGround").css("display", "none");
+    }).catch((err) => {
+        $("#BackGround").css("display", "none");
+    })
+});
+}
+function Buttonprint_Click() {
+$("#BackGround").css("display", "block");
+let BaseParameter = new Object();
+BaseParameter = {
+}
+let formUpload = new FormData();
+formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+let url = "/[ClassName]/Buttonprint_Click";
+
+fetch(url, {
+    method: "POST",
+    body: formUpload,
+    headers: {
+    }
+}).then((response) => {
+    response.json().then((data) => {
+        $("#BackGround").css("display", "none");
+    }).catch((err) => {
+        $("#BackGround").css("display", "none");
+    })
+});
+}
+function Buttonhelp_Click() {
+$("#BackGround").css("display", "block");
+let BaseParameter = new Object();
+BaseParameter = {
+}
+let formUpload = new FormData();
+formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+let url = "/[ClassName]/Buttonhelp_Click";
+
+fetch(url, {
+    method: "POST",
+    body: formUpload,
+    headers: {
+    }
+}).then((response) => {
+    response.json().then((data) => {
+        $("#BackGround").css("display", "none");
+    }).catch((err) => {
+        $("#BackGround").css("display", "none");
+    })
+});
+}
+function Buttonclose_Click() {
+ $("#BackGround").css("display", "block");
+ let BaseParameter = new Object();
+ BaseParameter = {
+ }
+ let formUpload = new FormData();
+ formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
+ let url = "/[ClassName]/Buttonclose_Click";
+
+ fetch(url, {
+     method: "POST",
+     body: formUpload,
+     headers: {
+     }
+ }).then((response) => {
+     response.json().then((data) => {
+         $("#BackGround").css("display", "none");
+     }).catch((err) => {
+         $("#BackGround").css("display", "none");
+     })
+ });
+}
 
