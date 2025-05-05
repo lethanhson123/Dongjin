@@ -11,6 +11,7 @@
     bool IsButtonprint = false;
 
     BaseResult BaseResult = new BaseResult();
+    BaseParameter BaseParameter = new BaseParameter();
     string cookie = string.Empty;
     Context.Request.Cookies.TryGetValue(GlobalHelper.UserID, out cookie);
     string UserID = cookie;
@@ -23,8 +24,8 @@
     try
     {
         Context.Request.Cookies.TryGetValue(GlobalHelper.USER_IDX, out cookie);
-        string USER_IDX = cookie;
-        BaseResult = await _MAINService.Main_Shown(USER_IDX);
+        BaseParameter.USER_IDX = cookie;
+        BaseResult = await _MAINService.Main_Shown(BaseParameter);
         if (BaseResult.ListtsauthTranfer != null)
         {
             BaseResult.tsauthTranfer = BaseResult.ListtsauthTranfer.Where(o => o.SCRN_PATH == url).FirstOrDefault();
