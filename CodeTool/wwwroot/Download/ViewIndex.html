@@ -1,6 +1,7 @@
 ﻿@inject IMAINService _MAINService
 @inject I[ClassName]Service _[ClassName]Service
 @{
+    string version = GlobalHelper.InitializationDateTimeCode;
     bool IsButtonfind = false;
     bool IsButtonadd = false;
     bool IsButtonsave = false;
@@ -119,4 +120,4 @@
         </div>
     </div>
 </div>
-<script src="~/Scripts/[ClassName].js"></script>
+<script src="~/Scripts/[ClassName].js?v=@version"></script>
