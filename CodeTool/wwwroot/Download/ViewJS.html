@@ -229,25 +229,6 @@ fetch(url, {
 });
 }
 function Buttonclose_Click() {
- $("#BackGround").css("display", "block");
- let BaseParameter = new Object();
- BaseParameter = {
- }
- let formUpload = new FormData();
- formUpload.append('BaseParameter', JSON.stringify(BaseParameter));
- let url = "/[ClassName]/Buttonclose_Click";
-
- fetch(url, {
-     method: "POST",
-     body: formUpload,
-     headers: {
-     }
- }).then((response) => {
-     response.json().then((data) => {
-         $("#BackGround").css("display", "none");
-     }).catch((err) => {
-         $("#BackGround").css("display", "none");
-     })
- });
+history.back(); 
 }
 
