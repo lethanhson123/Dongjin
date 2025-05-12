@@ -15,7 +15,7 @@
                         cmd.CommandType = CommandType.Text;
                         cmd.Parameters.AddRange(parameters);
                         conn.Open();
-                        result = cmd.ExecuteNonQuery().ToString();
+                        result = cmd.ExecuteNonQuery().ToString();                       
                     }
                 }
             }

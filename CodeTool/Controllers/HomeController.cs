@@ -83,6 +83,7 @@ namespace CodeTool.Controllers
             StringBuilder Repository = new StringBuilder();
             StringBuilder BaseResult = new StringBuilder();
             StringBuilder BaseParameter = new StringBuilder();
+            StringBuilder SuperResult = new StringBuilder();
             for (int i = 0; i < listTable.Rows.Count; i++)
             {
                 foreach (string index in listIndex.Split(';'))
@@ -129,6 +130,8 @@ namespace CodeTool.Controllers
                                 }
 
                                 Model.AppendLine("public " + Convert(sqlDataType) + "? " + ItemName + " { get; set; }");
+
+                                SuperResult.AppendLine("public " + Convert(sqlDataType) + "? " + ItemName + " { get; set; }");
 
                                 ModelAngular.AppendLine(ItemName + "?: " + ConvertAngular(sqlDataType) + ";");
 
@@ -565,6 +568,26 @@ namespace CodeTool.Controllers
 
             ContentContext = ContentContext.Replace("[Items]", BaseParameter.ToString());
             fileNameContext = "BaseParameter.cs";
+            pathContext = Path.Combine(folderRoot, fileNameContext);
+            using (FileStream fs = new FileStream(pathContext, FileMode.Create))
+            {
+                using (StreamWriter w = new StreamWriter(fs, Encoding.UTF8))
+                {
+                    w.WriteLine(ContentContext);
+                }
+            }
+
+            ContentContext = Path.Combine(_WebHostEnvironment.WebRootPath, "Download", "SuperResult.html");
+            using (FileStream fs = new FileStream(ContentContext, FileMode.Open))
+            {
+                using (StreamReader r = new StreamReader(fs, Encoding.UTF8))
+                {
+                    ContentContext = r.ReadToEnd();
+                }
+            }
+
+            ContentContext = ContentContext.Replace("[Items]", SuperResult.ToString());
+            fileNameContext = "SuperResult.cs";
             pathContext = Path.Combine(folderRoot, fileNameContext);
             using (FileStream fs = new FileStream(pathContext, FileMode.Create))
             {

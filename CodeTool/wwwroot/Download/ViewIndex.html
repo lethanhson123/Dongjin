@@ -13,17 +13,7 @@
 
     BaseResult BaseResult = new BaseResult();
 BaseParameter BaseParameter = new BaseParameter();
-string cookie = string.Empty;
-Context.Request.Cookies.TryGetValue(GlobalHelper.UserID, out cookie);
-string UserID = cookie;
-string url = Context.Request.Path.Value;
-url = url.Replace(@"/", @"");
-if (string.IsNullOrEmpty(url))
-{
-	url = GlobalHelper.URLCodeDefault;
-}
-Context.Request.Cookies.TryGetValue(GlobalHelper.Language, out cookie);
-string Language = cookie;
+string url = Context.Session.GetString(GlobalHelper.ControllerName);
 try
 {
 	//truyền biến User ID thay thê cho Cookeis đẻ lấy phan quyền action cho button
