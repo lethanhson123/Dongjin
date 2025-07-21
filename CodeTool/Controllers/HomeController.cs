@@ -30,7 +30,7 @@ namespace CodeTool.Controllers
             BaseViewModel model = new BaseViewModel();
             //model.ConnectionString = "Server=127.0.0.1;UID=root;Password=Sonheo@123;database=mysql;Port=3306;";
             //model.ConnectionString = "Driver={MariaDB ODBC 3.1 Driver};server=113.161.129.118;uid=itpcslave;pwd={MesUser123@};database=dongjin;port=3309;conn_timeout=60";
-            model.ConnectionString = "Server=113.161.129.118;UID=itpcslave;Password=MesUser123@;database=dongjin;Port=3309;";
+            model.ConnectionString = "Server=113.161.129.118;UID=itpcslave;Password=MesUser123@;database=erp;Port=3306;";
             return View(model);
         }
 
